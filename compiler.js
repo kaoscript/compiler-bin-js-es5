@@ -23996,9 +23996,9 @@ module.exports = function() {
 				else if(this._hasRest) {
 					var a = 0;
 					var b = __ks_arguments_1.length - 1;
-					for(var i = this._parameters.length - 1, __ks_0 = this._restIndex; i > __ks_0; --i) {
+					for(var i = this._parameters.length - 1; i > this._restIndex; --i) {
 						var parameter = this._parameters[i];
-						for(var j = 0, __ks_1 = parameter.min(); j < __ks_1; ++j) {
+						for(var j = 0, __ks_0 = parameter.min(); j < __ks_0; ++j) {
 							if(!parameter.matchContentTo(__ks_arguments_1[b])) {
 								return false;
 							}
@@ -24006,15 +24006,15 @@ module.exports = function() {
 						}
 					}
 					var optional = this._maxBefore - this._minBefore;
-					for(var i = 0, __ks_0 = this._restIndex; i < __ks_0; ++i) {
+					for(var i = 0; i < this._restIndex; ++i) {
 						var parameter = this._parameters[i];
-						for(var j = 0, __ks_1 = parameter.min(); j < __ks_1; ++j) {
+						for(var j = 0, __ks_0 = parameter.min(); j < __ks_0; ++j) {
 							if(!parameter.matchContentTo(__ks_arguments_1[a])) {
 								return false;
 							}
 							++a;
 						}
-						for(var j = parameter.min(), __ks_1 = parameter.max(); optional !== 0 && j < __ks_1; ++j) {
+						for(var j = parameter.min(), __ks_0 = parameter.max(); optional !== 0 && j < __ks_0; ++j) {
 							if(parameter.matchContentTo(__ks_arguments_1[a])) {
 								++a;
 								--optional;
@@ -46127,7 +46127,7 @@ module.exports = function() {
 			if(!KSType.isValue(this._index) && !(KSType.isValue(this._data.index) && !this._data.declaration && this._scope.hasVariable(this._data.index.name))) {
 				this._indexName = this._bindingScope.acquireTempName(false);
 			}
-			if(this._expression.isEntangled()) {
+			if(this._expression.isLooseComposite()) {
 				this._expressionName = this._bindingScope.acquireTempName(false);
 			}
 			this._boundName = this._bindingScope.acquireTempName(false);
@@ -46616,7 +46616,7 @@ module.exports = function() {
 			if(!(type.isAny() || type.isObject())) {
 				TypeException.throwInvalidForOfExpression(this);
 			}
-			if(this._expression.isEntangled()) {
+			if(this._expression.isLooseComposite()) {
 				this._expressionName = this._bindingScope.acquireTempName(false);
 				this._bleeding = this._bindingScope.isBleeding();
 			}
@@ -48636,7 +48636,7 @@ module.exports = function() {
 			var line = fragments.newLine();
 			line.code("" + this._variable.name() + ".prototype.__ks_init = function()");
 			var block = line.newBlock();
-			for(var i = 1, __ks_0 = this._init; i <= __ks_0; ++i) {
+			for(var i = 1; i <= this._init; ++i) {
 				block.line("" + this._variable.name() + ".prototype.__ks_init_" + i + ".call(this)");
 			}
 			block.done();
@@ -56728,15 +56728,15 @@ module.exports = function() {
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
-		__ks_func_isEntangled_0: function() {
-			return true;
+		__ks_func_isLooseComposite_0: function() {
+			return this.isComposite();
 		},
-		isEntangled: function() {
+		isLooseComposite: function() {
 			if(arguments.length === 0) {
-				return Expression.prototype.__ks_func_isEntangled_0.apply(this);
+				return Expression.prototype.__ks_func_isLooseComposite_0.apply(this);
 			}
-			else if(AbstractNode.prototype.isEntangled) {
-				return AbstractNode.prototype.isEntangled.apply(this, arguments);
+			else if(AbstractNode.prototype.isLooseComposite) {
+				return AbstractNode.prototype.isLooseComposite.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
@@ -56965,15 +56965,6 @@ module.exports = function() {
 				return Literal.prototype.__ks_func_isComposite_0.apply(this);
 			}
 			return Expression.prototype.isComposite.apply(this, arguments);
-		},
-		__ks_func_isEntangled_0: function() {
-			return false;
-		},
-		isEntangled: function() {
-			if(arguments.length === 0) {
-				return Literal.prototype.__ks_func_isEntangled_0.apply(this);
-			}
-			return Expression.prototype.isEntangled.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -64180,14 +64171,14 @@ module.exports = function() {
 			}
 			return Expression.prototype.isComputed.apply(this, arguments);
 		},
-		__ks_func_isEntangled_0: function() {
+		__ks_func_isLooseComposite_0: function() {
 			return this.isCallable() || this.isNullable();
 		},
-		isEntangled: function() {
+		isLooseComposite: function() {
 			if(arguments.length === 0) {
-				return MemberExpression.prototype.__ks_func_isEntangled_0.apply(this);
+				return MemberExpression.prototype.__ks_func_isLooseComposite_0.apply(this);
 			}
-			return Expression.prototype.isEntangled.apply(this, arguments);
+			return Expression.prototype.isLooseComposite.apply(this, arguments);
 		},
 		__ks_func_isMacro_0: function() {
 			return false;
@@ -65301,7 +65292,7 @@ module.exports = function() {
 		$extends: Expression,
 		__ks_init_1: function() {
 			this._calling = false;
-			this._entangled = false;
+			this._composite = false;
 		},
 		__ks_init: function() {
 			Expression.prototype.__ks_init.call(this);
@@ -65381,7 +65372,7 @@ module.exports = function() {
 				}
 				else if(KSType.isValue(__ks_0 = this._class.type().getPropertyGetter(this._name)) ? (this._type = __ks_0, true) : false) {
 					this._fragment = "this." + this._name + "()";
-					this._entangled = true;
+					this._composite = true;
 				}
 				else {
 					ReferenceException.throwNotDefinedField(this._name, this);
@@ -65408,14 +65399,14 @@ module.exports = function() {
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
-		__ks_func_isEntangled_0: function() {
-			return this._entangled;
+		__ks_func_isComposite_0: function() {
+			return this._composite;
 		},
-		isEntangled: function() {
+		isComposite: function() {
 			if(arguments.length === 0) {
-				return ThisExpression.prototype.__ks_func_isEntangled_0.apply(this);
+				return ThisExpression.prototype.__ks_func_isComposite_0.apply(this);
 			}
-			return Expression.prototype.isEntangled.apply(this, arguments);
+			return Expression.prototype.isComposite.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
