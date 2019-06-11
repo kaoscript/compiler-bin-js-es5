@@ -20659,14 +20659,14 @@ module.exports = function() {
 						writer.code("const ");
 					}
 				}
-				if(KSType.isValue(data.key)) {
-					writer.expression(data.key);
-					if(KSType.isValue(data.value)) {
-						writer.code(", ").expression(data.value);
+				if(KSType.isValue(data.value)) {
+					writer.expression(data.value);
+					if(KSType.isValue(data.key)) {
+						writer.code(", ").expression(data.key);
 					}
 				}
 				else {
-					writer.code(":").expression(data.value);
+					writer.code(":").expression(data.key);
 				}
 				writer.code(" of ").expression(data.expression);
 				if(KSType.isValue(data.until)) {
@@ -21063,6 +21063,9 @@ module.exports = function() {
 				else if(KSType.isValue(data.to)) {
 					ctrl.code(" to ").expression(data.to);
 				}
+				if(KSType.isValue(data.by)) {
+					ctrl.code(" by ").expression(data.by);
+				}
 				if(KSType.isValue(data.until)) {
 					ctrl.code(" until ").expression(data.until);
 				}
@@ -21131,14 +21134,14 @@ module.exports = function() {
 						ctrl.code("const ");
 					}
 				}
-				if(KSType.isValue(data.key)) {
-					ctrl.expression(data.key);
-					if(KSType.isValue(data.value)) {
-						ctrl.code(", ").expression(data.value);
+				if(KSType.isValue(data.value)) {
+					ctrl.expression(data.value);
+					if(KSType.isValue(data.key)) {
+						ctrl.code(", ").expression(data.key);
 					}
 				}
 				else {
-					ctrl.code(":").expression(data.value);
+					ctrl.code(":").expression(data.key);
 				}
 				ctrl.code(" of ").expression(data.expression);
 				if(KSType.isValue(data.until)) {
@@ -21193,6 +21196,14 @@ module.exports = function() {
 						}
 					}
 					ctrl.done();
+				}
+				else if(__ks_1 === NodeKind.ReturnStatement) {
+					if(KSType.isValue(data.whenTrue.value)) {
+						writer.newLine().code("return ").expression(data.whenTrue.value).code(" if ").expression(data.condition).done();
+					}
+					else {
+						writer.newLine().code("return if ").expression(data.condition).done();
+					}
 				}
 				else if(__ks_1 === NodeKind.ThrowStatement) {
 					writer.newLine().code("throw ").expression(data.whenTrue.value).code(" if ").expression(data.condition).done();
@@ -21494,7 +21505,12 @@ module.exports = function() {
 					ctrl.done();
 				}
 				else if(__ks_1 === NodeKind.ReturnStatement) {
-					writer.newLine().code("return ").expression(data.whenFalse.value).code(" unless ").expression(data.condition).done();
+					if(KSType.isValue(data.whenFalse.value)) {
+						writer.newLine().code("return ").expression(data.whenFalse.value).code(" unless ").expression(data.condition).done();
+					}
+					else {
+						writer.newLine().code("return unless ").expression(data.condition).done();
+					}
 				}
 				else if(__ks_1 === NodeKind.ThrowStatement) {
 					writer.newLine().code("throw ").expression(data.whenFalse.value).code(" unless ").expression(data.condition).done();
