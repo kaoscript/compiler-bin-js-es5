@@ -2007,27 +2007,29 @@ module.exports = function() {
 					})
 				}, first, last);
 			}
-			function ImportArgument() {
-				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			function ImportArgument(seep, name, value) {
+				if(arguments.length < 3) {
+					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
 				}
-				var __ks_i = -1;
-				var seep = arguments[++__ks_i];
 				if(seep === void 0) {
 					seep = null;
 				}
-				var imported = arguments[++__ks_i];
-				if(imported === void 0 || imported === null) {
-					throw new TypeError("'imported' is not nullable");
+				if(name === void 0) {
+					name = null;
 				}
-				var __ks__;
-				var local = arguments.length > 2 && (__ks__ = arguments[++__ks_i]) !== void 0 ? __ks__ : null;
-				return location({
+				if(value === void 0 || value === null) {
+					throw new TypeError("'value' is not nullable");
+				}
+				var node = location({
 					kind: NodeKind.ImportArgument,
-					imported: imported.value,
-					local: local.value,
+					name: null,
+					value: value.value,
 					seeped: seep !== null
-				}, KSType.isValue(seep) ? seep : imported, KSType.isValue(local) ? local : imported);
+				}, KSType.isValue(seep) ? seep : KSType.isValue(name) ? name : value, KSType.isValue(name) ? name : value);
+				if(name !== null) {
+					node.name = name.value;
+				}
+				return node;
 			}
 			function ImportDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
@@ -10475,28 +10477,33 @@ module.exports = function() {
 				if(this.test(Token.LEFT_ROUND)) {
 					this.commit();
 					__ks_arguments_1 = [];
-					var identifier, seep;
+					var argument, seep;
 					while(this.until(Token.RIGHT_ROUND)) {
-						if(!this._scanner.test(Token.IDENTIFIER)) {
-							this.throw("Identifier");
-						}
-						if(this._scanner.value() === "seep") {
-							seep = this.yes();
-							if(!(identifier = this.tryIdentifier()).ok) {
-								identifier = this.yep(AST.Identifier("seep", seep));
-								seep = null;
+						argument = this.reqExpression(ExpressionMode.Default);
+						if(argument.value.kind === NodeKind.Identifier) {
+							if((argument.value.name === "seep") && !this.test(Token.COLON, Token.COMMA, Token.RIGHT_ROUND)) {
+								seep = argument;
+								argument = this.reqIdentifier();
+								if(this.test(Token.COLON)) {
+									this.commit();
+									__ks_arguments_1.push(AST.ImportArgument(seep, argument, this.reqIdentifier()));
+								}
+								else {
+									__ks_arguments_1.push(AST.ImportArgument(seep, null, argument));
+								}
+							}
+							else {
+								if(this.test(Token.COLON)) {
+									this.commit();
+									__ks_arguments_1.push(AST.ImportArgument(null, argument, this.reqExpression(ExpressionMode.Default)));
+								}
+								else {
+									__ks_arguments_1.push(AST.ImportArgument(null, null, argument));
+								}
 							}
 						}
 						else {
-							identifier = this.reqIdentifier();
-							seep = null;
-						}
-						if(this.test(Token.COLON)) {
-							this.commit();
-							__ks_arguments_1.push(AST.ImportArgument(seep, identifier, this.reqIdentifier()));
-						}
-						else {
-							__ks_arguments_1.push(AST.ImportArgument(seep, identifier, identifier));
+							__ks_arguments_1.push(AST.ImportArgument(null, null, argument));
 						}
 						if(this.test(Token.COMMA)) {
 							this.commit();
@@ -38951,17 +38958,12 @@ module.exports = function() {
 						requirement.toParameterFragments(ctrl);
 					}
 					ctrl.code(")").step();
-					if(this._dynamicRequirements.length === 1) {
-						this._dynamicRequirements[0].toLoneAltFragments(ctrl);
+					ctrl.line("var req = []");
+					for(var __ks_0 = 0, __ks_1 = this._dynamicRequirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
+						requirement = this._dynamicRequirements[__ks_0];
+						requirement.toAltFragments(ctrl);
 					}
-					else {
-						ctrl.line("var req = []");
-						for(var __ks_0 = 0, __ks_1 = this._dynamicRequirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
-							requirement = this._dynamicRequirements[__ks_0];
-							requirement.toManyAltFragments(ctrl);
-						}
-						ctrl.line("return req");
-					}
+					ctrl.line("return req");
 					ctrl.done();
 				}
 				var line = fragments.newLine().code("module.exports = function(");
@@ -49400,13 +49402,14 @@ module.exports = function() {
 		$extends: Statement,
 		__ks_init_1: function() {
 			this._alias = null;
-			this._arguments = {};
+			this._arguments = [];
+			this._argumentNames = {};
+			this._argumentValues = {};
 			this._count = 0;
+			this._hasArguments = true;
 			this._imports = {};
-			this._localToModuleArguments = {};
-			this._moduleToLocalArguments = {};
+			this._reusable = false;
 			this._sealedVariables = {};
-			this._seepedArguments = {};
 			this._variables = {};
 		},
 		__ks_init: function() {
@@ -49443,22 +49446,20 @@ module.exports = function() {
 		},
 		__ks_func_prepare_0: function() {
 			if(this._isKSFile) {
-				for(var name in this._arguments) {
-					var argument = this._arguments[name];
-					argument.name = this._moduleToLocalArguments[name];
-					if(this._seepedArguments[name] === true) {
-						argument.seeped = true;
-					}
-					else {
-						argument.seeped = false;
-						argument.type = this._scope.getVariable(this._moduleToLocalArguments[name]).getDeclaredType();
-					}
-				}
-				this._worker.prepare(this._arguments);
 				var module = this.module();
-				var __ks_0;
-				for(var name in this._seepedArguments) {
-					module.addRequirement(new SeepedRequirement(this._arguments[name].name, this._arguments[name].type));
+				var __ks_arguments_1 = {};
+				for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
+					argument = this._arguments[__ks_0];
+					argument.value.prepare();
+					argument.type = argument.value.type();
+					__ks_arguments_1[argument.name] = argument;
+				}
+				this._worker.prepare(__ks_arguments_1);
+				for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
+					argument = this._arguments[__ks_0];
+					if(argument.seeped) {
+						module.addRequirement(new SeepedRequirement(argument.name, argument.type));
+					}
 				}
 				var matchables = [];
 				for(var name in this._imports) {
@@ -49483,7 +49484,7 @@ module.exports = function() {
 						if(def.newVariable) {
 							variable.setDeclaredType(KSType.isValue(def.type) ? def.type : type);
 						}
-						else if(!variable.isPredefined() && !KSType.isString(this._localToModuleArguments[def.local])) {
+						else if(!variable.isPredefined() && !KSType.isNumber(this._argumentValues[def.local])) {
 							ReferenceException.throwNotPassed(def.local, this._data.source.value, this);
 						}
 						else if(type.matchSignatureOf(variable.getDeclaredType(), matchables)) {
@@ -49510,8 +49511,19 @@ module.exports = function() {
 						}
 					}
 				}
-				if((KSType.isValue(this._data.arguments) ? this._data.arguments.length !== 0 : false) || (this._count !== 0) || KSType.isValue(this._alias)) {
+				if((this._count !== 0) || (this._alias !== null)) {
 					this.module().flagRegister();
+				}
+				if((this._count !== 0) && (this._alias !== null)) {
+					this._reuseName = this._scope.acquireTempName(false);
+					this._scope.releaseTempName(this._reuseName);
+				}
+			}
+			else {
+				for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
+					argument = this._arguments[__ks_0];
+					argument.value.prepare();
+					argument.type = argument.value.type();
 				}
 			}
 		},
@@ -49525,6 +49537,10 @@ module.exports = function() {
 			throw new SyntaxError("wrong number of arguments");
 		},
 		__ks_func_translate_0: function() {
+			for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
+				argument = this._arguments[__ks_0];
+				argument.value.translate();
+			}
 		},
 		translate: function() {
 			if(arguments.length === 0) {
@@ -49542,20 +49558,40 @@ module.exports = function() {
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
 			}
+			var argument = {
+				index: this._isKSFile ? null : 0,
+				isIdentifier: false,
+				isNamed: false,
+				seeped: data.seeped,
+				value: $compile.expression(data.value, this)
+			};
 			if(data.seeped) {
 				var variable, __ks_0;
-				if((KSType.isValue(__ks_0 = this._scope.getVariable(data.local.name)) ? (variable = __ks_0, true) : false) && !variable.getDeclaredType().isPredefined()) {
-					ReferenceException.throwDefined(data.local.name, this);
+				if((KSType.isValue(__ks_0 = this._scope.getVariable(data.value.name)) ? (variable = __ks_0, true) : false) && !variable.getDeclaredType().isPredefined()) {
+					ReferenceException.throwDefined(data.value.name, this);
 				}
-				this._seepedArguments[data.imported.name] = true;
+				argument.isNamed = true;
+				argument.name = (KSType.isValue(data.name) && KSType.isValue(data.name.name)) ? data.name.name : data.value.name;
+				argument.isIdentifier = true;
+				argument.identifier = data.value.name;
+				this._argumentNames[argument.name] = this._arguments.length;
+				this._argumentValues[data.value.name] = this._arguments.length;
 			}
-			else {
-				if(!this._scope.hasVariable(data.local.name)) {
-					ReferenceException.throwNotDefined(data.local.name, this);
-				}
+			else if(data.value.kind === NodeKind.Identifier) {
+				argument.isNamed = true;
+				argument.name = (KSType.isValue(data.name) && KSType.isValue(data.name.name)) ? data.name.name : data.value.name;
+				argument.isIdentifier = true;
+				argument.identifier = data.value.name;
+				this._argumentNames[argument.name] = this._arguments.length;
+				this._argumentValues[data.value.name] = this._arguments.length;
 			}
-			this._localToModuleArguments[data.local.name] = data.imported.name;
-			this._moduleToLocalArguments[data.imported.name] = data.local.name;
+			else if(KSType.isValue(data.name)) {
+				argument.isNamed = true;
+				argument.name = data.name.name;
+				this._argumentNames[argument.name] = this._arguments.length;
+			}
+			argument.value.analyse();
+			this._arguments.push(argument);
 		},
 		addArgument: function() {
 			if(arguments.length === 1) {
@@ -49660,7 +49696,7 @@ module.exports = function() {
 					return;
 				}
 				else if(isVariable) {
-					if(!KSType.isString(this._localToModuleArguments[local])) {
+					if(!KSType.isNumber(this._argumentValues[local])) {
 						ReferenceException.throwNotPassed(local, this._data.source.value, this);
 					}
 					else if(variable.getDeclared().isMergeable(type)) {
@@ -49848,19 +49884,45 @@ module.exports = function() {
 					argument = this._data.arguments[__ks_0];
 					this.addArgument(argument);
 				}
-				var __ks_name_1;
+				var requirements = [];
 				for(var i = 0, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
-					__ks_name_1 = this._metadata.requirements[i + 1];
-					if(KSType.isString(this._moduleToLocalArguments[__ks_name_1])) {
-						this._arguments[__ks_name_1] = {
-							index: Math.floor(i / 3) + 1,
-							data: this._metadata.references[this._metadata.requirements[i]]
-						};
+					var __ks_name_1 = this._metadata.requirements[i + 1];
+					if(KSType.isNumber(this._argumentNames[__ks_name_1])) {
+						this._arguments[this._argumentNames[__ks_name_1]].index = this._metadata.requirements[i];
 					}
-					else if(this._metadata.requirements[i + 2]) {
-						SyntaxException.throwMissingRequirement(__ks_name_1, this);
+					else {
+						requirements.push(this._metadata.requirements.slice(i, i + 3));
 					}
 				}
+				var len = this._arguments.length;
+				var nextArgument = 0;
+				for(var __ks_0 = 0, __ks_1 = requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
+					requirement = requirements[__ks_0];
+					while((nextArgument < len) && (this._arguments[nextArgument].index !== null)) {
+						++nextArgument;
+					}
+					if(nextArgument === len) {
+						if(requirement[2]) {
+							SyntaxException.throwMissingRequirement(requirement[1], this);
+						}
+					}
+					else {
+						this._arguments[nextArgument].index = requirement[0];
+						this._arguments[nextArgument].name = requirement[1];
+					}
+				}
+				this._arguments.sort(function(a, b) {
+					if(arguments.length < 2) {
+						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					}
+					if(a === void 0 || a === null) {
+						throw new TypeError("'a' is not nullable");
+					}
+					if(b === void 0 || b === null) {
+						throw new TypeError("'b' is not nullable");
+					}
+					return a.index - b.index;
+				});
 			}
 			else {
 				for(var i = 1, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
@@ -49948,16 +50010,19 @@ module.exports = function() {
 			if(moduleName === null) {
 				file = moduleName = module.path(x, this._data.source.value);
 			}
-			if(KSType.isValue(this._data.arguments) ? this._data.arguments.length !== 0 : false) {
+			if(KSType.isValue(this._data.arguments)) {
 				for(var __ks_0 = 0, __ks_1 = this._data.arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
 					argument = this._data.arguments[__ks_0];
-					if(argument.local === argument.imported) {
-						this.addArgument(argument);
-					}
-					else {
+					if(KSType.isValue(argument.name)) {
 						SyntaxException.throwInvalidImportAliasArgument(this);
 					}
+					else {
+						this.addArgument(argument);
+					}
 				}
+			}
+			else {
+				this._hasArguments = false;
 			}
 			this._isKSFile = false;
 			this._moduleName = moduleName;
@@ -50173,75 +50238,58 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			var modulePath = ($localFileRegex.test(this._moduleName) && (this._parent.includePath() !== null)) ? path.join(path.dirname(this._parent.includePath()), this._moduleName) : this._moduleName;
-			var importCode = "require(" + $quote(modulePath) + ")(";
-			var importCodeVariable = false;
-			var name, alias, variable;
-			var hasArguments = KSType.isValue(this._data.arguments) ? this._data.arguments.length !== 0 : false;
-			if(hasArguments) {
-				var nf = false;
-				var __ks_0;
-				for(var __ks_name_1 in this._arguments) {
-					if(nf) {
-						importCode += ", ";
-					}
-					else {
-						nf = true;
-					}
-					if(KSType.isString(this._moduleToLocalArguments[__ks_name_1])) {
-						importCode += this._moduleToLocalArguments[__ks_name_1];
-						if(this._arguments[__ks_name_1].type.isSealed()) {
-							importCode += ", __ks_" + this._moduleToLocalArguments[__ks_name_1];
-						}
-					}
-					else {
-						importCode += "null";
-					}
-				}
-			}
-			importCode += ")";
 			if(this._count === 0) {
 				if(this._alias !== null) {
-					fragments.newLine().code("var ", this._alias, " = ", importCode).done();
+					var line = fragments.newLine().code("var ", this._alias, " = ");
+					this.toRequireFragments(line);
+					line.done();
 				}
-				else if(hasArguments) {
-					fragments.newLine().code(importCode).done();
+				else if(this._arguments.length !== 0) {
+					var line = fragments.newLine();
+					this.toRequireFragments(line);
+					line.done();
 				}
 			}
 			else {
 				if(this._alias !== null) {
-					var __ks_variable_1 = this._scope.acquireTempName();
-					fragments.line("var " + __ks_variable_1 + " = " + importCode);
-					importCode = __ks_variable_1;
-					importCodeVariable = true;
+					var line = fragments.newLine().code("var ", this._reuseName, " = ");
+					this.toRequireFragments(line);
+					line.done();
 				}
 				if(this._count === 1) {
-					var __ks_alias_1, __ks_name_1;
-					for(__ks_name_1 in this._variables) {
-						__ks_alias_1 = this._variables[__ks_name_1];
+					var alias, name;
+					for(name in this._variables) {
+						alias = this._variables[name];
 					}
-					fragments.newLine().code("var " + __ks_alias_1 + " = " + importCode + "." + __ks_name_1).done();
+					var line = fragments.newLine().code("var " + alias + " = ");
+					this.toRequireFragments(line);
+					line.code("." + name).done();
 				}
 				else {
 					if(this._options.format.destructuring === "es5") {
-						var __ks_variable_1 = importCode;
-						if(!importCodeVariable) {
-							fragments.line("var __ks__ = " + importCode);
-							__ks_variable_1 = "__ks__";
+						var variable;
+						if(this._reusable) {
+							variable = this._reuseName;
+						}
+						else {
+							var line = fragments.newLine().code("var __ks__ = ");
+							this.toRequireFragments(line);
+							line.done();
+							variable = "__ks__";
 						}
 						var line = fragments.newLine().code("var ");
 						var nf = false;
-						for(var __ks_name_1 in this._variables) {
-							var __ks_alias_1 = this._variables[__ks_name_1];
+						for(var name in this._variables) {
+							var alias = this._variables[name];
 							if(nf) {
 								line.code(", ");
 							}
 							else {
 								nf = true;
 							}
-							line.code("" + __ks_alias_1 + " = " + __ks_variable_1 + "." + __ks_name_1);
-							if(this._sealedVariables[__ks_name_1] === true) {
-								line.code(", __ks_" + __ks_alias_1 + " = " + __ks_variable_1 + ".__ks_" + __ks_name_1);
+							line.code("" + alias + " = " + variable + "." + name);
+							if(this._sealedVariables[name] === true) {
+								line.code(", __ks_" + alias + " = " + variable + ".__ks_" + name);
 							}
 						}
 						line.done();
@@ -50249,36 +50297,37 @@ module.exports = function() {
 					else {
 						var line = fragments.newLine().code("var {");
 						var nf = false;
-						for(var __ks_name_1 in this._variables) {
-							var __ks_alias_1 = this._variables[__ks_name_1];
+						for(var name in this._variables) {
+							var alias = this._variables[name];
 							if(nf) {
 								line.code(", ");
 							}
 							else {
 								nf = true;
 							}
-							if(__ks_alias_1 === __ks_name_1) {
-								line.code(__ks_name_1);
-								if(this._sealedVariables[__ks_name_1] === true) {
-									line.code(", __ks_" + __ks_name_1);
+							if(alias === name) {
+								line.code(name);
+								if(this._sealedVariables[name] === true) {
+									line.code(", __ks_" + name);
 								}
 							}
 							else {
-								line.code(__ks_name_1 + ": " + __ks_alias_1);
-								if(this._sealedVariables[__ks_name_1] === true) {
-									line.code(", __ks_" + __ks_name_1 + ": __ks_" + __ks_alias_1);
+								line.code(name + ": " + alias);
+								if(this._sealedVariables[name] === true) {
+									line.code(", __ks_" + name + ": __ks_" + alias);
 								}
 							}
 						}
-						line.code("} = ", importCode).done();
+						line.code("} = ");
+						this.toRequireFragments(line);
+						line.done();
 					}
 				}
 				if(this._alias !== null) {
-					fragments.newLine().code("var ", this._alias, " = ", importCode).done();
+					var line = fragments.newLine().code("var ", this._alias, " = ");
+					this.toRequireFragments(line);
+					line.done();
 				}
-			}
-			if(Scope.isTempName(importCode)) {
-				this._scope.releaseTempName(importCode);
 			}
 		},
 		toKSFileFragments: function() {
@@ -50298,18 +50347,8 @@ module.exports = function() {
 				throw new TypeError("'fragments' is not nullable");
 			}
 			if(this._alias !== null) {
-				var line = fragments.newLine().code("var " + this._alias + " = require(" + $quote(this._moduleName) + ")");
-				if(KSType.isValue(this._data.arguments)) {
-					line.code("(");
-					for(var index = 0, __ks_0 = this._data.arguments.length, argument; index < __ks_0; ++index) {
-						argument = this._data.arguments[index];
-						if(index !== 0) {
-							line.code(", ");
-						}
-						line.code(argument.local.name);
-					}
-					line.code(")");
-				}
+				var line = fragments.newLine().code("var " + this._alias + " = ");
+				this.toRequireFragments(line);
 				line.done();
 			}
 			var name, alias;
@@ -50318,34 +50357,14 @@ module.exports = function() {
 				for(__ks_name_1 in this._variables) {
 					__ks_alias_1 = this._variables[__ks_name_1];
 				}
-				var line = fragments.newLine().code("var " + __ks_alias_1 + " = require(" + $quote(this._moduleName) + ")");
-				if(KSType.isValue(this._data.arguments)) {
-					line.code("(");
-					for(var index = 0, __ks_0 = this._data.arguments.length, argument; index < __ks_0; ++index) {
-						argument = this._data.arguments[index];
-						if(index !== 0) {
-							line.code(", ");
-						}
-						line.code(argument.local.name);
-					}
-					line.code(")");
-				}
+				var line = fragments.newLine().code("var " + __ks_alias_1 + " = ");
+				this.toRequireFragments(line);
 				line.code("." + __ks_alias_1).done();
 			}
 			else if(this._count > 0) {
 				if(this._options.format.destructuring === "es5") {
-					var line = fragments.newLine().code("var __ks__ = require(" + $quote(this._moduleName) + ")");
-					if(KSType.isValue(this._data.arguments)) {
-						line.code("(");
-						for(var index = 0, __ks_0 = this._data.arguments.length, argument; index < __ks_0; ++index) {
-							argument = this._data.arguments[index];
-							if(index !== 0) {
-								line.code(", ");
-							}
-							line.code(argument.local.name);
-						}
-						line.code(")");
-					}
+					var line = fragments.newLine().code("var __ks__ = ");
+					this.toRequireFragments(line);
 					line.done();
 					line = fragments.newLine().code("var ");
 					var nf = false;
@@ -50379,18 +50398,8 @@ module.exports = function() {
 							line.code(__ks_name_1, ": ", __ks_alias_1);
 						}
 					}
-					line.code("} = require(" + $quote(this._moduleName) + ")");
-					if(KSType.isValue(this._data.arguments)) {
-						line.code("(");
-						for(var index = 0, __ks_0 = this._data.arguments.length, argument; index < __ks_0; ++index) {
-							argument = this._data.arguments[index];
-							if(index !== 0) {
-								line.code(", ");
-							}
-							line.code(argument.local.name);
-						}
-						line.code(")");
-					}
+					line.code("} = ");
+					this.toRequireFragments(line);
 					line.done();
 				}
 			}
@@ -50401,6 +50410,51 @@ module.exports = function() {
 			}
 			else if(Statement.prototype.toNodeFileFragments) {
 				return Statement.prototype.toNodeFileFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_toRequireFragments_0: function(fragments) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(this._reusable) {
+				fragments.code(this._reuseName);
+			}
+			else {
+				var modulePath = (this._isKSFile && $localFileRegex.test(this._moduleName) && (this._parent.includePath() !== null)) ? path.join(path.dirname(this._parent.includePath()), this._moduleName) : this._moduleName;
+				fragments.code("require(" + $quote(modulePath) + ")");
+				if(this._hasArguments) {
+					fragments.code("(");
+					var nf = false;
+					for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
+						argument = this._arguments[__ks_0];
+						if(argument.index !== null) {
+							if(nf) {
+								fragments.code($comma);
+							}
+							else {
+								nf = true;
+							}
+							fragments.compile(argument.value);
+							if(argument.isIdentifier && argument.type.isSealed()) {
+								fragments.code(", __ks_" + argument.identifier);
+							}
+						}
+					}
+					fragments.code(")");
+				}
+				this._reusable = true;
+			}
+		},
+		toRequireFragments: function() {
+			if(arguments.length === 1) {
+				return Importer.prototype.__ks_func_toRequireFragments_0.apply(this, arguments);
+			}
+			else if(Statement.prototype.toRequireFragments) {
+				return Statement.prototype.toRequireFragments.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		}
@@ -51314,6 +51368,10 @@ module.exports = function() {
 			throw new SyntaxError("wrong number of arguments");
 		},
 		__ks_func_translate_0: function() {
+			for(var __ks_0 = 0, __ks_1 = this._declarators.length, declarator; __ks_0 < __ks_1; ++__ks_0) {
+				declarator = this._declarators[__ks_0];
+				declarator.translate();
+			}
 		},
 		translate: function() {
 			if(arguments.length === 0) {
@@ -51356,6 +51414,7 @@ module.exports = function() {
 		},
 		__ks_func_prepare_0: function() {
 			Importer.prototype.prepare.apply(this, []);
+			this._requirements = [];
 			var module = this.module();
 			if(this._count !== 0) {
 				if(this._parent.includePath() !== null) {
@@ -51366,14 +51425,18 @@ module.exports = function() {
 						if(KSType.isValue(__ks_1 = this._scope.getVariable(alias)) ? (variable = __ks_1, true) : false) {
 						}
 						else {
-							module.addRequirement(new ROIDynamicRequirement(variable, this));
+							var requirement = new ROIDynamicRequirement(variable, this);
+							this._requirements.push(requirement);
+							module.addRequirement(requirement);
 						}
 					}
 				}
 				else {
 					for(var __ks_0 in this._variables) {
 						var alias = this._variables[__ks_0];
-						module.addRequirement(new ROIDynamicRequirement(this._scope.getVariable(alias), this));
+						var requirement = new ROIDynamicRequirement(this._scope.getVariable(alias), this);
+						this._requirements.push(requirement);
+						module.addRequirement(requirement);
 					}
 				}
 			}
@@ -51387,14 +51450,6 @@ module.exports = function() {
 			}
 			return Importer.prototype.prepare.apply(this, arguments);
 		},
-		__ks_func_translate_0: function() {
-		},
-		translate: function() {
-			if(arguments.length === 0) {
-				return RequireOrImportDeclarator.prototype.__ks_func_translate_0.apply(this);
-			}
-			return Importer.prototype.translate.apply(this, arguments);
-		},
 		__ks_func_metadata_0: function() {
 			return this._metadata;
 		},
@@ -51404,6 +51459,83 @@ module.exports = function() {
 			}
 			else if(Importer.prototype.metadata) {
 				return Importer.prototype.metadata.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_toAltFragments_0: function(fragments) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(this._printed) {
+				return;
+			}
+			if(this._requirements.length === 1) {
+				var requirement = this._requirements[0];
+				var ctrl = fragments.newControl().code("if(Type.isValue(" + requirement.parameter() + "))").step();
+				if(requirement.isFlexible()) {
+					ctrl.line("req.push(" + requirement.parameter() + ", __ks_" + requirement.parameter() + ")").step().code("else").step();
+					this.toImportFragments(ctrl);
+					ctrl.line("req.push(" + requirement.name() + ", __ks_" + requirement.name() + ")");
+					ctrl.done();
+				}
+				else {
+					ctrl.line("req.push(" + requirement.parameter() + ")").step().code("else").step();
+					this.toImportFragments(ctrl);
+					ctrl.line("req.push(" + requirement.name() + ")");
+					ctrl.done();
+				}
+			}
+			else {
+				for(var __ks_0 = 0, __ks_1 = this._requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
+					requirement = this._requirements[__ks_0];
+					fragments.line("var " + requirement.parameter() + "_valuable = Type.isValue(" + requirement.parameter() + ")");
+				}
+				var ctrl = fragments.newControl().code("if(");
+				for(var index = 0, __ks_0 = this._requirements.length, requirement; index < __ks_0; ++index) {
+					requirement = this._requirements[index];
+					if(index !== 0) {
+						ctrl.code(" || ");
+					}
+					ctrl.code("!" + requirement.parameter() + "_valuable");
+				}
+				ctrl.code(")").step();
+				this.toImportFragments(ctrl);
+				for(var __ks_0 = 0, __ks_1 = this._requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
+					requirement = this._requirements[__ks_0];
+					if(requirement.isFlexible()) {
+					}
+					else {
+						ctrl.line("req.push(" + requirement.parameter() + "_valuable ? " + requirement.parameter() + " : " + requirement.name() + ")");
+					}
+				}
+				ctrl.step().code("else").step();
+				var line = ctrl.newLine().code("req.push(");
+				for(var index = 0, __ks_0 = this._requirements.length, requirement; index < __ks_0; ++index) {
+					requirement = this._requirements[index];
+					if(index !== 0) {
+						line.code($comma);
+					}
+					if(requirement.isFlexible()) {
+						line.code("" + requirement.parameter() + ", __ks_" + requirement.parameter());
+					}
+					else {
+						line.code(requirement.parameter());
+					}
+				}
+				line.code(")").done();
+				ctrl.done();
+			}
+			this._printed = true;
+		},
+		toAltFragments: function() {
+			if(arguments.length === 1) {
+				return RequireOrImportDeclarator.prototype.__ks_func_toAltFragments_0.apply(this, arguments);
+			}
+			else if(Importer.prototype.toAltFragments) {
+				return Importer.prototype.toAltFragments.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
@@ -51428,6 +51560,8 @@ module.exports = function() {
 			throw new SyntaxError("wrong number of arguments");
 		}
 	});
+	RequireOrImportDeclarator._printed = false;
+	RequireOrImportDeclarator._requirements = [];
 	var Requirement = Helper.class({
 		$name: "Requirement",
 		$create: function() {
@@ -51506,6 +51640,15 @@ module.exports = function() {
 		isAlien: function() {
 			if(arguments.length === 0) {
 				return Requirement.prototype.__ks_func_isAlien_0.apply(this);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_isFlexible_0: function() {
+			return this._type.isFlexible();
+		},
+		isFlexible: function() {
+			if(arguments.length === 0) {
+				return Requirement.prototype.__ks_func_isFlexible_0.apply(this);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
@@ -51854,32 +51997,7 @@ module.exports = function() {
 			}
 			return DynamicRequirement.prototype.isAlien.apply(this, arguments);
 		},
-		__ks_func_toLoneAltFragments_0: function(fragments) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(fragments === void 0 || fragments === null) {
-				throw new TypeError("'fragments' is not nullable");
-			}
-			var ctrl = fragments.newControl().code("if(Type.isValue(" + this._name + "))").step();
-			if(this._type.isFlexible()) {
-				ctrl.line("return [" + this._name + ", typeof __ks_" + this._name + " === \"undefined\" ? {} : __ks_" + this._name + "]").step().code("else").step().line("return [" + this._parameter + ", __ks_" + this._parameter + "]");
-			}
-			else {
-				ctrl.line("return [" + this._name + "]").step().code("else").step().line("return [" + this._parameter + "]");
-			}
-			ctrl.done();
-		},
-		toLoneAltFragments: function() {
-			if(arguments.length === 1) {
-				return EORDynamicRequirement.prototype.__ks_func_toLoneAltFragments_0.apply(this, arguments);
-			}
-			else if(DynamicRequirement.prototype.toLoneAltFragments) {
-				return DynamicRequirement.prototype.toLoneAltFragments.apply(this, arguments);
-			}
-			throw new SyntaxError("wrong number of arguments");
-		},
-		__ks_func_toManyAltFragments_0: function(fragments) {
+		__ks_func_toAltFragments_0: function(fragments) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
 			}
@@ -51895,12 +52013,12 @@ module.exports = function() {
 			}
 			ctrl.done();
 		},
-		toManyAltFragments: function() {
+		toAltFragments: function() {
 			if(arguments.length === 1) {
-				return EORDynamicRequirement.prototype.__ks_func_toManyAltFragments_0.apply(this, arguments);
+				return EORDynamicRequirement.prototype.__ks_func_toAltFragments_0.apply(this, arguments);
 			}
-			else if(DynamicRequirement.prototype.toManyAltFragments) {
-				return DynamicRequirement.prototype.toManyAltFragments.apply(this, arguments);
+			else if(DynamicRequirement.prototype.toAltFragments) {
+				return DynamicRequirement.prototype.toAltFragments.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		}
@@ -51940,32 +52058,7 @@ module.exports = function() {
 			}
 			return DynamicRequirement.prototype.isAlien.apply(this, arguments);
 		},
-		__ks_func_toLoneAltFragments_0: function(fragments) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(fragments === void 0 || fragments === null) {
-				throw new TypeError("'fragments' is not nullable");
-			}
-			var ctrl = fragments.newControl().code("if(Type.isValue(" + this._parameter + "))").step();
-			if(this._type.isFlexible()) {
-				ctrl.line("return [" + this._parameter + ", __ks_" + this._parameter + "]").step().code("else").step().line("return [" + this._name + ", typeof __ks_" + this._name + " === \"undefined\" ? {} : __ks_" + this._name + "]");
-			}
-			else {
-				ctrl.line("return [" + this._parameter + "]").step().code("else").step().line("return [" + this._name + "]");
-			}
-			ctrl.done();
-		},
-		toLoneAltFragments: function() {
-			if(arguments.length === 1) {
-				return ROEDynamicRequirement.prototype.__ks_func_toLoneAltFragments_0.apply(this, arguments);
-			}
-			else if(DynamicRequirement.prototype.toLoneAltFragments) {
-				return DynamicRequirement.prototype.toLoneAltFragments.apply(this, arguments);
-			}
-			throw new SyntaxError("wrong number of arguments");
-		},
-		__ks_func_toManyAltFragments_0: function(fragments) {
+		__ks_func_toAltFragments_0: function(fragments) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
 			}
@@ -51981,12 +52074,12 @@ module.exports = function() {
 			}
 			ctrl.done();
 		},
-		toManyAltFragments: function() {
+		toAltFragments: function() {
 			if(arguments.length === 1) {
-				return ROEDynamicRequirement.prototype.__ks_func_toManyAltFragments_0.apply(this, arguments);
+				return ROEDynamicRequirement.prototype.__ks_func_toAltFragments_0.apply(this, arguments);
 			}
-			else if(DynamicRequirement.prototype.toManyAltFragments) {
-				return DynamicRequirement.prototype.toManyAltFragments.apply(this, arguments);
+			else if(DynamicRequirement.prototype.toAltFragments) {
+				return DynamicRequirement.prototype.toAltFragments.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		}
@@ -52021,61 +52114,21 @@ module.exports = function() {
 				throw new SyntaxError("wrong number of arguments");
 			}
 		},
-		__ks_func_toLoneAltFragments_0: function(fragments) {
+		__ks_func_toAltFragments_0: function(fragments) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			var ctrl = fragments.newControl().code("if(Type.isValue(" + this._parameter + "))").step();
-			if(this._type.isFlexible()) {
-				ctrl.line("return [" + this._parameter + ", __ks_" + this._parameter + "]").step().code("else").step();
-				this._importer.toImportFragments(ctrl);
-				ctrl.line("return [" + this._name + ", __ks_" + this._name + "]").done();
-			}
-			else {
-				ctrl.line("return [" + this._parameter + "]").step().code("else").step();
-				this._importer.toImportFragments(ctrl);
-				ctrl.line("return [" + this._name + "]").done();
-			}
-			ctrl.done();
+			return this._importer.toAltFragments(fragments);
 		},
-		toLoneAltFragments: function() {
+		toAltFragments: function() {
 			if(arguments.length === 1) {
-				return ROIDynamicRequirement.prototype.__ks_func_toLoneAltFragments_0.apply(this, arguments);
+				return ROIDynamicRequirement.prototype.__ks_func_toAltFragments_0.apply(this, arguments);
 			}
-			else if(DynamicRequirement.prototype.toLoneAltFragments) {
-				return DynamicRequirement.prototype.toLoneAltFragments.apply(this, arguments);
-			}
-			throw new SyntaxError("wrong number of arguments");
-		},
-		__ks_func_toManyAltFragments_0: function(fragments) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(fragments === void 0 || fragments === null) {
-				throw new TypeError("'fragments' is not nullable");
-			}
-			var ctrl = fragments.newControl().code("if(Type.isValue(" + this._parameter + "))").step();
-			if(this._type.isFlexible()) {
-				ctrl.line("req.push(" + this._parameter + ", __ks_" + this._parameter + ")").step().code("else").step();
-				this._importer.toImportFragments(ctrl);
-				ctrl.line("req.push(" + this._name + ", __ks_" + this._name + ")").done();
-			}
-			else {
-				ctrl.line("req.push(" + this._parameter + ")").step().code("else").step();
-				this._importer.toImportFragments(ctrl);
-				ctrl.line("req.push(" + this._name + ")").done();
-			}
-			ctrl.done();
-		},
-		toManyAltFragments: function() {
-			if(arguments.length === 1) {
-				return ROIDynamicRequirement.prototype.__ks_func_toManyAltFragments_0.apply(this, arguments);
-			}
-			else if(DynamicRequirement.prototype.toManyAltFragments) {
-				return DynamicRequirement.prototype.toManyAltFragments.apply(this, arguments);
+			else if(DynamicRequirement.prototype.toAltFragments) {
+				return DynamicRequirement.prototype.toAltFragments.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		}
