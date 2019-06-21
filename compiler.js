@@ -17387,7 +17387,7 @@ module.exports = function() {
 					return count === 1;
 				}
 				else {
-					console.log(data);
+					console.info(data);
 					throw new NotImplementedException();
 				}
 			}
@@ -22335,8 +22335,13 @@ module.exports = function() {
 				}
 				else if(__ks_0 === NodeKind.Parameter) {
 					var type = Type.fromAST(data.type, scope, defined, node);
-					var min = KSType.isValue(data.defaultValue) ? 0 : 1;
+					var __ks_default_1 = 0;
+					var min = 1;
 					var max = 1;
+					if(KSType.isValue(data.defaultValue)) {
+						__ks_default_1 = 1;
+						min = 0;
+					}
 					var nf = true;
 					for(var __ks_1 = 0, __ks_2 = data.modifiers.length, modifier; __ks_1 < __ks_2 && nf; ++__ks_1) {
 						modifier = data.modifiers[__ks_1];
@@ -22352,7 +22357,11 @@ module.exports = function() {
 							nf = true;
 						}
 					}
-					return new ParameterType(scope, type, min, max);
+					var name = null;
+					if(KSType.isValue(data.name) ? data.name.kind === NodeKind.Identifier : false) {
+						name = data.name.name;
+					}
+					return new ParameterType(scope, name, type, min, max, __ks_default_1);
 				}
 				else if(__ks_0 === NodeKind.TypeReference) {
 					if(KSType.isValue(data.properties)) {
@@ -22403,7 +22412,7 @@ module.exports = function() {
 				else if(__ks_0 === NodeKind.VariableDeclarator || __ks_0 === NodeKind.FieldDeclaration) {
 					return Type.fromAST(data.type, scope, defined, node);
 				}
-				console.log(data);
+				console.info(data);
 				throw new NotImplementedException(node);
 			},
 			fromAST: function() {
@@ -22523,7 +22532,7 @@ module.exports = function() {
 				else if(KSType.isValue(data.type)) {
 					return Type.fromMetadata(data.type, metadata, references, alterations, queue, scope, node);
 				}
-				console.log(data);
+				console.info(data);
 				throw new NotImplementedException(node);
 			},
 			fromMetadata: function() {
@@ -22631,7 +22640,7 @@ module.exports = function() {
 						return OverloadedFunctionType.import(index, data, metadata, references, alterations, queue, scope, node);
 					}
 				}
-				console.log(data);
+				console.info(data);
 				throw new NotImplementedException(node);
 			},
 			import: function() {
@@ -23140,24 +23149,6 @@ module.exports = function() {
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
-		__ks_func_matchContentTo_0: function(that) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(that === void 0 || that === null) {
-				throw new TypeError("'that' is not nullable");
-			}
-			else if(!KSType.is(that, Type)) {
-				throw new TypeError("'that' is not of type 'Type'");
-			}
-			return that.matchContentOf(this);
-		},
-		matchContentTo: function() {
-			if(arguments.length === 1) {
-				return Type.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
-			}
-			throw new SyntaxError("wrong number of arguments");
-		},
 		__ks_func_matchSignatureOf_0: function(that, matchables) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
@@ -23502,6 +23493,42 @@ module.exports = function() {
 					return FunctionType.__ks_sttc_import_0.apply(this, arguments);
 				}
 				return Type.import.apply(null, arguments);
+			},
+			__ks_sttc_isOptional_0: function(parameters, index, step) {
+				if(arguments.length < 3) {
+					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				}
+				if(parameters === void 0 || parameters === null) {
+					throw new TypeError("'parameters' is not nullable");
+				}
+				if(index === void 0 || index === null) {
+					throw new TypeError("'index' is not nullable");
+				}
+				if(step === void 0 || step === null) {
+					throw new TypeError("'step' is not nullable");
+				}
+				if(index >= parameters.length) {
+					return true;
+				}
+				if(step <= parameters[index].min()) {
+					return false;
+				}
+				for(var __ks_0 = index + 1, __ks_1 = parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
+					parameter = parameters[__ks_0];
+					if(parameter.min() !== 0) {
+						return false;
+					}
+				}
+				return true;
+			},
+			isOptional: function() {
+				if(arguments.length === 3) {
+					return FunctionType.__ks_sttc_isOptional_0.apply(this, arguments);
+				}
+				else if(Type.isOptional) {
+					return Type.isOptional.apply(null, arguments);
+				}
+				throw new SyntaxError("wrong number of arguments");
 			}
 		},
 		__ks_init_1: function() {
@@ -23557,39 +23584,9 @@ module.exports = function() {
 				this._returnType = Type.fromAST(data.type, node);
 				this._missingReturn = false;
 			}
-			var last = null;
 			for(var __ks_0 = 0, __ks_1 = parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 				parameter = parameters[__ks_0];
-				if(last === null) {
-					this._parameters.push(last = parameter.clone());
-				}
-				else if(!parameter._type.equals(last._type)) {
-					if(last._max == Infinity) {
-						if(this._max == Infinity) {
-							SyntaxException.throwTooMuchRestParameter(node);
-						}
-						else {
-							this._max = Infinity;
-						}
-					}
-					else {
-						this._max += last._max;
-					}
-					this._min += last._min;
-					this._parameters.push(last = parameter.clone());
-				}
-				else {
-					if(parameter._max == Infinity) {
-						last._max = Infinity;
-					}
-					else {
-						last._max += parameter._max;
-					}
-					last._min += parameter._min;
-				}
-			}
-			if(last !== null) {
-				if(last._max == Infinity) {
+				if(parameter._max == Infinity) {
 					if(this._max == Infinity) {
 						SyntaxException.throwTooMuchRestParameter(node);
 					}
@@ -23598,9 +23595,10 @@ module.exports = function() {
 					}
 				}
 				else {
-					this._max += last._max;
+					this._max += parameter._max;
 				}
-				this._min += last._min;
+				this._min += parameter._min;
+				this._parameters.push(parameter);
 			}
 			if(KSType.isValue(data.modifiers)) {
 				this.processModifiers(data.modifiers);
@@ -23670,19 +23668,7 @@ module.exports = function() {
 			var __ks__;
 			var min = arguments.length > 1 && (__ks__ = arguments[++__ks_i]) !== void 0 && __ks__ !== null ? __ks__ : 1;
 			var max = arguments.length > 2 && (__ks__ = arguments[++__ks_i]) !== void 0 && __ks__ !== null ? __ks__ : 1;
-			var last;
-			if(this._parameters.length === 0) {
-				this._parameters.push(new ParameterType(this._scope, type, min, max));
-			}
-			else if(type.equals((last = this._parameters[this._parameters.length - 1])._type)) {
-				if(max == Infinity) {
-					last._max = Infinity;
-				}
-				else {
-					last._max += max;
-				}
-				last._min += min;
-			}
+			this._parameters.push(new ParameterType(this._scope, type, min, max));
 			if(this._hasRest) {
 				this._max += max;
 				this._minAfter += min;
@@ -23962,6 +23948,139 @@ module.exports = function() {
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
+		__ks_func_matchContentOf_0: function(type) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
+			}
+			else if(!KSType.is(type, Type)) {
+				throw new TypeError("'type' is not of type 'Type'");
+			}
+			return type.isAny() || type.isFunction();
+		},
+		matchContentOf: function() {
+			if(arguments.length === 1) {
+				return FunctionType.prototype.__ks_func_matchContentOf_0.apply(this, arguments);
+			}
+			return Type.prototype.matchContentOf.apply(this, arguments);
+		},
+		__ks_func_matchParametersOf_0: function(__ks_arguments_1, matchables) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+				throw new TypeError("'arguments' is not nullable");
+			}
+			else if(!KSType.isArray(__ks_arguments_1)) {
+				throw new TypeError("'arguments' is not of type 'Array'");
+			}
+			if(matchables === void 0 || matchables === null) {
+				throw new TypeError("'matchables' is not nullable");
+			}
+			return this.matchParametersOf(0, -1, __ks_arguments_1, 0, -1, matchables);
+		},
+		__ks_func_matchParametersOf_1: function(pIndex, pStep, __ks_arguments_1, aIndex, aStep, matchables) {
+			if(arguments.length < 6) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+			}
+			if(pIndex === void 0 || pIndex === null) {
+				throw new TypeError("'pIndex' is not nullable");
+			}
+			if(pStep === void 0 || pStep === null) {
+				throw new TypeError("'pStep' is not nullable");
+			}
+			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+				throw new TypeError("'arguments' is not nullable");
+			}
+			if(aIndex === void 0 || aIndex === null) {
+				throw new TypeError("'aIndex' is not nullable");
+			}
+			if(aStep === void 0 || aStep === null) {
+				throw new TypeError("'aStep' is not nullable");
+			}
+			if(matchables === void 0 || matchables === null) {
+				throw new TypeError("'matchables' is not nullable");
+			}
+			if(aStep === -1) {
+				if(aIndex >= __ks_arguments_1.length) {
+					return FunctionType.isOptional(this._parameters, pIndex, pStep);
+				}
+				var argument = __ks_arguments_1[aIndex];
+				if(argument.max() == Infinity) {
+					return this.matchParametersOf(pIndex, pStep, __ks_arguments_1, aIndex, 1, matchables);
+				}
+				for(var i = 1, __ks_0 = argument.min(); i <= __ks_0; ++i) {
+					if(!this.matchParametersOf(pIndex, pStep, __ks_arguments_1, aIndex, i, matchables)) {
+						return false;
+					}
+				}
+				if(argument.min() === argument.max()) {
+					return true;
+				}
+				for(var i = argument.min() + 1, __ks_0 = argument.max(); i <= __ks_0; ++i) {
+					if(this.matchParametersOf(pIndex, pStep, __ks_arguments_1, aIndex, i, matchables)) {
+						return true;
+					}
+				}
+				return false;
+			}
+			else if(aStep > __ks_arguments_1[aIndex].max()) {
+				return this.matchParametersOf(pIndex, pStep, __ks_arguments_1, aIndex + 1, -1, matchables);
+			}
+			else if(pStep === -1) {
+				if(pIndex >= this._parameters.length) {
+					return FunctionType.isOptional(__ks_arguments_1, aIndex, aStep);
+				}
+				var parameter = this._parameters[pIndex];
+				if(parameter.max() == Infinity) {
+					return this.matchParametersOf(pIndex, 1, __ks_arguments_1, aIndex, aStep, matchables);
+				}
+				for(var i = 1, __ks_0 = parameter.min(); i <= __ks_0; ++i) {
+					if(!this.matchParametersOf(pIndex, i, __ks_arguments_1, aIndex, aStep, matchables)) {
+						return false;
+					}
+				}
+				if(parameter.min() === parameter.max()) {
+					return true;
+				}
+				for(var i = parameter.min() + 1, __ks_0 = parameter.max(); i <= __ks_0; ++i) {
+					if(this.matchParametersOf(pIndex, i, __ks_arguments_1, aIndex, aStep, matchables)) {
+						return true;
+					}
+				}
+				return false;
+			}
+			else if(pStep > this._parameters[pIndex].max()) {
+				return this.matchParametersOf(pIndex + 1, -1, __ks_arguments_1, aIndex, aStep, matchables);
+			}
+			else if(this._parameters[pIndex].matchSignatureOf(__ks_arguments_1[aIndex], matchables)) {
+				if(__ks_arguments_1[aIndex].max() == Infinity) {
+					if(this._parameters[pIndex].max() == Infinity) {
+						return true;
+					}
+					else {
+						return this.matchParametersOf(pIndex, pStep + 1, __ks_arguments_1, aIndex, aStep, matchables);
+					}
+				}
+				else {
+					return this.matchParametersOf(pIndex, pStep + 1, __ks_arguments_1, aIndex, aStep + 1, matchables);
+				}
+			}
+			else {
+				return false;
+			}
+		},
+		matchParametersOf: function() {
+			if(arguments.length === 2) {
+				return FunctionType.prototype.__ks_func_matchParametersOf_0.apply(this, arguments);
+			}
+			else if(arguments.length === 6) {
+				return FunctionType.prototype.__ks_func_matchParametersOf_1.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
 		__ks_func_matchSignatureOf_0: function(value, matchables) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
@@ -23979,7 +24098,7 @@ module.exports = function() {
 				return value.isFunction();
 			}
 			else if(KSType.is(value, FunctionType)) {
-				return (this._missingParameters || this.matchArguments(value._parameters)) && (this._missingReturn || this._returnType.matchSignatureOf(value._returnType, matchables));
+				return (this._missingParameters || this.matchParametersOf(value._parameters, matchables)) && (this._missingReturn || this._returnType.matchSignatureOf(value._returnType, matchables));
 			}
 			else if(KSType.is(value, OverloadedFunctionType)) {
 				throw new NotImplementedException();
@@ -24005,18 +24124,6 @@ module.exports = function() {
 			if(__ks_arguments_1.length === 0) {
 				return this._min === 0;
 			}
-			else if(KSType.is(__ks_arguments_1[0], ParameterType)) {
-				if(this._parameters.length !== __ks_arguments_1.length) {
-					return false;
-				}
-				for(var i = 0, __ks_0 = this._parameters.length, parameter; i < __ks_0; ++i) {
-					parameter = this._parameters[i];
-					if(!parameter.matchContentTo(__ks_arguments_1[i])) {
-						return false;
-					}
-				}
-				return true;
-			}
 			else {
 				if(!(this._min <= __ks_arguments_1.length && __ks_arguments_1.length <= this._max)) {
 					return false;
@@ -24028,7 +24135,7 @@ module.exports = function() {
 					var parameter = this._parameters[0];
 					for(var __ks_0 = 0, __ks_1 = __ks_arguments_1.length, argument; __ks_0 < __ks_1; ++__ks_0) {
 						argument = __ks_arguments_1[__ks_0];
-						if(!parameter.matchContentTo(argument)) {
+						if(!parameter.matchArgument(argument)) {
 							return false;
 						}
 					}
@@ -24040,7 +24147,7 @@ module.exports = function() {
 					for(var i = this._parameters.length - 1; i > this._restIndex; --i) {
 						var parameter = this._parameters[i];
 						for(var j = 0, __ks_0 = parameter.min(); j < __ks_0; ++j) {
-							if(!parameter.matchContentTo(__ks_arguments_1[b])) {
+							if(!parameter.matchArgument(__ks_arguments_1[b])) {
 								return false;
 							}
 							--b;
@@ -24050,13 +24157,13 @@ module.exports = function() {
 					for(var i = 0; i < this._restIndex; ++i) {
 						var parameter = this._parameters[i];
 						for(var j = 0, __ks_0 = parameter.min(); j < __ks_0; ++j) {
-							if(!parameter.matchContentTo(__ks_arguments_1[a])) {
+							if(!parameter.matchArgument(__ks_arguments_1[a])) {
 								return false;
 							}
 							++a;
 						}
 						for(var j = parameter.min(), __ks_0 = parameter.max(); optional !== 0 && j < __ks_0; ++j) {
-							if(parameter.matchContentTo(__ks_arguments_1[a])) {
+							if(parameter.matchArgument(__ks_arguments_1[a])) {
 								++a;
 								--optional;
 							}
@@ -24064,7 +24171,7 @@ module.exports = function() {
 					}
 					var parameter = this._parameters[this._restIndex];
 					for(var j = 0, __ks_0 = parameter.min(); j < __ks_0; ++j) {
-						if(!parameter.matchContentTo(__ks_arguments_1[a])) {
+						if(!parameter.matchArgument(__ks_arguments_1[a])) {
 							return false;
 						}
 						++a;
@@ -24072,15 +24179,16 @@ module.exports = function() {
 					return true;
 				}
 				else if(__ks_arguments_1.length === this._max) {
-					var a = -1;
+					var a = 0;
 					var p;
 					for(var __ks_0 = 0, __ks_1 = this._parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 						parameter = this._parameters[__ks_0];
 						var __ks_2;
 						for(p = 0, __ks_2 = parameter.max(); p < __ks_2; ++p) {
-							if(!parameter.matchContentTo(__ks_arguments_1[++a])) {
+							if(!parameter.matchArgument(__ks_arguments_1[a])) {
 								return false;
 							}
+							++a;
 						}
 					}
 					return true;
@@ -24091,13 +24199,13 @@ module.exports = function() {
 					for(var __ks_0 = 0, __ks_1 = this._parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 						parameter = this._parameters[__ks_0];
 						for(var i = 0, __ks_2 = parameter.min(); i < __ks_2; ++i) {
-							if(!parameter.matchContentTo(__ks_arguments_1[a])) {
+							if(!parameter.matchArgument(__ks_arguments_1[a])) {
 								return false;
 							}
 							++a;
 						}
 						for(var i = parameter.min(), __ks_2 = parameter.max(); optional > 0 && i < __ks_2; ++i) {
-							if(parameter.matchContentTo(__ks_arguments_1[a])) {
+							if(parameter.matchArgument(__ks_arguments_1[a])) {
 								++a;
 								--optional;
 							}
@@ -25317,7 +25425,7 @@ module.exports = function() {
 			}
 			return Type.prototype.isNamespace.apply(this, arguments);
 		},
-		__ks_func_matchContentOf_0: function(that) {
+		__ks_func_matchClassName_0: function(that) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
 			}
@@ -25329,14 +25437,51 @@ module.exports = function() {
 			}
 			if(KSType.is(that, NamedType)) {
 				if(KSType.is(this._type, ClassType) && KSType.is(that.type(), ClassType)) {
+					return this._name === that.name();
+				}
+			}
+			else if(KSType.is(that, ReferenceType)) {
+				return (this._name === that.name()) || this.matchClassName(that.discardReference());
+			}
+			return false;
+		},
+		matchClassName: function() {
+			if(arguments.length === 1) {
+				return NamedType.prototype.__ks_func_matchClassName_0.apply(this, arguments);
+			}
+			else if(Type.prototype.matchClassName) {
+				return Type.prototype.matchClassName.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_matchContentOf_0: function(that) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(that === void 0 || that === null) {
+				throw new TypeError("'that' is not nullable");
+			}
+			else if(!KSType.is(that, Type)) {
+				throw new TypeError("'that' is not of type 'Type'");
+			}
+			if(that.isAny()) {
+				return true;
+			}
+			else if(KSType.is(that, NamedType)) {
+				if(KSType.is(this._type, ClassType) && KSType.is(that.type(), ClassType)) {
 					return this.matchInheritanceOf(that);
 				}
-				else if(KSType.is(this._type, EnumType) && KSType.is(that.type(), EnumType)) {
-					return this._name === that.name();
+				else if(KSType.is(that.type(), EnumType)) {
+					if(KSType.is(this._type, EnumType)) {
+						return this._name === that.name();
+					}
+					else {
+						return this.matchContentOf(that.type().type());
+					}
 				}
 				else if(that.isAlias()) {
 					if(this.isAlias()) {
-						return this._name === that.name();
+						return (this._name === that.name()) || this.discardAlias().matchContentOf(that.discardAlias());
 					}
 					else {
 						return this.matchContentOf(that.discardAlias());
@@ -25356,7 +25501,7 @@ module.exports = function() {
 				return false;
 			}
 			else if(KSType.is(that, ReferenceType)) {
-				return this._name === that.name();
+				return (this._name === that.name()) || this.matchContentOf(that.discardReference());
 			}
 			else {
 				return this._type.matchContentOf(that);
@@ -25367,46 +25512,6 @@ module.exports = function() {
 				return NamedType.prototype.__ks_func_matchContentOf_0.apply(this, arguments);
 			}
 			return Type.prototype.matchContentOf.apply(this, arguments);
-		},
-		__ks_func_matchContentTo_0: function(that) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(that === void 0 || that === null) {
-				throw new TypeError("'that' is not nullable");
-			}
-			else if(!KSType.is(that, Type)) {
-				throw new TypeError("'that' is not of type 'Type'");
-			}
-			if(KSType.is(that, NamedType)) {
-				if(KSType.is(this._type, ClassType) && KSType.is(that.type(), ClassType)) {
-					return that.matchInheritanceOf(this);
-				}
-				else {
-					return this._type.matchContentTo(that.type());
-				}
-			}
-			else if(KSType.is(that, UnionType)) {
-				for(var __ks_0 = 0, __ks_1 = that.types(), __ks_2 = __ks_1.length, type; __ks_0 < __ks_2; ++__ks_0) {
-					type = __ks_1[__ks_0];
-					if(this.matchContentTo(type)) {
-						return true;
-					}
-				}
-				return false;
-			}
-			else if(KSType.is(that, ReferenceType)) {
-				return this._name === that.name();
-			}
-			else {
-				return this._type.matchContentTo(that);
-			}
-		},
-		matchContentTo: function() {
-			if(arguments.length === 1) {
-				return NamedType.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
-			}
-			return Type.prototype.matchContentTo.apply(this, arguments);
 		},
 		__ks_func_matchInheritanceOf_0: function(base) {
 			if(arguments.length < 1) {
@@ -26000,31 +26105,21 @@ module.exports = function() {
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
-		__ks_func_export_0: function(references, ignoreAlteration) {
+		__ks_func_export_0: function() {
 			if(arguments.length < 2) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
 			}
+			var __ks_i = -1;
+			var references = arguments[++__ks_i];
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
 			}
+			var ignoreAlteration = arguments[++__ks_i];
 			if(ignoreAlteration === void 0 || ignoreAlteration === null) {
 				throw new TypeError("'ignoreAlteration' is not nullable");
 			}
-			return this.export(references, ignoreAlteration, this._name);
-		},
-		__ks_func_export_1: function(references, ignoreAlteration, name) {
-			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
-			}
-			if(references === void 0 || references === null) {
-				throw new TypeError("'references' is not nullable");
-			}
-			if(ignoreAlteration === void 0 || ignoreAlteration === null) {
-				throw new TypeError("'ignoreAlteration' is not nullable");
-			}
-			if(name === void 0 || name === null) {
-				throw new TypeError("'name' is not nullable");
-			}
+			var __ks__;
+			var name = arguments.length > 2 && (__ks__ = arguments[++__ks_i]) !== void 0 && __ks__ !== null ? __ks__ : this._name;
 			if(this._nullable || (this._parameters.length !== 0)) {
 				var __ks_export_1 = {
 					kind: TypeKind.Reference,
@@ -26045,11 +26140,8 @@ module.exports = function() {
 			}
 		},
 		export: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return ReferenceType.prototype.__ks_func_export_0.apply(this, arguments);
-			}
-			else if(arguments.length === 3) {
-				return ReferenceType.prototype.__ks_func_export_1.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
@@ -26436,11 +26528,8 @@ module.exports = function() {
 			else if(!KSType.is(that, Type)) {
 				throw new TypeError("'that' is not of type 'Type'");
 			}
-			if((this === that) || that.isAny()) {
+			if((this === that) || this.isAny() || that.isAny()) {
 				return true;
-			}
-			else if(this.isAny()) {
-				return that.isAny();
 			}
 			else if(this.isEnum()) {
 				return that.isEnum();
@@ -26470,47 +26559,6 @@ module.exports = function() {
 			}
 			return Type.prototype.matchContentOf.apply(this, arguments);
 		},
-		__ks_func_matchContentTo_0: function(that) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(that === void 0 || that === null) {
-				throw new TypeError("'that' is not nullable");
-			}
-			if(this === that) {
-				return true;
-			}
-			else if(this.isAny()) {
-				return that.isAny();
-			}
-			else if(this.isEnum()) {
-				return that.isEnum();
-			}
-			else if(this.isFunction()) {
-				return that.isFunction();
-			}
-			else {
-				var a = this.discardReference();
-				var b = that.discardReference();
-				if(KSType.is(a, ReferenceType)) {
-					if(KSType.is(b, ReferenceType)) {
-						return a._name === b._name;
-					}
-					else {
-						return false;
-					}
-				}
-				else {
-					return a.matchContentTo(b);
-				}
-			}
-		},
-		matchContentTo: function() {
-			if(arguments.length === 1) {
-				return ReferenceType.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
-			}
-			return Type.prototype.matchContentTo.apply(this, arguments);
-		},
 		__ks_func_matchSignatureOf_0: function(value, matchables) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
@@ -26536,7 +26584,7 @@ module.exports = function() {
 				return this._type.type().matchInstanceWith(value, matchables);
 			}
 			else {
-				return false;
+				return value.isAny();
 			}
 		},
 		matchSignatureOf: function() {
@@ -26643,7 +26691,7 @@ module.exports = function() {
 					}
 				}
 				else {
-					console.log(this);
+					console.info(this);
 					throw new NotImplementedException();
 				}
 			}
@@ -27305,24 +27353,6 @@ module.exports = function() {
 			}
 			return Type.prototype.matchContentOf.apply(this, arguments);
 		},
-		__ks_func_matchContentTo_0: function(that) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(that === void 0 || that === null) {
-				throw new TypeError("'that' is not nullable");
-			}
-			else if(!KSType.is(that, Type)) {
-				throw new TypeError("'that' is not of type 'Type'");
-			}
-			return this._type.matchContentTo(that);
-		},
-		matchContentTo: function() {
-			if(arguments.length === 1) {
-				return AliasType.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
-			}
-			return Type.prototype.matchContentTo.apply(this, arguments);
-		},
 		__ks_func_type_0: function() {
 			return this._type;
 		},
@@ -27723,7 +27753,7 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			throw new NotImplementedException(node);
+			throw new NotImplementedException();
 		},
 		toTestFragments: function() {
 			if(arguments.length === 2) {
@@ -28701,7 +28731,7 @@ module.exports = function() {
 			}
 			return Type.prototype.flagSealed.apply(this, arguments);
 		},
-		__ks_func_getAsbtractMethod_0: function(name, __ks_arguments_1) {
+		__ks_func_getAbstractMethod_0: function(name, type) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -28711,33 +28741,33 @@ module.exports = function() {
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
 			}
-			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
-				throw new TypeError("'arguments' is not nullable");
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
 			}
-			else if(!KSType.isArray(__ks_arguments_1)) {
-				throw new TypeError("'arguments' is not of type 'Array'");
+			else if(!KSType.is(type, Type)) {
+				throw new TypeError("'type' is not of type 'Type'");
 			}
 			if(KSType.isArray(this._abstractMethods[name])) {
 				for(var __ks_0 = 0, __ks_1 = this._abstractMethods[name].length, method; __ks_0 < __ks_1; ++__ks_0) {
 					method = this._abstractMethods[name][__ks_0];
-					if(method.matchArguments(__ks_arguments_1)) {
+					if(method.matchSignatureOf(type, [])) {
 						return method;
 					}
 				}
 			}
 			if(this._extending) {
-				return this._extends.type().getAsbtractMethod(name, __ks_arguments_1);
+				return this._extends.type().getAbstractMethod(name, type);
 			}
 			else {
 				return null;
 			}
 		},
-		getAsbtractMethod: function() {
+		getAbstractMethod: function() {
 			if(arguments.length === 2) {
-				return ClassType.prototype.__ks_func_getAsbtractMethod_0.apply(this, arguments);
+				return ClassType.prototype.__ks_func_getAbstractMethod_0.apply(this, arguments);
 			}
-			else if(Type.prototype.getAsbtractMethod) {
-				return Type.prototype.getAsbtractMethod.apply(this, arguments);
+			else if(Type.prototype.getAbstractMethod) {
+				return Type.prototype.getAbstractMethod.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
@@ -30328,7 +30358,7 @@ module.exports = function() {
 			}
 			for(var __ks_0 = 0, __ks_1 = methods.length, method; __ks_0 < __ks_1; ++__ks_0) {
 				method = methods[__ks_0];
-				if(method.matchSignatureOf(this, matchables)) {
+				if(this.matchSignatureOf(method, matchables)) {
 					return true;
 				}
 			}
@@ -30351,65 +30381,6 @@ module.exports = function() {
 				return ClassMethodType.prototype.__ks_func_isSealable_0.apply(this);
 			}
 			return FunctionType.prototype.isSealable.apply(this, arguments);
-		},
-		__ks_func_matchSignatureOf_0: function(b, matchables) {
-			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
-			}
-			if(b === void 0 || b === null) {
-				throw new TypeError("'b' is not nullable");
-			}
-			else if(!KSType.is(b, ClassMethodType)) {
-				throw new TypeError("'b' is not of type 'ClassMethodType'");
-			}
-			if(matchables === void 0 || matchables === null) {
-				throw new TypeError("'matchables' is not nullable");
-			}
-			if((this._min !== b._min) || (this._max !== b._max) || (this._async !== b._async) || (this._parameters.length !== b._parameters.length)) {
-				return false;
-			}
-			for(var i = 0, __ks_0 = this._parameters.length, parameter; i < __ks_0; ++i) {
-				parameter = this._parameters[i];
-				if(!parameter.matchSignatureOf(b._parameters[i], matchables)) {
-					return false;
-				}
-			}
-			return true;
-		},
-		__ks_func_matchSignatureOf_1: function(b, matchables) {
-			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
-			}
-			if(b === void 0 || b === null) {
-				throw new TypeError("'b' is not nullable");
-			}
-			else if(!KSType.is(b, FunctionType)) {
-				throw new TypeError("'b' is not of type 'FunctionType'");
-			}
-			if(matchables === void 0 || matchables === null) {
-				throw new TypeError("'matchables' is not nullable");
-			}
-			if((this._min !== b._min) || (this._max !== b._max) || (this._async !== b._async) || (this._parameters.length !== b._parameters.length)) {
-				return false;
-			}
-			for(var i = 0, __ks_0 = this._parameters.length, parameter; i < __ks_0; ++i) {
-				parameter = this._parameters[i];
-				if(!parameter.matchSignatureOf(b._parameters[i], matchables)) {
-					return false;
-				}
-			}
-			return true;
-		},
-		matchSignatureOf: function() {
-			if(arguments.length === 2) {
-				if(KSType.is(arguments[0], ClassMethodType)) {
-					return ClassMethodType.prototype.__ks_func_matchSignatureOf_0.apply(this, arguments);
-				}
-				else {
-					return ClassMethodType.prototype.__ks_func_matchSignatureOf_1.apply(this, arguments);
-				}
-			}
-			throw new SyntaxError("wrong number of arguments");
 		},
 		__ks_func_processModifiers_0: function(modifiers) {
 			if(arguments.length < 1) {
@@ -31074,51 +31045,6 @@ module.exports = function() {
 			}
 			return Type.prototype.isMergeable.apply(this, arguments);
 		},
-		__ks_func_matchContentTo_0: function(value) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(value === void 0 || value === null) {
-				throw new TypeError("'value' is not nullable");
-			}
-			else if(!KSType.is(value, Type)) {
-				throw new TypeError("'value' is not of type 'Type'");
-			}
-			return this._type.matchContentTo(value);
-		},
-		matchContentTo: function() {
-			if(arguments.length === 1) {
-				return EnumType.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
-			}
-			return Type.prototype.matchContentTo.apply(this, arguments);
-		},
-		__ks_func_matchSignatureOf_0: function(value, matchables) {
-			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
-			}
-			if(value === void 0 || value === null) {
-				throw new TypeError("'value' is not nullable");
-			}
-			else if(!KSType.is(value, Type)) {
-				throw new TypeError("'value' is not of type 'Type'");
-			}
-			if(matchables === void 0 || matchables === null) {
-				throw new TypeError("'matchables' is not nullable");
-			}
-			if(KSType.is(value, EnumType)) {
-				return true;
-			}
-			else if(KSType.is(value, ReferenceType) && (value.name() === "Enum")) {
-				return true;
-			}
-			return false;
-		},
-		matchSignatureOf: function() {
-			if(arguments.length === 2) {
-				return EnumType.prototype.__ks_func_matchSignatureOf_0.apply(this, arguments);
-			}
-			return Type.prototype.matchSignatureOf.apply(this, arguments);
-		},
 		__ks_func_kind_0: function() {
 			return this._kind;
 		},
@@ -31148,6 +31074,33 @@ module.exports = function() {
 				return EnumType.prototype.__ks_func_matchContentOf_0.apply(this, arguments);
 			}
 			return Type.prototype.matchContentOf.apply(this, arguments);
+		},
+		__ks_func_matchSignatureOf_0: function(value, matchables) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(value === void 0 || value === null) {
+				throw new TypeError("'value' is not nullable");
+			}
+			else if(!KSType.is(value, Type)) {
+				throw new TypeError("'value' is not of type 'Type'");
+			}
+			if(matchables === void 0 || matchables === null) {
+				throw new TypeError("'matchables' is not nullable");
+			}
+			if(KSType.is(value, EnumType)) {
+				return true;
+			}
+			else if(KSType.is(value, ReferenceType) && (value.name() === "Enum")) {
+				return true;
+			}
+			return false;
+		},
+		matchSignatureOf: function() {
+			if(arguments.length === 2) {
+				return EnumType.prototype.__ks_func_matchSignatureOf_0.apply(this, arguments);
+			}
+			return Type.prototype.matchSignatureOf.apply(this, arguments);
 		},
 		__ks_func_step_0: function() {
 			this._index++;
@@ -32248,6 +32201,24 @@ module.exports = function() {
 			}
 			return Type.prototype.isNull.apply(this, arguments);
 		},
+		__ks_func_matchContentOf_0: function(type) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
+			}
+			else if(!KSType.is(type, Type)) {
+				throw new TypeError("'type' is not of type 'Type'");
+			}
+			return type.isAny() || type.isNullable();
+		},
+		matchContentOf: function() {
+			if(arguments.length === 1) {
+				return NullType.prototype.__ks_func_matchContentOf_0.apply(this, arguments);
+			}
+			return Type.prototype.matchContentOf.apply(this, arguments);
+		},
 		__ks_func_toQuote_0: function() {
 		},
 		toQuote: function() {
@@ -32652,7 +32623,7 @@ module.exports = function() {
 				else if(!KSType.is(node, AbstractNode)) {
 					throw new TypeError("'node' is not of type 'AbstractNode'");
 				}
-				return new ParameterType(scope, Type.fromMetadata(data.type, metadata, references, alterations, queue, scope, node), data.min, data.max);
+				return new ParameterType(scope, data.name, Type.fromMetadata(data.type, metadata, references, alterations, queue, scope, node), data.min, data.max, data.default);
 			},
 			fromMetadata: function() {
 				if(arguments.length === 7) {
@@ -32661,8 +32632,12 @@ module.exports = function() {
 				return Type.fromMetadata.apply(null, arguments);
 			}
 		},
+		__ks_init_1: function() {
+			this._name = null;
+		},
 		__ks_init: function() {
 			Type.prototype.__ks_init.call(this);
+			ParameterType.prototype.__ks_init_1.call(this);
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
@@ -32701,21 +32676,102 @@ module.exports = function() {
 			else {
 				max = 1;
 			}
+			var __ks_default_1;
+			if(arguments.length > 4 && (__ks_default_1 = arguments[++__ks_i]) !== void 0 && __ks_default_1 !== null) {
+				if(!KSType.isNumber(__ks_default_1)) {
+					throw new TypeError("'default' is not of type 'Number'");
+				}
+			}
+			else {
+				__ks_default_1 = 0;
+			}
 			Type.prototype.__ks_cons.call(this, [scope]);
 			this._type = type;
 			this._min = min;
 			this._max = max;
+			this._default = __ks_default_1;
+		},
+		__ks_cons_1: function() {
+			if(arguments.length < 3) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+			}
+			var __ks_i = -1;
+			var scope = arguments[++__ks_i];
+			if(scope === void 0) {
+				scope = null;
+			}
+			else if(scope !== null && !KSType.is(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
+			}
+			var name = arguments[++__ks_i];
+			if(name === void 0) {
+				name = null;
+			}
+			else if(name !== null && !KSType.isString(name)) {
+				throw new TypeError("'name' is not of type 'String'");
+			}
+			var type = arguments[++__ks_i];
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
+			}
+			else if(!KSType.is(type, Type)) {
+				throw new TypeError("'type' is not of type 'Type'");
+			}
+			var min;
+			if(arguments.length > 3 && (min = arguments[++__ks_i]) !== void 0 && min !== null) {
+				if(!KSType.isNumber(min)) {
+					throw new TypeError("'min' is not of type 'Number'");
+				}
+			}
+			else {
+				min = 1;
+			}
+			var max;
+			if(arguments.length > 4 && (max = arguments[++__ks_i]) !== void 0 && max !== null) {
+				if(!KSType.isNumber(max)) {
+					throw new TypeError("'max' is not of type 'Number'");
+				}
+			}
+			else {
+				max = 1;
+			}
+			var __ks_default_1;
+			if(arguments.length > 5 && (__ks_default_1 = arguments[++__ks_i]) !== void 0 && __ks_default_1 !== null) {
+				if(!KSType.isNumber(__ks_default_1)) {
+					throw new TypeError("'default' is not of type 'Number'");
+				}
+			}
+			else {
+				__ks_default_1 = 0;
+			}
+			Type.prototype.__ks_cons.call(this, [scope]);
+			this._name = name;
+			this._type = type;
+			this._min = min;
+			this._max = max;
+			this._default = __ks_default_1;
 		},
 		__ks_cons: function(args) {
-			if(args.length >= 2 && args.length <= 4) {
+			if(args.length === 2) {
 				ParameterType.prototype.__ks_cons_0.apply(this, args);
+			}
+			else if(args.length >= 3 && args.length <= 5) {
+				if(KSType.is(args[1], Type)) {
+					ParameterType.prototype.__ks_cons_0.apply(this, args);
+				}
+				else {
+					ParameterType.prototype.__ks_cons_1.apply(this, args);
+				}
+			}
+			else if(args.length === 6) {
+				ParameterType.prototype.__ks_cons_1.apply(this, args);
 			}
 			else {
 				throw new SyntaxError("wrong number of arguments");
 			}
 		},
 		__ks_func_clone_0: function() {
-			return new ParameterType(this._scope, this._type, this._min, this._max);
+			return new ParameterType(this._scope, this._name, this._type, this._min, this._max, this._default);
 		},
 		clone: function() {
 			if(arguments.length === 0) {
@@ -32757,11 +32813,15 @@ module.exports = function() {
 			if(ignoreAlteration === void 0 || ignoreAlteration === null) {
 				throw new TypeError("'ignoreAlteration' is not nullable");
 			}
-			return {
-				type: this._type.toReference(references, ignoreAlteration),
-				min: this._min,
-				max: this._max
-			};
+			var __ks_export_1 = {};
+			if(this._name !== null) {
+				__ks_export_1.name = this._name;
+			}
+			__ks_export_1.type = this._type.toReference(references, ignoreAlteration);
+			__ks_export_1.min = this._min;
+			__ks_export_1.max = this._max;
+			__ks_export_1.default = this._default;
+			return __ks_export_1;
 		},
 		export: function() {
 			if(arguments.length === 2) {
@@ -32769,6 +32829,18 @@ module.exports = function() {
 			}
 			else if(Type.prototype.export) {
 				return Type.prototype.export.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_hasDefaultValue_0: function() {
+			return this._default !== 0;
+		},
+		hasDefaultValue: function() {
+			if(arguments.length === 0) {
+				return ParameterType.prototype.__ks_func_hasDefaultValue_0.apply(this);
+			}
+			else if(Type.prototype.hasDefaultValue) {
+				return Type.prototype.hasDefaultValue.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
@@ -32790,7 +32862,42 @@ module.exports = function() {
 			}
 			return Type.prototype.isExportable.apply(this, arguments);
 		},
-		__ks_func_matchContentTo_0: function(value) {
+		__ks_func_matchContentOf_0: function(type) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
+			}
+			else if(!KSType.is(type, Type)) {
+				throw new TypeError("'type' is not of type 'Type'");
+			}
+			return this._type.matchContentOf(type);
+		},
+		__ks_func_matchContentOf_1: function(type) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
+			}
+			else if(!KSType.is(type, ParameterType)) {
+				throw new TypeError("'type' is not of type 'ParameterType'");
+			}
+			return this._type.matchContentOf(type.type());
+		},
+		matchContentOf: function() {
+			if(arguments.length === 1) {
+				if(KSType.is(arguments[0], ParameterType)) {
+					return ParameterType.prototype.__ks_func_matchContentOf_1.apply(this, arguments);
+				}
+				else {
+					return ParameterType.prototype.__ks_func_matchContentOf_0.apply(this, arguments);
+				}
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_matchArgument_0: function(value) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
 			}
@@ -32800,45 +32907,31 @@ module.exports = function() {
 			else if(!KSType.is(value, Type)) {
 				throw new TypeError("'value' is not of type 'Type'");
 			}
-			if(KSType.is(value, ParameterType)) {
-				if((this._min !== value._min) || (this._max !== value._max)) {
-					return false;
-				}
-				return this._type.matchContentTo(value.type());
-			}
-			else {
-				if(this._type.isAny() || value.isAny()) {
-					return true;
-				}
-				return this._type.matchContentTo(value);
-			}
+			return value.matchContentOf(this._type) || (value.isNull() && (this._default !== 0));
 		},
-		matchContentTo: function() {
+		matchArgument: function() {
 			if(arguments.length === 1) {
-				return ParameterType.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
+				return ParameterType.prototype.__ks_func_matchArgument_0.apply(this, arguments);
 			}
-			return Type.prototype.matchContentTo.apply(this, arguments);
+			else if(Type.prototype.matchArgument) {
+				return Type.prototype.matchArgument.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
 		},
-		__ks_func_matchSignatureOf_0: function(value, matchables) {
+		__ks_func_matchSignatureOf_0: function(type, matchables) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
 			}
-			if(value === void 0 || value === null) {
-				throw new TypeError("'value' is not nullable");
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
 			}
-			else if(!KSType.is(value, ParameterType)) {
-				throw new TypeError("'value' is not of type 'ParameterType'");
+			else if(!KSType.is(type, ParameterType)) {
+				throw new TypeError("'type' is not of type 'ParameterType'");
 			}
 			if(matchables === void 0 || matchables === null) {
 				throw new TypeError("'matchables' is not nullable");
 			}
-			if((this._min !== value._min) || (this._max !== value._max)) {
-				return false;
-			}
-			if(this._type.isAny()) {
-				return true;
-			}
-			return this._type.matchSignatureOf(value.type(), matchables);
+			return this._type.matchSignatureOf(type.type(), matchables);
 		},
 		matchSignatureOf: function() {
 			if(arguments.length === 2) {
@@ -32867,6 +32960,18 @@ module.exports = function() {
 			}
 			else if(Type.prototype.min) {
 				return Type.prototype.min.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_name_0: function() {
+			return this._name;
+		},
+		name: function() {
+			if(arguments.length === 0) {
+				return ParameterType.prototype.__ks_func_name_0.apply(this);
+			}
+			else if(Type.prototype.name) {
+				return Type.prototype.name.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
@@ -33201,7 +33306,7 @@ module.exports = function() {
 					if(t === void 0 || t === null) {
 						throw new TypeError("'t' is not nullable");
 					}
-					return t.matchContentTo(property);
+					return property.matchContentOf(t);
 				})) {
 					types.push(property);
 				}
@@ -33323,49 +33428,6 @@ module.exports = function() {
 				return UnionType.prototype.__ks_func_matchContentOf_0.apply(this, arguments);
 			}
 			return Type.prototype.matchContentOf.apply(this, arguments);
-		},
-		__ks_func_matchContentTo_0: function(that) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(that === void 0 || that === null) {
-				throw new TypeError("'that' is not nullable");
-			}
-			else if(!KSType.is(that, Type)) {
-				throw new TypeError("'that' is not of type 'Type'");
-			}
-			if(KSType.is(that, UnionType)) {
-				var nf;
-				for(var __ks_0 = 0, __ks_1 = that._types.length, vType; __ks_0 < __ks_1; ++__ks_0) {
-					vType = that._types[__ks_0];
-					nf = true;
-					for(var __ks_2 = 0, __ks_3 = this._types.length, tType; __ks_2 < __ks_3 && nf; ++__ks_2) {
-						tType = this._types[__ks_2];
-						if(tType.matchContentOf(vType)) {
-							nf = false;
-						}
-					}
-					if(nf) {
-						return false;
-					}
-				}
-				return true;
-			}
-			else {
-				for(var __ks_0 = 0, __ks_1 = this._types.length, type; __ks_0 < __ks_1; ++__ks_0) {
-					type = this._types[__ks_0];
-					if(type.matchContentOf(that)) {
-						return true;
-					}
-				}
-				return false;
-			}
-		},
-		matchContentTo: function() {
-			if(arguments.length === 1) {
-				return UnionType.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
-			}
-			return Type.prototype.matchContentTo.apply(this, arguments);
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
@@ -34743,15 +34805,15 @@ module.exports = function() {
 			}
 			if(KSType.isArray(this._macros[name])) {
 				var type = macro.type();
-				var na = true;
-				for(var index = 0, __ks_0 = this._macros[name].length, m; index < __ks_0 && na; ++index) {
+				var notAdded = true;
+				for(var index = 0, __ks_0 = this._macros[name].length, m; index < __ks_0 && notAdded; ++index) {
 					m = this._macros[name][index];
-					if(m.type().matchContentTo(type)) {
+					if(type.matchContentOf(m.type())) {
 						this._macros[name].splice(index, 0, macro);
-						na = false;
+						notAdded = false;
 					}
 				}
-				if(na) {
+				if(notAdded) {
 					this._macros[name].push(macro);
 				}
 			}
@@ -35514,7 +35576,7 @@ module.exports = function() {
 				return this.resolveReference(value.name());
 			}
 			else {
-				console.log(value);
+				console.info(value);
 				throw new NotImplementedException();
 			}
 		},
@@ -36698,7 +36760,7 @@ module.exports = function() {
 		$name: "MacroScope",
 		$extends: Scope,
 		__ks_init_1: function() {
-			this._natives = {};
+			this._predefined = {};
 			this._references = {};
 			this._renamedIndexes = {};
 			this._renamedVariables = {};
@@ -36708,47 +36770,34 @@ module.exports = function() {
 			Scope.prototype.__ks_init.call(this);
 			MacroScope.prototype.__ks_init_1.call(this);
 		},
+		__ks_cons_0: function() {
+			Scope.prototype.__ks_cons.call(this, []);
+			this._predefined.__Array = Variable.createPredefinedClass("Array", this);
+			this._predefined.__Boolean = Variable.createPredefinedClass("Boolean", this);
+			this._predefined.__Class = Variable.createPredefinedClass("Class", this);
+			this._predefined.__Date = Variable.createPredefinedClass("Date", this);
+			this._predefined.__Error = Variable.createPredefinedClass("Error", this);
+			this._predefined.__Function = Variable.createPredefinedClass("Function", this);
+			this._predefined.__Number = Variable.createPredefinedClass("Number", this);
+			this._predefined.__Object = Variable.createPredefinedClass("Object", this);
+			this._predefined.__String = Variable.createPredefinedClass("String", this);
+			this._predefined.__RegExp = Variable.createPredefinedClass("RegExp", this);
+			this._predefined.__false = new Variable("false", true, true, this.reference("Boolean"));
+			this._predefined.__null = new Variable("null", true, true, Type.Null);
+			this._predefined.__true = new Variable("true", true, true, this.reference("Boolean"));
+			this._predefined.__Infinity = new Variable("Infinity", true, true, this.reference("Number"));
+			this._predefined.__Math = new Variable("Math", true, true, this.reference("Object"));
+			this._predefined.__NaN = new Variable("NaN", true, true, this.reference("Number"));
+			this._predefined.__Expression = Variable.createPredefinedClass("Expression", this);
+			this._predefined.__Identifier = Variable.createPredefinedClass("Identifier", this);
+		},
 		__ks_cons: function(args) {
-			Scope.prototype.__ks_cons.call(this, args);
-		},
-		__ks_func_addNative_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			if(args.length === 0) {
+				MacroScope.prototype.__ks_cons_0.apply(this);
 			}
-			if(name === void 0 || name === null) {
-				throw new TypeError("'name' is not nullable");
+			else {
+				throw new SyntaxError("wrong number of arguments");
 			}
-			else if(!KSType.isString(name)) {
-				throw new TypeError("'name' is not of type 'String'");
-			}
-			this._natives[name] = new Variable(name, true, false, Type.Any);
-		},
-		__ks_func_addNative_1: function(name, type) {
-			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
-			}
-			if(name === void 0 || name === null) {
-				throw new TypeError("'name' is not nullable");
-			}
-			else if(!KSType.isString(name)) {
-				throw new TypeError("'name' is not of type 'String'");
-			}
-			if(type === void 0 || type === null) {
-				throw new TypeError("'type' is not nullable");
-			}
-			else if(!KSType.isString(type)) {
-				throw new TypeError("'type' is not of type 'String'");
-			}
-			this._natives[name] = new Variable(name, true, false, this.reference(type));
-		},
-		addNative: function() {
-			if(arguments.length === 1) {
-				return MacroScope.prototype.__ks_func_addNative_0.apply(this, arguments);
-			}
-			else if(arguments.length === 2) {
-				return MacroScope.prototype.__ks_func_addNative_1.apply(this, arguments);
-			}
-			throw new SyntaxError("wrong number of arguments");
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -36938,29 +36987,30 @@ module.exports = function() {
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
-		__ks_func_getVariable_0: function(name) {
+		__ks_func_getVariable_0: function() {
 			if(arguments.length < 1) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
 			}
+			var __ks_i = -1;
+			var name = arguments[++__ks_i];
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
+			var __ks__;
+			var line = arguments.length > 1 && (__ks__ = arguments[++__ks_i]) !== void 0 && __ks__ !== null ? __ks__ : -1;
 			if(KSType.is(this._variables[name], Variable)) {
 				return this._variables[name];
 			}
-			else if(KSType.is(this._natives[name], Variable)) {
-				return this._natives[name];
+			else if(KSType.is(this._predefined["__" + name], Variable)) {
+				return this._predefined["__" + name];
 			}
 			else {
 				return null;
 			}
 		},
 		getVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length >= 1 && arguments.length <= 2) {
 				return MacroScope.prototype.__ks_func_getVariable_0.apply(this, arguments);
-			}
-			else if(Scope.prototype.getVariable) {
-				return Scope.prototype.getVariable.apply(this, arguments);
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
@@ -37058,7 +37108,7 @@ module.exports = function() {
 				return this.resolveReference(value.name());
 			}
 			else {
-				console.log(value);
+				console.info(value);
 				throw new NotImplementedException();
 			}
 		},
@@ -37258,15 +37308,16 @@ module.exports = function() {
 			}
 			if(KSType.isArray(this._macros[name])) {
 				var type = macro.type();
-				var na = true;
-				for(var index = 0, __ks_0 = this._macros[name].length, m; index < __ks_0 && na; ++index) {
+				var notAdded = true;
+				var found = false;
+				for(var index = 0, __ks_0 = this._macros[name].length, m; index < __ks_0 && notAdded; ++index) {
 					m = this._macros[name][index];
-					if(m.type().matchContentTo(type)) {
+					if(type.matchSignatureOf(m.type(), [])) {
 						this._macros[name].splice(index, 0, macro);
-						na = false;
+						notAdded = false;
 					}
 				}
-				if(na) {
+				if(notAdded) {
 					this._macros[name].push(macro);
 				}
 			}
@@ -37988,7 +38039,7 @@ module.exports = function() {
 				return this.resolveReference(value.name());
 			}
 			else {
-				console.log(value);
+				console.info(value);
 				throw new NotImplementedException();
 			}
 		},
@@ -40117,17 +40168,19 @@ module.exports = function() {
 						}
 					});
 					var ctrl = fragments.newControl();
-					for(var i = 0, __ks_0 = tree.length; i < __ks_0; ++i) {
-						item = tree[i];
+					for(var i = 0, __ks_0 = tree.length, __ks_item_1; i < __ks_0; ++i) {
+						__ks_item_1 = tree[i];
 						if(!ctrl.isFirstStep()) {
 							ctrl.step().code("else ");
 						}
-						ctrl.code("if(");
-						item.type[0].toTestFragments(ctrl, new Literal(false, node, node.scope(), "" + argName + "[" + index + "]"));
-						ctrl.code(")");
+						if(!__ks_item_1.type[0].isAny()) {
+							ctrl.code("if(");
+							__ks_item_1.type[0].toTestFragments(ctrl, new Literal(false, node, node.scope(), "" + argName + "[" + index + "]"));
+							ctrl.code(")");
+						}
 						ctrl.step();
-						if(item.methods.length === 1) {
-							if(!call(ctrl, item.methods[0], item.methods[0].index())) {
+						if(__ks_item_1.methods.length === 1) {
+							if(!call(ctrl, __ks_item_1.methods[0], __ks_item_1.methods[0].index())) {
 								ctrl.line("return");
 							}
 						}
@@ -41348,7 +41401,7 @@ module.exports = function() {
 			if(macro === void 0 || macro === null) {
 				throw new TypeError("'macro' is not nullable");
 			}
-			this._parent.exportMacro("" + this._name + "." + name, macro);
+			this._parent.exportMacro(this._name + "." + name, macro);
 		},
 		exportMacro: function() {
 			if(arguments.length === 2) {
@@ -41474,7 +41527,7 @@ module.exports = function() {
 				throw new TypeError("'macro' is not nullable");
 			}
 			this._scope.addMacro(name, macro);
-			this._parent.registerMacro("" + this._name + "." + name, macro);
+			this._parent.registerMacro(this._name + "." + name, macro);
 		},
 		registerMacro: function() {
 			if(arguments.length === 2) {
@@ -41859,10 +41912,10 @@ module.exports = function() {
 				}
 				ctrl.done();
 				if(this._extendsType.isSealedAlien()) {
-					clazz.newControl().code("__ks_init()").step().line("" + this._name + ".prototype.__ks_init_1.call(this)").done();
+					clazz.newControl().code("__ks_init()").step().line(this._name + ".prototype.__ks_init_1.call(this)").done();
 				}
 				else {
-					clazz.newControl().code("__ks_init()").step().line(this._extendsName + ".prototype.__ks_init.call(this)").line("" + this._name + ".prototype.__ks_init_1.call(this)").done();
+					clazz.newControl().code("__ks_init()").step().line(this._extendsName + ".prototype.__ks_init.call(this)").line(this._name + ".prototype.__ks_init_1.call(this)").done();
 				}
 			}
 			else if(this._extendsType.isSealedAlien()) {
@@ -43148,8 +43201,9 @@ module.exports = function() {
 				this._type = new ClassMethodType(__ks_arguments_1, this._data, this);
 				if(this._parent.isExtending()) {
 					var __ks_extends_1 = this._parent.extends().type();
-					var method, __ks_0;
-					if(KSType.isValue(KSType.isValue(__ks_0 = __ks_extends_1.getInstanceMethod(this._name, __ks_arguments_1)) ? __ks_0 : __ks_extends_1.getAsbtractMethod(this._name, __ks_arguments_1)) ? (method = (KSType.isValue(__ks_0 = __ks_0) ? __ks_0 : __ks_extends_1.getAsbtractMethod(this._name, __ks_arguments_1)), true) : false) {
+					var __ks_0;
+					var method = KSType.isValue(__ks_0 = __ks_extends_1.getInstanceMethod(this._name, __ks_arguments_1)) ? __ks_0 : __ks_extends_1.getAbstractMethod(this._name, this._type);
+					if(KSType.isValue(method)) {
 						if(KSType.isValue(this._data.type)) {
 							if(!this._type.returnType().isInstanceOf(method.returnType())) {
 								SyntaxException.throwInvalidMethodReturn(this._parent.name(), this._name, this);
@@ -44932,7 +44986,7 @@ module.exports = function() {
 						statement = new ExportWildcardSpecifier(declaration, this);
 					}
 					else {
-						console.log(declaration);
+						console.info(declaration);
 						throw new NotImplementedException(this);
 					}
 					statement.analyse();
@@ -45987,6 +46041,9 @@ module.exports = function() {
 				else if(variable.isImmutable()) {
 					ReferenceException.throwImmutable(this._data.index.name, this);
 				}
+				else {
+					this._bindingScope.replaceVariable(this._data.index.name, this._bindingScope.reference("Number"), this);
+				}
 				this._index = $compile.expression(this._data.index, this, this._bindingScope);
 				this._index.analyse();
 			}
@@ -46504,6 +46561,9 @@ module.exports = function() {
 				}
 				else if(keyVariable.isImmutable()) {
 					ReferenceException.throwImmutable(this._data.key.name, this);
+				}
+				else {
+					this._bindingScope.replaceVariable(this._data.key.name, this._bindingScope.reference("String"), this);
 				}
 				this._key = $compile.expression(this._data.key, this, this._bindingScope);
 				this._key.analyse();
@@ -49972,7 +50032,7 @@ module.exports = function() {
 							type = specifier.imported.type ? Type.fromAST(specifier.imported.type, this) : null;
 						}
 						else {
-							console.log(specifier.imported);
+							console.info(specifier.imported);
 							throw new NotImplementedException();
 						}
 						if(KSType.isValue(macros[__ks_name_1])) {
@@ -51406,38 +51466,31 @@ module.exports = function() {
 	var RequireOrImportDeclarator = Helper.class({
 		$name: "RequireOrImportDeclarator",
 		$extends: Importer,
+		__ks_init_1: function() {
+			this._printed = false;
+			this._requirements = [];
+		},
 		__ks_init: function() {
 			Importer.prototype.__ks_init.call(this);
+			RequireOrImportDeclarator.prototype.__ks_init_1.call(this);
 		},
 		__ks_cons: function(args) {
 			Importer.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_prepare_0: function() {
 			Importer.prototype.prepare.apply(this, []);
-			this._requirements = [];
 			var module = this.module();
 			if(this._count !== 0) {
-				if(this._parent.includePath() !== null) {
-					var variable;
-					for(var __ks_0 in this._variables) {
-						var alias = this._variables[__ks_0];
-						var __ks_1;
-						if(KSType.isValue(__ks_1 = this._scope.getVariable(alias)) ? (variable = __ks_1, true) : false) {
-						}
-						else {
-							var requirement = new ROIDynamicRequirement(variable, this);
-							this._requirements.push(requirement);
-							module.addRequirement(requirement);
-						}
-					}
-				}
-				else {
+				if(this._parent.includePath() === null) {
 					for(var __ks_0 in this._variables) {
 						var alias = this._variables[__ks_0];
 						var requirement = new ROIDynamicRequirement(this._scope.getVariable(alias), this);
 						this._requirements.push(requirement);
 						module.addRequirement(requirement);
 					}
+				}
+				else {
+					throw new NotImplementedException(this);
 				}
 			}
 			if(this._alias !== null) {
@@ -51560,8 +51613,6 @@ module.exports = function() {
 			throw new SyntaxError("wrong number of arguments");
 		}
 	});
-	RequireOrImportDeclarator._printed = false;
-	RequireOrImportDeclarator._requirements = [];
 	var Requirement = Helper.class({
 		$name: "Requirement",
 		$create: function() {
@@ -63481,7 +63532,7 @@ module.exports = function() {
 					declarator = new VariableBindingDeclarator(data, this);
 				}
 				else {
-					console.log(data);
+					console.info(data);
 					throw new NotImplementedException(this);
 				}
 				declarator.analyse();
@@ -66203,12 +66254,14 @@ module.exports = function() {
 				this._defaultValue.prepare();
 				min = 0;
 			}
+			var name = (!this._anonymous && KSType.is(this._name, IdentifierLiteral)) ? this._name.name() : null;
+			var __ks_default_1 = this._hasDefaultValue ? 1 : 0;
 			if(type !== null) {
-				this._type = new ParameterType(this._scope, type, min, max);
+				this._type = new ParameterType(this._scope, name, type, min, max, __ks_default_1);
 				this._variable.setDeclaredType(this._rest ? Type.arrayOf(type, this._scope) : type).flagDefinitive();
 			}
 			else {
-				this._type = new ParameterType(this._scope, Type.Any, min, max);
+				this._type = new ParameterType(this._scope, name, Type.Any, min, max, __ks_default_1);
 				this._variable.setDeclaredType(this._rest ? Type.arrayOf(Type.Any, this._scope) : Type.Any);
 			}
 		},
@@ -68985,7 +69038,7 @@ module.exports = function() {
 				if(KSType.isValue(variable)) {
 					var type = variable.getRealType();
 					if(type.isClass()) {
-						if((!this._left.type().isAny() && !this._left.type().matchContentTo(type)) || this._left.type().isNull()) {
+						if((!this._left.type().isAny() && !type.matchContentOf(this._left.type())) || this._left.type().isNull()) {
 							TypeException.throwInvalidTypeChecking(this);
 						}
 					}
@@ -69126,7 +69179,7 @@ module.exports = function() {
 				if(KSType.isValue(__ks_0 = this._scope.getVariable(this._data.right.typeName.name)) ? (variable = __ks_0, true) : false) {
 					var type = variable.getRealType();
 					if(type.isClass()) {
-						if(!this._left.type().isAny() && type.matchContentTo(this._left.type())) {
+						if(!this._left.type().isAny() && (!type.matchContentOf(this._left.type()) || type.matchClassName(this._left.type()))) {
 							TypeException.throwInvalidTypeChecking(this);
 						}
 					}
@@ -71513,8 +71566,6 @@ module.exports = function() {
 			}
 			AbstractNode.prototype.__ks_cons.call(this, [data, parent, new MacroScope()]);
 			this._name = name;
-			this._scope.addNative("Identifier");
-			this._scope.addNative("Expression");
 			this._type = MacroType.fromAST(data, this);
 			this._line = (KSType.isValue(data.start) && KSType.isValue(data.start.line)) ? data.start.line : -1;
 			var builder = new Generator.KSWriter({
@@ -72003,7 +72054,7 @@ module.exports = function() {
 			}
 			return FunctionType.prototype.export.apply(this, arguments);
 		},
-		__ks_func_matchContentTo_0: function(that) {
+		__ks_func_matchContentOf_0: function(that) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
 			}
@@ -72020,7 +72071,7 @@ module.exports = function() {
 			if(this._parameters.length === params.length) {
 				for(var i = 0, __ks_0 = this._parameters.length, parameter; i < __ks_0; ++i) {
 					parameter = this._parameters[i];
-					if(!parameter.matchContentTo(params[i])) {
+					if(!params[i].matchContentOf(parameter)) {
 						return false;
 					}
 				}
@@ -72033,11 +72084,11 @@ module.exports = function() {
 			}
 			return true;
 		},
-		matchContentTo: function() {
+		matchContentOf: function() {
 			if(arguments.length === 1) {
-				return MacroType.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
+				return MacroType.prototype.__ks_func_matchContentOf_0.apply(this, arguments);
 			}
-			return FunctionType.prototype.matchContentTo.apply(this, arguments);
+			return FunctionType.prototype.matchContentOf.apply(this, arguments);
 		}
 	});
 	var MacroParameterType = Helper.class({
@@ -72070,8 +72121,13 @@ module.exports = function() {
 					throw new TypeError("'node' is not of type 'AbstractNode'");
 				}
 				var type = Type.fromAST(data.type, scope, false, node);
-				var min = KSType.isValue(data.defaultValue) ? 0 : 1;
+				var __ks_default_1 = 0;
+				var min = 1;
 				var max = 1;
+				if(KSType.isValue(data.defaultValue)) {
+					__ks_default_1 = 1;
+					min = 0;
+				}
 				var nf = true;
 				for(var __ks_0 = 0, __ks_1 = data.modifiers.length, modifier; __ks_0 < __ks_1 && nf; ++__ks_0) {
 					modifier = data.modifiers[__ks_0];
@@ -72087,7 +72143,11 @@ module.exports = function() {
 						nf = true;
 					}
 				}
-				return new MacroParameterType(scope, type, min, max);
+				var name = null;
+				if(KSType.isValue(data.name) ? data.name.kind === NodeKind.Identifier : false) {
+					name = data.name.name;
+				}
+				return new MacroParameterType(scope, name, type, min, max, __ks_default_1);
 			},
 			fromAST: function() {
 				if(arguments.length === 4) {
@@ -72103,7 +72163,7 @@ module.exports = function() {
 			ParameterType.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_clone_0: function() {
-			return new MacroParameterType(this._scope, this._type, this._min, this._max);
+			return new MacroParameterType(this._scope, this._name, this._type, this._min, this._max, this._default);
 		},
 		clone: function() {
 			if(arguments.length === 0) {
@@ -72111,7 +72171,7 @@ module.exports = function() {
 			}
 			return ParameterType.prototype.clone.apply(this, arguments);
 		},
-		__ks_func_matchContentTo_0: function(value) {
+		__ks_func_matchArgument_0: function(value) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
 			}
@@ -72142,11 +72202,11 @@ module.exports = function() {
 			}
 			return false;
 		},
-		matchContentTo: function() {
+		matchArgument: function() {
 			if(arguments.length === 1) {
-				return MacroParameterType.prototype.__ks_func_matchContentTo_0.apply(this, arguments);
+				return MacroParameterType.prototype.__ks_func_matchArgument_0.apply(this, arguments);
 			}
-			return ParameterType.prototype.matchContentTo.apply(this, arguments);
+			return ParameterType.prototype.matchArgument.apply(this, arguments);
 		}
 	});
 	var CallMacroStatement = Helper.class({
