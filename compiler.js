@@ -11289,7 +11289,7 @@ module.exports = function() {
 					}
 				}
 				var name;
-				if(this.match(Token.AT, Token.IDENTIFIER, Token.LEFT_SQUARE, Token.STRING, Token.TEMPLATE_BEGIN) === Token.IDENTIFIER) {
+				if(this.match(Token.AT, Token.DOT_DOT_DOT, Token.IDENTIFIER, Token.LEFT_SQUARE, Token.STRING, Token.TEMPLATE_BEGIN) === Token.IDENTIFIER) {
 					name = this.reqIdentifier();
 				}
 				else if(this._token === Token.LEFT_SQUARE) {
@@ -11304,6 +11304,11 @@ module.exports = function() {
 				else if(this._token === Token.AT) {
 					name = this.reqThisExpression(this.yes());
 					return this.yep(AST.ShorthandProperty(attributes, name, KSType.isValue(first) ? first : name, name));
+				}
+				else if(this._token === Token.DOT_DOT_DOT) {
+					var operator = this.yep(AST.UnaryOperator(UnaryOperatorKind.Spread, this.yes()));
+					var operand = this.reqPrefixedOperand(ExpressionMode.Default);
+					return this.yep(AST.UnaryExpression(operator, operand, operator, operand));
 				}
 				else {
 					this.throw(["Identifier", "String", "Template", "Computed Property Name"]);
@@ -64267,6 +64272,7 @@ module.exports = function() {
 			this._properties = [];
 			this._reusable = false;
 			this._reuseName = null;
+			this._spread = false;
 		},
 		__ks_init: function() {
 			Expression.prototype.__ks_init.call(this);
@@ -64279,7 +64285,13 @@ module.exports = function() {
 			var ref;
 			for(var __ks_0 = 0, __ks_1 = this._data.properties.length, property; __ks_0 < __ks_1; ++__ks_0) {
 				property = this._data.properties[__ks_0];
-				if((property.name.kind === NodeKind.Identifier) || (property.name.kind === NodeKind.Literal)) {
+				if(property.kind === NodeKind.UnaryExpression) {
+					property = new ObjectSpreadMember(property, this);
+					property.analyse();
+					this._spread = true;
+					this.module().flag("Helper");
+				}
+				else if((property.name.kind === NodeKind.Identifier) || (property.name.kind === NodeKind.Literal)) {
 					property = new ObjectLiteralMember(property, this);
 					property.analyse();
 					if(this._names[property.reference()] === true) {
@@ -64290,6 +64302,10 @@ module.exports = function() {
 				else if(property.name.kind === NodeKind.ThisExpression) {
 					property = new ObjectThisMember(property, this);
 					property.analyse();
+					if(this._names[property.reference()] === true) {
+						SyntaxException.throwDuplicateKey(property);
+					}
+					this._names[property.reference()] = true;
 				}
 				else {
 					property = new ObjectComputedMember(property, this);
@@ -64444,6 +64460,37 @@ module.exports = function() {
 			}
 			if(this._reusable) {
 				fragments.code(this._reuseName);
+			}
+			else if(this._spread) {
+				fragments.code($runtime.helper(this), ".concatObject(");
+				var opened = false;
+				for(var index = 0, __ks_0 = this._properties.length, property; index < __ks_0; ++index) {
+					property = this._properties[index];
+					if(KSType.is(property, ObjectSpreadMember)) {
+						if(opened) {
+							fragments.code("}, ");
+							opened = false;
+						}
+						else if(index !== 0) {
+							fragments.code($comma);
+						}
+						fragments.compile(property);
+					}
+					else {
+						if(index !== 0) {
+							fragments.code($comma);
+						}
+						if(!opened) {
+							fragments.code("{");
+							opened = true;
+						}
+						fragments.compile(property);
+					}
+				}
+				if(opened) {
+					fragments.code("}");
+				}
+				fragments.code(")");
 			}
 			else if(this._computed) {
 				fragments.code("(", this._reuseName, " = {}", $comma);
@@ -64821,6 +64868,7 @@ module.exports = function() {
 			this._name = new Literal(this._data.name.name, this, this._scope, this._data.name.name.name);
 			this._value = $compile.expression(this._data.name, this);
 			this._value.analyse();
+			this.reference("." + this._name.value());
 		},
 		analyse: function() {
 			if(arguments.length === 0) {
@@ -64855,6 +64903,27 @@ module.exports = function() {
 			}
 			throw new SyntaxError("wrong number of arguments");
 		},
+		__ks_func_toComputedFragments_0: function(fragments, name) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			fragments.code(name).code(this._reference).code($equals).compile(this._value).code($comma);
+		},
+		toComputedFragments: function() {
+			if(arguments.length === 2) {
+				return ObjectThisMember.prototype.__ks_func_toComputedFragments_0.apply(this, arguments);
+			}
+			else if(Expression.prototype.toComputedFragments) {
+				return Expression.prototype.toComputedFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
@@ -64870,6 +64939,75 @@ module.exports = function() {
 		toFragments: function() {
 			if(arguments.length === 2) {
 				return ObjectThisMember.prototype.__ks_func_toFragments_0.apply(this, arguments);
+			}
+			else if(Expression.prototype.toFragments) {
+				return Expression.prototype.toFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		}
+	});
+	var ObjectSpreadMember = Helper.class({
+		$name: "ObjectSpreadMember",
+		$extends: Expression,
+		__ks_init: function() {
+			Expression.prototype.__ks_init.call(this);
+		},
+		__ks_cons: function(args) {
+			Expression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_analyse_0: function() {
+			this._options = Attribute.configure(this._data, this._options, true, AttributeTarget.Property);
+			this._value = $compile.expression(this._data.argument, this);
+			this._value.analyse();
+		},
+		analyse: function() {
+			if(arguments.length === 0) {
+				return ObjectSpreadMember.prototype.__ks_func_analyse_0.apply(this);
+			}
+			else if(Expression.prototype.analyse) {
+				return Expression.prototype.analyse.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_prepare_0: function() {
+			this._value.prepare();
+		},
+		prepare: function() {
+			if(arguments.length === 0) {
+				return ObjectSpreadMember.prototype.__ks_func_prepare_0.apply(this);
+			}
+			else if(Expression.prototype.prepare) {
+				return Expression.prototype.prepare.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_translate_0: function() {
+			this._value.translate();
+		},
+		translate: function() {
+			if(arguments.length === 0) {
+				return ObjectSpreadMember.prototype.__ks_func_translate_0.apply(this);
+			}
+			else if(Expression.prototype.translate) {
+				return Expression.prototype.translate.apply(this, arguments);
+			}
+			throw new SyntaxError("wrong number of arguments");
+		},
+		__ks_func_toFragments_0: function(fragments, mode) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(mode === void 0 || mode === null) {
+				throw new TypeError("'mode' is not nullable");
+			}
+			fragments.compile(this._value);
+		},
+		toFragments: function() {
+			if(arguments.length === 2) {
+				return ObjectSpreadMember.prototype.__ks_func_toFragments_0.apply(this, arguments);
 			}
 			else if(Expression.prototype.toFragments) {
 				return Expression.prototype.toFragments.apply(this, arguments);
