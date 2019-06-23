@@ -25504,6 +25504,9 @@ module.exports = function() {
 					return this._type.matchContentOf(that.type());
 				}
 			}
+			else if(this.isAlias()) {
+				return this.discardAlias().matchContentOf(that);
+			}
 			else if(KSType.is(that, UnionType)) {
 				for(var __ks_0 = 0, __ks_1 = that.types(), __ks_2 = __ks_1.length, type; __ks_0 < __ks_2; ++__ks_0) {
 					type = __ks_1[__ks_0];
