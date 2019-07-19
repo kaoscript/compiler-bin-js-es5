@@ -49198,12 +49198,12 @@ module.exports = function() {
 			this._whenTrueExpression = $compile.block(this._data.whenTrue, this, this._whenTrueScope);
 			this._whenTrueExpression.analyse();
 			if(KSType.isValue(this._data.whenFalse)) {
+				this._whenFalseScope = this.newScope(this._scope, ScopeType.InlineBlock);
 				if(this._data.whenFalse.kind === NodeKind.IfStatement) {
-					this._whenFalseExpression = $compile.statement(this._data.whenFalse, this);
+					this._whenFalseExpression = $compile.statement(this._data.whenFalse, this, this._whenFalseScope);
 					this._whenFalseExpression.analyse();
 				}
 				else {
-					this._whenFalseScope = this.newScope(this._scope, ScopeType.InlineBlock);
 					this._whenFalseExpression = $compile.block(this._data.whenFalse, this, this._whenFalseScope);
 					this._whenFalseExpression.analyse();
 				}
@@ -49234,22 +49234,38 @@ module.exports = function() {
 			}
 			this.assignTempVariables(this._bindingScope);
 			this._whenTrueExpression.prepare();
-			if(this._whenFalseExpression !== null) {
+			if(this._whenFalseExpression === null) {
+				if(this._whenTrueExpression.isExit()) {
+					if(!this._declared) {
+						var __ks_0 = this._condition.reduceContraryTypes();
+						for(var name in __ks_0) {
+							var type = __ks_0[name];
+							this._scope.replaceVariable(name, type, this);
+						}
+					}
+				}
+			}
+			else {
+				if(!this._declared) {
+					var __ks_0 = this._condition.reduceContraryTypes();
+					for(var name in __ks_0) {
+						var type = __ks_0[name];
+						this._whenFalseScope.replaceVariable(name, type, this);
+					}
+				}
 				this._whenFalseExpression.prepare();
-				if(this._whenFalseScope !== null) {
-					var trueVariables = this._whenTrueScope.listReplacedVariables();
-					var falseVariables = this._whenFalseScope.listReplacedVariables();
-					var __ks_0;
-					for(var name in trueVariables) {
-						if(KSType.isValue(falseVariables[name])) {
-							var trueType = trueVariables[name].getRealType();
-							var falseType = falseVariables[name].getRealType();
-							if(trueType.equals(falseType)) {
-								this._scope.replaceVariable(name, trueType, this);
-							}
-							else {
-								this._scope.replaceVariable(name, Type.union(this._scope, trueType, falseType), this);
-							}
+				var trueVariables = this._whenTrueScope.listReplacedVariables();
+				var falseVariables = this._whenFalseScope.listReplacedVariables();
+				var __ks_0;
+				for(var name in trueVariables) {
+					if(KSType.isValue(falseVariables[name])) {
+						var trueType = trueVariables[name].getRealType();
+						var falseType = falseVariables[name].getRealType();
+						if(trueType.equals(falseType)) {
+							this._scope.replaceVariable(name, trueType, this);
+						}
+						else {
+							this._scope.replaceVariable(name, Type.union(this._scope, trueType, falseType), this);
 						}
 					}
 				}
@@ -56521,6 +56537,13 @@ module.exports = function() {
 			this._condition.prepare();
 			this.assignTempVariables(this._scope);
 			this._whenFalseExpression.prepare();
+			if(this._whenFalseExpression.isExit()) {
+				var __ks_0 = this._condition.reduceTypes();
+				for(var name in __ks_0) {
+					var type = __ks_0[name];
+					this._scope.replaceVariable(name, type, this);
+				}
+			}
 		},
 		prepare: function() {
 			if(arguments.length === 0) {
@@ -58053,6 +58076,18 @@ module.exports = function() {
 			}
 			else if(AbstractNode.prototype.reduceTypes) {
 				return AbstractNode.prototype.reduceTypes.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_reduceContraryTypes_0: function() {
+			return {};
+		},
+		reduceContraryTypes: function() {
+			if(arguments.length === 0) {
+				return Expression.prototype.__ks_func_reduceContraryTypes_0.apply(this);
+			}
+			else if(AbstractNode.prototype.reduceContraryTypes) {
+				return AbstractNode.prototype.reduceContraryTypes.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
@@ -63835,6 +63870,34 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_reduceTypes_0: function() {
+			if(this._operators.length === 1) {
+				return this._operators[0].reduceTypes();
+			}
+			else {
+				return {};
+			}
+		},
+		reduceTypes: function() {
+			if(arguments.length === 0) {
+				return ComparisonExpression.prototype.__ks_func_reduceTypes_0.apply(this);
+			}
+			return Expression.prototype.reduceTypes.apply(this, arguments);
+		},
+		__ks_func_reduceContraryTypes_0: function() {
+			if(this._operators.length === 1) {
+				return this._operators[0].reduceContraryTypes();
+			}
+			else {
+				return {};
+			}
+		},
+		reduceContraryTypes: function() {
+			if(arguments.length === 0) {
+				return ComparisonExpression.prototype.__ks_func_reduceContraryTypes_0.apply(this);
+			}
+			return Expression.prototype.reduceContraryTypes.apply(this, arguments);
+		},
 		__ks_func_releaseReusable_0: function() {
 			if(this._composite) {
 				this._scope.releaseTempName(this._reuseName);
@@ -63975,6 +64038,24 @@ module.exports = function() {
 				return ComparisonOperator.prototype.__ks_func_isComputed_0.apply(this);
 			}
 			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_reduceTypes_0: function() {
+			return {};
+		},
+		reduceTypes: function() {
+			if(arguments.length === 0) {
+				return ComparisonOperator.prototype.__ks_func_reduceTypes_0.apply(this);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_reduceContraryTypes_0: function() {
+			return {};
+		},
+		reduceContraryTypes: function() {
+			if(arguments.length === 0) {
+				return ComparisonOperator.prototype.__ks_func_reduceContraryTypes_0.apply(this);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		}
 	});
 	var EqualityOperator = Helper.class({
@@ -64030,6 +64111,24 @@ module.exports = function() {
 				return EqualityOperator.prototype.__ks_func_isComputed_0.apply(this);
 			}
 			return ComparisonOperator.prototype.isComputed.apply(this, arguments);
+		},
+		__ks_func_reduceContraryTypes_0: function() {
+			var variables = {};
+			if(KSType.is(this._left, IdentifierLiteral) && KSType.is(this._right, IdentifierLiteral)) {
+				if(this._left.value() === "null") {
+					variables[this._right.value()] = this._right.type().setNullable(false);
+				}
+				else if(this._right.value() === "null") {
+					variables[this._left.value()] = this._left.type().setNullable(false);
+				}
+			}
+			return variables;
+		},
+		reduceContraryTypes: function() {
+			if(arguments.length === 0) {
+				return EqualityOperator.prototype.__ks_func_reduceContraryTypes_0.apply(this);
+			}
+			return ComparisonOperator.prototype.reduceContraryTypes.apply(this, arguments);
 		},
 		__ks_func_toOperatorFragments_0: function(fragments, reuseName, leftReusable, rightReusable) {
 			if(arguments.length < 4) {
@@ -64102,6 +64201,24 @@ module.exports = function() {
 		},
 		__ks_cons: function(args) {
 			EqualityOperator.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_reduceTypes_0: function() {
+			return EqualityOperator.prototype.reduceContraryTypes.apply(this, []);
+		},
+		reduceTypes: function() {
+			if(arguments.length === 0) {
+				return InequalityOperator.prototype.__ks_func_reduceTypes_0.apply(this);
+			}
+			return EqualityOperator.prototype.reduceTypes.apply(this, arguments);
+		},
+		__ks_func_reduceContraryTypes_0: function() {
+			return EqualityOperator.prototype.reduceTypes.apply(this, []);
+		},
+		reduceContraryTypes: function() {
+			if(arguments.length === 0) {
+				return InequalityOperator.prototype.__ks_func_reduceContraryTypes_0.apply(this);
+			}
+			return EqualityOperator.prototype.reduceContraryTypes.apply(this, arguments);
 		},
 		__ks_func_toOperatorFragments_0: function(fragments, reuseName, leftReusable, rightReusable) {
 			if(arguments.length < 4) {
@@ -73922,6 +74039,24 @@ module.exports = function() {
 		},
 		__ks_cons: function(args) {
 			UnaryOperatorExpression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_reduceTypes_0: function() {
+			return this._argument.reduceContraryTypes();
+		},
+		reduceTypes: function() {
+			if(arguments.length === 0) {
+				return UnaryOperatorNegation.prototype.__ks_func_reduceTypes_0.apply(this);
+			}
+			return UnaryOperatorExpression.prototype.reduceTypes.apply(this, arguments);
+		},
+		__ks_func_reduceContraryTypes_0: function() {
+			return this._argument.reduceTypes();
+		},
+		reduceContraryTypes: function() {
+			if(arguments.length === 0) {
+				return UnaryOperatorNegation.prototype.__ks_func_reduceContraryTypes_0.apply(this);
+			}
+			return UnaryOperatorExpression.prototype.reduceContraryTypes.apply(this, arguments);
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
