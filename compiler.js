@@ -77164,6 +77164,17 @@ module.exports = function() {
 							mapMethod(method, group.n, parameters);
 						}
 					}
+					var length = group.methods.length;
+					for(var name in parameters) {
+						var parameter = parameters[name];
+						for(var __ks_name_1 in parameter.types) {
+							var type = parameter.types[__ks_name_1];
+							if(type.methods.length === length) {
+								parameter.weight -= type.weight;
+								delete parameter[__ks_name_1];
+							}
+						}
+					}
 					var sortedParameters = Helper.mapObject(parameters, function(__ks_0, value) {
 						return value;
 					}).sort(function(a, b) {
