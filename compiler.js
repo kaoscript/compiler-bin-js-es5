@@ -59,16 +59,17 @@ module.exports = function() {
 		Abstract: 1,
 		Async: 2,
 		AutoEvaluate: 3,
-		Override: 4,
-		Private: 5,
-		Protected: 6,
-		Public: 7,
-		Required: 8,
-		Rest: 9,
-		Sealed: 10,
-		SetterAlias: 11,
-		Static: 12,
-		ThisAlias: 13
+		Computed: 4,
+		Override: 5,
+		Private: 6,
+		Protected: 7,
+		Public: 8,
+		Required: 9,
+		Rest: 10,
+		Sealed: 11,
+		SetterAlias: 12,
+		Static: 13,
+		ThisAlias: 14
 	};
 	var NodeKind = {
 		AccessorDeclaration: 1,
@@ -2012,12 +2013,12 @@ module.exports = function() {
 					})
 				}, first, last);
 			}
-			function ImportArgument(require, name, value) {
-				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+			function ImportArgument(modifiers, name, value, first, last) {
+				if(arguments.length < 5) {
+					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
 				}
-				if(require === void 0) {
-					require = null;
+				if(modifiers === void 0 || modifiers === null) {
+					throw new TypeError("'modifiers' is not nullable");
 				}
 				if(name === void 0) {
 					name = null;
@@ -2025,16 +2026,27 @@ module.exports = function() {
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
 				}
-				var node = location({
-					kind: NodeKind.ImportArgument,
-					name: null,
-					value: value.value,
-					required: require !== null
-				}, KSType.isValue(require) ? require : KSType.isValue(name) ? name : value, KSType.isValue(name) ? name : value);
-				if(name !== null) {
-					node.name = name.value;
+				if(first === void 0 || first === null) {
+					throw new TypeError("'first' is not nullable");
 				}
-				return node;
+				if(last === void 0 || last === null) {
+					throw new TypeError("'last' is not nullable");
+				}
+				if(name === null) {
+					return location({
+						kind: NodeKind.ImportArgument,
+						modifiers: modifiers,
+						value: value.value
+					}, first, last);
+				}
+				else {
+					return location({
+						kind: NodeKind.ImportArgument,
+						modifiers: modifiers,
+						name: name.value,
+						value: value.value
+					}, first, last);
+				}
 			}
 			function ImportDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
@@ -9153,7 +9165,7 @@ module.exports = function() {
 				}
 				else {
 					if(((mode & DestructuringMode.COMPUTED) !== 0) && this.test(Token.LEFT_SQUARE)) {
-						var square = this.yes();
+						var __ks_first_1 = this.yes();
 						if(((mode & DestructuringMode.THIS_ALIAS) !== 0) && this.test(Token.AT)) {
 							modifiers.push(AST.Modifier(ModifierKind.ThisAlias, this.yes()));
 						}
@@ -9161,8 +9173,7 @@ module.exports = function() {
 						if(!this.test(Token.RIGHT_SQUARE)) {
 							this.throw("]");
 						}
-						name.value.computed = true;
-						this.relocate(name, square, this.yes());
+						modifiers.push(AST.Modifier(ModifierKind.Computed, __ks_first_1, this.yes()));
 					}
 					else {
 						if(((mode & DestructuringMode.THIS_ALIAS) !== 0) && this.test(Token.AT)) {
@@ -10546,33 +10557,37 @@ module.exports = function() {
 				if(this.test(Token.LEFT_ROUND)) {
 					this.commit();
 					__ks_arguments_1 = [];
-					var argument, require;
+					var name, modifiers;
 					while(this.until(Token.RIGHT_ROUND)) {
-						argument = this.reqExpression(ExpressionMode.Default);
-						if(argument.value.kind === NodeKind.Identifier) {
-							if((argument.value.name === "require") && !this.test(Token.COLON, Token.COMMA, Token.RIGHT_ROUND)) {
-								require = argument;
-								argument = this.reqIdentifier();
+						name = this.reqExpression(ExpressionMode.Default);
+						modifiers = [];
+						if(name.value.kind === NodeKind.Identifier) {
+							if((name.value.name === "require") && !this.test(Token.COLON, Token.COMMA, Token.RIGHT_ROUND)) {
+								var first = name;
+								modifiers.push(AST.Modifier(ModifierKind.Required, name));
+								name = this.reqIdentifier();
 								if(this.test(Token.COLON)) {
 									this.commit();
-									__ks_arguments_1.push(AST.ImportArgument(require, argument, this.reqIdentifier()));
+									var value = this.reqIdentifier();
+									__ks_arguments_1.push(AST.ImportArgument(modifiers, name, value, first, value));
 								}
 								else {
-									__ks_arguments_1.push(AST.ImportArgument(require, null, argument));
+									__ks_arguments_1.push(AST.ImportArgument(modifiers, null, name, first, name));
 								}
 							}
 							else {
 								if(this.test(Token.COLON)) {
 									this.commit();
-									__ks_arguments_1.push(AST.ImportArgument(null, argument, this.reqExpression(ExpressionMode.Default)));
+									var value = this.reqExpression(ExpressionMode.Default);
+									__ks_arguments_1.push(AST.ImportArgument(modifiers, name, value, name, value));
 								}
 								else {
-									__ks_arguments_1.push(AST.ImportArgument(null, null, argument));
+									__ks_arguments_1.push(AST.ImportArgument(modifiers, null, name, name, name));
 								}
 							}
 						}
 						else {
-							__ks_arguments_1.push(AST.ImportArgument(null, null, argument));
+							__ks_arguments_1.push(AST.ImportArgument(modifiers, null, name, name, name));
 						}
 						if(this.test(Token.COMMA)) {
 							this.commit();
@@ -20447,30 +20462,30 @@ module.exports = function() {
 			toStatement(data, writer);
 			return writer.toSource();
 		}
-		function toAttribute(data, global, writer) {
+		function toAttribute(data, inner, writer) {
 			if(arguments.length < 3) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
 			}
-			if(global === void 0 || global === null) {
-				throw new TypeError("'global' is not nullable");
+			if(inner === void 0 || inner === null) {
+				throw new TypeError("'inner' is not nullable");
 			}
 			if(writer === void 0 || writer === null) {
 				throw new TypeError("'writer' is not nullable");
 			}
-			return writer.code(global ? "#![" : "#[").expression(data.declaration).code("]");
+			return writer.code(inner ? "#![" : "#[").expression(data.declaration).code("]");
 		}
-		function toAttributes(data, global, writer) {
+		function toAttributes(data, inner, writer) {
 			if(arguments.length < 3) {
 				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
 			}
-			if(global === void 0 || global === null) {
-				throw new TypeError("'global' is not nullable");
+			if(inner === void 0 || inner === null) {
+				throw new TypeError("'inner' is not nullable");
 			}
 			if(writer === void 0 || writer === null) {
 				throw new TypeError("'writer' is not nullable");
@@ -20478,9 +20493,9 @@ module.exports = function() {
 			if(KSType.isValue(data.attributes) ? data.attributes.length > 0 : false) {
 				for(var __ks_0 = 0, __ks_1 = data.attributes.length, attribute; __ks_0 < __ks_1; ++__ks_0) {
 					attribute = data.attributes[__ks_0];
-					toAttribute(attribute, global, writer.newLine()).done();
+					toAttribute(attribute, inner, writer.newLine()).done();
 				}
-				if(global) {
+				if(inner) {
 					writer.newLine().done();
 				}
 			}
@@ -20573,20 +20588,52 @@ module.exports = function() {
 				writer.wrap(data.right);
 			}
 			else if(__ks_0 === NodeKind.BindingElement) {
-				if(data.spread) {
-					writer.code("...");
+				var computed = false;
+				var thisAlias = false;
+				for(var __ks_1 = 0, __ks_2 = data.modifiers.length, modifier; __ks_1 < __ks_2; ++__ks_1) {
+					modifier = data.modifiers[__ks_1];
+					if(modifier.kind === ModifierKind.Computed) {
+						computed = true;
+					}
+					else if(modifier.kind === ModifierKind.Rest) {
+						writer.code("...");
+					}
+					else if(modifier.kind === ModifierKind.ThisAlias) {
+						thisAlias = true;
+					}
 				}
-				else if(KSType.isValue(data.alias)) {
-					if(data.alias.computed) {
-						writer.code("[").expression(data.alias).code("]: ");
+				if(KSType.isValue(data.name)) {
+					if(KSType.isValue(data.alias)) {
+						if(computed) {
+							writer.code("[").expression(data.name).code("]");
+						}
+						else {
+							writer.expression(data.name);
+						}
+						writer.code(": ");
+						if(thisAlias) {
+							writer.code("@");
+						}
+						writer.expression(data.alias);
 					}
 					else {
-						writer.expression(data.alias).code(": ");
+						if(computed) {
+							writer.code("[");
+						}
+						if(thisAlias) {
+							writer.code("@");
+						}
+						writer.expression(data.name);
+						if(computed) {
+							writer.code("]");
+						}
+						if(KSType.isValue(data.type)) {
+							writer.code(": ").expression(data.type);
+						}
 					}
-				}
-				writer.expression(data.name);
-				if(KSType.isValue(data.defaultValue)) {
-					writer.code(" = ").expression(data.defaultValue);
+					if(KSType.isValue(data.defaultValue)) {
+						writer.code(" = ").expression(data.defaultValue);
+					}
 				}
 			}
 			else if(__ks_0 === NodeKind.Block) {
@@ -20756,15 +20803,16 @@ module.exports = function() {
 				}
 			}
 			else if(__ks_0 === NodeKind.ImportArgument) {
-				if(data.seeped) {
-					writer.code("seep ");
+				for(var __ks_1 = 0, __ks_2 = data.modifiers.length, modifier; __ks_1 < __ks_2; ++__ks_1) {
+					modifier = data.modifiers[__ks_1];
+					if(modifier.kind === ModifierKind.Required) {
+						writer.code("require ");
+					}
 				}
-				if(data.imported.start.column === data.local.start.column) {
-					writer.expression(data.local);
+				if(KSType.isValue(data.name)) {
+					writer.expression(data.name).code(": ");
 				}
-				else {
-					writer.expression(data.imported).code(": ").expression(data.local);
-				}
+				writer.expression(data.value);
 			}
 			else if(__ks_0 === NodeKind.ImportDeclarator) {
 				writer.expression(data.source);
@@ -20874,6 +20922,7 @@ module.exports = function() {
 			}
 			else if(__ks_0 === NodeKind.ObjectExpression) {
 				var o = writer.newObject();
+				toAttributes(data, true, o);
 				o.pushMode(KSWriterMode.Property);
 				for(var __ks_1 = 0, __ks_2 = data.properties.length, property; __ks_1 < __ks_2; ++__ks_1) {
 					property = data.properties[__ks_1];
@@ -20946,7 +20995,10 @@ module.exports = function() {
 					for(var __ks_1 = 0, __ks_2 = data.modifiers.length, modifier; __ks_1 < __ks_2; ++__ks_1) {
 						modifier = data.modifiers[__ks_1];
 						var __ks_3 = modifier.kind;
-						if(__ks_3 === ModifierKind.SetterAlias) {
+						if(__ks_3 === ModifierKind.Required) {
+							writer.code("!");
+						}
+						else if(__ks_3 === ModifierKind.SetterAlias) {
 							writer.code("()");
 						}
 					}
@@ -21065,6 +21117,17 @@ module.exports = function() {
 					}
 					o.popMode();
 					o.done();
+				}
+				else if(KSType.isValue(data.elements)) {
+					writer.code("[");
+					for(var index = 0, __ks_1 = data.elements.length, element; index < __ks_1; ++index) {
+						element = data.elements[index];
+						if(index !== 0) {
+							writer.code(", ");
+						}
+						writer.expression(element);
+					}
+					writer.code("]");
 				}
 				else {
 					writer.expression(data.typeName);
@@ -21200,6 +21263,32 @@ module.exports = function() {
 					}
 					writer.expression(__ks_throw_1);
 				}
+			}
+		}
+		function toFunctionBody(data, writer) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(data === void 0 || data === null) {
+				throw new TypeError("'data' is not nullable");
+			}
+			if(writer === void 0 || writer === null) {
+				throw new TypeError("'writer' is not nullable");
+			}
+			if(data.kind === NodeKind.Block) {
+				writer.newBlock().expression(data).done();
+			}
+			else if(data.kind === NodeKind.IfStatement) {
+				writer.code(" => ").expression(data.whenTrue.value).code(" if ").expression(data.condition);
+				if(KSType.isValue(data.whenFalse)) {
+					writer.code(" else ").expression(data.whenFalse.value);
+				}
+			}
+			else if(data.kind === NodeKind.ReturnStatement) {
+				writer.code(" => ").expression(data.value);
+			}
+			else {
+				writer.code(" => ").expression(data);
 			}
 		}
 		function toLoopHeader(data, writer) {
@@ -21472,14 +21561,12 @@ module.exports = function() {
 				if(KSType.isValue(data.extends)) {
 					line.code(" extends ").expression(data.extends);
 				}
-				if(data.members.length !== 0) {
-					var block = line.newBlock();
-					for(var __ks_1 = 0, __ks_2 = data.members.length, member; __ks_1 < __ks_2; ++__ks_1) {
-						member = data.members[__ks_1];
-						block.statement(member);
-					}
-					block.done();
+				var block = line.newBlock();
+				for(var __ks_1 = 0, __ks_2 = data.members.length, member; __ks_1 < __ks_2; ++__ks_1) {
+					member = data.members[__ks_1];
+					block.statement(member);
 				}
+				block.done();
 				line.done();
 			}
 			else if(__ks_0 === NodeKind.ContinueStatement) {
@@ -21619,6 +21706,13 @@ module.exports = function() {
 					}
 					else if(__ks_3 === ModifierKind.Static) {
 						line.code("static ");
+					}
+				}
+				for(var __ks_1 = 0, __ks_2 = data.modifiers.length, modifier; __ks_1 < __ks_2; ++__ks_1) {
+					modifier = data.modifiers[__ks_1];
+					if(modifier.kind === ModifierKind.ThisAlias) {
+						line.code("@");
+						break;
 					}
 				}
 				line.expression(data.name);
@@ -21808,12 +21902,7 @@ module.exports = function() {
 					}
 				}, line);
 				if(KSType.isValue(data.body)) {
-					if(data.body.kind === NodeKind.Block) {
-						line.newBlock().expression(data.body).done();
-					}
-					else {
-						line.code(" => ").expression(data.body);
-					}
+					toFunctionBody(data.body, line);
 				}
 				line.done();
 			}
@@ -21934,12 +22023,7 @@ module.exports = function() {
 					}
 				}, line);
 				if(KSType.isValue(data.body)) {
-					if(data.body.kind === NodeKind.Block) {
-						line.newBlock().expression(data.body).done();
-					}
-					else {
-						line.code(" => ").expression(data.body);
-					}
+					toFunctionBody(data.body, line);
 				}
 				line.done();
 			}
@@ -51894,9 +51978,16 @@ module.exports = function() {
 				index: this._isKSFile ? null : 0,
 				isIdentifier: false,
 				isNamed: false,
-				required: data.required,
+				required: false,
 				value: $compile.expression(data.value, this)
 			};
+			for(var __ks_0 = 0, __ks_1 = data.modifiers.length, modifer; __ks_0 < __ks_1; ++__ks_0) {
+				modifer = data.modifiers[__ks_0];
+				if(modifer.kind === ModifierKind.Required) {
+					argument.required = true;
+					break;
+				}
+			}
 			if(data.required) {
 				var variable, __ks_0;
 				if((KSType.isValue(__ks_0 = this._scope.getVariable(data.value.name)) ? (variable = __ks_0, true) : false) && !variable.getDeclaredType().isPredefined()) {
@@ -62500,7 +62591,13 @@ module.exports = function() {
 			Expression.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_analyse_0: function() {
-			this._computed = this._data.name.computed;
+			for(var __ks_0 = 0, __ks_1 = this._data.modifiers.length, modifier; __ks_0 < __ks_1; ++__ks_0) {
+				modifier = this._data.modifiers[__ks_0];
+				if(modifier.kind === ModifierKind.Computed) {
+					this._computed = true;
+					break;
+				}
+			}
 			if(KSType.isValue(this._data.alias)) {
 				this._name = $compile.expression(this._data.name, this);
 				this._alias = this.compileVariable(this._data.alias);
