@@ -215,7 +215,7 @@ module.exports = function() {
 			var CONDITIONAL_PRECEDENCE = 4;
 			function location() {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				var __ks_i = -1;
 				var descriptor = arguments[++__ks_i];
@@ -242,7 +242,7 @@ module.exports = function() {
 			}
 			function reorderExpression(operations) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(operations === void 0 || operations === null) {
 					throw new TypeError("'operations' is not nullable");
@@ -274,7 +274,7 @@ module.exports = function() {
 				}
 				precedenceList = precedenceList.sort(function(a, b) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(a === void 0 || a === null) {
 						throw new TypeError("'a' is not nullable");
@@ -388,7 +388,7 @@ module.exports = function() {
 			};
 			function ArrayBinding(elements, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(elements === void 0 || elements === null) {
 					throw new TypeError("'elements' is not nullable");
@@ -408,7 +408,7 @@ module.exports = function() {
 			}
 			function ArrayBindingElement(modifiers, name, type, defaultValue, first, last) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(modifiers === void 0 || modifiers === null) {
 					throw new TypeError("'modifiers' is not nullable");
@@ -445,7 +445,7 @@ module.exports = function() {
 			}
 			function ArrayComprehension(expression, loop, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(expression === void 0 || expression === null) {
 					throw new TypeError("'expression' is not nullable");
@@ -467,7 +467,7 @@ module.exports = function() {
 			}
 			function ArrayExpression(values, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(values === void 0 || values === null) {
 					throw new TypeError("'values' is not nullable");
@@ -487,7 +487,7 @@ module.exports = function() {
 			}
 			function ArrayRangeFI(from, til, by, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(from === void 0 || from === null) {
 					throw new TypeError("'from' is not nullable");
@@ -516,7 +516,7 @@ module.exports = function() {
 			}
 			function ArrayRangeFO(from, to, by, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(from === void 0 || from === null) {
 					throw new TypeError("'from' is not nullable");
@@ -545,7 +545,7 @@ module.exports = function() {
 			}
 			function ArrayRangeTI(then, til, by, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(then === void 0 || then === null) {
 					throw new TypeError("'then' is not nullable");
@@ -574,7 +574,7 @@ module.exports = function() {
 			}
 			function ArrayRangeTO(then, to, by, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(then === void 0 || then === null) {
 					throw new TypeError("'then' is not nullable");
@@ -603,7 +603,7 @@ module.exports = function() {
 			}
 			function ArrayReference(elements, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(elements === void 0 || elements === null) {
 					throw new TypeError("'elements' is not nullable");
@@ -627,7 +627,7 @@ module.exports = function() {
 			}
 			function AssignmentOperator(operator, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(operator === void 0 || operator === null) {
 					throw new TypeError("'operator' is not nullable");
@@ -645,7 +645,7 @@ module.exports = function() {
 			}
 			function AttributeDeclaration(declaration, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -663,7 +663,7 @@ module.exports = function() {
 			}
 			function AttributeExpression(name, __ks_arguments_1, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -687,7 +687,7 @@ module.exports = function() {
 			}
 			function AttributeOperation(name, value, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -709,7 +709,7 @@ module.exports = function() {
 			}
 			function AwaitExpression(variables, autotype, operand, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(variables === void 0) {
 					variables = null;
@@ -782,7 +782,7 @@ module.exports = function() {
 			};
 			function BinaryOperator(operator, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(operator === void 0 || operator === null) {
 					throw new TypeError("'operator' is not nullable");
@@ -799,7 +799,7 @@ module.exports = function() {
 			}
 			function Block(attributes, statements, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -823,7 +823,7 @@ module.exports = function() {
 			}
 			function BreakStatement(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -909,7 +909,7 @@ module.exports = function() {
 			};
 			function CallMacroExpression(callee, __ks_arguments_1, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(callee === void 0 || callee === null) {
 					throw new TypeError("'callee' is not nullable");
@@ -933,7 +933,7 @@ module.exports = function() {
 			}
 			function CatchClause(binding, type, body, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(binding === void 0) {
 					binding = null;
@@ -964,7 +964,7 @@ module.exports = function() {
 			}
 			function ClassDeclaration(attributes, name, version, __ks_extends_1, modifiers, members, first, last) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -1011,7 +1011,7 @@ module.exports = function() {
 			}
 			function ComparisonExpression(values) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(values === void 0 || values === null) {
 					throw new TypeError("'values' is not nullable");
@@ -1023,7 +1023,7 @@ module.exports = function() {
 			}
 			function ComputedPropertyName(expression, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(expression === void 0 || expression === null) {
 					throw new TypeError("'expression' is not nullable");
@@ -1077,7 +1077,7 @@ module.exports = function() {
 			};
 			function ContinueStatement(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -1089,7 +1089,7 @@ module.exports = function() {
 			}
 			function CreateExpression(__ks_class_1, __ks_arguments_1, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(__ks_class_1 === void 0 || __ks_class_1 === null) {
 					throw new TypeError("'class' is not nullable");
@@ -1113,7 +1113,7 @@ module.exports = function() {
 			}
 			function CurryExpression(scope, callee, __ks_arguments_1, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(scope === void 0 || scope === null) {
 					throw new TypeError("'scope' is not nullable");
@@ -1141,7 +1141,7 @@ module.exports = function() {
 			}
 			function DestroyStatement(variable, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(variable === void 0 || variable === null) {
 					throw new TypeError("'variable' is not nullable");
@@ -1160,7 +1160,7 @@ module.exports = function() {
 			}
 			function DiscloseDeclaration(name, members, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -1185,7 +1185,7 @@ module.exports = function() {
 			}
 			function DoUntilStatement(condition, body, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(condition === void 0 || condition === null) {
 					throw new TypeError("'condition' is not nullable");
@@ -1208,7 +1208,7 @@ module.exports = function() {
 			}
 			function DoWhileStatement(condition, body, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(condition === void 0 || condition === null) {
 					throw new TypeError("'condition' is not nullable");
@@ -1231,7 +1231,7 @@ module.exports = function() {
 			}
 			function EnumExpression(__ks_enum_1, member) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(__ks_enum_1 === void 0 || __ks_enum_1 === null) {
 					throw new TypeError("'enum' is not nullable");
@@ -1247,7 +1247,7 @@ module.exports = function() {
 			}
 			function EnumDeclaration(name, type, members, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -1309,7 +1309,7 @@ module.exports = function() {
 			};
 			function ExportDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -1330,7 +1330,7 @@ module.exports = function() {
 			}
 			function ExportDeclarationSpecifier(declaration) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -1342,7 +1342,7 @@ module.exports = function() {
 			}
 			function ExportNamedSpecifier(local, exported) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(local === void 0 || local === null) {
 					throw new TypeError("'local' is not nullable");
@@ -1358,7 +1358,7 @@ module.exports = function() {
 			}
 			function ExportPropertiesSpecifier(object, properties, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(object === void 0 || object === null) {
 					throw new TypeError("'object' is not nullable");
@@ -1377,7 +1377,7 @@ module.exports = function() {
 			}
 			function ExportWildcardSpecifier(local, end) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(local === void 0 || local === null) {
 					throw new TypeError("'local' is not nullable");
@@ -1392,7 +1392,7 @@ module.exports = function() {
 			}
 			function ExpressionStatement(expression) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(expression === void 0 || expression === null) {
 					throw new TypeError("'expression' is not nullable");
@@ -1402,7 +1402,7 @@ module.exports = function() {
 			}
 			function ExternDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -1423,7 +1423,7 @@ module.exports = function() {
 			}
 			function ExternOrRequireDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -1444,7 +1444,7 @@ module.exports = function() {
 			}
 			function FieldDeclaration(attributes, modifiers, name, type, defaultValue, first, last) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -1485,7 +1485,7 @@ module.exports = function() {
 			}
 			function ForFromStatement(declaration, rebindable, variable, from, til, to, by, until, __ks_while_1, when, first, last) {
 				if(arguments.length < 12) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 12)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 12)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -1561,7 +1561,7 @@ module.exports = function() {
 			}
 			function ForInStatement(declaration, rebindable, value, index, expression, desc, from, til, to, by, until, __ks_while_1, when, first, last) {
 				if(arguments.length < 15) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 15)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 15)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -1655,7 +1655,7 @@ module.exports = function() {
 			}
 			function ForRangeStatement(declaration, rebindable, value, index, from, then, til, to, by, until, __ks_while_1, when, first, last) {
 				if(arguments.length < 14) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 14)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 14)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -1745,7 +1745,7 @@ module.exports = function() {
 			}
 			function ForOfStatement(declaration, rebindable, value, key, expression, until, __ks_while_1, when, first, last) {
 				if(arguments.length < 10) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 10)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 10)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -1811,7 +1811,7 @@ module.exports = function() {
 			}
 			function FunctionDeclaration(name, parameters, modifiers, type, __ks_throws_1, body, first, last) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -1873,7 +1873,7 @@ module.exports = function() {
 			}
 			function FunctionExpression(parameters, modifiers, type, __ks_throws_1, body, first, last) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(parameters === void 0 || parameters === null) {
 					throw new TypeError("'parameters' is not nullable");
@@ -1928,7 +1928,7 @@ module.exports = function() {
 			}
 			function IfExpression(condition, whenTrue, whenFalse, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(condition === void 0 || condition === null) {
 					throw new TypeError("'condition' is not nullable");
@@ -1957,7 +1957,7 @@ module.exports = function() {
 			}
 			function IfStatement(condition, whenTrue, whenFalse, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(condition === void 0 || condition === null) {
 					throw new TypeError("'condition' is not nullable");
@@ -1987,7 +1987,7 @@ module.exports = function() {
 			}
 			function ImplementDeclaration(attributes, variable, properties, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -2015,7 +2015,7 @@ module.exports = function() {
 			}
 			function ImportArgument(modifiers, name, value, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(modifiers === void 0 || modifiers === null) {
 					throw new TypeError("'modifiers' is not nullable");
@@ -2050,7 +2050,7 @@ module.exports = function() {
 			}
 			function ImportDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -2071,7 +2071,7 @@ module.exports = function() {
 			}
 			function ImportDeclarator(source, specifiers, __ks_arguments_1, first, last) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(source === void 0 || source === null) {
 					throw new TypeError("'source' is not nullable");
@@ -2102,7 +2102,7 @@ module.exports = function() {
 			}
 			function ImportNamespaceSpecifier(local, specifiers, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(local === void 0 || local === null) {
 					throw new TypeError("'local' is not nullable");
@@ -2129,7 +2129,7 @@ module.exports = function() {
 			}
 			function ImportSpecifier(imported, local, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(imported === void 0 || imported === null) {
 					throw new TypeError("'imported' is not nullable");
@@ -2151,7 +2151,7 @@ module.exports = function() {
 			}
 			function Identifier(name, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -2166,7 +2166,7 @@ module.exports = function() {
 			}
 			function IncludeAgainDeclaration(files, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(files === void 0 || files === null) {
 					throw new TypeError("'files' is not nullable");
@@ -2185,7 +2185,7 @@ module.exports = function() {
 			}
 			function IncludeDeclaration(files, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(files === void 0 || files === null) {
 					throw new TypeError("'files' is not nullable");
@@ -2204,7 +2204,7 @@ module.exports = function() {
 			}
 			function LambdaExpression(parameters, modifiers, type, body, first, last) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(parameters === void 0 || parameters === null) {
 					throw new TypeError("'parameters' is not nullable");
@@ -2247,7 +2247,7 @@ module.exports = function() {
 			}
 			function Literal() {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				var __ks_i = -1;
 				var value = arguments[++__ks_i];
@@ -2267,7 +2267,7 @@ module.exports = function() {
 			}
 			function MacroDeclaration(attributes, name, parameters, body, first, last) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -2299,7 +2299,7 @@ module.exports = function() {
 			}
 			function MacroExpression(elements, multilines, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(elements === void 0 || elements === null) {
 					throw new TypeError("'elements' is not nullable");
@@ -2324,7 +2324,7 @@ module.exports = function() {
 			}
 			function MacroElementExpression(expression, reification, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(expression === void 0 || expression === null) {
 					throw new TypeError("'expression' is not nullable");
@@ -2354,7 +2354,7 @@ module.exports = function() {
 			}
 			function MacroElementLiteral(value, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
@@ -2372,7 +2372,7 @@ module.exports = function() {
 			}
 			function MacroElementNewLine(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -2383,7 +2383,7 @@ module.exports = function() {
 			}
 			function MacroReification(value, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
@@ -2414,7 +2414,7 @@ module.exports = function() {
 			}
 			function MemberExpression() {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				var __ks_i = -1;
 				var object = arguments[++__ks_i];
@@ -2446,7 +2446,7 @@ module.exports = function() {
 			}
 			function MethodDeclaration(attributes, modifiers, name, parameters, type, __ks_throws_1, body, first, last) {
 				if(arguments.length < 9) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 9)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -2504,7 +2504,7 @@ module.exports = function() {
 			}
 			function Modifier() {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				var __ks_i = -1;
 				var kind = arguments[++__ks_i];
@@ -2523,7 +2523,7 @@ module.exports = function() {
 			}
 			function Module(attributes, body, parser) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -2583,7 +2583,7 @@ module.exports = function() {
 			};
 			function Nullable(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -2599,7 +2599,7 @@ module.exports = function() {
 			}
 			function NamespaceDeclaration(attributes, modifiers, name, statements, first, last) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -2633,7 +2633,7 @@ module.exports = function() {
 			}
 			function NumericExpression(value, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
@@ -2648,7 +2648,7 @@ module.exports = function() {
 			}
 			function ObjectBinding(elements, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(elements === void 0 || elements === null) {
 					throw new TypeError("'elements' is not nullable");
@@ -2668,7 +2668,7 @@ module.exports = function() {
 			}
 			function ObjectBindingElement(modifiers, name, alias, defaultValue, first, last) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(modifiers === void 0 || modifiers === null) {
 					throw new TypeError("'modifiers' is not nullable");
@@ -2703,7 +2703,7 @@ module.exports = function() {
 			}
 			function ObjectExpression(attributes, properties, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -2788,7 +2788,7 @@ module.exports = function() {
 			};
 			function ObjectReference(properties, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(properties === void 0 || properties === null) {
 					throw new TypeError("'properties' is not nullable");
@@ -2812,7 +2812,7 @@ module.exports = function() {
 			}
 			function ObjectMemberReference(name, type) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -2829,7 +2829,7 @@ module.exports = function() {
 			}
 			function OmittedExpression(modifiers, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(modifiers === void 0 || modifiers === null) {
 					throw new TypeError("'modifiers' is not nullable");
@@ -2845,7 +2845,7 @@ module.exports = function() {
 			}
 			function PropertyDeclaration(attributes, modifiers, name, type, defaultValue, accessor, mutator, first, last) {
 				if(arguments.length < 9) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 9)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -2956,7 +2956,7 @@ module.exports = function() {
 			};
 			function RegularExpression(value, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
@@ -2971,7 +2971,7 @@ module.exports = function() {
 			}
 			function RequireDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -2992,7 +2992,7 @@ module.exports = function() {
 			}
 			function RequireOrExternDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -3013,7 +3013,7 @@ module.exports = function() {
 			}
 			function RequireOrImportDeclaration(declarations, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -3034,7 +3034,7 @@ module.exports = function() {
 			}
 			function RestModifier(min, max, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(min === void 0 || min === null) {
 					throw new TypeError("'min' is not nullable");
@@ -3130,7 +3130,7 @@ module.exports = function() {
 			};
 			function SequenceExpression(expressions, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(expressions === void 0 || expressions === null) {
 					throw new TypeError("'expressions' is not nullable");
@@ -3150,7 +3150,7 @@ module.exports = function() {
 			}
 			function ShorthandProperty(attributes, name, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -3172,7 +3172,7 @@ module.exports = function() {
 			}
 			function SwitchClause(conditions, bindings, filter, body, first, last) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(conditions === void 0) {
 					conditions = null;
@@ -3219,7 +3219,7 @@ module.exports = function() {
 			}
 			function SwitchConditionArray(values, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(values === void 0 || values === null) {
 					throw new TypeError("'values' is not nullable");
@@ -3239,7 +3239,7 @@ module.exports = function() {
 			}
 			function SwitchConditionObject(members, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(members === void 0 || members === null) {
 					throw new TypeError("'members' is not nullable");
@@ -3259,7 +3259,7 @@ module.exports = function() {
 			}
 			function SwitchConditionRangeFO(from, to) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(from === void 0 || from === null) {
 					throw new TypeError("'from' is not nullable");
@@ -3275,7 +3275,7 @@ module.exports = function() {
 			}
 			function SwitchConditionType(type, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(type === void 0 || type === null) {
 					throw new TypeError("'type' is not nullable");
@@ -3293,7 +3293,7 @@ module.exports = function() {
 			}
 			function SwitchExpression(expression, clauses, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(expression === void 0 || expression === null) {
 					throw new TypeError("'expression' is not nullable");
@@ -3318,7 +3318,7 @@ module.exports = function() {
 			}
 			function SwitchStatement(expression, clauses, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(expression === void 0 || expression === null) {
 					throw new TypeError("'expression' is not nullable");
@@ -3343,7 +3343,7 @@ module.exports = function() {
 			}
 			function SwitchTypeCasting(name, type) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -3359,7 +3359,7 @@ module.exports = function() {
 			}
 			function TaggedTemplateExpression(tag, template, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(tag === void 0 || tag === null) {
 					throw new TypeError("'tag' is not nullable");
@@ -3381,7 +3381,7 @@ module.exports = function() {
 			}
 			function TemplateExpression(elements, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(elements === void 0 || elements === null) {
 					throw new TypeError("'elements' is not nullable");
@@ -3401,7 +3401,7 @@ module.exports = function() {
 			}
 			function ThisExpression(name, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -3455,7 +3455,7 @@ module.exports = function() {
 			};
 			function TryStatement(body, catchClauses, catchClause, finalizer, first, last) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(body === void 0 || body === null) {
 					throw new TypeError("'body' is not nullable");
@@ -3552,7 +3552,7 @@ module.exports = function() {
 			};
 			function TypeAliasDeclaration(name, type, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -3575,7 +3575,7 @@ module.exports = function() {
 			}
 			function UnaryExpression(operator, operand, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(operator === void 0 || operator === null) {
 					throw new TypeError("'operator' is not nullable");
@@ -3597,7 +3597,7 @@ module.exports = function() {
 			}
 			function UnaryOperator(operator, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(operator === void 0 || operator === null) {
 					throw new TypeError("'operator' is not nullable");
@@ -3614,7 +3614,7 @@ module.exports = function() {
 			}
 			function UnionType(types, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(types === void 0 || types === null) {
 					throw new TypeError("'types' is not nullable");
@@ -3634,7 +3634,7 @@ module.exports = function() {
 			}
 			function UnlessExpression(condition, whenFalse, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(condition === void 0 || condition === null) {
 					throw new TypeError("'condition' is not nullable");
@@ -3656,7 +3656,7 @@ module.exports = function() {
 			}
 			function UnlessStatement(condition, whenFalse, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(condition === void 0 || condition === null) {
 					throw new TypeError("'condition' is not nullable");
@@ -3679,7 +3679,7 @@ module.exports = function() {
 			}
 			function UntilStatement(condition, body, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(condition === void 0 || condition === null) {
 					throw new TypeError("'condition' is not nullable");
@@ -3840,7 +3840,7 @@ module.exports = function() {
 			};
 			function WhileStatement(condition, body, first, last) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(condition === void 0 || condition === null) {
 					throw new TypeError("'condition' is not nullable");
@@ -4140,7 +4140,7 @@ module.exports = function() {
 		var __ks_0;
 		var overhauls = (__ks_0 = {}, __ks_0[Token.CLASS_VERSION] = function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -4148,7 +4148,7 @@ module.exports = function() {
 			return data.split(".");
 		}, __ks_0[Token.STRING] = function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -4173,7 +4173,7 @@ module.exports = function() {
 		var M = (function() {
 			function ASSIGNEMENT_OPERATOR(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -4268,7 +4268,7 @@ module.exports = function() {
 			}
 			function BINARY_OPERATOR(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -4477,7 +4477,7 @@ module.exports = function() {
 			}
 			function EXPORT_STATEMENT(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -4578,7 +4578,7 @@ module.exports = function() {
 			}
 			function EXTERN_STATEMENT(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -4662,7 +4662,7 @@ module.exports = function() {
 			}
 			function MACRO(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -4717,7 +4717,7 @@ module.exports = function() {
 			}
 			function MODULE_STATEMENT(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -4787,7 +4787,7 @@ module.exports = function() {
 			}
 			function NUMBER(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -4835,7 +4835,7 @@ module.exports = function() {
 			}
 			function OPERAND(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -4924,7 +4924,7 @@ module.exports = function() {
 			}
 			function OPERAND_JUNCTION(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -5029,7 +5029,7 @@ module.exports = function() {
 			}
 			function POSTFIX_OPERATOR(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -5064,7 +5064,7 @@ module.exports = function() {
 			}
 			function PREFIX_OPERATOR(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -5123,7 +5123,7 @@ module.exports = function() {
 			}
 			function STATEMENT(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -5273,7 +5273,7 @@ module.exports = function() {
 			}
 			function TEMPLATE(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -5298,7 +5298,7 @@ module.exports = function() {
 			}
 			function TYPE_OPERATOR(that, index) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(that === void 0 || that === null) {
 					throw new TypeError("'that' is not nullable");
@@ -5356,7 +5356,7 @@ module.exports = function() {
 		})();
 		var recognize = (__ks_0 = {}, __ks_0[Token.ABSTRACT] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5372,7 +5372,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.ASTERISK] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5388,7 +5388,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.AS] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5404,7 +5404,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.ASYNC] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5420,7 +5420,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.AT] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5436,7 +5436,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.ATTRIBUTE_IDENTIFIER] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5457,7 +5457,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.AWAIT] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5473,7 +5473,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.BY] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5489,7 +5489,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.CATCH] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5505,7 +5505,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.COLON] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5522,7 +5522,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.COLON_EQUALS] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5538,7 +5538,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.COMMA] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5554,7 +5554,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.CONST] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5570,7 +5570,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.CLASS] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5586,7 +5586,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.CLASS_VERSION] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5603,7 +5603,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.DESC] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5619,7 +5619,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.DOT] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5635,7 +5635,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.DOT_DOT] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5651,7 +5651,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.DOT_DOT_DOT] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5667,7 +5667,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.ELSE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5683,7 +5683,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.ELSE_IF] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5699,7 +5699,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.EQUALS] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5715,7 +5715,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.EQUALS_RIGHT_ANGLE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5731,7 +5731,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.EXCLAMATION] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5747,7 +5747,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.EXTENDS] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5763,7 +5763,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.FINALLY] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5779,7 +5779,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.FOR] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5795,7 +5795,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.FROM] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5811,7 +5811,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.FUNC] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5827,7 +5827,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.GET] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5843,7 +5843,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.HASH_EXCLAMATION_LEFT_SQUARE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5859,7 +5859,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.HASH_LEFT_SQUARE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5875,7 +5875,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.IDENTIFIER] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5892,7 +5892,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.IF] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5908,7 +5908,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.IN] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5924,7 +5924,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.IS] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5940,7 +5940,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.LEFT_ANGLE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5957,7 +5957,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.LEFT_CURLY] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5973,7 +5973,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.LEFT_ROUND] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -5989,7 +5989,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.LEFT_SQUARE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6005,7 +6005,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.LET] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6021,7 +6021,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.MACRO] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6037,7 +6037,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.MINUS] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6053,7 +6053,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.NEWLINE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6070,7 +6070,7 @@ module.exports = function() {
 			return false;
 		}, __ks_0[Token.OF] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6086,7 +6086,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.ON] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6102,7 +6102,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.OVERRIDE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6118,7 +6118,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.PIPE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6134,7 +6134,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.PIPE_PIPE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6150,7 +6150,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.PRIVATE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6166,7 +6166,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.PROTECTED] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6182,7 +6182,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.PUBLIC] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6198,7 +6198,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.QUESTION] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6214,7 +6214,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.RETURN] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6230,7 +6230,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.RIGHT_ANGLE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6247,7 +6247,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.RIGHT_CURLY] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6263,7 +6263,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.RIGHT_ROUND] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6279,7 +6279,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.RIGHT_SQUARE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6295,7 +6295,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.SET] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6311,7 +6311,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.STATIC] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6327,7 +6327,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.STRING] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6350,7 +6350,7 @@ module.exports = function() {
 			return false;
 		}, __ks_0[Token.SWITCH] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6366,7 +6366,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.TEMPLATE_BEGIN] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6382,7 +6382,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.TEMPLATE_END] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6398,7 +6398,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.THROW] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6414,7 +6414,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.TIL] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6430,7 +6430,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.TILDE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6446,7 +6446,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.TO] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6462,7 +6462,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.UNLESS] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6478,7 +6478,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.UNTIL] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6494,7 +6494,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.WHEN] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6510,7 +6510,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.WHERE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6526,7 +6526,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.WHILE] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6542,7 +6542,7 @@ module.exports = function() {
 			}
 		}, __ks_0[Token.WITH] = function(that, c) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -6577,7 +6577,7 @@ module.exports = function() {
 			},
 			__ks_cons_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -6598,7 +6598,7 @@ module.exports = function() {
 			},
 			__ks_func_charAt_0: function(d) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(d === void 0 || d === null) {
 					throw new TypeError("'d' is not nullable");
@@ -6670,7 +6670,7 @@ module.exports = function() {
 			},
 			__ks_func_isBoundary_0: function(d) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(d === void 0 || d === null) {
 					throw new TypeError("'d' is not nullable");
@@ -6740,7 +6740,7 @@ module.exports = function() {
 			},
 			__ks_func_matchM_0: function(matcher) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(matcher === void 0 || matcher === null) {
 					throw new TypeError("'matcher' is not nullable");
@@ -6763,7 +6763,7 @@ module.exports = function() {
 			},
 			__ks_func_next_0: function(length) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(length === void 0 || length === null) {
 					throw new TypeError("'length' is not nullable");
@@ -6780,7 +6780,7 @@ module.exports = function() {
 			},
 			__ks_func_nextLine_0: function(length) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(length === void 0 || length === null) {
 					throw new TypeError("'length' is not nullable");
@@ -6816,7 +6816,7 @@ module.exports = function() {
 			},
 			__ks_func_rollback_0: function(mark) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mark === void 0 || mark === null) {
 					throw new TypeError("'mark' is not nullable");
@@ -6835,7 +6835,7 @@ module.exports = function() {
 			},
 			__ks_func_scanIdentifier_0: function(substr) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(substr === void 0 || substr === null) {
 					throw new TypeError("'substr' is not nullable");
@@ -6864,7 +6864,7 @@ module.exports = function() {
 			},
 			__ks_func_skip_1: function(index) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -7159,7 +7159,7 @@ module.exports = function() {
 			},
 			__ks_func_substringAt_0: function(d) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(d === void 0 || d === null) {
 					throw new TypeError("'d' is not nullable");
@@ -7174,7 +7174,7 @@ module.exports = function() {
 			},
 			__ks_func_test_0: function(token) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(token === void 0 || token === null) {
 					throw new TypeError("'token' is not nullable");
@@ -7203,7 +7203,7 @@ module.exports = function() {
 			},
 			__ks_func_testNS_0: function(token) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(token === void 0 || token === null) {
 					throw new TypeError("'token' is not nullable");
@@ -7252,7 +7252,7 @@ module.exports = function() {
 			},
 			__ks_func_value_1: function(token) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(token === void 0 || token === null) {
 					throw new TypeError("'token' is not nullable");
@@ -7335,7 +7335,7 @@ module.exports = function() {
 			},
 			__ks_cons_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -7381,7 +7381,7 @@ module.exports = function() {
 			},
 			__ks_func_matchM_0: function(matcher) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(matcher === void 0 || matcher === null) {
 					throw new TypeError("'matcher' is not nullable");
@@ -7408,7 +7408,7 @@ module.exports = function() {
 			},
 			__ks_func_relocate_0: function(node, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -7435,7 +7435,7 @@ module.exports = function() {
 			},
 			__ks_func_rollback_0: function(mark) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mark === void 0 || mark === null) {
 					throw new TypeError("'mark' is not nullable");
@@ -7465,7 +7465,7 @@ module.exports = function() {
 			},
 			__ks_func_test_0: function(token) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(token === void 0 || token === null) {
 					throw new TypeError("'token' is not nullable");
@@ -7492,7 +7492,7 @@ module.exports = function() {
 			},
 			__ks_func_testNS_0: function(token) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(token === void 0 || token === null) {
 					throw new TypeError("'token' is not nullable");
@@ -7516,7 +7516,7 @@ module.exports = function() {
 			},
 			__ks_func_throw_1: function(expected) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(expected === void 0 || expected === null) {
 					throw new TypeError("'expected' is not nullable");
@@ -7528,7 +7528,7 @@ module.exports = function() {
 			},
 			__ks_func_throw_2: function(expecteds) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(expecteds === void 0 || expecteds === null) {
 					throw new TypeError("'expecteds' is not nullable");
@@ -7554,7 +7554,7 @@ module.exports = function() {
 			},
 			__ks_func_until_0: function(token) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(token === void 0 || token === null) {
 					throw new TypeError("'token' is not nullable");
@@ -7586,7 +7586,7 @@ module.exports = function() {
 			},
 			__ks_func_yep_1: function(value) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
@@ -7600,7 +7600,7 @@ module.exports = function() {
 			},
 			__ks_func_yep_2: function(value, first, last) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
@@ -7641,7 +7641,7 @@ module.exports = function() {
 			},
 			__ks_func_yes_1: function(value) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
@@ -7676,7 +7676,7 @@ module.exports = function() {
 			},
 			__ks_func_altArrayComprehension_0: function(expression, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(expression === void 0 || expression === null) {
 					throw new TypeError("'expression' is not nullable");
@@ -7699,7 +7699,7 @@ module.exports = function() {
 			},
 			__ks_func_altArrayList_0: function(expression, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(expression === void 0 || expression === null) {
 					throw new TypeError("'expression' is not nullable");
@@ -7742,7 +7742,7 @@ module.exports = function() {
 			},
 			__ks_func_altForExpressionFrom_0: function(declaration, rebindable, variable, first) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -7799,7 +7799,7 @@ module.exports = function() {
 			},
 			__ks_func_altForExpressionIn_0: function(declaration, rebindable, value, index, expression, first) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -7867,7 +7867,7 @@ module.exports = function() {
 			},
 			__ks_func_altForExpressionInRange_0: function(declaration, rebindable, value, index, first) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -7926,7 +7926,7 @@ module.exports = function() {
 			},
 			__ks_func_altForExpressionOf_0: function(declaration, rebindable, key, value, first) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -7969,7 +7969,7 @@ module.exports = function() {
 			},
 			__ks_func_altForExpressionRange_0: function(declaration, rebindable, value, index, from, then, til, to, by, first) {
 				if(arguments.length < 10) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 10)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 10)");
 				}
 				if(declaration === void 0 || declaration === null) {
 					throw new TypeError("'declaration' is not nullable");
@@ -8026,7 +8026,7 @@ module.exports = function() {
 			},
 			__ks_func_reqArray_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -8118,7 +8118,7 @@ module.exports = function() {
 			},
 			__ks_func_reqAttribute_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -8186,7 +8186,7 @@ module.exports = function() {
 			},
 			__ks_func_reqAwaitExpression_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -8202,7 +8202,7 @@ module.exports = function() {
 			},
 			__ks_func_reqBinaryOperand_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -8281,7 +8281,7 @@ module.exports = function() {
 			},
 			__ks_func_reqBreakStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -8296,7 +8296,7 @@ module.exports = function() {
 			},
 			__ks_func_reqCatchOnClause_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -8319,7 +8319,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassAbstractMethod_0: function(attributes, modifiers, first) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -8354,7 +8354,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassAbstractMethodBody_0: function(attributes, modifiers, name, first) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -8382,7 +8382,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassField_0: function(attributes, modifiers, name, type, first) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -8415,7 +8415,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassMember_0: function(attributes, modifiers, first) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -8463,7 +8463,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassMemberBody_0: function(attributes, modifiers, name, first) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -8507,7 +8507,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassMemberList_0: function(members) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(members === void 0 || members === null) {
 					throw new TypeError("'members' is not nullable");
@@ -8636,7 +8636,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassMethod_0: function(attributes, modifiers, name, round, first) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -8694,7 +8694,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassProperty_0: function(attributes, modifiers, name, type, first) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -8805,7 +8805,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -8824,7 +8824,7 @@ module.exports = function() {
 			},
 			__ks_func_reqClassStatementBody_0: function() {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				var __ks_i = -1;
 				var name = arguments[++__ks_i];
@@ -8895,7 +8895,7 @@ module.exports = function() {
 			},
 			__ks_func_reqComputedPropertyName_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -8914,7 +8914,7 @@ module.exports = function() {
 			},
 			__ks_func_reqConstStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -8960,7 +8960,7 @@ module.exports = function() {
 			},
 			__ks_func_reqContinueStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -8975,7 +8975,7 @@ module.exports = function() {
 			},
 			__ks_func_reqCreateExpression_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -9014,7 +9014,7 @@ module.exports = function() {
 			},
 			__ks_func_reqDestructuringArray_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -9054,7 +9054,7 @@ module.exports = function() {
 			},
 			__ks_func_reqDestructuringArrayItem_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -9110,7 +9110,7 @@ module.exports = function() {
 			},
 			__ks_func_reqDestructuringObject_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -9146,7 +9146,7 @@ module.exports = function() {
 			},
 			__ks_func_reqDestructuringObjectItem_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -9211,7 +9211,7 @@ module.exports = function() {
 			},
 			__ks_func_reqDiscloseStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -9238,7 +9238,7 @@ module.exports = function() {
 			},
 			__ks_func_reqDoStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -9268,7 +9268,7 @@ module.exports = function() {
 			},
 			__ks_func_reqEnumStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -9412,7 +9412,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExportIdentifier_0: function(value) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(value === void 0 || value === null) {
 					throw new TypeError("'value' is not nullable");
@@ -9498,7 +9498,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExportStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -9535,7 +9535,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var mode = arguments[++__ks_i];
@@ -9621,7 +9621,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternClassDeclaration_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -9663,7 +9663,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternClassField_0: function(modifiers, name, type, first) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(modifiers === void 0 || modifiers === null) {
 					throw new TypeError("'modifiers' is not nullable");
@@ -9688,7 +9688,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternClassMember_0: function(modifiers, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(modifiers === void 0 || modifiers === null) {
 					throw new TypeError("'modifiers' is not nullable");
@@ -9725,7 +9725,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternClassMemberList_0: function(members) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(members === void 0 || members === null) {
 					throw new TypeError("'members' is not nullable");
@@ -9795,7 +9795,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternClassMethod_0: function(modifiers, name, round, first) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(modifiers === void 0 || modifiers === null) {
 					throw new TypeError("'modifiers' is not nullable");
@@ -9939,7 +9939,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternEnumDeclaration_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -9988,7 +9988,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternFunctionDeclaration_0: function(first, modifiers) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10018,7 +10018,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternNamespaceDeclaration_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -10052,7 +10052,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternOrRequireStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10089,7 +10089,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10126,7 +10126,7 @@ module.exports = function() {
 			},
 			__ks_func_reqExternVariableDeclarator_0: function(name) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -10153,7 +10153,7 @@ module.exports = function() {
 			},
 			__ks_func_reqForExpression_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10238,7 +10238,7 @@ module.exports = function() {
 			},
 			__ks_func_reqForStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10321,7 +10321,7 @@ module.exports = function() {
 			},
 			__ks_func_reqFunctionStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -10359,7 +10359,7 @@ module.exports = function() {
 			},
 			__ks_func_reqIfStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10441,7 +10441,7 @@ module.exports = function() {
 			},
 			__ks_func_reqImplementMemberList_0: function(members) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(members === void 0 || members === null) {
 					throw new TypeError("'members' is not nullable");
@@ -10518,7 +10518,7 @@ module.exports = function() {
 			},
 			__ks_func_reqImplementStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10647,7 +10647,7 @@ module.exports = function() {
 			},
 			__ks_func_reqImportSpecifiers_0: function(specifiers) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(specifiers === void 0 || specifiers === null) {
 					throw new TypeError("'specifiers' is not nullable");
@@ -10695,7 +10695,7 @@ module.exports = function() {
 			},
 			__ks_func_reqImportStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10732,7 +10732,7 @@ module.exports = function() {
 			},
 			__ks_func_reqIncludeStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10774,7 +10774,7 @@ module.exports = function() {
 			},
 			__ks_func_reqIncludeAgainStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -10816,7 +10816,7 @@ module.exports = function() {
 			},
 			__ks_func_reqLetStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -10891,7 +10891,7 @@ module.exports = function() {
 			},
 			__ks_func_reqMacroElements_0: function(elements, terminator) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(elements === void 0 || elements === null) {
 					throw new TypeError("'elements' is not nullable");
@@ -10921,7 +10921,7 @@ module.exports = function() {
 				}, this);
 				var pushToLiteral = function(value, position) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(value === void 0 || value === null) {
 						throw new TypeError("'value' is not nullable");
@@ -11050,7 +11050,7 @@ module.exports = function() {
 			},
 			__ks_func_reqMacroExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -11141,7 +11141,7 @@ module.exports = function() {
 			},
 			__ks_func_reqMacroStatement_1: function() {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				var __ks_i = -1;
 				var __ks__;
@@ -11248,7 +11248,7 @@ module.exports = function() {
 			},
 			__ks_func_reqNamespaceStatement_0: function(first, name) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -11354,7 +11354,7 @@ module.exports = function() {
 			},
 			__ks_func_reqObject_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -11462,7 +11462,7 @@ module.exports = function() {
 			},
 			__ks_func_reqOperand_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -11483,7 +11483,7 @@ module.exports = function() {
 			},
 			__ks_func_reqOperation_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -11539,7 +11539,7 @@ module.exports = function() {
 			},
 			__ks_func_reqParameter_0: function(parameters, mode) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(parameters === void 0 || parameters === null) {
 					throw new TypeError("'parameters' is not nullable");
@@ -11707,7 +11707,7 @@ module.exports = function() {
 			},
 			__ks_func_reqParameterIdendifier_0: function(modifiers, first) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(modifiers === void 0 || modifiers === null) {
 					throw new TypeError("'modifiers' is not nullable");
@@ -11759,7 +11759,7 @@ module.exports = function() {
 			},
 			__ks_func_reqParenthesis_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -11800,7 +11800,7 @@ module.exports = function() {
 			},
 			__ks_func_reqPostfixedOperand_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var mode = arguments[++__ks_i];
@@ -11834,7 +11834,7 @@ module.exports = function() {
 			},
 			__ks_func_reqPrefixedOperand_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -11894,7 +11894,7 @@ module.exports = function() {
 			},
 			__ks_func_reqRequireStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -11931,7 +11931,7 @@ module.exports = function() {
 			},
 			__ks_func_reqRequireOrExternStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -11968,7 +11968,7 @@ module.exports = function() {
 			},
 			__ks_func_reqRequireOrImportStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12005,7 +12005,7 @@ module.exports = function() {
 			},
 			__ks_func_reqReturnStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12501,7 +12501,7 @@ module.exports = function() {
 			},
 			__ks_func_reqSwitchStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12518,7 +12518,7 @@ module.exports = function() {
 			},
 			__ks_func_reqTemplateExpression_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12553,7 +12553,7 @@ module.exports = function() {
 			},
 			__ks_func_reqThisExpression_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12569,7 +12569,7 @@ module.exports = function() {
 			},
 			__ks_func_reqThrowStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12610,7 +12610,7 @@ module.exports = function() {
 			},
 			__ks_func_reqTryCatchClause_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12631,7 +12631,7 @@ module.exports = function() {
 			},
 			__ks_func_reqTryStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12745,7 +12745,7 @@ module.exports = function() {
 			},
 			__ks_func_reqTypeGeneric_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12768,7 +12768,7 @@ module.exports = function() {
 			},
 			__ks_func_reqTypeStatement_0: function(first, name) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -12983,7 +12983,7 @@ module.exports = function() {
 			},
 			__ks_func_reqUnaryOperand_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var mode = arguments[++__ks_i];
@@ -13096,7 +13096,7 @@ module.exports = function() {
 			},
 			__ks_func_reqUnlessStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -13189,7 +13189,7 @@ module.exports = function() {
 			},
 			__ks_func_stackInnerAttributes_0: function(attributes) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -13219,7 +13219,7 @@ module.exports = function() {
 			},
 			__ks_func_stackOuterAttributes_0: function(attributes) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -13493,7 +13493,7 @@ module.exports = function() {
 			},
 			__ks_func_tryClassAbstractMethod_0: function(attributes, modifiers, first) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -13531,7 +13531,7 @@ module.exports = function() {
 			},
 			__ks_func_tryClassMember_0: function(attributes, modifiers, first) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(attributes === void 0 || attributes === null) {
 					throw new TypeError("'attributes' is not nullable");
@@ -13582,7 +13582,7 @@ module.exports = function() {
 			},
 			__ks_func_tryClassStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var first = arguments[++__ks_i];
@@ -13605,7 +13605,7 @@ module.exports = function() {
 			},
 			__ks_func_tryDestroyStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -13649,7 +13649,7 @@ module.exports = function() {
 			},
 			__ks_func_tryDestructuringArray_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -13669,7 +13669,7 @@ module.exports = function() {
 			},
 			__ks_func_tryDestructuringObject_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -13703,7 +13703,7 @@ module.exports = function() {
 			},
 			__ks_func_tryExternFunctionDeclaration_0: function(first, modifiers) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -13743,7 +13743,7 @@ module.exports = function() {
 			},
 			__ks_func_tryFunctionExpression_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -13901,7 +13901,7 @@ module.exports = function() {
 			},
 			__ks_func_tryMacroStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -13942,7 +13942,7 @@ module.exports = function() {
 			},
 			__ks_func_tryNamespaceStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -14018,7 +14018,7 @@ module.exports = function() {
 			},
 			__ks_func_tryOperand_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -14065,7 +14065,7 @@ module.exports = function() {
 			},
 			__ks_func_tryParameter_0: function(parameters, mode) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(parameters === void 0 || parameters === null) {
 					throw new TypeError("'parameters' is not nullable");
@@ -14088,7 +14088,7 @@ module.exports = function() {
 			},
 			__ks_func_tryPrefixedOperand_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -14107,7 +14107,7 @@ module.exports = function() {
 			},
 			__ks_func_trySwitchExpression_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -14128,7 +14128,7 @@ module.exports = function() {
 			},
 			__ks_func_tryTypeStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -14147,7 +14147,7 @@ module.exports = function() {
 			},
 			__ks_func_tryUntilStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -14213,7 +14213,7 @@ module.exports = function() {
 			},
 			__ks_func_tryWhileStatement_0: function(first) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
@@ -14244,7 +14244,7 @@ module.exports = function() {
 		});
 		function parse(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -14279,7 +14279,7 @@ module.exports = function() {
 	var $merge = {
 		merge: function(source, key, value) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(source === void 0 || source === null) {
 				throw new TypeError("'source' is not nullable");
@@ -14308,7 +14308,7 @@ module.exports = function() {
 		},
 		object: function(source, current) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(source === void 0 || source === null) {
 				throw new TypeError("'source' is not nullable");
@@ -14363,7 +14363,7 @@ module.exports = function() {
 	};
 	__ks_Array.__ks_func_any_0 = function(fn) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(fn === void 0 || fn === null) {
 			throw new TypeError("'fn' is not nullable");
@@ -14390,7 +14390,7 @@ module.exports = function() {
 	};
 	__ks_Array.__ks_func_contains_0 = function() {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		var __ks_i = -1;
 		var item = arguments[++__ks_i];
@@ -14403,7 +14403,7 @@ module.exports = function() {
 	};
 	__ks_Array.__ks_sttc_from_0 = function(item) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(item === void 0 || item === null) {
 			throw new TypeError("'item' is not nullable");
@@ -14482,7 +14482,7 @@ module.exports = function() {
 	};
 	__ks_Array.__ks_sttc_same_0 = function(a, b) {
 		if(arguments.length < 2) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 		}
 		if(a === void 0 || a === null) {
 			throw new TypeError("'a' is not nullable");
@@ -14571,7 +14571,7 @@ module.exports = function() {
 	};
 	__ks_Object.__ks_sttc_clone_0 = function(object) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(object === void 0 || object === null) {
 			throw new TypeError("'object' is not nullable");
@@ -14595,7 +14595,7 @@ module.exports = function() {
 	};
 	__ks_Object.__ks_sttc_isEmpty_0 = function(item) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(item === void 0 || item === null) {
 			throw new TypeError("'item' is not nullable");
@@ -14653,7 +14653,7 @@ module.exports = function() {
 	var __ks_Error = {};
 	Error.prepareStackTrace = function(error, stack) {
 		if(arguments.length < 2) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 		}
 		if(error === void 0 || error === null) {
 			throw new TypeError("'error' is not nullable");
@@ -14679,7 +14679,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_validateReportedError_0: function(error, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(error === void 0 || error === null) {
 					throw new TypeError("'error' is not nullable");
@@ -14751,7 +14751,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(message) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(message === void 0 || message === null) {
 				throw new TypeError("'message' is not nullable");
@@ -14765,7 +14765,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(message, fileName, lineNumber) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(message === void 0 || message === null) {
 				throw new TypeError("'message' is not nullable");
@@ -14791,7 +14791,7 @@ module.exports = function() {
 		},
 		__ks_cons_2: function(message, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(message === void 0 || message === null) {
 				throw new TypeError("'message' is not nullable");
@@ -14809,7 +14809,7 @@ module.exports = function() {
 		},
 		__ks_cons_3: function(message, node, data) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(message === void 0 || message === null) {
 				throw new TypeError("'message' is not nullable");
@@ -14881,7 +14881,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_throwNotFoundFile_0: function(path, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(path === void 0 || path === null) {
 					throw new TypeError("'path' is not nullable");
@@ -14893,7 +14893,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotFoundFile_1: function(path, directory, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(path === void 0 || path === null) {
 					throw new TypeError("'path' is not nullable");
@@ -14920,7 +14920,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotFoundModule_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -14932,7 +14932,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotFoundModule_1: function(name, directory, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -14988,7 +14988,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var __ks__;
@@ -15004,7 +15004,7 @@ module.exports = function() {
 		},
 		__ks_cons_2: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var __ks__;
@@ -15024,7 +15024,7 @@ module.exports = function() {
 		},
 		__ks_cons_3: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var __ks__;
@@ -15098,7 +15098,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var __ks__;
@@ -15138,7 +15138,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_throwAlreadyDefinedField_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15159,7 +15159,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwDefined_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15180,7 +15180,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwImmutable_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15201,7 +15201,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidAssignment_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15219,7 +15219,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwLoopingAlias_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15240,7 +15240,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNoMatchingConstructor_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15261,7 +15261,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNoMatchingFunction_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15279,7 +15279,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNoMatchingMethod_0: function(method, __ks_class_1, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(method === void 0 || method === null) {
 					throw new TypeError("'method' is not nullable");
@@ -15303,7 +15303,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotDefined_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15324,7 +15324,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotDefinedField_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15345,7 +15345,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotDefinedEnumElement_0: function(element, __ks_enum_1, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(element === void 0 || element === null) {
 					throw new TypeError("'element' is not nullable");
@@ -15369,7 +15369,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotDefinedInModule_0: function(name, module, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15393,7 +15393,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotDefinedMember_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15414,7 +15414,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotDefinedMethod_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15435,7 +15435,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotDefinedProperty_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15456,7 +15456,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotExportable_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15477,7 +15477,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotPassed_0: function(name, module, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15513,7 +15513,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_throwAfterDefaultClause_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15531,7 +15531,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwAfterRestParameter_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15549,7 +15549,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwAlreadyDeclared_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15570,7 +15570,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwDeadCode_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15588,7 +15588,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwDuplicateKey_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15606,7 +15606,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwDuplicateMethod_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15627,7 +15627,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwEnumOverflow_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15648,7 +15648,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwIdenticalConstructor_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15666,7 +15666,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwIdenticalFunction_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15687,7 +15687,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwIdenticalMethod_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15708,7 +15708,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidAwait_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15726,7 +15726,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidEnumAccess_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15744,7 +15744,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidMethodReturn_0: function(className, methodName, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(className === void 0 || className === null) {
 					throw new TypeError("'className' is not nullable");
@@ -15768,7 +15768,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidImportAliasArgument_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15789,7 +15789,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidSyncMethods_0: function(className, methodName, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(className === void 0 || className === null) {
 					throw new TypeError("'className' is not nullable");
@@ -15813,7 +15813,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwMismatchedInclude_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15834,7 +15834,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwMissingAbstractMethods_0: function(name, methods, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15858,7 +15858,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwMissingRequirement_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -15879,7 +15879,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwMixedOverloadedFunction_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15897,7 +15897,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNoDefaultParameter_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15915,7 +15915,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNoExport_0: function(module, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(module === void 0 || module === null) {
 					throw new TypeError("'module' is not nullable");
@@ -15936,7 +15936,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNoNullParameter_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15954,7 +15954,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNoRestParameter_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15972,7 +15972,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNoSuperCall_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -15990,7 +15990,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotAbstractClass_0: function(className, methodName, node) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(className === void 0 || className === null) {
 					throw new TypeError("'className' is not nullable");
@@ -16014,7 +16014,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotBinary_0: function(tag, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(tag === void 0 || tag === null) {
 					throw new TypeError("'tag' is not nullable");
@@ -16035,7 +16035,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotCompatibleConstructor_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16056,7 +16056,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotNamedParameter_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16074,7 +16074,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotOverloadableFunction_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16095,7 +16095,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwReservedClassMethod_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16116,7 +16116,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwReservedClassVariable_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16149,7 +16149,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwTooMuchRestParameter_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16167,7 +16167,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwUnexpectedAlias_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16188,7 +16188,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwUnmatchedMacro_0: function(name, node, data) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16212,7 +16212,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwUnnamedWildcardImport_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16230,7 +16230,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwUnreportedError_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16239,7 +16239,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwUnreportedError_1: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16275,7 +16275,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_throwCannotBeInstantiated_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16296,7 +16296,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwConstructorWithoutNew_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16317,7 +16317,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwImplFieldToSealedType_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16335,7 +16335,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwImplInvalidType_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16353,7 +16353,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalid_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16374,7 +16374,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidAssignement_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16392,7 +16392,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidBinding_0: function(expected, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(expected === void 0 || expected === null) {
 					throw new TypeError("'expected' is not nullable");
@@ -16413,7 +16413,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidCasting_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16431,7 +16431,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidForInExpression_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16449,7 +16449,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidForOfExpression_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16467,7 +16467,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidSpread_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16485,7 +16485,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwInvalidTypeChecking_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16503,7 +16503,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotAlien_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16524,7 +16524,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotAsyncFunction_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16545,7 +16545,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotClass_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16566,7 +16566,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotCompatibleArgument_0: function(varname, argname, modname, node) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(varname === void 0 || varname === null) {
 					throw new TypeError("'varname' is not nullable");
@@ -16593,7 +16593,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotCompatibleDefinition_0: function(varname, argname, modname, node) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(varname === void 0 || varname === null) {
 					throw new TypeError("'varname' is not nullable");
@@ -16620,7 +16620,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotNamespace_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16641,7 +16641,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwNotSyncFunction_0: function(name, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -16662,7 +16662,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwRequireClass_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16680,7 +16680,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwUnexpectedReturnedValue_0: function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -16698,7 +16698,7 @@ module.exports = function() {
 			},
 			__ks_sttc_throwUnexpectedReturnedType_0: function(type, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(type === void 0 || type === null) {
 					throw new TypeError("'type' is not nullable");
@@ -16747,7 +16747,7 @@ module.exports = function() {
 	var $ast = {
 		block: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -16766,7 +16766,7 @@ module.exports = function() {
 		},
 		body: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0) {
 				data = null;
@@ -16801,7 +16801,7 @@ module.exports = function() {
 		},
 		identifier: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -16820,7 +16820,7 @@ module.exports = function() {
 	var $runtime = {
 		helper: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -16830,7 +16830,7 @@ module.exports = function() {
 		},
 		isDefined: function(name, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -16852,7 +16852,7 @@ module.exports = function() {
 		},
 		scope: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -16861,7 +16861,7 @@ module.exports = function() {
 		},
 		type: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -16871,7 +16871,7 @@ module.exports = function() {
 		},
 		typeof: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var type = arguments[++__ks_i];
@@ -16910,7 +16910,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -16940,7 +16940,7 @@ module.exports = function() {
 		},
 		__ks_cons_2: function(data, parent, scope, kind) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -17029,7 +17029,7 @@ module.exports = function() {
 		},
 		__ks_func_isConsumedError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -17053,7 +17053,7 @@ module.exports = function() {
 		},
 		__ks_func_newScope_0: function(scope, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(scope === void 0 || scope === null) {
 				throw new TypeError("'scope' is not nullable");
@@ -17116,7 +17116,7 @@ module.exports = function() {
 		},
 		__ks_func_reference_1: function(reference) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(reference === void 0 || reference === null) {
 				throw new TypeError("'reference' is not nullable");
@@ -17177,7 +17177,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_conditional_0: function(data, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -17204,7 +17204,7 @@ module.exports = function() {
 			},
 			__ks_sttc_configure_0: function() {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -17256,7 +17256,7 @@ module.exports = function() {
 			},
 			__ks_sttc_get_0: function(data, targets) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -17287,7 +17287,7 @@ module.exports = function() {
 			},
 			__ks_sttc_register_0: function(__ks_class_1) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(__ks_class_1 === void 0 || __ks_class_1 === null) {
 					throw new TypeError("'class' is not nullable");
@@ -17342,7 +17342,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -17358,7 +17358,7 @@ module.exports = function() {
 		},
 		__ks_func_clone_0: function(options, cloned) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17379,7 +17379,7 @@ module.exports = function() {
 		},
 		__ks_func_evaluate_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -17424,7 +17424,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -17441,7 +17441,7 @@ module.exports = function() {
 		},
 		__ks_func_clone_0: function(options, cloned) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17466,7 +17466,7 @@ module.exports = function() {
 		},
 		__ks_func_configure_0: function(options) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17529,7 +17529,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -17546,7 +17546,7 @@ module.exports = function() {
 		},
 		__ks_func_clone_0: function(options, cloned) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17571,7 +17571,7 @@ module.exports = function() {
 		},
 		__ks_func_configure_0: function(options) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17616,7 +17616,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -17633,7 +17633,7 @@ module.exports = function() {
 		},
 		__ks_func_clone_0: function(options, cloned) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17654,7 +17654,7 @@ module.exports = function() {
 		},
 		__ks_func_compareVersion_0: function(a, b) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(a === void 0 || a === null) {
 				throw new TypeError("'a' is not nullable");
@@ -17697,7 +17697,7 @@ module.exports = function() {
 		},
 		__ks_func_evaluate_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -17711,7 +17711,7 @@ module.exports = function() {
 		},
 		__ks_func_evaluate_1: function(data, target) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -17867,7 +17867,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -17884,7 +17884,7 @@ module.exports = function() {
 		},
 		__ks_func_clone_0: function(options, cloned) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17909,7 +17909,7 @@ module.exports = function() {
 		},
 		__ks_func_configure_0: function(options) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17954,7 +17954,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -17971,7 +17971,7 @@ module.exports = function() {
 		},
 		__ks_func_clone_0: function(options, cloned) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -17996,7 +17996,7 @@ module.exports = function() {
 		},
 		__ks_func_configure_0: function(options) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -18006,7 +18006,7 @@ module.exports = function() {
 				if(argument.kind === NodeKind.Identifier) {
 					var name = argument.name.toLowerCase().replace(/[-_\s]+(.)/g, function(m, l) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(m === void 0 || m === null) {
 							throw new TypeError("'m' is not nullable");
@@ -18053,7 +18053,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -18070,7 +18070,7 @@ module.exports = function() {
 		},
 		__ks_func_configure_0: function(options) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -18153,7 +18153,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -18170,7 +18170,7 @@ module.exports = function() {
 		},
 		__ks_func_clone_0: function(options, cloned) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -18203,7 +18203,7 @@ module.exports = function() {
 		},
 		__ks_func_configure_0: function(options) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -18266,7 +18266,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(options) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(options === void 0 || options === null) {
 				throw new TypeError("'options' is not nullable");
@@ -18326,7 +18326,7 @@ module.exports = function() {
 		},
 		__ks_func_insertAt_0: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -18449,7 +18449,7 @@ module.exports = function() {
 		},
 		__ks_func_newIndent_0: function(indent) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(indent === void 0 || indent === null) {
 				throw new TypeError("'indent' is not nullable");
@@ -18520,7 +18520,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(code) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(code === void 0 || code === null) {
 				throw new TypeError("'code' is not nullable");
@@ -18559,7 +18559,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(writer, indent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(writer === void 0 || writer === null) {
 				throw new TypeError("'writer' is not nullable");
@@ -18664,7 +18664,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var writer = arguments[++__ks_i];
@@ -18794,7 +18794,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var writer = arguments[++__ks_i];
@@ -18931,7 +18931,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(writer, indent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(writer === void 0 || writer === null) {
 				throw new TypeError("'writer' is not nullable");
@@ -19135,7 +19135,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(writer, indent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(writer === void 0 || writer === null) {
 				throw new TypeError("'writer' is not nullable");
@@ -19236,7 +19236,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(writer, indent, index) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(writer === void 0 || writer === null) {
 				throw new TypeError("'writer' is not nullable");
@@ -19378,7 +19378,7 @@ module.exports = function() {
 			},
 			__ks_func_filterExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -19400,7 +19400,7 @@ module.exports = function() {
 			},
 			__ks_func_filterStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -19446,7 +19446,7 @@ module.exports = function() {
 			},
 			__ks_func_pushMode_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -19468,7 +19468,7 @@ module.exports = function() {
 			},
 			__ks_func_statement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19512,7 +19512,7 @@ module.exports = function() {
 			},
 			__ks_func_transformExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -19534,7 +19534,7 @@ module.exports = function() {
 			},
 			__ks_func_transformStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -19566,7 +19566,7 @@ module.exports = function() {
 			},
 			__ks_func_expression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19587,7 +19587,7 @@ module.exports = function() {
 			},
 			__ks_func_filterExpression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19605,7 +19605,7 @@ module.exports = function() {
 			},
 			__ks_func_filterStatement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19647,7 +19647,7 @@ module.exports = function() {
 			},
 			__ks_func_pushMode_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -19668,7 +19668,7 @@ module.exports = function() {
 			},
 			__ks_func_statement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19690,7 +19690,7 @@ module.exports = function() {
 			},
 			__ks_func_transformExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -19712,7 +19712,7 @@ module.exports = function() {
 			},
 			__ks_func_transformStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -19744,7 +19744,7 @@ module.exports = function() {
 			},
 			__ks_func_expression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19765,7 +19765,7 @@ module.exports = function() {
 			},
 			__ks_func_filterExpression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19783,7 +19783,7 @@ module.exports = function() {
 			},
 			__ks_func_filterStatement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19825,7 +19825,7 @@ module.exports = function() {
 			},
 			__ks_func_pushMode_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -19846,7 +19846,7 @@ module.exports = function() {
 			},
 			__ks_func_statement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19868,7 +19868,7 @@ module.exports = function() {
 			},
 			__ks_func_transformExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -19890,7 +19890,7 @@ module.exports = function() {
 			},
 			__ks_func_transformStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -19912,7 +19912,7 @@ module.exports = function() {
 			},
 			__ks_func_wrap_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19943,7 +19943,7 @@ module.exports = function() {
 			},
 			__ks_func_expression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -19964,7 +19964,7 @@ module.exports = function() {
 			},
 			__ks_func_filterExpression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20006,7 +20006,7 @@ module.exports = function() {
 			},
 			__ks_func_pushMode_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -20027,7 +20027,7 @@ module.exports = function() {
 			},
 			__ks_func_transformExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -20049,7 +20049,7 @@ module.exports = function() {
 			},
 			__ks_func_wrap_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20080,7 +20080,7 @@ module.exports = function() {
 			},
 			__ks_func_expression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20101,7 +20101,7 @@ module.exports = function() {
 			},
 			__ks_func_filterExpression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20119,7 +20119,7 @@ module.exports = function() {
 			},
 			__ks_func_filterStatement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20161,7 +20161,7 @@ module.exports = function() {
 			},
 			__ks_func_pushMode_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -20182,7 +20182,7 @@ module.exports = function() {
 			},
 			__ks_func_run_0: function(data, fn) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20204,7 +20204,7 @@ module.exports = function() {
 			},
 			__ks_func_statement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20226,7 +20226,7 @@ module.exports = function() {
 			},
 			__ks_func_transformExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -20248,7 +20248,7 @@ module.exports = function() {
 			},
 			__ks_func_transformStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -20270,7 +20270,7 @@ module.exports = function() {
 			},
 			__ks_func_wrap_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20301,7 +20301,7 @@ module.exports = function() {
 			},
 			__ks_func_filterExpression_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20319,7 +20319,7 @@ module.exports = function() {
 			},
 			__ks_func_filterStatement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20361,7 +20361,7 @@ module.exports = function() {
 			},
 			__ks_func_pushMode_0: function(mode) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(mode === void 0 || mode === null) {
 					throw new TypeError("'mode' is not nullable");
@@ -20382,7 +20382,7 @@ module.exports = function() {
 			},
 			__ks_func_statement_0: function(data) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -20404,7 +20404,7 @@ module.exports = function() {
 			},
 			__ks_func_transformExpression_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -20426,7 +20426,7 @@ module.exports = function() {
 			},
 			__ks_func_transformStatement_0: function() {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				var __ks_i = -1;
 				var data = arguments[++__ks_i];
@@ -20449,7 +20449,7 @@ module.exports = function() {
 		});
 		function generate() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -20464,7 +20464,7 @@ module.exports = function() {
 		}
 		function toAttribute(data, inner, writer) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -20479,7 +20479,7 @@ module.exports = function() {
 		}
 		function toAttributes(data, inner, writer) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -20502,7 +20502,7 @@ module.exports = function() {
 		}
 		function toExpression() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -20759,7 +20759,7 @@ module.exports = function() {
 			else if(__ks_0 === NodeKind.FunctionDeclaration) {
 				toFunctionHeader(data, function(writer) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(writer === void 0 || writer === null) {
 						throw new TypeError("'writer' is not nullable");
@@ -20770,7 +20770,7 @@ module.exports = function() {
 			else if(__ks_0 === NodeKind.FunctionExpression) {
 				toFunctionHeader(data, function(writer) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(writer === void 0 || writer === null) {
 						throw new TypeError("'writer' is not nullable");
@@ -20866,7 +20866,7 @@ module.exports = function() {
 			else if(__ks_0 === NodeKind.LambdaExpression) {
 				toFunctionHeader(data, function(writer) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(writer === void 0 || writer === null) {
 						throw new TypeError("'writer' is not nullable");
@@ -20939,7 +20939,7 @@ module.exports = function() {
 					if(element.kind === NodeKind.FunctionExpression) {
 						toExpression(element, writer, function(writer) {
 							if(arguments.length < 1) {
-								throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+								throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 							}
 							if(writer === void 0 || writer === null) {
 								throw new TypeError("'writer' is not nullable");
@@ -21198,7 +21198,7 @@ module.exports = function() {
 		}
 		function toFunctionHeader(data, header, writer) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -21267,7 +21267,7 @@ module.exports = function() {
 		}
 		function toFunctionBody(data, writer) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -21293,7 +21293,7 @@ module.exports = function() {
 		}
 		function toLoopHeader(data, writer) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -21443,7 +21443,7 @@ module.exports = function() {
 		}
 		function toMacroElements() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var elements = arguments[++__ks_i];
@@ -21494,7 +21494,7 @@ module.exports = function() {
 		}
 		function toQuote(value) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -21503,7 +21503,7 @@ module.exports = function() {
 		}
 		function toStatement(data, writer) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -21892,7 +21892,7 @@ module.exports = function() {
 				var line = writer.newLine();
 				toFunctionHeader(data, function(writer) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(writer === void 0 || writer === null) {
 						throw new TypeError("'writer' is not nullable");
@@ -21996,7 +21996,7 @@ module.exports = function() {
 				var line = writer.newLine();
 				toFunctionHeader(data, function(writer) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(writer === void 0 || writer === null) {
 						throw new TypeError("'writer' is not nullable");
@@ -22016,7 +22016,7 @@ module.exports = function() {
 				var line = writer.newLine();
 				toFunctionHeader(data, function(writer) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(writer === void 0 || writer === null) {
 						throw new TypeError("'writer' is not nullable");
@@ -22269,7 +22269,7 @@ module.exports = function() {
 		}
 		function toWrap(data, writer) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -22311,7 +22311,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(code) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(code === void 0 || code === null) {
 				throw new TypeError("'code' is not nullable");
@@ -22320,7 +22320,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(code, start, end) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(code === void 0 || code === null) {
 				throw new TypeError("'code' is not nullable");
@@ -22349,7 +22349,7 @@ module.exports = function() {
 	});
 	function $code(code) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(code === void 0 || code === null) {
 			throw new TypeError("'code' is not nullable");
@@ -22358,7 +22358,7 @@ module.exports = function() {
 	}
 	function $const(node) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(node === void 0 || node === null) {
 			throw new TypeError("'node' is not nullable");
@@ -22367,7 +22367,7 @@ module.exports = function() {
 	}
 	function $quote(value) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(value === void 0 || value === null) {
 			throw new TypeError("'value' is not nullable");
@@ -22386,7 +22386,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(indent) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(indent === void 0 || indent === null) {
 				throw new TypeError("'indent' is not nullable");
@@ -22445,7 +22445,7 @@ module.exports = function() {
 		},
 		__ks_func_compile_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var node = arguments[++__ks_i];
@@ -22498,7 +22498,7 @@ module.exports = function() {
 		},
 		__ks_func_compile_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var node = arguments[++__ks_i];
@@ -22521,7 +22521,7 @@ module.exports = function() {
 		},
 		__ks_func_compileBoolean_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -22540,7 +22540,7 @@ module.exports = function() {
 		},
 		__ks_func_compileNullable_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -22559,7 +22559,7 @@ module.exports = function() {
 		},
 		__ks_func_wrap_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var node = arguments[++__ks_i];
@@ -22582,7 +22582,7 @@ module.exports = function() {
 		},
 		__ks_func_wrapBoolean_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -22601,7 +22601,7 @@ module.exports = function() {
 		},
 		__ks_func_wrapNullable_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -22661,7 +22661,7 @@ module.exports = function() {
 		},
 		__ks_func_compile_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var node = arguments[++__ks_i];
@@ -22689,7 +22689,7 @@ module.exports = function() {
 		},
 		__ks_func_compileBoolean_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var node = arguments[++__ks_i];
@@ -22717,7 +22717,7 @@ module.exports = function() {
 		},
 		__ks_func_compileNullable_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -22741,7 +22741,7 @@ module.exports = function() {
 		},
 		__ks_func_compileReusable_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -22765,7 +22765,7 @@ module.exports = function() {
 		},
 		__ks_func_wrap_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var node = arguments[++__ks_i];
@@ -22795,7 +22795,7 @@ module.exports = function() {
 		},
 		__ks_func_wrapBoolean_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var node = arguments[++__ks_i];
@@ -22825,7 +22825,7 @@ module.exports = function() {
 		},
 		__ks_func_wrapNullable_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -22938,7 +22938,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_arrayOf_0: function(parameter, scope) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(parameter === void 0 || parameter === null) {
 					throw new TypeError("'parameter' is not nullable");
@@ -22962,7 +22962,7 @@ module.exports = function() {
 			},
 			__ks_sttc_fromAST_0: function(data, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0) {
 					data = null;
@@ -22977,7 +22977,7 @@ module.exports = function() {
 			},
 			__ks_sttc_fromAST_1: function(data, scope, defined, node) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(data === void 0) {
 					data = null;
@@ -23166,7 +23166,7 @@ module.exports = function() {
 			},
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -23283,7 +23283,7 @@ module.exports = function() {
 			},
 			__ks_sttc_import_0: function(index, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -23391,7 +23391,7 @@ module.exports = function() {
 			},
 			__ks_sttc_isNative_0: function(name) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -23409,7 +23409,7 @@ module.exports = function() {
 			},
 			__ks_sttc_renameNative_0: function(name) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -23427,7 +23427,7 @@ module.exports = function() {
 			},
 			__ks_sttc_toNamedType_0: function(name, type) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -23459,7 +23459,7 @@ module.exports = function() {
 			},
 			__ks_sttc_union_0: function(scope) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(scope === void 0 || scope === null) {
 					throw new TypeError("'scope' is not nullable");
@@ -23499,7 +23499,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(scope === void 0) {
 				scope = null;
@@ -23574,7 +23574,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -23623,7 +23623,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -23641,7 +23641,7 @@ module.exports = function() {
 		},
 		__ks_func_hasProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -23731,7 +23731,7 @@ module.exports = function() {
 		},
 		__ks_func_isContainedIn_0: function(types) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(types === void 0 || types === null) {
 				throw new TypeError("'types' is not nullable");
@@ -23824,7 +23824,7 @@ module.exports = function() {
 		},
 		__ks_func_isMergeable_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -23848,7 +23848,7 @@ module.exports = function() {
 		},
 		__ks_func_isMorePreciseThan_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -24010,7 +24010,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0) {
 				that = null;
@@ -24028,7 +24028,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(that, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -24079,7 +24079,7 @@ module.exports = function() {
 		},
 		__ks_func_setNullable_0: function(nullable) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(nullable === void 0 || nullable === null) {
 				throw new TypeError("'nullable' is not nullable");
@@ -24097,7 +24097,7 @@ module.exports = function() {
 		},
 		__ks_func_toExportOrIndex_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -24123,7 +24123,7 @@ module.exports = function() {
 		},
 		__ks_func_toExportOrReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -24148,7 +24148,7 @@ module.exports = function() {
 		},
 		__ks_func_toMetadata_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -24171,7 +24171,7 @@ module.exports = function() {
 		},
 		__ks_func_toReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -24205,7 +24205,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromAST_0: function(data, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -24220,7 +24220,7 @@ module.exports = function() {
 			},
 			__ks_sttc_fromAST_1: function(data, scope, defined, node) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -24263,7 +24263,7 @@ module.exports = function() {
 			},
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -24326,7 +24326,7 @@ module.exports = function() {
 			},
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -24391,7 +24391,7 @@ module.exports = function() {
 			},
 			__ks_sttc_isOptional_0: function(parameters, index, step) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(parameters === void 0 || parameters === null) {
 					throw new TypeError("'parameters' is not nullable");
@@ -24448,7 +24448,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(scope === void 0) {
 				scope = null;
@@ -24460,7 +24460,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(parameters, data, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(parameters === void 0 || parameters === null) {
 				throw new TypeError("'parameters' is not nullable");
@@ -24550,7 +24550,7 @@ module.exports = function() {
 		},
 		__ks_func_addParameter_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var type = arguments[++__ks_i];
@@ -24616,7 +24616,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -24652,7 +24652,7 @@ module.exports = function() {
 		},
 		__ks_func_isMatching_0: function(value, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -24712,7 +24712,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -24745,7 +24745,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -24772,7 +24772,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -24793,7 +24793,7 @@ module.exports = function() {
 		},
 		__ks_func_index_1: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -24830,7 +24830,7 @@ module.exports = function() {
 		},
 		__ks_func_isCatchingError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -24878,7 +24878,7 @@ module.exports = function() {
 		},
 		__ks_func_isMorePreciseThan_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -24899,7 +24899,7 @@ module.exports = function() {
 		},
 		__ks_func_isInstanceOf_0: function(target) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(target === void 0 || target === null) {
 				throw new TypeError("'target' is not nullable");
@@ -24920,7 +24920,7 @@ module.exports = function() {
 		},
 		__ks_func_matchArguments_0: function(__ks_arguments_1) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
 				throw new TypeError("'arguments' is not nullable");
@@ -25029,7 +25029,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -25047,7 +25047,7 @@ module.exports = function() {
 		},
 		__ks_func_matchParametersOf_0: function(__ks_arguments_1, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
 				throw new TypeError("'arguments' is not nullable");
@@ -25062,7 +25062,7 @@ module.exports = function() {
 		},
 		__ks_func_matchParametersOf_1: function(pIndex, pStep, __ks_arguments_1, aIndex, aStep, matchables) {
 			if(arguments.length < 6) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 			}
 			if(pIndex === void 0 || pIndex === null) {
 				throw new TypeError("'pIndex' is not nullable");
@@ -25165,7 +25165,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(value, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -25219,7 +25219,7 @@ module.exports = function() {
 		},
 		__ks_func_parameter_0: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -25249,7 +25249,7 @@ module.exports = function() {
 		},
 		__ks_func_processModifiers_0: function(modifiers) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(modifiers === void 0 || modifiers === null) {
 				throw new TypeError("'modifiers' is not nullable");
@@ -25272,7 +25272,7 @@ module.exports = function() {
 		},
 		__ks_func_pushTo_0: function(methods) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -25320,7 +25320,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -25353,7 +25353,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -25405,7 +25405,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -25455,7 +25455,7 @@ module.exports = function() {
 			},
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -25524,7 +25524,7 @@ module.exports = function() {
 		},
 		__ks_func_addFunction_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -25540,7 +25540,7 @@ module.exports = function() {
 		},
 		__ks_func_addFunction_1: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -25559,7 +25559,7 @@ module.exports = function() {
 		},
 		__ks_func_addFunction_2: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -25622,7 +25622,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -25640,7 +25640,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -25691,7 +25691,7 @@ module.exports = function() {
 		},
 		__ks_func_hasFunction_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -25754,7 +25754,7 @@ module.exports = function() {
 		},
 		__ks_func_isMergeable_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -25769,7 +25769,7 @@ module.exports = function() {
 		},
 		__ks_func_isMorePreciseThan_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -25802,7 +25802,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(value, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -25866,7 +25866,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -25887,7 +25887,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -25920,7 +25920,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -25974,7 +25974,7 @@ module.exports = function() {
 		},
 		__ks_func_container_1: function(container) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(container === void 0) {
 				container = null;
@@ -26029,7 +26029,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -26047,7 +26047,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -26083,7 +26083,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -26149,7 +26149,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -26208,7 +26208,7 @@ module.exports = function() {
 		},
 		__ks_func_hasProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -26280,7 +26280,7 @@ module.exports = function() {
 		},
 		__ks_func_isExhaustive_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -26352,7 +26352,7 @@ module.exports = function() {
 		},
 		__ks_func_isMorePreciseThan_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -26459,7 +26459,7 @@ module.exports = function() {
 		},
 		__ks_func_isMatching_0: function(value, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -26556,7 +26556,7 @@ module.exports = function() {
 		},
 		__ks_func_matchClassName_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0) {
 				that = null;
@@ -26588,7 +26588,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0) {
 				that = null;
@@ -26653,7 +26653,7 @@ module.exports = function() {
 		},
 		__ks_func_matchInheritanceOf_0: function(base) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(base === void 0 || base === null) {
 				throw new TypeError("'base' is not nullable");
@@ -26688,7 +26688,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(that, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -26706,7 +26706,7 @@ module.exports = function() {
 		},
 		__ks_func_metaReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -26735,7 +26735,7 @@ module.exports = function() {
 		},
 		__ks_func_name_1: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -26786,7 +26786,7 @@ module.exports = function() {
 		},
 		__ks_func_toAlterationReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -26812,7 +26812,7 @@ module.exports = function() {
 		},
 		__ks_func_toExportOrIndex_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -26830,7 +26830,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -26850,7 +26850,7 @@ module.exports = function() {
 		},
 		__ks_func_toMetadata_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -26880,7 +26880,7 @@ module.exports = function() {
 		},
 		__ks_func_toReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -26903,7 +26903,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -26933,7 +26933,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -26967,7 +26967,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -26993,7 +26993,7 @@ module.exports = function() {
 		},
 		__ks_func_addProperty_0: function(name, property) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -27024,7 +27024,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -27055,7 +27055,7 @@ module.exports = function() {
 		},
 		__ks_func_hasProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -27078,7 +27078,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -27136,7 +27136,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var scope = arguments[++__ks_i];
@@ -27234,7 +27234,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -27258,7 +27258,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var references = arguments[++__ks_i];
@@ -27301,7 +27301,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -27333,7 +27333,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -27447,7 +27447,7 @@ module.exports = function() {
 		},
 		__ks_func_isExhaustive_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -27510,7 +27510,7 @@ module.exports = function() {
 		},
 		__ks_func_isInstanceOf_0: function(target) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(target === void 0 || target === null) {
 				throw new TypeError("'target' is not nullable");
@@ -27522,7 +27522,7 @@ module.exports = function() {
 		},
 		__ks_func_isInstanceOf_1: function(target) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(target === void 0 || target === null) {
 				throw new TypeError("'target' is not nullable");
@@ -27554,7 +27554,7 @@ module.exports = function() {
 		},
 		__ks_func_isInstanceOf_2: function(target) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(target === void 0 || target === null) {
 				throw new TypeError("'target' is not nullable");
@@ -27589,7 +27589,7 @@ module.exports = function() {
 		},
 		__ks_func_isMatching_0: function(value, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -27648,7 +27648,7 @@ module.exports = function() {
 		},
 		__ks_func_isMorePreciseThan_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -27751,7 +27751,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -27798,7 +27798,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(value, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -27879,7 +27879,7 @@ module.exports = function() {
 		},
 		__ks_func_reassign_0: function(name, scope) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -27947,7 +27947,7 @@ module.exports = function() {
 		},
 		__ks_func_setNullable_0: function(nullable) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(nullable === void 0 || nullable === null) {
 				throw new TypeError("'nullable' is not nullable");
@@ -27970,7 +27970,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -27991,7 +27991,7 @@ module.exports = function() {
 		},
 		__ks_func_toMetadata_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -28039,7 +28039,7 @@ module.exports = function() {
 		},
 		__ks_func_toReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -28077,7 +28077,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -28137,7 +28137,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -28190,7 +28190,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(scope === void 0) {
 				scope = null;
@@ -28229,7 +28229,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -28252,7 +28252,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -28277,7 +28277,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -28324,7 +28324,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(that, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -28347,7 +28347,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -28380,7 +28380,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -28415,7 +28415,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -28471,7 +28471,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(scope === void 0) {
 				scope = null;
@@ -28483,7 +28483,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(scope, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(scope === void 0) {
 				scope = null;
@@ -28543,7 +28543,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -28561,7 +28561,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -28585,7 +28585,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -28621,7 +28621,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -28642,7 +28642,7 @@ module.exports = function() {
 		},
 		__ks_func_type_1: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -28664,7 +28664,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -28697,7 +28697,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -28733,7 +28733,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(explicit, nullable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(explicit === void 0 || explicit === null) {
 				throw new TypeError("'explicit' is not nullable");
@@ -28776,7 +28776,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -28802,7 +28802,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -28843,7 +28843,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -28900,7 +28900,7 @@ module.exports = function() {
 		},
 		__ks_func_isInstanceOf_0: function(target) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(target === void 0 || target === null) {
 				throw new TypeError("'target' is not nullable");
@@ -28921,7 +28921,7 @@ module.exports = function() {
 		},
 		__ks_func_isMatching_0: function(value, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -28953,7 +28953,7 @@ module.exports = function() {
 		},
 		__ks_func_isMorePreciseThan_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -28980,7 +28980,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0 || b === null) {
 				throw new TypeError("'b' is not nullable");
@@ -28995,7 +28995,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(b, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(b === void 0 || b === null) {
 				throw new TypeError("'b' is not nullable");
@@ -29025,7 +29025,7 @@ module.exports = function() {
 		},
 		__ks_func_setNullable_0: function(nullable) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(nullable === void 0 || nullable === null) {
 				throw new TypeError("'nullable' is not nullable");
@@ -29055,7 +29055,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -29076,7 +29076,7 @@ module.exports = function() {
 		},
 		__ks_func_toMetadata_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -29106,7 +29106,7 @@ module.exports = function() {
 		},
 		__ks_func_toReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -29124,7 +29124,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -29163,7 +29163,7 @@ module.exports = function() {
 		},
 		__ks_func_addElement_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -29196,7 +29196,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -29214,7 +29214,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -29244,7 +29244,7 @@ module.exports = function() {
 		},
 		__ks_func_getElement_0: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -29304,7 +29304,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(value, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -29346,7 +29346,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -29367,7 +29367,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -29388,7 +29388,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -29415,7 +29415,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -29497,7 +29497,7 @@ module.exports = function() {
 			},
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -29640,7 +29640,7 @@ module.exports = function() {
 		},
 		__ks_func_addAbstractMethod_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -29675,7 +29675,7 @@ module.exports = function() {
 		},
 		__ks_func_addClassMethod_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -29713,7 +29713,7 @@ module.exports = function() {
 		},
 		__ks_func_addClassVariable_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -29743,7 +29743,7 @@ module.exports = function() {
 		},
 		__ks_func_addConstructor_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -29776,7 +29776,7 @@ module.exports = function() {
 		},
 		__ks_func_addInstanceMethod_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -29814,7 +29814,7 @@ module.exports = function() {
 		},
 		__ks_func_addInstanceVariable_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -29844,7 +29844,7 @@ module.exports = function() {
 		},
 		__ks_func_addPropertyFromAST_0: function(data, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -29958,7 +29958,7 @@ module.exports = function() {
 		},
 		__ks_func_copyFrom_0: function(src) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(src === void 0 || src === null) {
 				throw new TypeError("'src' is not nullable");
@@ -30014,7 +30014,7 @@ module.exports = function() {
 		},
 		__ks_func_dedupClassMethod_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30046,7 +30046,7 @@ module.exports = function() {
 		},
 		__ks_func_dedupInstanceMethod_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30090,7 +30090,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -30108,7 +30108,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -30242,7 +30242,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -30318,7 +30318,7 @@ module.exports = function() {
 		},
 		__ks_func_extends_1: function(__ks_extends_1) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(__ks_extends_1 === void 0) {
 				__ks_extends_1 = null;
@@ -30347,7 +30347,7 @@ module.exports = function() {
 		},
 		__ks_func_filterAbstractMethods_0: function(abstractMethods) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(abstractMethods === void 0 || abstractMethods === null) {
 				throw new TypeError("'abstractMethods' is not nullable");
@@ -30420,7 +30420,7 @@ module.exports = function() {
 		},
 		__ks_func_getAbstractMethod_0: function(name, __ks_arguments_1) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30451,7 +30451,7 @@ module.exports = function() {
 		},
 		__ks_func_getAbstractMethod_1: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30496,7 +30496,7 @@ module.exports = function() {
 		},
 		__ks_func_getClassMethods_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30520,7 +30520,7 @@ module.exports = function() {
 		},
 		__ks_func_getClassProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30546,7 +30546,7 @@ module.exports = function() {
 		},
 		__ks_func_getHierarchy_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30574,7 +30574,7 @@ module.exports = function() {
 		},
 		__ks_func_getInstanceMethod_0: function(name, __ks_arguments_1) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30614,7 +30614,7 @@ module.exports = function() {
 		},
 		__ks_func_getInstanceMethods_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30638,7 +30638,7 @@ module.exports = function() {
 		},
 		__ks_func_getInstanceProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30673,7 +30673,7 @@ module.exports = function() {
 		},
 		__ks_func_getInstanceVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30734,7 +30734,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30752,7 +30752,7 @@ module.exports = function() {
 		},
 		__ks_func_getPropertyGetter_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30784,7 +30784,7 @@ module.exports = function() {
 		},
 		__ks_func_getPropertySetter_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30816,7 +30816,7 @@ module.exports = function() {
 		},
 		__ks_func_hasAbstractMethod_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30842,7 +30842,7 @@ module.exports = function() {
 		},
 		__ks_func_hasClassMethod_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30868,7 +30868,7 @@ module.exports = function() {
 		},
 		__ks_func_hasClassVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30918,7 +30918,7 @@ module.exports = function() {
 		},
 		__ks_func_hasInstanceMethod_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30944,7 +30944,7 @@ module.exports = function() {
 		},
 		__ks_func_hasInstanceVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -30970,7 +30970,7 @@ module.exports = function() {
 		},
 		__ks_func_hasMatchingClassMethod_0: function(name, type, mode) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -31008,7 +31008,7 @@ module.exports = function() {
 		},
 		__ks_func_hasMatchingConstructor_0: function(type, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -31043,7 +31043,7 @@ module.exports = function() {
 		},
 		__ks_func_hasMatchingInstanceMethod_0: function(name, type, mode) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -31092,7 +31092,7 @@ module.exports = function() {
 		},
 		__ks_func_init_1: function(init) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(init === void 0 || init === null) {
 				throw new TypeError("'init' is not nullable");
@@ -31138,7 +31138,7 @@ module.exports = function() {
 		},
 		__ks_func_isAsyncClassMethod_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -31164,7 +31164,7 @@ module.exports = function() {
 		},
 		__ks_func_isAsyncInstanceMethod_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -31200,7 +31200,7 @@ module.exports = function() {
 		},
 		__ks_func_isConstructor_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -31221,7 +31221,7 @@ module.exports = function() {
 		},
 		__ks_func_isDestructor_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -31290,7 +31290,7 @@ module.exports = function() {
 		},
 		__ks_func_isInstanceOf_0: function(target) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(target === void 0 || target === null) {
 				throw new TypeError("'target' is not nullable");
@@ -31319,7 +31319,7 @@ module.exports = function() {
 		},
 		__ks_func_isMergeable_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -31352,7 +31352,7 @@ module.exports = function() {
 		},
 		__ks_func_listMatchingClassMethods_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -31397,7 +31397,7 @@ module.exports = function() {
 		},
 		__ks_func_listMatchingInstanceMethods_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -31442,7 +31442,7 @@ module.exports = function() {
 		},
 		__ks_func_matchArguments_0: function(__ks_arguments_1) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
 				throw new TypeError("'arguments' is not nullable");
@@ -31479,7 +31479,7 @@ module.exports = function() {
 		},
 		__ks_func_matchClassMethod_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -31519,7 +31519,7 @@ module.exports = function() {
 		},
 		__ks_func_matchInstanceMethod_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -31559,7 +31559,7 @@ module.exports = function() {
 		},
 		__ks_func_matchInstanceWith_0: function(object, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(object === void 0 || object === null) {
 				throw new TypeError("'object' is not nullable");
@@ -31603,7 +31603,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(that, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -31615,7 +31615,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_1: function(that, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -31679,7 +31679,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_2: function(that, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -31708,7 +31708,7 @@ module.exports = function() {
 		},
 		__ks_func_metaReference_0: function(references, name, ignoreAlteration) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -31737,7 +31737,7 @@ module.exports = function() {
 		},
 		__ks_func_setAlterationReference_0: function(alterationReference) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(alterationReference === void 0 || alterationReference === null) {
 				throw new TypeError("'alterationReference' is not nullable");
@@ -31759,7 +31759,7 @@ module.exports = function() {
 		},
 		__ks_func_toAlterationReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -31790,7 +31790,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -31823,7 +31823,7 @@ module.exports = function() {
 		},
 		__ks_func_toReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -31846,7 +31846,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -31872,7 +31872,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromAST_0: function(data, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -31912,7 +31912,7 @@ module.exports = function() {
 			},
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -31962,7 +31962,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(scope === void 0) {
 				scope = null;
@@ -32010,7 +32010,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -32033,7 +32033,7 @@ module.exports = function() {
 		},
 		__ks_func_access_0: function(access) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(access === void 0 || access === null) {
 				throw new TypeError("'access' is not nullable");
@@ -32055,7 +32055,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -32101,7 +32101,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(b, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(b === void 0 || b === null) {
 				throw new TypeError("'b' is not nullable");
@@ -32125,7 +32125,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -32158,7 +32158,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -32205,7 +32205,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromAST_0: function(data, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -32229,7 +32229,7 @@ module.exports = function() {
 			},
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -32297,7 +32297,7 @@ module.exports = function() {
 		},
 		__ks_func_access_0: function(access) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(access === void 0 || access === null) {
 				throw new TypeError("'access' is not nullable");
@@ -32319,7 +32319,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -32372,7 +32372,7 @@ module.exports = function() {
 		},
 		__ks_func_isMatched_0: function(methods, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -32420,7 +32420,7 @@ module.exports = function() {
 		},
 		__ks_func_processModifiers_0: function(modifiers) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(modifiers === void 0 || modifiers === null) {
 				throw new TypeError("'modifiers' is not nullable");
@@ -32449,7 +32449,7 @@ module.exports = function() {
 		},
 		__ks_func_returnType_0: function(returnType) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(returnType === void 0 || returnType === null) {
 				throw new TypeError("'returnType' is not nullable");
@@ -32486,7 +32486,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope, functions) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(scope === void 0) {
 				scope = null;
@@ -32534,7 +32534,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -32595,7 +32595,7 @@ module.exports = function() {
 		},
 		__ks_func_access_0: function(access) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(access === void 0 || access === null) {
 				throw new TypeError("'access' is not nullable");
@@ -32617,7 +32617,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -32645,7 +32645,7 @@ module.exports = function() {
 		},
 		__ks_func_processModifiers_0: function(modifiers) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(modifiers === void 0 || modifiers === null) {
 				throw new TypeError("'modifiers' is not nullable");
@@ -32682,7 +32682,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -32704,7 +32704,7 @@ module.exports = function() {
 		},
 		__ks_func_access_0: function(access) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(access === void 0 || access === null) {
 				throw new TypeError("'access' is not nullable");
@@ -32726,7 +32726,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -32749,7 +32749,7 @@ module.exports = function() {
 		},
 		__ks_func_processModifiers_0: function(modifiers) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(modifiers === void 0 || modifiers === null) {
 				throw new TypeError("'modifiers' is not nullable");
@@ -32785,7 +32785,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -32833,7 +32833,7 @@ module.exports = function() {
 			},
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -32893,7 +32893,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var scope = arguments[++__ks_i];
@@ -32931,7 +32931,7 @@ module.exports = function() {
 		},
 		__ks_func_addElement_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -32964,7 +32964,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -32982,7 +32982,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -33008,7 +33008,7 @@ module.exports = function() {
 		},
 		__ks_func_hasElement_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -33038,7 +33038,7 @@ module.exports = function() {
 		},
 		__ks_func_index_1: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -33071,7 +33071,7 @@ module.exports = function() {
 		},
 		__ks_func_isMergeable_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -33098,7 +33098,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -33116,7 +33116,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(value, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -33167,7 +33167,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -33188,7 +33188,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -33223,7 +33223,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -33304,7 +33304,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(scope === void 0 || scope === null) {
 				throw new TypeError("'scope' is not nullable");
@@ -33324,7 +33324,7 @@ module.exports = function() {
 		},
 		__ks_func_addProperty_0: function(name, property) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -33363,7 +33363,7 @@ module.exports = function() {
 		},
 		__ks_func_addPropertyFromAST_0: function(data, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -33384,7 +33384,7 @@ module.exports = function() {
 		},
 		__ks_func_addPropertyFromMetadata_0: function(name, data, metadata, references, alterations, queue, node) {
 			if(arguments.length < 7) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -33447,7 +33447,7 @@ module.exports = function() {
 		},
 		__ks_func_copyFrom_0: function(src) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(src === void 0 || src === null) {
 				throw new TypeError("'src' is not nullable");
@@ -33480,7 +33480,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -33498,7 +33498,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -33544,7 +33544,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -33572,7 +33572,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -33595,7 +33595,7 @@ module.exports = function() {
 		},
 		__ks_func_hasProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -33649,7 +33649,7 @@ module.exports = function() {
 		},
 		__ks_func_isSealedProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -33670,7 +33670,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(that, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -33697,7 +33697,7 @@ module.exports = function() {
 		},
 		__ks_func_setAlterationReference_0: function(alterationReference) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(alterationReference === void 0 || alterationReference === null) {
 				throw new TypeError("'alterationReference' is not nullable");
@@ -33731,7 +33731,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -33752,7 +33752,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -33773,7 +33773,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -33799,7 +33799,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromAST_0: function(data, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -33825,7 +33825,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(scope === void 0) {
 				scope = null;
@@ -33864,7 +33864,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0 || b === null) {
 				throw new TypeError("'b' is not nullable");
@@ -33887,7 +33887,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -33934,7 +33934,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -33991,7 +33991,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(b, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(b === void 0 || b === null) {
 				throw new TypeError("'b' is not nullable");
@@ -34015,7 +34015,7 @@ module.exports = function() {
 		},
 		__ks_func_toExportOrIndex_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -34050,7 +34050,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -34083,7 +34083,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -34143,7 +34143,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -34161,7 +34161,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -34181,7 +34181,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -34196,7 +34196,7 @@ module.exports = function() {
 		},
 		__ks_func_isInstanceOf_0: function(target) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(target === void 0 || target === null) {
 				throw new TypeError("'target' is not nullable");
@@ -34217,7 +34217,7 @@ module.exports = function() {
 		},
 		__ks_func_isMorePreciseThan_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -34262,7 +34262,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -34292,7 +34292,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -34312,7 +34312,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -34337,7 +34337,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -34411,7 +34411,7 @@ module.exports = function() {
 		},
 		__ks_func_addProperty_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -34450,7 +34450,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -34468,7 +34468,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -34500,7 +34500,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -34545,7 +34545,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(value, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -34598,7 +34598,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -34619,7 +34619,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -34640,7 +34640,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -34666,7 +34666,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -34719,7 +34719,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var scope = arguments[++__ks_i];
@@ -34771,7 +34771,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var scope = arguments[++__ks_i];
@@ -34878,7 +34878,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -34899,7 +34899,7 @@ module.exports = function() {
 		},
 		__ks_func_isMatching_0: function(value, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -34926,7 +34926,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -34985,7 +34985,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -34997,7 +34997,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_1: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -35020,7 +35020,7 @@ module.exports = function() {
 		},
 		__ks_func_matchArgument_0: function(value) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -35041,7 +35041,7 @@ module.exports = function() {
 		},
 		__ks_func_matchSignatureOf_0: function(type, matchables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -35098,7 +35098,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -35131,7 +35131,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -35166,7 +35166,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -35213,7 +35213,7 @@ module.exports = function() {
 			},
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(index === void 0 || index === null) {
 					throw new TypeError("'index' is not nullable");
@@ -35277,7 +35277,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var scope = arguments[++__ks_i];
@@ -35319,7 +35319,7 @@ module.exports = function() {
 		},
 		__ks_func_addType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -35374,7 +35374,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -35406,7 +35406,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -35429,7 +35429,7 @@ module.exports = function() {
 		},
 		__ks_func_flagExported_0: function(explicitly) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(explicitly === void 0 || explicitly === null) {
 				throw new TypeError("'explicitly' is not nullable");
@@ -35457,7 +35457,7 @@ module.exports = function() {
 		},
 		__ks_func_getProperty_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -35472,7 +35472,7 @@ module.exports = function() {
 				var property = KSType.isValue(__ks_2 = type.getProperty(name)) ? __ks_2 : Type.Any;
 				if(!types.some(function(t) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(t === void 0 || t === null) {
 						throw new TypeError("'t' is not nullable");
@@ -35524,7 +35524,7 @@ module.exports = function() {
 		},
 		__ks_func_isInstanceOf_0: function(target) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(target === void 0 || target === null) {
 				throw new TypeError("'target' is not nullable");
@@ -35548,7 +35548,7 @@ module.exports = function() {
 		},
 		__ks_func_isMatching_0: function(value, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -35589,7 +35589,7 @@ module.exports = function() {
 		},
 		__ks_func_isMorePreciseThan_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -35634,7 +35634,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -35669,7 +35669,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -35706,7 +35706,7 @@ module.exports = function() {
 		},
 		__ks_func_toReference_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -35724,7 +35724,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -35809,7 +35809,7 @@ module.exports = function() {
 		},
 		__ks_func_equals_0: function(b) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(b === void 0) {
 				b = null;
@@ -35827,7 +35827,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(references, ignoreAlteration) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(references === void 0 || references === null) {
 				throw new TypeError("'references' is not nullable");
@@ -35857,7 +35857,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -35890,7 +35890,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -35918,7 +35918,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_createPredefinedClass_0: function(name, scope) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -35943,7 +35943,7 @@ module.exports = function() {
 			},
 			__ks_sttc_fromAST_0: function(data, scope) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -35987,7 +35987,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -36152,7 +36152,7 @@ module.exports = function() {
 		},
 		__ks_func_renameAs_0: function(secureName) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(secureName === void 0 || secureName === null) {
 				throw new TypeError("'secureName' is not nullable");
@@ -36170,7 +36170,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function(declaredType) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(declaredType === void 0 || declaredType === null) {
 				throw new TypeError("'declaredType' is not nullable");
@@ -36190,7 +36190,7 @@ module.exports = function() {
 		},
 		__ks_func_setDefinitive_0: function(definitive) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(definitive === void 0 || definitive === null) {
 				throw new TypeError("'definitive' is not nullable");
@@ -36209,7 +36209,7 @@ module.exports = function() {
 		},
 		__ks_func_setRealType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -36233,7 +36233,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -36325,7 +36325,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_isTempName_0: function(name) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -36355,7 +36355,7 @@ module.exports = function() {
 		},
 		__ks_func_hasMacro_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36391,7 +36391,7 @@ module.exports = function() {
 		},
 		__ks_func_isPredefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36423,7 +36423,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(parent) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(parent === void 0 || parent === null) {
 				throw new TypeError("'parent' is not nullable");
@@ -36473,7 +36473,7 @@ module.exports = function() {
 		},
 		__ks_func_commitTempVariables_0: function(variables) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(variables === void 0 || variables === null) {
 				throw new TypeError("'variables' is not nullable");
@@ -36494,7 +36494,7 @@ module.exports = function() {
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36515,7 +36515,7 @@ module.exports = function() {
 		},
 		__ks_func_define_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -36566,7 +36566,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariable_0: function(variable, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -36602,7 +36602,7 @@ module.exports = function() {
 		},
 		__ks_func_getChunkType_0: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36623,7 +36623,7 @@ module.exports = function() {
 		},
 		__ks_func_getDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36663,7 +36663,7 @@ module.exports = function() {
 		},
 		__ks_func_getRenamedIndex_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36696,7 +36696,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36705,7 +36705,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36751,7 +36751,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36772,7 +36772,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36784,7 +36784,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDefinedVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36830,7 +36830,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36842,7 +36842,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36890,7 +36890,7 @@ module.exports = function() {
 		},
 		__ks_func_isRedeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36916,7 +36916,7 @@ module.exports = function() {
 		},
 		__ks_func_isRenamedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -36978,7 +36978,7 @@ module.exports = function() {
 		},
 		__ks_func_reference_0: function(value) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -36996,7 +36996,7 @@ module.exports = function() {
 		},
 		__ks_func_releaseTempName_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37017,7 +37017,7 @@ module.exports = function() {
 		},
 		__ks_func_rename_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37043,7 +37043,7 @@ module.exports = function() {
 		},
 		__ks_func_resolveReference_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -37089,7 +37089,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(parent) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(parent === void 0 || parent === null) {
 				throw new TypeError("'parent' is not nullable");
@@ -37160,7 +37160,7 @@ module.exports = function() {
 		},
 		__ks_func_addMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37203,7 +37203,7 @@ module.exports = function() {
 		},
 		__ks_func_addStash_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37221,7 +37221,7 @@ module.exports = function() {
 		},
 		__ks_func_commitTempVariables_0: function(variables) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(variables === void 0 || variables === null) {
 				throw new TypeError("'variables' is not nullable");
@@ -37243,7 +37243,7 @@ module.exports = function() {
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37274,7 +37274,7 @@ module.exports = function() {
 		},
 		__ks_func_define_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -37325,7 +37325,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariable_0: function(variable, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -37367,7 +37367,7 @@ module.exports = function() {
 		},
 		__ks_func_getChunkType_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37376,7 +37376,7 @@ module.exports = function() {
 		},
 		__ks_func_getChunkType_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37418,7 +37418,7 @@ module.exports = function() {
 		},
 		__ks_func_getDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37469,7 +37469,7 @@ module.exports = function() {
 		},
 		__ks_func_getMacro_0: function(data, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -37518,7 +37518,7 @@ module.exports = function() {
 		},
 		__ks_func_getNewName_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37557,7 +37557,7 @@ module.exports = function() {
 		},
 		__ks_func_getRenamedIndex_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37590,7 +37590,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37599,7 +37599,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37644,7 +37644,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37665,7 +37665,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37677,7 +37677,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDefinedVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37722,7 +37722,7 @@ module.exports = function() {
 		},
 		__ks_func_hasMacro_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37737,7 +37737,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37749,7 +37749,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37806,7 +37806,7 @@ module.exports = function() {
 		},
 		__ks_func_isRedeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37832,7 +37832,7 @@ module.exports = function() {
 		},
 		__ks_func_isRenamedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37861,7 +37861,7 @@ module.exports = function() {
 		},
 		__ks_func_line_1: function(line) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(line === void 0 || line === null) {
 				throw new TypeError("'line' is not nullable");
@@ -37885,7 +37885,7 @@ module.exports = function() {
 		},
 		__ks_func_listMacros_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37932,7 +37932,7 @@ module.exports = function() {
 		},
 		__ks_func_processStash_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -37969,7 +37969,7 @@ module.exports = function() {
 		},
 		__ks_func_reassignReference_0: function(oldName, newName, newScope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(oldName === void 0 || oldName === null) {
 				throw new TypeError("'oldName' is not nullable");
@@ -37995,7 +37995,7 @@ module.exports = function() {
 		},
 		__ks_func_reference_0: function(value) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -38039,7 +38039,7 @@ module.exports = function() {
 		},
 		__ks_func_releaseTempName_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38057,7 +38057,7 @@ module.exports = function() {
 		},
 		__ks_func_removeVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38080,7 +38080,7 @@ module.exports = function() {
 		},
 		__ks_func_rename_0: function(name, newName) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38105,7 +38105,7 @@ module.exports = function() {
 		},
 		__ks_func_replaceVariable_0: function(name, variable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38136,7 +38136,7 @@ module.exports = function() {
 		},
 		__ks_func_replaceVariable_1: function(name, type, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38187,7 +38187,7 @@ module.exports = function() {
 		},
 		__ks_func_resolveReference_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -38221,7 +38221,7 @@ module.exports = function() {
 		},
 		__ks_func_setLineOffset_0: function(offset) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(offset === void 0 || offset === null) {
 				throw new TypeError("'offset' is not nullable");
@@ -38242,7 +38242,7 @@ module.exports = function() {
 		},
 		__ks_func_updateInferable_0: function(name, data, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38302,7 +38302,7 @@ module.exports = function() {
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38346,7 +38346,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(parent) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(parent === void 0 || parent === null) {
 				throw new TypeError("'parent' is not nullable");
@@ -38396,7 +38396,7 @@ module.exports = function() {
 		},
 		__ks_func_commitTempVariables_0: function(variables) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(variables === void 0 || variables === null) {
 				throw new TypeError("'variables' is not nullable");
@@ -38417,7 +38417,7 @@ module.exports = function() {
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38438,7 +38438,7 @@ module.exports = function() {
 		},
 		__ks_func_define_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -38489,7 +38489,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariable_0: function(variable, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -38518,7 +38518,7 @@ module.exports = function() {
 		},
 		__ks_func_getChunkType_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38527,7 +38527,7 @@ module.exports = function() {
 		},
 		__ks_func_getChunkType_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38569,7 +38569,7 @@ module.exports = function() {
 		},
 		__ks_func_getDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38609,7 +38609,7 @@ module.exports = function() {
 		},
 		__ks_func_getRenamedIndex_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38642,7 +38642,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38651,7 +38651,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38697,7 +38697,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38718,7 +38718,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38739,7 +38739,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38751,7 +38751,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38799,7 +38799,7 @@ module.exports = function() {
 		},
 		__ks_func_isRedeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38825,7 +38825,7 @@ module.exports = function() {
 		},
 		__ks_func_isRenamedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38882,7 +38882,7 @@ module.exports = function() {
 		},
 		__ks_func_reference_0: function(value) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -38900,7 +38900,7 @@ module.exports = function() {
 		},
 		__ks_func_releaseTempName_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38921,7 +38921,7 @@ module.exports = function() {
 		},
 		__ks_func_replaceVariable_0: function(name, type, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -38969,7 +38969,7 @@ module.exports = function() {
 		},
 		__ks_func_resolveReference_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -38994,7 +38994,7 @@ module.exports = function() {
 		},
 		__ks_func_updateInferable_0: function(name, data, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39091,7 +39091,7 @@ module.exports = function() {
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39119,7 +39119,7 @@ module.exports = function() {
 		},
 		__ks_func_getRenamedIndex_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39170,7 +39170,7 @@ module.exports = function() {
 		},
 		__ks_func_releaseTempName_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39191,7 +39191,7 @@ module.exports = function() {
 		},
 		__ks_func_rename_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39223,7 +39223,7 @@ module.exports = function() {
 		},
 		__ks_func_replaceVariable_0: function(name, variable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39248,7 +39248,7 @@ module.exports = function() {
 		},
 		__ks_func_replaceVariable_1: function(name, type, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39295,7 +39295,7 @@ module.exports = function() {
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39323,7 +39323,7 @@ module.exports = function() {
 		},
 		__ks_func_getNewName_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39347,7 +39347,7 @@ module.exports = function() {
 		},
 		__ks_func_hasRenamedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39395,7 +39395,7 @@ module.exports = function() {
 		},
 		__ks_func_addVariable_0: function(name, variable, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39501,7 +39501,7 @@ module.exports = function() {
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39533,7 +39533,7 @@ module.exports = function() {
 		},
 		__ks_func_define_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -39584,7 +39584,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariable_0: function(variable, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -39620,7 +39620,7 @@ module.exports = function() {
 		},
 		__ks_func_getDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39646,7 +39646,7 @@ module.exports = function() {
 		},
 		__ks_func_getRenamedIndex_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39667,7 +39667,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -39697,7 +39697,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39718,7 +39718,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39739,7 +39739,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39760,7 +39760,7 @@ module.exports = function() {
 		},
 		__ks_func_reference_0: function(value) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -39804,7 +39804,7 @@ module.exports = function() {
 		},
 		__ks_func_resolveReference_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -39843,7 +39843,7 @@ module.exports = function() {
 		},
 		__ks_func_addVariable_0: function(name, variable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39982,7 +39982,7 @@ module.exports = function() {
 		},
 		__ks_func_addMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40026,7 +40026,7 @@ module.exports = function() {
 		},
 		__ks_func_addStash_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40044,7 +40044,7 @@ module.exports = function() {
 		},
 		__ks_func_commitTempVariables_0: function(variables) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(variables === void 0 || variables === null) {
 				throw new TypeError("'variables' is not nullable");
@@ -40066,7 +40066,7 @@ module.exports = function() {
 		},
 		__ks_func_declareVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40097,7 +40097,7 @@ module.exports = function() {
 		},
 		__ks_func_define_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -40148,7 +40148,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariable_0: function(variable, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -40190,7 +40190,7 @@ module.exports = function() {
 		},
 		__ks_func_getChunkType_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40199,7 +40199,7 @@ module.exports = function() {
 		},
 		__ks_func_getChunkType_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40241,7 +40241,7 @@ module.exports = function() {
 		},
 		__ks_func_getDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40292,7 +40292,7 @@ module.exports = function() {
 		},
 		__ks_func_getMacro_0: function(data, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -40335,7 +40335,7 @@ module.exports = function() {
 		},
 		__ks_func_getNewName_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40374,7 +40374,7 @@ module.exports = function() {
 		},
 		__ks_func_getRenamedIndex_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40407,7 +40407,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40416,7 +40416,7 @@ module.exports = function() {
 		},
 		__ks_func_getVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40469,7 +40469,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40490,7 +40490,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40502,7 +40502,7 @@ module.exports = function() {
 		},
 		__ks_func_hasDefinedVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40547,7 +40547,7 @@ module.exports = function() {
 		},
 		__ks_func_hasMacro_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40562,7 +40562,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40574,7 +40574,7 @@ module.exports = function() {
 		},
 		__ks_func_hasVariable_1: function(name, line) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40631,7 +40631,7 @@ module.exports = function() {
 		},
 		__ks_func_isRedeclaredVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40657,7 +40657,7 @@ module.exports = function() {
 		},
 		__ks_func_isRenamedVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40681,7 +40681,7 @@ module.exports = function() {
 		},
 		__ks_func_line_1: function(line) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(line === void 0 || line === null) {
 				throw new TypeError("'line' is not nullable");
@@ -40705,7 +40705,7 @@ module.exports = function() {
 		},
 		__ks_func_listMacros_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40740,7 +40740,7 @@ module.exports = function() {
 		},
 		__ks_func_processStash_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40777,7 +40777,7 @@ module.exports = function() {
 		},
 		__ks_func_reference_0: function(value) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -40812,7 +40812,7 @@ module.exports = function() {
 		},
 		__ks_func_reference_1: function(name, nullable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40842,7 +40842,7 @@ module.exports = function() {
 		},
 		__ks_func_releaseTempName_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40860,7 +40860,7 @@ module.exports = function() {
 		},
 		__ks_func_removeVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40880,7 +40880,7 @@ module.exports = function() {
 		},
 		__ks_func_replaceVariable_0: function(name, variable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40911,7 +40911,7 @@ module.exports = function() {
 		},
 		__ks_func_replaceVariable_1: function(name, type, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -40962,7 +40962,7 @@ module.exports = function() {
 		},
 		__ks_func_resolveReference_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -40998,7 +40998,7 @@ module.exports = function() {
 		},
 		__ks_func_setLineOffset_0: function(lineOffset) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(lineOffset === void 0 || lineOffset === null) {
 				throw new TypeError("'lineOffset' is not nullable");
@@ -41019,7 +41019,7 @@ module.exports = function() {
 		},
 		__ks_func_updateInferable_0: function(name, data, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41063,7 +41063,7 @@ module.exports = function() {
 		},
 		__ks_func_define_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var name = arguments[++__ks_i];
@@ -41106,7 +41106,7 @@ module.exports = function() {
 		},
 		__ks_func_replaceVariable_0: function(name, type, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41178,7 +41178,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, compiler, file) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -41227,7 +41227,7 @@ module.exports = function() {
 		},
 		__ks_func_addAlien_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41251,7 +41251,7 @@ module.exports = function() {
 		},
 		__ks_func_addHash_0: function(file, hash) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(file === void 0 || file === null) {
 				throw new TypeError("'file' is not nullable");
@@ -41269,7 +41269,7 @@ module.exports = function() {
 		},
 		__ks_func_addHashes_0: function(file, hashes) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(file === void 0 || file === null) {
 				throw new TypeError("'file' is not nullable");
@@ -41296,7 +41296,7 @@ module.exports = function() {
 		},
 		__ks_func_addInclude_0: function(path) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(path === void 0 || path === null) {
 				throw new TypeError("'path' is not nullable");
@@ -41307,7 +41307,7 @@ module.exports = function() {
 		},
 		__ks_func_addInclude_1: function(path, modulePath, moduleVersion) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(path === void 0 || path === null) {
 				throw new TypeError("'path' is not nullable");
@@ -41343,7 +41343,7 @@ module.exports = function() {
 		},
 		__ks_func_addReference_0: function(key, code) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(key === void 0 || key === null) {
 				throw new TypeError("'key' is not nullable");
@@ -41367,7 +41367,7 @@ module.exports = function() {
 		},
 		__ks_func_addRequirement_0: function(requirement) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(requirement === void 0 || requirement === null) {
 				throw new TypeError("'requirement' is not nullable");
@@ -41428,7 +41428,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(name, identifier) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41454,7 +41454,7 @@ module.exports = function() {
 		},
 		__ks_func_export_1: function(name, expression) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41480,7 +41480,7 @@ module.exports = function() {
 		},
 		__ks_func_export_2: function(name, variable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41520,7 +41520,7 @@ module.exports = function() {
 		},
 		__ks_func_exportMacro_0: function(name, data) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41546,7 +41546,7 @@ module.exports = function() {
 		},
 		__ks_func_exportMacro_1: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41584,7 +41584,7 @@ module.exports = function() {
 		},
 		__ks_func_flag_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41608,7 +41608,7 @@ module.exports = function() {
 		},
 		__ks_func_getRequirement_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41626,7 +41626,7 @@ module.exports = function() {
 		},
 		__ks_func_hasInclude_0: function(path) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(path === void 0 || path === null) {
 				throw new TypeError("'path' is not nullable");
@@ -41641,7 +41641,7 @@ module.exports = function() {
 		},
 		__ks_func_import_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41668,7 +41668,7 @@ module.exports = function() {
 		},
 		__ks_func_isUpToDate_0: function(file, target, data) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(file === void 0 || file === null) {
 				throw new TypeError("'file' is not nullable");
@@ -41710,7 +41710,7 @@ module.exports = function() {
 		},
 		__ks_func_listIncludeVersions_0: function(path, modulePath) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(path === void 0 || path === null) {
 				throw new TypeError("'path' is not nullable");
@@ -41736,7 +41736,7 @@ module.exports = function() {
 		},
 		__ks_func_listReferences_0: function(key) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(key === void 0 || key === null) {
 				throw new TypeError("'key' is not nullable");
@@ -41758,7 +41758,7 @@ module.exports = function() {
 		},
 		__ks_func_parse_0: function(data, file) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -41783,7 +41783,7 @@ module.exports = function() {
 		},
 		__ks_func_path_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var __ks__;
@@ -42044,7 +42044,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, module) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -42137,7 +42137,7 @@ module.exports = function() {
 		},
 		__ks_func_exportMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -42167,7 +42167,7 @@ module.exports = function() {
 		},
 		__ks_func_getAttributeData_0: function(key) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(key === void 0 || key === null) {
 				throw new TypeError("'key' is not nullable");
@@ -42188,7 +42188,7 @@ module.exports = function() {
 		},
 		__ks_func_isConsumedError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -42224,7 +42224,7 @@ module.exports = function() {
 		},
 		__ks_func_publishMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -42245,7 +42245,7 @@ module.exports = function() {
 		},
 		__ks_func_registerMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -42278,7 +42278,7 @@ module.exports = function() {
 		},
 		__ks_func_setAttributeData_0: function(key, data) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(key === void 0 || key === null) {
 				throw new TypeError("'key' is not nullable");
@@ -42314,7 +42314,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -42356,7 +42356,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -42385,7 +42385,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(data, parent, scope, kind) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -42425,7 +42425,7 @@ module.exports = function() {
 		},
 		__ks_func_addAssignments_0: function(variables) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(variables === void 0 || variables === null) {
 				throw new TypeError("'variables' is not nullable");
@@ -42443,7 +42443,7 @@ module.exports = function() {
 		},
 		__ks_func_afterward_0: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -42461,7 +42461,7 @@ module.exports = function() {
 		},
 		__ks_func_assignTempVariables_0: function(scope) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(scope === void 0 || scope === null) {
 				throw new TypeError("'scope' is not nullable");
@@ -42494,7 +42494,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -42514,7 +42514,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariables_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var left = arguments[++__ks_i];
@@ -42556,7 +42556,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -42573,7 +42573,7 @@ module.exports = function() {
 		},
 		__ks_func_getAttributeData_0: function(key) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(key === void 0 || key === null) {
 				throw new TypeError("'key' is not nullable");
@@ -42654,7 +42654,7 @@ module.exports = function() {
 		},
 		__ks_func_setAttributeData_0: function(key, data) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(key === void 0 || key === null) {
 				throw new TypeError("'key' is not nullable");
@@ -42699,7 +42699,7 @@ module.exports = function() {
 		},
 		__ks_func_toDeclarationFragments_0: function(variables, fragments) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(variables === void 0 || variables === null) {
 				throw new TypeError("'variables' is not nullable");
@@ -42722,7 +42722,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -42800,7 +42800,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -42836,7 +42836,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_callMethod_0: function(node, variable, fnName, argName, retCode, fragments, method, index) {
 				if(arguments.length < 8) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -42880,7 +42880,7 @@ module.exports = function() {
 			},
 			__ks_sttc_isAssigningAlias_0: function(data, name, __ks_constructor_1, extending) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -42943,7 +42943,7 @@ module.exports = function() {
 			},
 			__ks_sttc_toWrongDoingFragments_0: function(block, ctrl, argName, async, returns) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(block === void 0 || block === null) {
 					throw new TypeError("'block' is not nullable");
@@ -43017,7 +43017,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -43050,7 +43050,7 @@ module.exports = function() {
 			var thisVariable = this._constructorScope.define("this", true, this._scope.reference(this._name), this);
 			thisVariable.replaceCall = Helper.vcurry(function(data, __ks_arguments_1) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -43153,7 +43153,7 @@ module.exports = function() {
 					var thisVariable = this._constructorScope.getVariable("this");
 					thisVariable.replaceCall = Helper.vcurry(function(data, __ks_arguments_1) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(data === void 0 || data === null) {
 							throw new TypeError("'data' is not nullable");
@@ -43165,7 +43165,7 @@ module.exports = function() {
 					}, this);
 					superVariable.replaceCall = Helper.vcurry(function(data, __ks_arguments_1) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(data === void 0 || data === null) {
 							throw new TypeError("'data' is not nullable");
@@ -43180,7 +43180,7 @@ module.exports = function() {
 					if(this._es5) {
 						superVariable.replaceCall = Helper.vcurry(function(data, __ks_arguments_1) {
 							if(arguments.length < 2) {
-								throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+								throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 							}
 							if(data === void 0 || data === null) {
 								throw new TypeError("'data' is not nullable");
@@ -43194,7 +43194,7 @@ module.exports = function() {
 					else {
 						superVariable.replaceCall = Helper.vcurry(function(data, __ks_arguments_1) {
 							if(arguments.length < 2) {
-								throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+								throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 							}
 							if(data === void 0 || data === null) {
 								throw new TypeError("'data' is not nullable");
@@ -43348,7 +43348,7 @@ module.exports = function() {
 		},
 		__ks_func_addReference_0: function(type, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -43407,7 +43407,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -43422,7 +43422,7 @@ module.exports = function() {
 		},
 		__ks_func_exportMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -43521,7 +43521,7 @@ module.exports = function() {
 		},
 		__ks_func_newInstanceMethodScope_0: function(method) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(method === void 0 || method === null) {
 				throw new TypeError("'method' is not nullable");
@@ -43548,7 +43548,7 @@ module.exports = function() {
 		},
 		__ks_func_registerMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -43570,7 +43570,7 @@ module.exports = function() {
 		},
 		__ks_func_toContinousES5Fragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -43603,7 +43603,7 @@ module.exports = function() {
 					}
 					ClassMethodDeclaration.toClassSwitchFragments(this, ctrl.newControl(), this._type, m, name, function(node, fragments) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(node === void 0 || node === null) {
 							throw new TypeError("'node' is not nullable");
@@ -43614,7 +43614,7 @@ module.exports = function() {
 						return fragments.code(name + ": function()").step();
 					}, function(fragments) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -43659,7 +43659,7 @@ module.exports = function() {
 			}
 			ClassConstructorDeclaration.toRouterFragments(this, clazz.newControl(), this._type, m, function(node, fragments) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -43670,7 +43670,7 @@ module.exports = function() {
 				return fragments.code("__ks_cons: function(args)").step();
 			}, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -43686,7 +43686,7 @@ module.exports = function() {
 				}
 				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -43697,7 +43697,7 @@ module.exports = function() {
 					return fragments.code(name + ": function()").step();
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -43718,7 +43718,7 @@ module.exports = function() {
 		},
 		__ks_func_toContinousES6Fragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -43762,7 +43762,7 @@ module.exports = function() {
 			}
 			ClassConstructorDeclaration.toRouterFragments(this, clazz.newControl(), this._type, m, function(node, fragments) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -43773,7 +43773,7 @@ module.exports = function() {
 				return fragments.code("__ks_cons(args)").step();
 			}, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -43794,7 +43794,7 @@ module.exports = function() {
 				}
 				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -43805,7 +43805,7 @@ module.exports = function() {
 					return fragments.code(name + "()").step();
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -43823,7 +43823,7 @@ module.exports = function() {
 				}
 				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -43834,7 +43834,7 @@ module.exports = function() {
 					return fragments.code("static " + name + "()").step();
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -43855,7 +43855,7 @@ module.exports = function() {
 		},
 		__ks_func_toHybridES6Fragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -43884,7 +43884,7 @@ module.exports = function() {
 				var assessment = Router.assess(m, false);
 				Router.toFragments(assessment, line.newBlock(), "__ks_arguments", false, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -43895,7 +43895,7 @@ module.exports = function() {
 					return fragments;
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -43903,7 +43903,7 @@ module.exports = function() {
 					fragments.done();
 				}, function(fragments, method, index) {
 					if(arguments.length < 3) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -43953,7 +43953,7 @@ module.exports = function() {
 				}
 				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -43964,7 +43964,7 @@ module.exports = function() {
 					return fragments.code(name + "()").step();
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -43982,7 +43982,7 @@ module.exports = function() {
 				}
 				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -43993,7 +43993,7 @@ module.exports = function() {
 					return fragments.code("static " + name + "()").step();
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -44014,7 +44014,7 @@ module.exports = function() {
 		},
 		__ks_func_toSealedES5Fragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44047,7 +44047,7 @@ module.exports = function() {
 					}
 					ClassMethodDeclaration.toClassSwitchFragments(this, ctrl.newControl(), this._type, m, name, function(node, fragments) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(node === void 0 || node === null) {
 							throw new TypeError("'node' is not nullable");
@@ -44058,7 +44058,7 @@ module.exports = function() {
 						return fragments.code(name + ": function()").step();
 					}, function(fragments) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -44095,7 +44095,7 @@ module.exports = function() {
 			}
 			ClassConstructorDeclaration.toRouterFragments(this, clazz.newControl(), this._type, m, function(node, fragments) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -44106,7 +44106,7 @@ module.exports = function() {
 				return fragments.code("__ks_cons: function(args)").step();
 			}, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -44122,7 +44122,7 @@ module.exports = function() {
 				}
 				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -44133,7 +44133,7 @@ module.exports = function() {
 					return fragments.code(name + ": function()").step();
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -44154,7 +44154,7 @@ module.exports = function() {
 		},
 		__ks_func_toSealedES6Fragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44195,7 +44195,7 @@ module.exports = function() {
 			}
 			ClassConstructorDeclaration.toRouterFragments(this, clazz.newControl(), this._type, m, function(node, fragments) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -44206,7 +44206,7 @@ module.exports = function() {
 				return fragments.code("__ks_cons(args)").step();
 			}, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -44227,7 +44227,7 @@ module.exports = function() {
 				}
 				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -44238,7 +44238,7 @@ module.exports = function() {
 					return fragments.code(name + "()").step();
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -44256,7 +44256,7 @@ module.exports = function() {
 				}
 				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -44267,7 +44267,7 @@ module.exports = function() {
 					return fragments.code("static " + name + "()").step();
 				}, function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -44288,7 +44288,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44358,7 +44358,7 @@ module.exports = function() {
 		},
 		__ks_func_updateMethodScope_0: function(method) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(method === void 0 || method === null) {
 				throw new TypeError("'method' is not nullable");
@@ -44368,7 +44368,7 @@ module.exports = function() {
 				if(this._es5) {
 					variable.replaceCall = Helper.vcurry(function(data, __ks_arguments_1) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(data === void 0 || data === null) {
 							throw new TypeError("'data' is not nullable");
@@ -44380,7 +44380,7 @@ module.exports = function() {
 					}, this);
 					variable.replaceMemberCall = Helper.vcurry(function(property, __ks_arguments_1, node) {
 						if(arguments.length < 3) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 						}
 						if(property === void 0 || property === null) {
 							throw new TypeError("'property' is not nullable");
@@ -44397,7 +44397,7 @@ module.exports = function() {
 				else {
 					variable.replaceCall = Helper.vcurry(function(data, __ks_arguments_1) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(data === void 0 || data === null) {
 							throw new TypeError("'data' is not nullable");
@@ -44421,7 +44421,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -44448,7 +44448,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, __ks_arguments_1, __ks_class_1) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -44485,7 +44485,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44530,7 +44530,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44565,7 +44565,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, __ks_arguments_1, __ks_class_1) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -44602,7 +44602,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44647,7 +44647,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44693,7 +44693,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44727,7 +44727,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, __ks_arguments_1, method, __ks_class_1) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -44771,7 +44771,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44815,7 +44815,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, __ks_arguments_1, method, __ks_class_1) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -44859,7 +44859,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44902,7 +44902,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(property, __ks_arguments_1, __ks_class_1, node) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(property === void 0 || property === null) {
 				throw new TypeError("'property' is not nullable");
@@ -44952,7 +44952,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -44983,7 +44983,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_toClassSwitchFragments_0: function(node, fragments, variable, methods, name, header, footer) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -45010,7 +45010,7 @@ module.exports = function() {
 				if(variable.type().isExtending()) {
 					return Router.toFragments(assessment, fragments, "arguments", true, header, footer, Helper.vcurry(ClassDeclaration.callMethod, null, node, variable, "__ks_sttc_" + name + "_", "arguments", "return "), function(block, ctrl, argName, async, returns) {
 						if(arguments.length < 5) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 						}
 						if(block === void 0 || block === null) {
 							throw new TypeError("'block' is not nullable");
@@ -45054,7 +45054,7 @@ module.exports = function() {
 			},
 			__ks_sttc_toInstanceSwitchFragments_0: function(node, fragments, variable, methods, name, header, footer) {
 				if(arguments.length < 7) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 7)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -45081,7 +45081,7 @@ module.exports = function() {
 				if(variable.type().isExtending()) {
 					return Router.toFragments(assessment, fragments, "arguments", true, header, footer, Helper.vcurry(ClassDeclaration.callMethod, null, node, variable, "prototype.__ks_func_" + name + "_", "arguments", "return "), function(block, ctrl, argName, async, returns) {
 						if(arguments.length < 5) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 						}
 						if(block === void 0 || block === null) {
 							throw new TypeError("'block' is not nullable");
@@ -45139,7 +45139,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -45294,7 +45294,7 @@ module.exports = function() {
 		},
 		__ks_func_addAliasStatement_0: function(statement) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(statement === void 0 || statement === null) {
 				throw new TypeError("'statement' is not nullable");
@@ -45329,7 +45329,7 @@ module.exports = function() {
 		},
 		__ks_func_isConsumedError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -45404,7 +45404,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -45424,7 +45424,7 @@ module.exports = function() {
 			}
 			Parameter.toFragments(this, ctrl, ParameterMode.Default, function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -45483,7 +45483,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_toRouterFragments_0: function(node, fragments, variable, methods, header, footer) {
 				if(arguments.length < 6) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -45507,7 +45507,7 @@ module.exports = function() {
 				if(node.isExtending()) {
 					return Router.toFragments(assessment, fragments, "args", false, header, footer, Helper.vcurry(ClassDeclaration.callMethod, null, node, variable, "prototype.__ks_cons_", "args", ""), function(block, ctrl, argName, async, returns) {
 						if(arguments.length < 5) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 						}
 						if(block === void 0 || block === null) {
 							throw new TypeError("'block' is not nullable");
@@ -45556,7 +45556,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -45653,7 +45653,7 @@ module.exports = function() {
 		},
 		__ks_func_addAliasStatement_0: function(statement) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(statement === void 0 || statement === null) {
 				throw new TypeError("'statement' is not nullable");
@@ -45712,7 +45712,7 @@ module.exports = function() {
 		},
 		__ks_func_getConstructorIndex_0: function(body) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(body === void 0 || body === null) {
 				throw new TypeError("'body' is not nullable");
@@ -45746,7 +45746,7 @@ module.exports = function() {
 		},
 		__ks_func_getSuperIndex_0: function(body) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(body === void 0 || body === null) {
 				throw new TypeError("'body' is not nullable");
@@ -45798,7 +45798,7 @@ module.exports = function() {
 		},
 		__ks_func_isConsumedError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -45837,7 +45837,7 @@ module.exports = function() {
 		},
 		__ks_func_toHybridConstructorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -45845,7 +45845,7 @@ module.exports = function() {
 			var ctrl = fragments.newControl().code("constructor(");
 			Parameter.toFragments(this, ctrl, ParameterMode.Default, function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -45881,7 +45881,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -45893,7 +45893,7 @@ module.exports = function() {
 				var ctrl = fragments.newLine().code("const " + this._internalName + " = (");
 				var block = Parameter.toFragments(this, ctrl, ParameterMode.HybridConstructor, function(node) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -45924,7 +45924,7 @@ module.exports = function() {
 				}
 				Parameter.toFragments(this, ctrl, ParameterMode.Default, function(node) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -45965,7 +45965,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_toRouterFragments_0: function(node, fragments, variable) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -46009,7 +46009,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -46131,7 +46131,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -46148,7 +46148,7 @@ module.exports = function() {
 			}
 			Parameter.toFragments(this, ctrl, ParameterMode.Default, function(node) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -46196,7 +46196,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -46348,7 +46348,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -46428,7 +46428,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -46516,7 +46516,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -46606,7 +46606,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -46678,7 +46678,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -46696,7 +46696,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -46769,7 +46769,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -46787,7 +46787,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -46981,7 +46981,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -47008,7 +47008,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -47162,7 +47162,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -47189,7 +47189,7 @@ module.exports = function() {
 		},
 		__ks_func_exportMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -47210,7 +47210,7 @@ module.exports = function() {
 		},
 		__ks_func_registerMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -47231,7 +47231,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -47255,7 +47255,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -47327,7 +47327,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -47354,7 +47354,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -47374,7 +47374,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -47439,7 +47439,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -47461,7 +47461,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -47526,7 +47526,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -47534,7 +47534,7 @@ module.exports = function() {
 			this._expression.prepare();
 			this._expression.type().walk(Helper.vcurry(function(name, __ks_0) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -47553,7 +47553,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -47582,7 +47582,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(object, property) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(object === void 0 || object === null) {
 				throw new TypeError("'object' is not nullable");
@@ -47606,7 +47606,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -47692,7 +47692,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariables_0: function(left, scope, expression, leftMost) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(left === void 0 || left === null) {
 				throw new TypeError("'left' is not nullable");
@@ -47769,7 +47769,7 @@ module.exports = function() {
 		},
 		__ks_func_toAwaitStatementFragments_0: function(fragments, statements) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -47794,7 +47794,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -48040,7 +48040,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -48058,7 +48058,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -48380,7 +48380,7 @@ module.exports = function() {
 		},
 		__ks_func_checkForBreak_0: function(expression) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(expression === void 0 || expression === null) {
 				throw new TypeError("'expression' is not nullable");
@@ -48405,7 +48405,7 @@ module.exports = function() {
 		},
 		__ks_func_checkForRenamedVariables_0: function(expression, variables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(expression === void 0 || expression === null) {
 				throw new TypeError("'expression' is not nullable");
@@ -48449,7 +48449,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -48467,7 +48467,7 @@ module.exports = function() {
 		},
 		__ks_func_toBoundFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -48523,7 +48523,7 @@ module.exports = function() {
 		},
 		__ks_func_toFromFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -48579,7 +48579,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -48859,7 +48859,7 @@ module.exports = function() {
 		},
 		__ks_func_checkForRenamedVariables_0: function(expression, variables) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(expression === void 0 || expression === null) {
 				throw new TypeError("'expression' is not nullable");
@@ -48903,7 +48903,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -48921,7 +48921,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -48956,7 +48956,7 @@ module.exports = function() {
 		},
 		__ks_func_toLoopFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -49159,7 +49159,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -49177,7 +49177,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -49242,7 +49242,7 @@ module.exports = function() {
 	var $function = {
 		surround: function(node) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
@@ -49290,7 +49290,7 @@ module.exports = function() {
 		},
 		useThisVariable: function(data, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -49431,7 +49431,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -49471,7 +49471,7 @@ module.exports = function() {
 				else {
 					scope.addStash(this._name, Helper.vcurry(function(variable) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(variable === void 0 || variable === null) {
 							throw new TypeError("'variable' is not nullable");
@@ -49491,7 +49491,7 @@ module.exports = function() {
 						return true;
 					}, this), Helper.vcurry(function(variable) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(variable === void 0 || variable === null) {
 							throw new TypeError("'variable' is not nullable");
@@ -49549,7 +49549,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -49576,7 +49576,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -49594,7 +49594,7 @@ module.exports = function() {
 				}), true);
 				Router.toFragments(assessment, fragments.newLine(), "arguments", false, Helper.vcurry(function(node, fragments) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -49605,7 +49605,7 @@ module.exports = function() {
 					return fragments.code("function " + this._name + "()").newBlock();
 				}, this), function(fragments) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -49613,7 +49613,7 @@ module.exports = function() {
 					return fragments.done();
 				}, Helper.vcurry(function(fragments, method, index) {
 					if(arguments.length < 3) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 					}
 					if(fragments === void 0 || fragments === null) {
 						throw new TypeError("'fragments' is not nullable");
@@ -49627,7 +49627,7 @@ module.exports = function() {
 					var declarator = this._variable.getDeclarator(index);
 					declarator.toRouterFragments(fragments, Helper.vcurry(function(fragments, wrongdoing, data) {
 						if(arguments.length < 3) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -49648,7 +49648,7 @@ module.exports = function() {
 					return false;
 				}, this), Helper.vcurry(function(block, ctrl, async, returns) {
 					if(arguments.length < 4) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 					}
 					if(block === void 0 || block === null) {
 						throw new TypeError("'block' is not nullable");
@@ -49678,7 +49678,7 @@ module.exports = function() {
 				if(assessment.flattenable) {
 					Router.toFragments(assessment, fragments.newLine(), "arguments", false, Helper.vcurry(function(node, fragments) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(node === void 0 || node === null) {
 							throw new TypeError("'node' is not nullable");
@@ -49689,7 +49689,7 @@ module.exports = function() {
 						return fragments.code("function " + this._name + "()").newBlock();
 					}, this), function(fragments) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -49697,7 +49697,7 @@ module.exports = function() {
 						return fragments.done();
 					}, Helper.vcurry(function(fragments, method, index) {
 						if(arguments.length < 3) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -49717,7 +49717,7 @@ module.exports = function() {
 					this._variable.toStatementFragments(fragments, mode);
 					Router.toFragments(assessment, fragments.newLine(), "arguments", false, Helper.vcurry(function(node, fragments) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(node === void 0 || node === null) {
 							throw new TypeError("'node' is not nullable");
@@ -49728,7 +49728,7 @@ module.exports = function() {
 						return fragments.code("function " + this._name + "()").newBlock();
 					}, this), function(fragments) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -49736,7 +49736,7 @@ module.exports = function() {
 						return fragments.done();
 					}, Helper.vcurry(function(fragments, method, index) {
 						if(arguments.length < 3) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -49782,7 +49782,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -49816,7 +49816,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(variable, data, parent) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -49928,7 +49928,7 @@ module.exports = function() {
 		},
 		__ks_func_isConsumedError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -49967,7 +49967,7 @@ module.exports = function() {
 		},
 		__ks_func_toAwaitExpressionFragments_0: function(fragments, parameters, statements) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50013,7 +50013,7 @@ module.exports = function() {
 		},
 		__ks_func_toRouterFragments_0: function(fragments, wrongdoer) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50023,7 +50023,7 @@ module.exports = function() {
 			}
 			Parameter.toFragments(this, fragments, ParameterMode.OverloadedFunction, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -50051,7 +50051,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, name, mode) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50065,7 +50065,7 @@ module.exports = function() {
 			var ctrl = fragments.newControl().code("function " + name + "(");
 			Parameter.toFragments(this, ctrl, ParameterMode.Default, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -50119,7 +50119,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(scope, name, extended) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(scope === void 0 || scope === null) {
 				throw new TypeError("'scope' is not nullable");
@@ -50216,7 +50216,7 @@ module.exports = function() {
 		},
 		__ks_func_addDeclarator_0: function(declarator) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(declarator === void 0 || declarator === null) {
 				throw new TypeError("'declarator' is not nullable");
@@ -50237,7 +50237,7 @@ module.exports = function() {
 		},
 		__ks_func_getDeclarator_0: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -50258,7 +50258,7 @@ module.exports = function() {
 		},
 		__ks_func_getDeclaratorName_0: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -50288,7 +50288,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50505,7 +50505,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -50533,7 +50533,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50564,7 +50564,7 @@ module.exports = function() {
 		},
 		__ks_func_toIfFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50577,7 +50577,7 @@ module.exports = function() {
 				var first = true;
 				this._variable.walk(Helper.vcurry(function(name) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(name === void 0 || name === null) {
 						throw new TypeError("'name' is not nullable");
@@ -50726,7 +50726,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50780,7 +50780,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, variable) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -50886,7 +50886,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50916,7 +50916,7 @@ module.exports = function() {
 		},
 		__ks_func_toSharedFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -50968,7 +50968,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, variable) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -51106,7 +51106,7 @@ module.exports = function() {
 		},
 		__ks_func_addAliasStatement_0: function(statement) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(statement === void 0 || statement === null) {
 				throw new TypeError("'statement' is not nullable");
@@ -51153,7 +51153,7 @@ module.exports = function() {
 		},
 		__ks_func_isConsumedError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -51204,7 +51204,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -51233,7 +51233,7 @@ module.exports = function() {
 				}
 				var block = Parameter.toFragments(this, line, ParameterMode.Default, function(node) {
 					if(arguments.length < 1) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 					}
 					if(node === void 0 || node === null) {
 						throw new TypeError("'node' is not nullable");
@@ -51257,7 +51257,7 @@ module.exports = function() {
 		},
 		__ks_func_toSharedFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -51270,7 +51270,7 @@ module.exports = function() {
 					var assessment = Router.assess(this._class.getInstanceMethods(this._name), false);
 					Router.toFragments(assessment, fragments.newLine(), "args", true, Helper.vcurry(function(node, fragments) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(node === void 0 || node === null) {
 							throw new TypeError("'node' is not nullable");
@@ -51283,7 +51283,7 @@ module.exports = function() {
 						return block;
 					}, this), function(fragments) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -51291,7 +51291,7 @@ module.exports = function() {
 						return fragments.done();
 					}, Helper.vcurry(function(fragments, method, index) {
 						if(arguments.length < 3) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -51323,7 +51323,7 @@ module.exports = function() {
 				else {
 					ClassMethodDeclaration.toInstanceSwitchFragments(this, fragments.newLine(), this._variable, this._class.getInstanceMethods(this._name), this._name, Helper.vcurry(function(node, fragments) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(node === void 0 || node === null) {
 							throw new TypeError("'node' is not nullable");
@@ -51334,7 +51334,7 @@ module.exports = function() {
 						return fragments.code("" + this._variable.name() + ".prototype." + this._name + " = function()").newBlock();
 					}, this), function(fragments) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -51348,7 +51348,7 @@ module.exports = function() {
 					var assessment = Router.assess(this._class.getClassMethods(this._name), false);
 					Router.toFragments(assessment, fragments.newLine(), "args", true, Helper.vcurry(function(node, fragments) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(node === void 0 || node === null) {
 							throw new TypeError("'node' is not nullable");
@@ -51361,7 +51361,7 @@ module.exports = function() {
 						return block;
 					}, this), function(fragments) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -51369,7 +51369,7 @@ module.exports = function() {
 						return fragments.done();
 					}, Helper.vcurry(function(fragments, method, index) {
 						if(arguments.length < 3) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -51401,7 +51401,7 @@ module.exports = function() {
 				else {
 					ClassMethodDeclaration.toClassSwitchFragments(this, fragments.newLine(), this._variable, this._class.getClassMethods(this._name), this._name, Helper.vcurry(function(node, fragments) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(node === void 0 || node === null) {
 							throw new TypeError("'node' is not nullable");
@@ -51412,7 +51412,7 @@ module.exports = function() {
 						return fragments.code("" + this._variable.name() + "." + this._name + " = function()").newBlock();
 					}, this), function(fragments) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(fragments === void 0 || fragments === null) {
 							throw new TypeError("'fragments' is not nullable");
@@ -51452,7 +51452,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, variable) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -51536,7 +51536,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -51578,7 +51578,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, variable) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -51697,7 +51697,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -51715,7 +51715,7 @@ module.exports = function() {
 			line.code(".", this._data.name.name, " = function(");
 			var block = Parameter.toFragments(this, line, ParameterMode.Default, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -51779,7 +51779,7 @@ module.exports = function() {
 	};
 	function $nodeModulesPaths(start) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(start === void 0 || start === null) {
 			throw new TypeError("'start' is not nullable");
@@ -51969,7 +51969,7 @@ module.exports = function() {
 		},
 		__ks_func_addArgument_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -52027,7 +52027,7 @@ module.exports = function() {
 		},
 		__ks_func_addImport_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var imported = arguments[++__ks_i];
@@ -52090,7 +52090,7 @@ module.exports = function() {
 		},
 		__ks_func_addVariable_0: function(imported, local, isVariable, type) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(imported === void 0 || imported === null) {
 				throw new TypeError("'imported' is not nullable");
@@ -52156,7 +52156,7 @@ module.exports = function() {
 		},
 		__ks_func_loadCoreModule_0: function(x) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(x === void 0 || x === null) {
 				throw new TypeError("'x' is not nullable");
@@ -52177,7 +52177,7 @@ module.exports = function() {
 		},
 		__ks_func_loadDirectory_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var x = arguments[++__ks_i];
@@ -52227,7 +52227,7 @@ module.exports = function() {
 		},
 		__ks_func_loadFile_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var x = arguments[++__ks_i];
@@ -52268,7 +52268,7 @@ module.exports = function() {
 		},
 		__ks_func_loadKSFile_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var x = arguments[++__ks_i];
@@ -52345,7 +52345,7 @@ module.exports = function() {
 				}
 				this._arguments.sort(function(a, b) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(a === void 0 || a === null) {
 						throw new TypeError("'a' is not nullable");
@@ -52470,7 +52470,7 @@ module.exports = function() {
 						if(last === 0) {
 							this._alias = dots[0].replace(/[-_]+(.)/g, function(m, l) {
 								if(arguments.length < 2) {
-									throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+									throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 								}
 								if(m === void 0 || m === null) {
 									throw new TypeError("'m' is not nullable");
@@ -52484,7 +52484,7 @@ module.exports = function() {
 						else if(dots[last].length <= 3) {
 							this._alias = dots[last - 1].replace(/[-_]+(.)/g, function(m, l) {
 								if(arguments.length < 2) {
-									throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+									throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 								}
 								if(m === void 0 || m === null) {
 									throw new TypeError("'m' is not nullable");
@@ -52498,7 +52498,7 @@ module.exports = function() {
 						else {
 							this._alias = dots[last].replace(/[-_]+(.)/g, function(m, l) {
 								if(arguments.length < 2) {
-									throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+									throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 								}
 								if(m === void 0 || m === null) {
 									throw new TypeError("'m' is not nullable");
@@ -52563,7 +52563,7 @@ module.exports = function() {
 		},
 		__ks_func_loadNodeModule_0: function(x, start) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(x === void 0 || x === null) {
 				throw new TypeError("'x' is not nullable");
@@ -52593,7 +52593,7 @@ module.exports = function() {
 		},
 		__ks_func_readMetadata_0: function(file) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(file === void 0 || file === null) {
 				throw new TypeError("'file' is not nullable");
@@ -52601,7 +52601,7 @@ module.exports = function() {
 			try {
 				return JSON.parse(fs.readFile(file), function(key, value) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(key === void 0 || key === null) {
 						throw new TypeError("'key' is not nullable");
@@ -52627,7 +52627,7 @@ module.exports = function() {
 		},
 		__ks_func_registerMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -52648,7 +52648,7 @@ module.exports = function() {
 		},
 		__ks_func_toImportFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -52671,7 +52671,7 @@ module.exports = function() {
 		},
 		__ks_func_toKSFileFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -52774,7 +52774,7 @@ module.exports = function() {
 		},
 		__ks_func_toNodeFileFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -52857,7 +52857,7 @@ module.exports = function() {
 		},
 		__ks_func_toRequireFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -52958,7 +52958,7 @@ module.exports = function() {
 		},
 		__ks_func_registerMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -52979,7 +52979,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -53013,7 +53013,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -53043,7 +53043,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(metadata, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(metadata === void 0 || metadata === null) {
 				throw new TypeError("'metadata' is not nullable");
@@ -53065,7 +53065,7 @@ module.exports = function() {
 		},
 		__ks_func_hasType_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -53083,7 +53083,7 @@ module.exports = function() {
 		},
 		__ks_func_getType_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -53101,7 +53101,7 @@ module.exports = function() {
 		},
 		__ks_func_prepare_0: function(__ks_arguments_1) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
 				throw new TypeError("'arguments' is not nullable");
@@ -53232,7 +53232,7 @@ module.exports = function() {
 		},
 		__ks_func_define_0: function(declaration, kind) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(declaration === void 0 || declaration === null) {
 				throw new TypeError("'declaration' is not nullable");
@@ -53471,7 +53471,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -53580,7 +53580,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -53663,7 +53663,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -53746,7 +53746,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -53826,7 +53826,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -53899,7 +53899,7 @@ module.exports = function() {
 		},
 		__ks_func_toAltFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -53981,7 +53981,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54010,7 +54010,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -54029,7 +54029,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(variable) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -54042,7 +54042,7 @@ module.exports = function() {
 		},
 		__ks_cons_2: function(data, kind, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -54101,7 +54101,7 @@ module.exports = function() {
 		},
 		__ks_func_toNameFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54122,7 +54122,7 @@ module.exports = function() {
 		},
 		__ks_func_type_1: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -54151,7 +54151,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -54169,7 +54169,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(data, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -54218,7 +54218,7 @@ module.exports = function() {
 		},
 		__ks_func_toParameterFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54246,7 +54246,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(name, type) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -54288,7 +54288,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(variable, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -54308,7 +54308,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(data, kind, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -54363,7 +54363,7 @@ module.exports = function() {
 		},
 		__ks_func_toAssignmentFragments_0: function(fragments, index) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54388,7 +54388,7 @@ module.exports = function() {
 		},
 		__ks_func_toParameterFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54416,7 +54416,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -54448,7 +54448,7 @@ module.exports = function() {
 		},
 		__ks_func_toAltFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54480,7 +54480,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -54512,7 +54512,7 @@ module.exports = function() {
 		},
 		__ks_func_toAltFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54544,7 +54544,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(variable, importer) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(variable === void 0 || variable === null) {
 				throw new TypeError("'variable' is not nullable");
@@ -54568,7 +54568,7 @@ module.exports = function() {
 		},
 		__ks_func_toAltFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54724,7 +54724,7 @@ module.exports = function() {
 		},
 		__ks_func_canLoadLocalFile_0: function(file) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(file === void 0 || file === null) {
 				throw new TypeError("'file' is not nullable");
@@ -54742,7 +54742,7 @@ module.exports = function() {
 		},
 		__ks_func_canLoadModuleFile_0: function(file, name, path, version) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(file === void 0 || file === null) {
 				throw new TypeError("'file' is not nullable");
@@ -54780,7 +54780,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -54807,7 +54807,7 @@ module.exports = function() {
 		},
 		__ks_func_loadLocalFile_0: function(path) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(path === void 0 || path === null) {
 				throw new TypeError("'path' is not nullable");
@@ -54838,7 +54838,7 @@ module.exports = function() {
 		},
 		__ks_func_loadModuleFile_0: function(path, moduleName, modulePath, moduleVersion) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(path === void 0 || path === null) {
 				throw new TypeError("'path' is not nullable");
@@ -54878,7 +54878,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -54936,7 +54936,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -55061,7 +55061,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -55111,7 +55111,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -55143,7 +55143,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -55226,7 +55226,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -55235,7 +55235,7 @@ module.exports = function() {
 		},
 		__ks_func_export_1: function(name, variable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -55260,7 +55260,7 @@ module.exports = function() {
 		},
 		__ks_func_exportMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -55302,7 +55302,7 @@ module.exports = function() {
 		},
 		__ks_func_publishMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -55336,7 +55336,7 @@ module.exports = function() {
 		},
 		__ks_func_registerMacro_0: function(name, macro) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -55357,7 +55357,7 @@ module.exports = function() {
 		},
 		__ks_func_toExportFragements_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -55389,7 +55389,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -55447,7 +55447,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -55537,7 +55537,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -55557,7 +55557,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -55617,7 +55617,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -55658,7 +55658,7 @@ module.exports = function() {
 		},
 		__ks_func_toAwaitStatementFragments_0: function(fragments, statements) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -55682,7 +55682,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -55759,7 +55759,7 @@ module.exports = function() {
 	var $switch = {
 		length: function(elements) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(elements === void 0 || elements === null) {
 				throw new TypeError("'elements' is not nullable");
@@ -55931,7 +55931,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariables_0: function(declarator, scope) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(declarator === void 0 || declarator === null) {
 				throw new TypeError("'declarator' is not nullable");
@@ -55961,7 +55961,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -55982,7 +55982,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56129,7 +56129,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56194,7 +56194,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56256,7 +56256,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56348,7 +56348,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56386,7 +56386,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56510,7 +56510,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56531,7 +56531,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56592,7 +56592,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56613,7 +56613,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56677,7 +56677,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56698,7 +56698,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56793,7 +56793,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, nf) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56852,7 +56852,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -56917,7 +56917,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -57018,7 +57018,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57175,7 +57175,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -57225,7 +57225,7 @@ module.exports = function() {
 		},
 		__ks_func_isConsumedError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -57260,7 +57260,7 @@ module.exports = function() {
 		},
 		__ks_func_toAwaitStatementFragments_0: function(fragments, statements) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57331,7 +57331,7 @@ module.exports = function() {
 		},
 		__ks_func_toAwaitExpressionFragments_0: function(fragments, parameters, statements) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57477,7 +57477,7 @@ module.exports = function() {
 		},
 		__ks_func_toCatchFragments_0: function(fragments, error) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57548,7 +57548,7 @@ module.exports = function() {
 		},
 		__ks_func_toFinallyFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57566,7 +57566,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57659,7 +57659,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -57686,7 +57686,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57766,7 +57766,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -57784,7 +57784,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57857,7 +57857,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -57875,7 +57875,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -57915,7 +57915,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -57951,7 +57951,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(data, parent, scope, initScope) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -58110,7 +58110,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariables_0: function(declarator) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(declarator === void 0 || declarator === null) {
 				throw new TypeError("'declarator' is not nullable");
@@ -58139,7 +58139,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -58157,7 +58157,7 @@ module.exports = function() {
 		},
 		__ks_func_isDuplicate_0: function(scope) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(scope === void 0 || scope === null) {
 				throw new TypeError("'scope' is not nullable");
@@ -58214,7 +58214,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -58253,7 +58253,7 @@ module.exports = function() {
 		},
 		__ks_func_toAwaitExpressionFragments_0: function(fragments, parameters, statements) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -58289,7 +58289,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -58373,7 +58373,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -58446,14 +58446,14 @@ module.exports = function() {
 		},
 		__ks_func_checkNames_0: function(init) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(init === void 0 || init === null) {
 				throw new TypeError("'init' is not nullable");
 			}
 			this._binding.walk(Helper.vcurry(function(name) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
@@ -58474,7 +58474,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -58503,7 +58503,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -58524,7 +58524,7 @@ module.exports = function() {
 		},
 		__ks_func_isDuplicate_0: function(scope) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(scope === void 0 || scope === null) {
 				throw new TypeError("'scope' is not nullable");
@@ -58566,7 +58566,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -58587,7 +58587,7 @@ module.exports = function() {
 		},
 		__ks_func_setRealType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -58619,7 +58619,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -58640,7 +58640,7 @@ module.exports = function() {
 		},
 		__ks_func_toAssignmentFragments_0: function(fragments, value) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -58661,7 +58661,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -58733,7 +58733,7 @@ module.exports = function() {
 		},
 		__ks_func_checkNames_0: function(init) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(init === void 0 || init === null) {
 				throw new TypeError("'init' is not nullable");
@@ -58753,7 +58753,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -58783,7 +58783,7 @@ module.exports = function() {
 		},
 		__ks_func_isDuplicate_0: function(scope) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(scope === void 0 || scope === null) {
 				throw new TypeError("'scope' is not nullable");
@@ -58810,7 +58810,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -58867,7 +58867,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -58888,7 +58888,7 @@ module.exports = function() {
 		},
 		__ks_func_setRealType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -58909,7 +58909,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -58930,7 +58930,7 @@ module.exports = function() {
 		},
 		__ks_func_toAssignmentFragments_0: function(fragments, value) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -58951,7 +58951,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -59021,7 +59021,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -59039,7 +59039,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -59070,7 +59070,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -59302,7 +59302,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -59322,7 +59322,7 @@ module.exports = function() {
 		},
 		__ks_func_statement_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -59341,7 +59341,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var fragments = arguments[++__ks_i];
@@ -59363,7 +59363,7 @@ module.exports = function() {
 		},
 		__ks_func_toNullableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -59381,7 +59381,7 @@ module.exports = function() {
 		},
 		__ks_func_toReusableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -59406,7 +59406,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(value, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -59422,7 +59422,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(data, parent, scope, value) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -59503,7 +59503,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -59521,7 +59521,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -59572,7 +59572,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -59637,7 +59637,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -59685,7 +59685,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -59751,7 +59751,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -59766,7 +59766,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -59809,7 +59809,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(assignment) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(assignment === void 0 || assignment === null) {
 				throw new TypeError("'assignment' is not nullable");
@@ -59827,7 +59827,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -59853,7 +59853,7 @@ module.exports = function() {
 		},
 		__ks_func_type_1: function(type, scope, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -59900,7 +59900,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -59930,7 +59930,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -59955,7 +59955,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -59989,7 +59989,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -60091,7 +60091,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -60115,7 +60115,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -60227,7 +60227,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -60245,7 +60245,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -60383,7 +60383,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -60401,7 +60401,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -60552,7 +60552,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -60570,7 +60570,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -60715,7 +60715,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -60733,7 +60733,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -60870,7 +60870,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -60888,7 +60888,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -60948,7 +60948,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -61051,7 +61051,7 @@ module.exports = function() {
 		},
 		__ks_func_toAwaitExpressionFragments_0: function(fragments, statements) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -61087,7 +61087,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -61207,7 +61207,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -61270,7 +61270,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -61324,7 +61324,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -61346,7 +61346,7 @@ module.exports = function() {
 		},
 		__ks_func_newElement_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -61364,7 +61364,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(assignment) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(assignment === void 0 || assignment === null) {
 				throw new TypeError("'assignment' is not nullable");
@@ -61382,7 +61382,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -61410,7 +61410,7 @@ module.exports = function() {
 		},
 		__ks_func_toAssignmentFragments_0: function(fragments, value) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -61436,7 +61436,7 @@ module.exports = function() {
 		},
 		__ks_func_toFlatFragments_0: function(fragments, value) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -61475,7 +61475,7 @@ module.exports = function() {
 		},
 		__ks_func_type_0: function(type, scope, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -61504,7 +61504,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -61610,7 +61610,7 @@ module.exports = function() {
 		},
 		__ks_func_compileVariable_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -61628,7 +61628,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -61646,7 +61646,7 @@ module.exports = function() {
 		},
 		__ks_func_index_0: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -61677,7 +61677,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -61734,7 +61734,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -61776,7 +61776,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(assignment) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(assignment === void 0 || assignment === null) {
 				throw new TypeError("'assignment' is not nullable");
@@ -61794,7 +61794,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -61820,7 +61820,7 @@ module.exports = function() {
 		},
 		__ks_func_toExistFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -61848,7 +61848,7 @@ module.exports = function() {
 		},
 		__ks_func_toFlatFragments_0: function(fragments, value) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -61888,7 +61888,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -61915,7 +61915,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(array, index, parent) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -61982,7 +61982,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62010,7 +62010,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(item, property, parent) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(item === void 0 || item === null) {
 				throw new TypeError("'item' is not nullable");
@@ -62077,7 +62077,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62105,7 +62105,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(value, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -62168,7 +62168,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62258,7 +62258,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -62321,7 +62321,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -62375,7 +62375,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -62397,7 +62397,7 @@ module.exports = function() {
 		},
 		__ks_func_newElement_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -62415,7 +62415,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(assignment) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(assignment === void 0 || assignment === null) {
 				throw new TypeError("'assignment' is not nullable");
@@ -62433,7 +62433,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62461,7 +62461,7 @@ module.exports = function() {
 		},
 		__ks_func_toAssignmentFragments_0: function(fragments, value) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62490,7 +62490,7 @@ module.exports = function() {
 		},
 		__ks_func_toFlatFragments_0: function(fragments, value) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62522,7 +62522,7 @@ module.exports = function() {
 		},
 		__ks_func_type_0: function(type, scope, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -62551,7 +62551,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -62665,7 +62665,7 @@ module.exports = function() {
 		},
 		__ks_func_compileVariable_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -62683,7 +62683,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function(recipient) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(recipient === void 0 || recipient === null) {
 				throw new TypeError("'recipient' is not nullable");
@@ -62725,7 +62725,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -62758,7 +62758,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -62788,7 +62788,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(assignment) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(assignment === void 0 || assignment === null) {
 				throw new TypeError("'assignment' is not nullable");
@@ -62806,7 +62806,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62838,7 +62838,7 @@ module.exports = function() {
 		},
 		__ks_func_toExistFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62870,7 +62870,7 @@ module.exports = function() {
 		},
 		__ks_func_toFlatFragments_0: function(fragments, value) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -62899,7 +62899,7 @@ module.exports = function() {
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fn === void 0 || fn === null) {
 				throw new TypeError("'fn' is not nullable");
@@ -62922,7 +62922,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_toFlattenArgumentsFragments_0: function() {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				var __ks_i = -1;
 				var fragments = arguments[++__ks_i];
@@ -63131,7 +63131,7 @@ module.exports = function() {
 					type = this._callees[i].type();
 					if(!__ks_Array._im_any(types, function(item) {
 						if(arguments.length < 1) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
 						if(item === void 0 || item === null) {
 							throw new TypeError("'item' is not nullable");
@@ -63186,7 +63186,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -63211,7 +63211,7 @@ module.exports = function() {
 		},
 		__ks_func_addCallee_0: function(callee) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(callee === void 0 || callee === null) {
 				throw new TypeError("'callee' is not nullable");
@@ -63337,7 +63337,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -63369,7 +63369,7 @@ module.exports = function() {
 		},
 		__ks_func_makeCallee_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -63418,7 +63418,7 @@ module.exports = function() {
 		},
 		__ks_func_makeMemberCallee_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var value = arguments[++__ks_i];
@@ -63544,7 +63544,7 @@ module.exports = function() {
 		},
 		__ks_func_makeMemberCalleeFromReference_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var value = arguments[++__ks_i];
@@ -63655,7 +63655,7 @@ module.exports = function() {
 		},
 		__ks_func_makeNamespaceCallee_0: function(property, __ks_sealed_1, name) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(property === void 0 || property === null) {
 				throw new TypeError("'property' is not nullable");
@@ -63707,7 +63707,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -63760,7 +63760,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -63798,7 +63798,7 @@ module.exports = function() {
 		},
 		__ks_func_toCallFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -63832,7 +63832,7 @@ module.exports = function() {
 		},
 		__ks_func_toNullableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -63855,7 +63855,7 @@ module.exports = function() {
 		},
 		__ks_func_toReusableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -63897,7 +63897,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -63919,7 +63919,7 @@ module.exports = function() {
 		},
 		__ks_func_validate_0: function(type, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -63950,7 +63950,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -63991,7 +63991,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -64038,7 +64038,7 @@ module.exports = function() {
 		},
 		__ks_cons_2: function(data, object, methods, type, node) {
 			if(arguments.length < 5) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -64100,7 +64100,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -64148,7 +64148,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -64210,7 +64210,7 @@ module.exports = function() {
 		},
 		__ks_func_toCurryFragments_0: function(fragments, mode, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -64264,7 +64264,7 @@ module.exports = function() {
 		},
 		__ks_func_toNullableFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -64311,7 +64311,7 @@ module.exports = function() {
 		},
 		__ks_func_type_1: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -64343,7 +64343,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, variable, __ks_function_1, type, node) {
 			if(arguments.length < 5) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -64421,7 +64421,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -64474,7 +64474,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -64514,7 +64514,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -64610,7 +64610,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -64678,7 +64678,7 @@ module.exports = function() {
 		},
 		__ks_func_toTestFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -64718,7 +64718,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, substitute, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -64737,7 +64737,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(data, substitute, type, node) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -64797,7 +64797,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode, node) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -64926,7 +64926,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -64953,7 +64953,7 @@ module.exports = function() {
 		},
 		__ks_func_getOperator_0: function(data, operand1, operand2) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -65075,7 +65075,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -65114,7 +65114,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -65151,7 +65151,7 @@ module.exports = function() {
 		},
 		__ks_func_toNullableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -65202,7 +65202,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(left, right) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(left === void 0 || left === null) {
 				throw new TypeError("'left' is not nullable");
@@ -65335,7 +65335,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments, reuseName, leftReusable, rightReusable) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -65425,7 +65425,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments, reuseName, leftReusable, rightReusable) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -65491,7 +65491,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(left, right, operator) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(left === void 0 || left === null) {
 				throw new TypeError("'left' is not nullable");
@@ -65518,7 +65518,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments, reuseName, leftReusable, rightReusable) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -65564,7 +65564,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(left, right) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(left === void 0 || left === null) {
 				throw new TypeError("'left' is not nullable");
@@ -65591,7 +65591,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(left, right) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(left === void 0 || left === null) {
 				throw new TypeError("'left' is not nullable");
@@ -65618,7 +65618,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(left, right) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(left === void 0 || left === null) {
 				throw new TypeError("'left' is not nullable");
@@ -65645,7 +65645,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(left, right) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(left === void 0 || left === null) {
 				throw new TypeError("'left' is not nullable");
@@ -65743,7 +65743,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -65761,7 +65761,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -65891,7 +65891,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -65918,7 +65918,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -65976,7 +65976,7 @@ module.exports = function() {
 		},
 		__ks_func_makeCallee_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -65991,7 +65991,7 @@ module.exports = function() {
 		},
 		__ks_func_toCallFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -66083,7 +66083,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -66101,7 +66101,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -66147,7 +66147,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -66236,7 +66236,7 @@ module.exports = function() {
 		},
 		__ks_func_isConsumedError_0: function(error) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
@@ -66263,7 +66263,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -66293,7 +66293,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -66337,7 +66337,7 @@ module.exports = function() {
 			fragments.code(surround.beforeParameters);
 			var block = Parameter.toFragments(this, fragments, ParameterMode.Default, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -66388,7 +66388,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -66488,7 +66488,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -66524,7 +66524,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -66536,7 +66536,7 @@ module.exports = function() {
 			fragments.code(surround.beforeParameters);
 			var block = Parameter.toFragments(this, fragments, surround.arrow ? ParameterMode.ArrowFunction : ParameterMode.Default, function(fragments) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -66662,7 +66662,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -66680,7 +66680,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -66706,7 +66706,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -66840,7 +66840,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -66879,7 +66879,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -66900,7 +66900,7 @@ module.exports = function() {
 		},
 		__ks_cons_1: function(data, parent, scope, object) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -67013,7 +67013,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -67111,7 +67111,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -67129,7 +67129,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -67161,7 +67161,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(assignment) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(assignment === void 0 || assignment === null) {
 				throw new TypeError("'assignment' is not nullable");
@@ -67175,7 +67175,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67225,7 +67225,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67258,7 +67258,7 @@ module.exports = function() {
 		},
 		__ks_func_toNullableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67293,7 +67293,7 @@ module.exports = function() {
 		},
 		__ks_func_toReusableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67436,7 +67436,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -67466,7 +67466,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -67526,7 +67526,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67596,7 +67596,7 @@ module.exports = function() {
 		},
 		__ks_func_toReusableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67693,7 +67693,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -67708,7 +67708,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -67735,7 +67735,7 @@ module.exports = function() {
 		},
 		__ks_func_toComputedFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67756,7 +67756,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67841,7 +67841,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -67857,7 +67857,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -67885,7 +67885,7 @@ module.exports = function() {
 		},
 		__ks_func_toComputedFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67906,7 +67906,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -67981,7 +67981,7 @@ module.exports = function() {
 		},
 		__ks_func_toComputedFragments_0: function(fragments, name) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68002,7 +68002,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68071,7 +68071,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -68089,7 +68089,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68165,7 +68165,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -68189,7 +68189,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68252,7 +68252,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -68270,7 +68270,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68360,7 +68360,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -68384,7 +68384,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68412,7 +68412,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68598,7 +68598,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -68616,7 +68616,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -68646,7 +68646,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(assignment) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(assignment === void 0 || assignment === null) {
 				throw new TypeError("'assignment' is not nullable");
@@ -68660,7 +68660,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68756,7 +68756,7 @@ module.exports = function() {
 		},
 		__ks_func_computing_0: function(computing) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(computing === void 0 || computing === null) {
 				throw new TypeError("'computing' is not nullable");
@@ -68777,7 +68777,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -68810,7 +68810,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68930,7 +68930,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -68948,7 +68948,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -68969,7 +68969,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -69013,7 +69013,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(value, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -69076,7 +69076,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -69116,7 +69116,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(object, property, computed, parent, scope) {
 			if(arguments.length < 5) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
 			if(object === void 0 || object === null) {
 				throw new TypeError("'object' is not nullable");
@@ -69190,7 +69190,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -69227,7 +69227,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -69256,7 +69256,7 @@ module.exports = function() {
 		},
 		__ks_func_toReusableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -69287,7 +69287,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_compileExpression_0: function(data, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -69317,7 +69317,7 @@ module.exports = function() {
 			},
 			__ks_sttc_toFragments_0: function() {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				var __ks_i = -1;
 				var node = arguments[++__ks_i];
@@ -69359,7 +69359,7 @@ module.exports = function() {
 			},
 			__ks_sttc_toES5Fragments_0: function(node, fragments, fn) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -69403,7 +69403,7 @@ module.exports = function() {
 			},
 			__ks_sttc_toES6Fragments_0: function(node, fragments, fn) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -69451,7 +69451,7 @@ module.exports = function() {
 			},
 			__ks_sttc_toKSFragments_0: function(node, fragments, mode, fn, wrongdoer) {
 				if(arguments.length < 5) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -69555,7 +69555,7 @@ module.exports = function() {
 							if(rest !== -1) {
 								fragments.line("" + $runtime.scope(node) + "__ks_cb = arguments.length > 0 ? arguments[arguments.length - 1] : null");
 							}
-							var __ks_ctrl_1 = fragments.newControl().code("if(arguments.length < " + (signature.min() + 1) + ")").step().line("" + $runtime.scope(node) + "__ks_error = new SyntaxError(\"wrong number of arguments (\" + arguments.length + \" for " + signature.min() + " + 1)\")");
+							var __ks_ctrl_1 = fragments.newControl().code("if(arguments.length < " + (signature.min() + 1) + ")").step().line("" + $runtime.scope(node) + "__ks_error = new SyntaxError(\"Wrong number of arguments (\" + arguments.length + \" for " + signature.min() + " + 1)\")");
 							if(rest === -1) {
 								__ks_ctrl_1.newControl().code("if(arguments.length > 0 && " + $runtime.type(node) + ".isFunction((__ks_cb = arguments[arguments.length - 1])))").step().line("return __ks_cb(__ks_error)").step().code("else").step().line("throw __ks_error").done();
 							}
@@ -69566,7 +69566,7 @@ module.exports = function() {
 							__ks_ctrl_1.done();
 						}
 						else {
-							fragments.newControl().code("if(arguments.length < " + signature.min() + ")").step().line("throw new SyntaxError(\"wrong number of arguments (\" + arguments.length + \" for " + signature.min() + ")\")").done();
+							fragments.newControl().code("if(arguments.length < " + signature.min() + ")").step().line("throw new SyntaxError(\"Wrong number of arguments (\" + arguments.length + \" for " + signature.min() + ")\")").done();
 						}
 					}
 					for(var i = 0, __ks_0 = parameters.length; i < __ks_0 && i < l; ++i) {
@@ -69643,13 +69643,13 @@ module.exports = function() {
 						if(async) {
 							node.module().flag("Type");
 							fragments.line("" + $runtime.scope(node) + "__ks_cb = arguments.length > 0 ? arguments[arguments.length - 1] : null");
-							var __ks_ctrl_1 = fragments.newControl().code("if(arguments.length < " + (signature.min() + 1) + ")").step().line("" + $runtime.scope(node) + "__ks_error = new SyntaxError(\"wrong number of arguments (\" + arguments.length + \" for " + signature.min() + " + 1)\")");
+							var __ks_ctrl_1 = fragments.newControl().code("if(arguments.length < " + (signature.min() + 1) + ")").step().line("" + $runtime.scope(node) + "__ks_error = new SyntaxError(\"Wrong number of arguments (\" + arguments.length + \" for " + signature.min() + " + 1)\")");
 							__ks_ctrl_1.newControl().code("if(" + $runtime.type(node) + ".isFunction(__ks_cb))").step().line("return __ks_cb(__ks_error)").step().code("else").step().line("throw __ks_error").done();
 							__ks_ctrl_1.step().code("else if(!" + $runtime.type(node) + ".isFunction(__ks_cb))").step().line("throw new TypeError(\"'callback' must be a function\")");
 							__ks_ctrl_1.done();
 						}
 						else if((mode === ParameterMode.Default) || (mode === ParameterMode.ArrowFunction)) {
-							fragments.newControl().code("if(" + name + ".length < " + signature.min() + ")").step().line("throw new SyntaxError(\"wrong number of arguments (\" + " + name + ".length + \" for " + signature.min() + ")\")").done();
+							fragments.newControl().code("if(" + name + ".length < " + signature.min() + ")").step().line("throw new SyntaxError(\"Wrong number of arguments (\" + " + name + ".length + \" for " + signature.min() + ")\")").done();
 						}
 					}
 					fragments.line($runtime.scope(node), "__ks_i = -1");
@@ -69723,7 +69723,7 @@ module.exports = function() {
 			},
 			__ks_sttc_toWrongDoingFragments_0: function(fragments, wrongdoing, data) {
 				if(arguments.length < 3) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -69893,7 +69893,7 @@ module.exports = function() {
 		},
 		__ks_func_addAliasParameter_0: function(data, name, setter) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -69978,7 +69978,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -70008,7 +70008,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70029,7 +70029,7 @@ module.exports = function() {
 		},
 		__ks_func_toParameterFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70059,7 +70059,7 @@ module.exports = function() {
 		},
 		__ks_func_toValidationFragments_0: function(fragments, wrongdoer) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70080,7 +70080,7 @@ module.exports = function() {
 		},
 		__ks_func_toAfterRestFragments_0: function(fragments, context, index, wrongdoer) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70107,7 +70107,7 @@ module.exports = function() {
 		},
 		__ks_func_toBeforeRestFragments_0: function(fragments, context, index, wrongdoer) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70153,7 +70153,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, identifier, setter, parameter) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -70260,7 +70260,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70308,7 +70308,7 @@ module.exports = function() {
 		},
 		__ks_func_applyModifiers_0: function(modifiers, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(modifiers === void 0 || modifiers === null) {
 				throw new TypeError("'modifiers' is not nullable");
@@ -70345,7 +70345,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function(type, definitive) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -70368,7 +70368,7 @@ module.exports = function() {
 		},
 		__ks_func_toValidationFragments_0: function(fragments, wrongdoer, rest, defaultValue, header, async) {
 			if(arguments.length < 6) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70452,7 +70452,7 @@ module.exports = function() {
 		},
 		__ks_func_toAfterRestFragments_0: function(fragments, context, index, wrongdoer, rest, arity, defaultValue, header, async) {
 			if(arguments.length < 9) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 9)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70544,7 +70544,7 @@ module.exports = function() {
 		},
 		__ks_func_toBeforeRestFragments_0: function(fragments, context, index, wrongdoer, rest, arity, defaultValue, header, async) {
 			if(arguments.length < 9) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 9)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70667,7 +70667,7 @@ module.exports = function() {
 		},
 		__ks_func_addAliasParameter_0: function(data, name, setter) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -70691,7 +70691,7 @@ module.exports = function() {
 		},
 		__ks_func_newElement_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -70706,7 +70706,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var type = arguments[++__ks_i];
@@ -70758,7 +70758,7 @@ module.exports = function() {
 		},
 		__ks_func_toValidationFragments_0: function(fragments, wrongdoer, rest, defaultValue, header, async) {
 			if(arguments.length < 6) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -70812,7 +70812,7 @@ module.exports = function() {
 		},
 		__ks_func_addAliasParameter_0: function(data, name, setter) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -70836,7 +70836,7 @@ module.exports = function() {
 		},
 		__ks_func_compileVariable_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -70851,7 +70851,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function(type, definitive) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -70882,7 +70882,7 @@ module.exports = function() {
 		},
 		__ks_func_addAliasParameter_0: function(data, name, setter) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -70906,7 +70906,7 @@ module.exports = function() {
 		},
 		__ks_func_newElement_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -70921,7 +70921,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var type = arguments[++__ks_i];
@@ -70973,7 +70973,7 @@ module.exports = function() {
 		},
 		__ks_func_toValidationFragments_0: function(fragments, wrongdoer, rest, defaultValue, header, async) {
 			if(arguments.length < 6) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71027,7 +71027,7 @@ module.exports = function() {
 		},
 		__ks_func_addAliasParameter_0: function(data, name, setter) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -71051,7 +71051,7 @@ module.exports = function() {
 		},
 		__ks_func_compileVariable_0: function(data) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -71066,7 +71066,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function(type, definitive) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -71131,7 +71131,7 @@ module.exports = function() {
 		},
 		__ks_func_applyModifiers_0: function(modifiers, node) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(modifiers === void 0 || modifiers === null) {
 				throw new TypeError("'modifiers' is not nullable");
@@ -71152,7 +71152,7 @@ module.exports = function() {
 		},
 		__ks_func_setDeclaredType_0: function(type, definitive) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -71176,7 +71176,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71197,7 +71197,7 @@ module.exports = function() {
 		},
 		__ks_func_toValidationFragments_0: function(fragments, wrongdoer, rest, defaultValue, header, async) {
 			if(arguments.length < 6) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71243,7 +71243,7 @@ module.exports = function() {
 		},
 		__ks_func_toBeforeRestFragments_0: function(fragments, context, index, wrongdoer, rest, arity, defaultValue, header, async) {
 			if(arguments.length < 9) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 9)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71375,7 +71375,7 @@ module.exports = function() {
 		},
 		__ks_func_defineVariables_0: function(left) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(left === void 0 || left === null) {
 				throw new TypeError("'left' is not nullable");
@@ -71438,7 +71438,7 @@ module.exports = function() {
 		},
 		__ks_func_isDeclararingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -71468,7 +71468,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -71486,7 +71486,7 @@ module.exports = function() {
 		},
 		__ks_func_listAssignments_0: function(array) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(array === void 0 || array === null) {
 				throw new TypeError("'array' is not nullable");
@@ -71504,7 +71504,7 @@ module.exports = function() {
 		},
 		__ks_func_setAssignment_0: function(assignment) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(assignment === void 0 || assignment === null) {
 				throw new TypeError("'assignment' is not nullable");
@@ -71518,7 +71518,7 @@ module.exports = function() {
 		},
 		__ks_func_toNullableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71567,7 +71567,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71598,7 +71598,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71629,7 +71629,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71660,7 +71660,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71691,7 +71691,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71722,7 +71722,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71753,7 +71753,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71803,7 +71803,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -71872,7 +71872,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71898,7 +71898,7 @@ module.exports = function() {
 		},
 		__ks_func_toAssignmentFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71921,7 +71921,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -71973,7 +71973,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72007,7 +72007,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72048,7 +72048,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72079,7 +72079,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72131,7 +72131,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72158,7 +72158,7 @@ module.exports = function() {
 		},
 		__ks_func_toBooleanFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72192,7 +72192,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72221,7 +72221,7 @@ module.exports = function() {
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72263,7 +72263,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72294,7 +72294,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72426,7 +72426,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -72444,7 +72444,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -72470,7 +72470,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72509,7 +72509,7 @@ module.exports = function() {
 		},
 		__ks_func_toNullableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72545,7 +72545,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72587,7 +72587,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(data, parent, scope) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
@@ -72674,7 +72674,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72714,7 +72714,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72754,7 +72754,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72794,7 +72794,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72834,7 +72834,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72874,7 +72874,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72914,7 +72914,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -72976,7 +72976,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73016,7 +73016,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73056,7 +73056,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73114,7 +73114,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -73138,7 +73138,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73240,7 +73240,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73280,7 +73280,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73320,7 +73320,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73429,7 +73429,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -73459,7 +73459,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73603,7 +73603,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -73621,7 +73621,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73749,7 +73749,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -73783,7 +73783,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73837,7 +73837,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -73928,7 +73928,7 @@ module.exports = function() {
 		},
 		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(acquire === void 0 || acquire === null) {
 				throw new TypeError("'acquire' is not nullable");
@@ -73987,7 +73987,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -74011,7 +74011,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74039,7 +74039,7 @@ module.exports = function() {
 		},
 		__ks_func_toNullableFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74079,7 +74079,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74170,7 +74170,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74220,7 +74220,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74270,7 +74270,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74320,7 +74320,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74370,7 +74370,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74420,7 +74420,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74470,7 +74470,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74520,7 +74520,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74567,7 +74567,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74617,7 +74617,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74720,7 +74720,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74829,7 +74829,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74879,7 +74879,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74925,7 +74925,7 @@ module.exports = function() {
 		},
 		__ks_func_toOperatorFragments_0: function(fragments) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -74975,7 +74975,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75080,7 +75080,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -75108,7 +75108,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75151,7 +75151,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75194,7 +75194,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75272,7 +75272,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75320,7 +75320,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75363,7 +75363,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75424,7 +75424,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75467,7 +75467,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75523,7 +75523,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75574,7 +75574,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -75625,7 +75625,7 @@ module.exports = function() {
 		},
 		__ks_func_analyse_1: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var from = arguments[++__ks_i];
@@ -75656,7 +75656,7 @@ module.exports = function() {
 		},
 		__ks_func_analyse_2: function(statements) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(statements === void 0 || statements === null) {
 				throw new TypeError("'statements' is not nullable");
@@ -75745,7 +75745,7 @@ module.exports = function() {
 		},
 		__ks_func_addStatement_0: function(statement) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(statement === void 0 || statement === null) {
 				throw new TypeError("'statement' is not nullable");
@@ -75763,7 +75763,7 @@ module.exports = function() {
 		},
 		__ks_func_checkReturnType_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -75823,7 +75823,7 @@ module.exports = function() {
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -75859,7 +75859,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -75899,7 +75899,7 @@ module.exports = function() {
 		},
 		__ks_func_toRangeFragments_0: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var fragments = arguments[++__ks_i];
@@ -75938,7 +75938,7 @@ module.exports = function() {
 		},
 		__ks_func_type_0: function(type) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(type === void 0) {
 				type = null;
@@ -75966,7 +75966,7 @@ module.exports = function() {
 	var $target = (parseInt(/^v(\d+)\./.exec(process.version)[1]) >= 6) ? "ecma-v6" : "ecma-v5";
 	function $evaluate(source) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(source === void 0 || source === null) {
 			throw new TypeError("'source' is not nullable");
@@ -75988,7 +75988,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -76009,7 +76009,7 @@ module.exports = function() {
 	});
 	function $reificate(macro, node, data, ast, reification) {
 		if(arguments.length < 5) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 		}
 		if(macro === void 0 || macro === null) {
 			throw new TypeError("'macro' is not nullable");
@@ -76056,7 +76056,7 @@ module.exports = function() {
 	}
 	function $serialize(macro, data, context) {
 		if(arguments.length < 3) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 		}
 		if(macro === void 0 || macro === null) {
 			throw new TypeError("'macro' is not nullable");
@@ -76144,7 +76144,7 @@ module.exports = function() {
 	}
 	function $transformExpression(macro, node, data, writer) {
 		if(arguments.length < 4) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 		}
 		if(macro === void 0 || macro === null) {
 			throw new TypeError("'macro' is not nullable");
@@ -76198,7 +76198,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -76317,7 +76317,7 @@ module.exports = function() {
 		},
 		__ks_func_addMark_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -76351,7 +76351,7 @@ module.exports = function() {
 		},
 		__ks_func_addPropertyNameMark_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -76378,7 +76378,7 @@ module.exports = function() {
 		},
 		__ks_func_execute_0: function(__ks_arguments_1, parent) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
 				throw new TypeError("'arguments' is not nullable");
@@ -76414,7 +76414,7 @@ module.exports = function() {
 		},
 		__ks_func_export_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var recipient = arguments[++__ks_i];
@@ -76436,7 +76436,7 @@ module.exports = function() {
 		},
 		__ks_func_filter_0: function(statement, data, fragments) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(statement === void 0 || statement === null) {
 				throw new TypeError("'statement' is not nullable");
@@ -76487,7 +76487,7 @@ module.exports = function() {
 		},
 		__ks_func_getMark_0: function(index) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
@@ -76541,7 +76541,7 @@ module.exports = function() {
 		},
 		__ks_func_matchArguments_0: function(__ks_arguments_1) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
 				throw new TypeError("'arguments' is not nullable");
@@ -76583,7 +76583,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -76635,7 +76635,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromAST_0: function(data, node) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -76659,7 +76659,7 @@ module.exports = function() {
 			},
 			__ks_sttc_import_0: function(data, references, scope, node) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -76718,7 +76718,7 @@ module.exports = function() {
 		},
 		__ks_func_matchContentOf_0: function(that) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(that === void 0 || that === null) {
 				throw new TypeError("'that' is not nullable");
@@ -76759,7 +76759,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_fromAST_0: function(data, scope, defined, node) {
 				if(arguments.length < 4) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 				}
 				if(data === void 0 || data === null) {
 					throw new TypeError("'data' is not nullable");
@@ -76835,7 +76835,7 @@ module.exports = function() {
 		},
 		__ks_func_matchArgument_0: function(value) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
@@ -76980,7 +76980,7 @@ module.exports = function() {
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
@@ -77003,7 +77003,7 @@ module.exports = function() {
 	var Router = (function() {
 		function assess(methods, flattenable) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -77098,7 +77098,7 @@ module.exports = function() {
 		}
 		function assessBounded(methods, groups, min, max) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -77168,7 +77168,7 @@ module.exports = function() {
 						return value;
 					}).sort(function(a, b) {
 						if(arguments.length < 2) {
-							throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
 						if(a === void 0 || a === null) {
 							throw new TypeError("'a' is not nullable");
@@ -77206,7 +77206,7 @@ module.exports = function() {
 		}
 		function assessUnbounded(methods, infinities, async) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -77273,7 +77273,7 @@ module.exports = function() {
 					return value;
 				}).sort(function(a, b) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(a === void 0 || a === null) {
 						throw new TypeError("'a' is not nullable");
@@ -77304,7 +77304,7 @@ module.exports = function() {
 		}
 		function checkMethods(methods, parameters, min, max, sortedIndex, sortedIndexes, assessment, filters) {
 			if(arguments.length < 8) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 8)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -77446,7 +77446,7 @@ module.exports = function() {
 				}
 				tree.sort(function(a, b) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(a === void 0 || a === null) {
 						throw new TypeError("'a' is not nullable");
@@ -77528,7 +77528,7 @@ module.exports = function() {
 		}
 		function checkInfinityMethods(methods, parameters, min, index, assessment, filters) {
 			if(arguments.length < 6) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -77639,7 +77639,7 @@ module.exports = function() {
 				}
 				tree.sort(function(a, b) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(a === void 0 || a === null) {
 						throw new TypeError("'a' is not nullable");
@@ -77705,7 +77705,7 @@ module.exports = function() {
 		}
 		function isFlattenable(methods) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -77736,7 +77736,7 @@ module.exports = function() {
 		}
 		function mapMethod(method, target, map) {
 			if(arguments.length < 3) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 			}
 			if(method === void 0 || method === null) {
 				throw new TypeError("'method' is not nullable");
@@ -77790,7 +77790,7 @@ module.exports = function() {
 		}
 		function mapParameter(type, method, map, target) {
 			if(arguments.length < 4) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 4)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(type === void 0 || type === null) {
 				throw new TypeError("'type' is not nullable");
@@ -77836,7 +77836,7 @@ module.exports = function() {
 		}
 		function matchArguments(assessment, __ks_arguments_1) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(assessment === void 0 || assessment === null) {
 				throw new TypeError("'assessment' is not nullable");
@@ -77887,7 +77887,7 @@ module.exports = function() {
 		}
 		function sortTreeMin(methods, max) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -77948,7 +77948,7 @@ module.exports = function() {
 		}
 		function toFragments(assessment, fragments, argName, returns, header, footer, call, wrongdoer, node) {
 			if(arguments.length < 9) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 9)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
 			}
 			if(assessment === void 0 || assessment === null) {
 				throw new TypeError("'assessment' is not nullable");
@@ -78058,7 +78058,7 @@ module.exports = function() {
 		}
 		function toEqLengthFragments(methods, ctrl, argName, call, node) {
 			if(arguments.length < 5) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -78117,7 +78117,7 @@ module.exports = function() {
 		}
 		function toFlatFragments(assessment, method, ctrl, argName, call, node) {
 			if(arguments.length < 6) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 6)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
 			}
 			if(assessment === void 0 || assessment === null) {
 				throw new TypeError("'assessment' is not nullable");
@@ -78177,7 +78177,7 @@ module.exports = function() {
 		}
 		function toFlatTestFragments(match, ctrl, wrap, argName, node) {
 			if(arguments.length < 5) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
 			if(match === void 0 || match === null) {
 				throw new TypeError("'match' is not nullable");
@@ -78230,7 +78230,7 @@ module.exports = function() {
 		}
 		function toMixLengthFragments(tree, ctrl, argName, call, node) {
 			if(arguments.length < 5) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
 			if(tree === void 0 || tree === null) {
 				throw new TypeError("'tree' is not nullable");
@@ -78261,7 +78261,7 @@ module.exports = function() {
 		}
 		function toTreeTestFragments(method, ctrl, argName, call, node) {
 			if(arguments.length < 5) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 5)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
 			if(method === void 0 || method === null) {
 				throw new TypeError("'method' is not nullable");
@@ -78314,7 +78314,7 @@ module.exports = function() {
 	var $compile = {
 		block: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -78331,7 +78331,7 @@ module.exports = function() {
 		},
 		expression: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -78388,7 +78388,7 @@ module.exports = function() {
 		},
 		statement: function() {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			var __ks_i = -1;
 			var data = arguments[++__ks_i];
@@ -78415,7 +78415,7 @@ module.exports = function() {
 	var $binaryOperators = (__ks_0 = {}, __ks_0[BinaryOperatorKind.Addition] = BinaryOperatorAddition, __ks_0[BinaryOperatorKind.And] = BinaryOperatorAnd, __ks_0[BinaryOperatorKind.BitwiseAnd] = BinaryOperatorBitwiseAnd, __ks_0[BinaryOperatorKind.BitwiseLeftShift] = BinaryOperatorBitwiseLeftShift, __ks_0[BinaryOperatorKind.BitwiseOr] = BinaryOperatorBitwiseOr, __ks_0[BinaryOperatorKind.BitwiseRightShift] = BinaryOperatorBitwiseRightShift, __ks_0[BinaryOperatorKind.BitwiseXor] = BinaryOperatorBitwiseXor, __ks_0[BinaryOperatorKind.Division] = BinaryOperatorDivision, __ks_0[BinaryOperatorKind.Imply] = BinaryOperatorImply, __ks_0[BinaryOperatorKind.Modulo] = BinaryOperatorModulo, __ks_0[BinaryOperatorKind.Multiplication] = BinaryOperatorMultiplication, __ks_0[BinaryOperatorKind.NullCoalescing] = BinaryOperatorNullCoalescing, __ks_0[BinaryOperatorKind.Or] = BinaryOperatorOr, __ks_0[BinaryOperatorKind.Quotient] = BinaryOperatorQuotient, __ks_0[BinaryOperatorKind.Subtraction] = BinaryOperatorSubtraction, __ks_0[BinaryOperatorKind.TypeCasting] = BinaryOperatorTypeCasting, __ks_0[BinaryOperatorKind.TypeEquality] = BinaryOperatorTypeEquality, __ks_0[BinaryOperatorKind.TypeInequality] = BinaryOperatorTypeInequality, __ks_0[BinaryOperatorKind.Xor] = BinaryOperatorXor, __ks_0);
 	var $expressions = (__ks_0 = {}, __ks_0[NodeKind.ArrayBinding] = ArrayBinding, __ks_0[NodeKind.ArrayComprehension] = function(data, parent, scope) {
 		if(arguments.length < 3) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 		}
 		if(data === void 0 || data === null) {
 			throw new TypeError("'data' is not nullable");
@@ -78443,7 +78443,7 @@ module.exports = function() {
 		}
 	}, __ks_0[NodeKind.ArrayExpression] = ArrayExpression, __ks_0[NodeKind.ArrayRange] = ArrayRange, __ks_0[NodeKind.AwaitExpression] = AwaitExpression, __ks_0[NodeKind.CallExpression] = CallExpression, __ks_0[NodeKind.CallMacroExpression] = function(data, parent, scope) {
 		if(arguments.length < 3) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 		}
 		if(data === void 0 || data === null) {
 			throw new TypeError("'data' is not nullable");
@@ -78468,7 +78468,7 @@ module.exports = function() {
 	var $unaryOperators = (__ks_0 = {}, __ks_0[UnaryOperatorKind.BitwiseNot] = UnaryOperatorBitwiseNot, __ks_0[UnaryOperatorKind.DecrementPostfix] = UnaryOperatorDecrementPostfix, __ks_0[UnaryOperatorKind.DecrementPrefix] = UnaryOperatorDecrementPrefix, __ks_0[UnaryOperatorKind.Existential] = UnaryOperatorExistential, __ks_0[UnaryOperatorKind.IncrementPostfix] = UnaryOperatorIncrementPostfix, __ks_0[UnaryOperatorKind.IncrementPrefix] = UnaryOperatorIncrementPrefix, __ks_0[UnaryOperatorKind.Negation] = UnaryOperatorNegation, __ks_0[UnaryOperatorKind.Negative] = UnaryOperatorNegative, __ks_0[UnaryOperatorKind.Spread] = UnaryOperatorSpread, __ks_0);
 	function $expandOptions(options) {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		if(options === void 0 || options === null) {
 			throw new TypeError("'options' is not nullable");
@@ -78480,7 +78480,7 @@ module.exports = function() {
 		if(KSType.isFunction(engine)) {
 			var opts = engine(options.target.version.split(".").map(function(v) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(v === void 0 || v === null) {
 					throw new TypeError("'v' is not nullable");
@@ -78528,7 +78528,7 @@ module.exports = function() {
 		},
 		v8: function(version, targets) {
 			if(arguments.length < 2) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(version === void 0 || version === null) {
 				throw new TypeError("'version' is not nullable");
@@ -78549,7 +78549,7 @@ module.exports = function() {
 		$static: {
 			__ks_sttc_registerTarget_0: function(target, fn) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(target === void 0 || target === null) {
 					throw new TypeError("'target' is not nullable");
@@ -78567,7 +78567,7 @@ module.exports = function() {
 			},
 			__ks_sttc_registerTarget_1: function(target, options) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(target === void 0 || target === null) {
 					throw new TypeError("'target' is not nullable");
@@ -78603,7 +78603,7 @@ module.exports = function() {
 			},
 			__ks_sttc_registerTargets_0: function(targets) {
 				if(arguments.length < 1) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 				}
 				if(targets === void 0 || targets === null) {
 					throw new TypeError("'targets' is not nullable");
@@ -78626,7 +78626,7 @@ module.exports = function() {
 			},
 			__ks_sttc_registerTargetAlias_0: function(target, alias) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(target === void 0 || target === null) {
 					throw new TypeError("'target' is not nullable");
@@ -78678,7 +78678,7 @@ module.exports = function() {
 		},
 		__ks_cons_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var file = arguments[++__ks_i];
@@ -78763,7 +78763,7 @@ module.exports = function() {
 		},
 		__ks_func_createServant_0: function(file) {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(file === void 0 || file === null) {
 				throw new TypeError("'file' is not nullable");
@@ -78789,7 +78789,7 @@ module.exports = function() {
 		},
 		__ks_func_sha256_0: function() {
 			if(arguments.length < 1) {
-				throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			var __ks_i = -1;
 			var file = arguments[++__ks_i];
@@ -78859,7 +78859,7 @@ module.exports = function() {
 				var metadata = this.toMetadata();
 				fs.writeFile(getMetadataPath(this._file, this._options.target), JSON.stringify(metadata, function(key, value) {
 					if(arguments.length < 2) {
-						throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
 					if(key === void 0 || key === null) {
 						throw new TypeError("'key' is not nullable");
@@ -78886,7 +78886,7 @@ module.exports = function() {
 			var filename = path.join(this._options.output, path.basename(this._file)).slice(0, -3) + ".json";
 			fs.writeFile(filename, JSON.stringify(metadata, function(key, value) {
 				if(arguments.length < 2) {
-					throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 				}
 				if(key === void 0 || key === null) {
 					throw new TypeError("'key' is not nullable");
@@ -78922,7 +78922,7 @@ module.exports = function() {
 	});
 	function compileFile() {
 		if(arguments.length < 1) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 1)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 		}
 		var __ks_i = -1;
 		var file = arguments[++__ks_i];
@@ -78936,7 +78936,7 @@ module.exports = function() {
 	}
 	function getBinaryPath(file, target) {
 		if(arguments.length < 2) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 		}
 		if(file === void 0 || file === null) {
 			throw new TypeError("'file' is not nullable");
@@ -78948,7 +78948,7 @@ module.exports = function() {
 	}
 	function getHashPath(file, target) {
 		if(arguments.length < 2) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 		}
 		if(file === void 0 || file === null) {
 			throw new TypeError("'file' is not nullable");
@@ -78960,7 +78960,7 @@ module.exports = function() {
 	}
 	function getMetadataPath(file, target) {
 		if(arguments.length < 2) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 2)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 		}
 		if(file === void 0 || file === null) {
 			throw new TypeError("'file' is not nullable");
@@ -78972,7 +78972,7 @@ module.exports = function() {
 	}
 	function isUpToDate(file, target, source) {
 		if(arguments.length < 3) {
-			throw new SyntaxError("wrong number of arguments (" + arguments.length + " for 3)");
+			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
 		}
 		if(file === void 0 || file === null) {
 			throw new TypeError("'file' is not nullable");
