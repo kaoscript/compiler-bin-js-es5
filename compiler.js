@@ -1307,9 +1307,12 @@ module.exports = function() {
 					throw new SyntaxError("Wrong number of arguments");
 				}
 			};
-			function ExportDeclaration(declarations, first, last) {
-				if(arguments.length < 3) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			function ExportDeclaration(attributes, declarations, first, last) {
+				if(arguments.length < 4) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -1322,7 +1325,7 @@ module.exports = function() {
 				}
 				return location({
 					kind: NodeKind.ExportDeclaration,
-					attributes: [],
+					attributes: attributes,
 					declarations: Helper.mapArray(declarations, function(declarator) {
 						return declarator.value;
 					})
@@ -1400,9 +1403,12 @@ module.exports = function() {
 				expression.value.attributes = [];
 				return expression.value;
 			}
-			function ExternDeclaration(declarations, first, last) {
-				if(arguments.length < 3) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			function ExternDeclaration(attributes, declarations, first, last) {
+				if(arguments.length < 4) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -1415,15 +1421,18 @@ module.exports = function() {
 				}
 				return location({
 					kind: NodeKind.ExternDeclaration,
-					attributes: [],
+					attributes: attributes,
 					declarations: Helper.mapArray(declarations, function(declarator) {
 						return declarator.value;
 					})
 				}, first, last);
 			}
-			function ExternOrRequireDeclaration(declarations, first, last) {
-				if(arguments.length < 3) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			function ExternOrRequireDeclaration(attributes, declarations, first, last) {
+				if(arguments.length < 4) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -1436,7 +1445,7 @@ module.exports = function() {
 				}
 				return location({
 					kind: NodeKind.ExternOrRequireDeclaration,
-					attributes: [],
+					attributes: attributes,
 					declarations: Helper.mapArray(declarations, function(declarator) {
 						return declarator.value;
 					})
@@ -2048,9 +2057,12 @@ module.exports = function() {
 					}, first, last);
 				}
 			}
-			function ImportDeclaration(declarations, first, last) {
-				if(arguments.length < 3) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			function ImportDeclaration(attributes, declarations, first, last) {
+				if(arguments.length < 4) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -2063,15 +2075,18 @@ module.exports = function() {
 				}
 				return location({
 					kind: NodeKind.ImportDeclaration,
-					attributes: [],
+					attributes: attributes,
 					declarations: Helper.mapArray(declarations, function(declaration) {
 						return declaration.value;
 					})
 				}, first, last);
 			}
-			function ImportDeclarator(source, specifiers, __ks_arguments_1, first, last) {
-				if(arguments.length < 5) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
+			function ImportDeclarator(attributes, source, specifiers, __ks_arguments_1, first, last) {
+				if(arguments.length < 6) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 6)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(source === void 0 || source === null) {
 					throw new TypeError("'source' is not nullable");
@@ -2090,6 +2105,7 @@ module.exports = function() {
 				}
 				var node = location({
 					kind: NodeKind.ImportDeclarator,
+					attributes: attributes,
 					source: source.value,
 					specifiers: Helper.mapArray(specifiers, function(specifier) {
 						return specifier.value;
@@ -2118,6 +2134,7 @@ module.exports = function() {
 				}
 				var node = location({
 					kind: NodeKind.ImportNamespaceSpecifier,
+					attributes: [],
 					local: local.value
 				}, first, last);
 				if(specifiers !== null) {
@@ -2145,6 +2162,7 @@ module.exports = function() {
 				}
 				return location({
 					kind: NodeKind.ImportSpecifier,
+					attributes: [],
 					imported: imported.value,
 					local: local.value
 				}, first, last);
@@ -2843,6 +2861,17 @@ module.exports = function() {
 				}, first, first);
 				return node;
 			}
+			function OmittedReference(first) {
+				if(arguments.length < 1) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+				}
+				if(first === void 0 || first === null) {
+					throw new TypeError("'first' is not nullable");
+				}
+				return location({
+					kind: NodeKind.TypeReference
+				}, first, first);
+			}
 			function PropertyDeclaration(attributes, modifiers, name, type, defaultValue, accessor, mutator, first, last) {
 				if(arguments.length < 9) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
@@ -2969,9 +2998,12 @@ module.exports = function() {
 					value: value
 				}, first);
 			}
-			function RequireDeclaration(declarations, first, last) {
-				if(arguments.length < 3) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			function RequireDeclaration(attributes, declarations, first, last) {
+				if(arguments.length < 4) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -2984,15 +3016,18 @@ module.exports = function() {
 				}
 				return location({
 					kind: NodeKind.RequireDeclaration,
-					attributes: [],
+					attributes: attributes,
 					declarations: Helper.mapArray(declarations, function(declarator) {
 						return declarator.value;
 					})
 				}, first, last);
 			}
-			function RequireOrExternDeclaration(declarations, first, last) {
-				if(arguments.length < 3) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			function RequireOrExternDeclaration(attributes, declarations, first, last) {
+				if(arguments.length < 4) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -3005,15 +3040,18 @@ module.exports = function() {
 				}
 				return location({
 					kind: NodeKind.RequireOrExternDeclaration,
-					attributes: [],
+					attributes: attributes,
 					declarations: Helper.mapArray(declarations, function(declarator) {
 						return declarator.value;
 					})
 				}, first, last);
 			}
-			function RequireOrImportDeclaration(declarations, first, last) {
-				if(arguments.length < 3) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			function RequireOrImportDeclaration(attributes, declarations, first, last) {
+				if(arguments.length < 4) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(declarations === void 0 || declarations === null) {
 					throw new TypeError("'declarations' is not nullable");
@@ -3026,7 +3064,7 @@ module.exports = function() {
 				}
 				return location({
 					kind: NodeKind.RequireOrImportDeclaration,
-					attributes: [],
+					attributes: attributes,
 					declarations: Helper.mapArray(declarations, function(declaration) {
 						return declaration.value;
 					})
@@ -3257,6 +3295,22 @@ module.exports = function() {
 					})
 				}, first, last);
 			}
+			function SwitchConditionRangeFI(from, til) {
+				if(arguments.length < 2) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+				}
+				if(from === void 0 || from === null) {
+					throw new TypeError("'from' is not nullable");
+				}
+				if(til === void 0 || til === null) {
+					throw new TypeError("'til' is not nullable");
+				}
+				return location({
+					kind: NodeKind.SwitchConditionRange,
+					from: from.value,
+					til: til.value
+				}, from, til);
+			}
 			function SwitchConditionRangeFO(from, to) {
 				if(arguments.length < 2) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
@@ -3272,6 +3326,38 @@ module.exports = function() {
 					from: from.value,
 					to: to.value
 				}, from, to);
+			}
+			function SwitchConditionRangeTI(then, til) {
+				if(arguments.length < 2) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+				}
+				if(then === void 0 || then === null) {
+					throw new TypeError("'then' is not nullable");
+				}
+				if(til === void 0 || til === null) {
+					throw new TypeError("'til' is not nullable");
+				}
+				return location({
+					kind: NodeKind.SwitchConditionRange,
+					then: then.value,
+					til: til.value
+				}, then, til);
+			}
+			function SwitchConditionRangeTO(then, to) {
+				if(arguments.length < 2) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+				}
+				if(then === void 0 || then === null) {
+					throw new TypeError("'then' is not nullable");
+				}
+				if(to === void 0 || to === null) {
+					throw new TypeError("'to' is not nullable");
+				}
+				return location({
+					kind: NodeKind.SwitchConditionRange,
+					then: then.value,
+					to: to.value
+				}, then, to);
 			}
 			function SwitchConditionType(type, first, last) {
 				if(arguments.length < 3) {
@@ -3948,6 +4034,7 @@ module.exports = function() {
 				ObjectReference: ObjectReference,
 				ObjectMemberReference: ObjectMemberReference,
 				OmittedExpression: OmittedExpression,
+				OmittedReference: OmittedReference,
 				PropertyDeclaration: PropertyDeclaration,
 				Parameter: Parameter,
 				RegularExpression: RegularExpression,
@@ -3962,7 +4049,10 @@ module.exports = function() {
 				SwitchClause: SwitchClause,
 				SwitchConditionArray: SwitchConditionArray,
 				SwitchConditionObject: SwitchConditionObject,
+				SwitchConditionRangeFI: SwitchConditionRangeFI,
 				SwitchConditionRangeFO: SwitchConditionRangeFO,
+				SwitchConditionRangeTI: SwitchConditionRangeTI,
+				SwitchConditionRangeTO: SwitchConditionRangeTO,
 				SwitchConditionType: SwitchConditionType,
 				SwitchExpression: SwitchExpression,
 				SwitchStatement: SwitchStatement,
@@ -9503,12 +9593,28 @@ module.exports = function() {
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
 				}
+				var attributes = [];
 				var declarations = [];
 				var last;
 				if(this.test(Token.LEFT_CURLY)) {
 					this.commit().NL_0M();
+					var attrs = [];
+					var declarator;
 					while(!this.test(Token.RIGHT_CURLY)) {
-						declarations.push(this.reqExportDeclarator());
+						if(this.stackInnerAttributes(attributes)) {
+							continue;
+						}
+						this.stackOuterAttributes(attrs);
+						declarator = this.reqExportDeclarator();
+						if(attrs.length > 0) {
+							if(declarator.value.kind !== NodeKind.ExportDeclarationSpecifier) {
+								this.throw();
+							}
+							declarator.value.declaration.attributes.unshift.apply(declarator.value.declaration.attributes, attrs);
+							declarator.value.start = declarator.value.declaration.start = attrs[0].start;
+							attrs = [];
+						}
+						declarations.push(declarator);
 						this.reqNL_1M();
 					}
 					if(!this.test(Token.RIGHT_CURLY)) {
@@ -9525,7 +9631,7 @@ module.exports = function() {
 					last = declarations[declarations.length - 1];
 				}
 				this.reqNL_EOF_1M();
-				return this.yep(AST.ExportDeclaration(declarations, first, last));
+				return this.yep(AST.ExportDeclaration(attributes, declarations, first, last));
 			},
 			reqExportStatement: function() {
 				if(arguments.length === 1) {
@@ -10057,12 +10163,25 @@ module.exports = function() {
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
 				}
+				var attributes = [];
 				var declarations = [];
 				var last;
 				if(this.test(Token.LEFT_CURLY)) {
 					this.commit().NL_0M();
+					var attrs = [];
+					var declarator;
 					while(!this.test(Token.RIGHT_CURLY)) {
-						declarations.push(this.reqExternDeclarator());
+						if(this.stackInnerAttributes(attributes)) {
+							continue;
+						}
+						this.stackOuterAttributes(attrs);
+						declarator = this.reqExternDeclarator();
+						if(attrs.length > 0) {
+							declarator.value.attributes.unshift.apply(declarator.value.attributes, attrs);
+							declarator.value.start = declarator.value.attributes[0].start;
+							attrs = [];
+						}
+						declarations.push(declarator);
 						this.reqNL_1M();
 					}
 					if(!this.test(Token.RIGHT_CURLY)) {
@@ -10079,7 +10198,7 @@ module.exports = function() {
 					last = declarations[declarations.length - 1];
 				}
 				this.reqNL_EOF_1M();
-				return this.yep(AST.ExternOrRequireDeclaration(declarations, first, last));
+				return this.yep(AST.ExternOrRequireDeclaration(attributes, declarations, first, last));
 			},
 			reqExternOrRequireStatement: function() {
 				if(arguments.length === 1) {
@@ -10094,12 +10213,25 @@ module.exports = function() {
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
 				}
+				var attributes = [];
 				var declarations = [];
 				var last;
 				if(this.test(Token.LEFT_CURLY)) {
 					this.commit().NL_0M();
+					var attrs = [];
+					var declarator;
 					while(!this.test(Token.RIGHT_CURLY)) {
-						declarations.push(this.reqExternDeclarator());
+						if(this.stackInnerAttributes(attributes)) {
+							continue;
+						}
+						this.stackOuterAttributes(attrs);
+						declarator = this.reqExternDeclarator();
+						if(attrs.length > 0) {
+							declarator.value.attributes.unshift.apply(declarator.value.attributes, attrs);
+							declarator.value.start = declarator.value.attributes[0].start;
+							attrs = [];
+						}
+						declarations.push(declarator);
 						this.reqNL_1M();
 					}
 					if(!this.test(Token.RIGHT_CURLY)) {
@@ -10116,7 +10248,7 @@ module.exports = function() {
 					last = declarations[declarations.length - 1];
 				}
 				this.reqNL_EOF_1M();
-				return this.yep(AST.ExternDeclaration(declarations, first, last));
+				return this.yep(AST.ExternDeclaration(attributes, declarations, first, last));
 			},
 			reqExternStatement: function() {
 				if(arguments.length === 1) {
@@ -10601,12 +10733,13 @@ module.exports = function() {
 					}
 					this.commit();
 				}
+				var attributes = [];
 				var specifiers = [];
 				if(this.match(Token.EQUALS_RIGHT_ANGLE, Token.FOR, Token.LEFT_CURLY) === Token.EQUALS_RIGHT_ANGLE) {
 					this.commit();
 					last = this.reqIdentifier();
 					if(this.test(Token.LEFT_CURLY)) {
-						specifiers.push(this.yep(AST.ImportNamespaceSpecifier(last, this.reqImportSpecifiers([]), last, this.yes())));
+						specifiers.push(this.yep(AST.ImportNamespaceSpecifier(last, this.reqImportSpecifiers(attributes, []), last, this.yes())));
 					}
 					else {
 						specifiers.push(this.yep(AST.ImportNamespaceSpecifier(last, null, last, last)));
@@ -10634,10 +10767,10 @@ module.exports = function() {
 					}
 				}
 				else if(this._token === Token.LEFT_CURLY) {
-					this.reqImportSpecifiers(specifiers);
+					this.reqImportSpecifiers(attributes, specifiers);
 					last = this.yes();
 				}
-				return this.yep(AST.ImportDeclarator(source, specifiers, __ks_arguments_1, source, last));
+				return this.yep(AST.ImportDeclarator(attributes, source, specifiers, __ks_arguments_1, source, last));
 			},
 			reqImportDeclarator: function() {
 				if(arguments.length === 0) {
@@ -10645,16 +10778,25 @@ module.exports = function() {
 				}
 				throw new SyntaxError("Wrong number of arguments");
 			},
-			__ks_func_reqImportSpecifiers_0: function(specifiers) {
-				if(arguments.length < 1) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			__ks_func_reqImportSpecifiers_0: function(attributes, specifiers) {
+				if(arguments.length < 2) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+				}
+				if(attributes === void 0 || attributes === null) {
+					throw new TypeError("'attributes' is not nullable");
 				}
 				if(specifiers === void 0 || specifiers === null) {
 					throw new TypeError("'specifiers' is not nullable");
 				}
 				this.commit().reqNL_1M();
 				var first, imported, local;
+				var attrs = [];
+				var specifier;
 				while(!this.test(Token.RIGHT_CURLY)) {
+					if(this.stackInnerAttributes(attributes)) {
+						continue;
+					}
+					this.stackOuterAttributes(attrs);
 					if(this.match(Token.ASTERISK) === Token.ASTERISK) {
 						first = this.yes();
 						if(!this.test(Token.EQUALS_RIGHT_ANGLE)) {
@@ -10662,19 +10804,25 @@ module.exports = function() {
 						}
 						this.commit();
 						local = this.reqIdentifier();
-						specifiers.push(this.yep(AST.ImportNamespaceSpecifier(local, null, first, local)));
+						specifier = this.yep(AST.ImportNamespaceSpecifier(local, null, first, local));
 					}
 					else {
 						imported = this.reqExternDeclarator();
 						if(this.test(Token.EQUALS_RIGHT_ANGLE)) {
 							this.commit();
 							local = this.reqIdentifier();
-							specifiers.push(this.yep(AST.ImportSpecifier(imported, local, imported, local)));
+							specifier = this.yep(AST.ImportSpecifier(imported, local, imported, local));
 						}
 						else {
-							specifiers.push(this.yep(AST.ImportSpecifier(imported, this.yep(imported.value.name), imported, imported)));
+							specifier = this.yep(AST.ImportSpecifier(imported, this.yep(imported.value.name), imported, imported));
 						}
 					}
+					if(attrs.length > 0) {
+						specifier.value.attributes.unshift.apply(specifier.value.attributes, attrs);
+						specifier.value.start = specifier.value.attributes[0].start;
+						attrs = [];
+					}
+					specifiers.push(specifier);
 					if(this.test(Token.NEWLINE)) {
 						this.commit().NL_0M();
 					}
@@ -10688,7 +10836,7 @@ module.exports = function() {
 				return specifiers;
 			},
 			reqImportSpecifiers: function() {
-				if(arguments.length === 1) {
+				if(arguments.length === 2) {
 					return Parser.prototype.__ks_func_reqImportSpecifiers_0.apply(this, arguments);
 				}
 				throw new SyntaxError("Wrong number of arguments");
@@ -10701,12 +10849,25 @@ module.exports = function() {
 					throw new TypeError("'first' is not nullable");
 				}
 				this.NL_0M();
+				var attributes = [];
 				var declarations = [];
 				var last;
 				if(this.test(Token.LEFT_CURLY)) {
 					this.commit().reqNL_1M();
+					var attrs = [];
+					var declarator;
 					while(!this.test(Token.RIGHT_CURLY)) {
-						declarations.push(this.reqImportDeclarator());
+						if(this.stackInnerAttributes(attributes)) {
+							continue;
+						}
+						this.stackOuterAttributes(attrs);
+						declarator = this.reqImportDeclarator();
+						if(attrs.length > 0) {
+							declarator.value.attributes.unshift.apply(declarator.value.attributes, attrs);
+							declarator.value.start = declarator.value.attributes[0].start;
+							attrs = [];
+						}
+						declarations.push(declarator);
 						if(this.test(Token.NEWLINE)) {
 							this.commit().NL_0M();
 						}
@@ -10722,7 +10883,7 @@ module.exports = function() {
 				else {
 					declarations.push(last = this.reqImportDeclarator());
 				}
-				return this.yep(AST.ImportDeclaration(declarations, first, last));
+				return this.yep(AST.ImportDeclaration(attributes, declarations, first, last));
 			},
 			reqImportStatement: function() {
 				if(arguments.length === 1) {
@@ -11899,12 +12060,25 @@ module.exports = function() {
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
 				}
+				var attributes = [];
 				var declarations = [];
 				var last;
 				if(this.test(Token.LEFT_CURLY)) {
 					this.commit().NL_0M();
+					var attrs = [];
+					var declarator;
 					while(!this.test(Token.RIGHT_CURLY)) {
-						declarations.push(this.reqExternDeclarator());
+						if(this.stackInnerAttributes(attributes)) {
+							continue;
+						}
+						this.stackOuterAttributes(attrs);
+						declarator = this.reqExternDeclarator();
+						if(attrs.length > 0) {
+							declarator.value.attributes.unshift.apply(declarator.value.attributes, attrs);
+							declarator.value.start = declarator.value.attributes[0].start;
+							attrs = [];
+						}
+						declarations.push(declarator);
 						this.reqNL_1M();
 					}
 					if(!this.test(Token.RIGHT_CURLY)) {
@@ -11921,7 +12095,7 @@ module.exports = function() {
 					last = declarations[declarations.length - 1];
 				}
 				this.reqNL_EOF_1M();
-				return this.yep(AST.RequireDeclaration(declarations, first, last));
+				return this.yep(AST.RequireDeclaration(attributes, declarations, first, last));
 			},
 			reqRequireStatement: function() {
 				if(arguments.length === 1) {
@@ -11936,12 +12110,25 @@ module.exports = function() {
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
 				}
+				var attributes = [];
 				var declarations = [];
 				var last;
 				if(this.test(Token.LEFT_CURLY)) {
 					this.commit().NL_0M();
+					var attrs = [];
+					var declarator;
 					while(!this.test(Token.RIGHT_CURLY)) {
-						declarations.push(this.reqExternDeclarator());
+						if(this.stackInnerAttributes(attributes)) {
+							continue;
+						}
+						this.stackOuterAttributes(attrs);
+						declarator = this.reqExternDeclarator();
+						if(attrs.length > 0) {
+							declarator.value.attributes.unshift.apply(declarator.value.attributes, attrs);
+							declarator.value.start = declarator.value.attributes[0].start;
+							attrs = [];
+						}
+						declarations.push(declarator);
 						this.reqNL_1M();
 					}
 					if(!this.test(Token.RIGHT_CURLY)) {
@@ -11958,7 +12145,7 @@ module.exports = function() {
 					last = declarations[declarations.length - 1];
 				}
 				this.reqNL_EOF_1M();
-				return this.yep(AST.RequireOrExternDeclaration(declarations, first, last));
+				return this.yep(AST.RequireOrExternDeclaration(attributes, declarations, first, last));
 			},
 			reqRequireOrExternStatement: function() {
 				if(arguments.length === 1) {
@@ -11973,12 +12160,25 @@ module.exports = function() {
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
 				}
+				var attributes = [];
 				var declarations = [];
 				var last;
 				if(this.test(Token.LEFT_CURLY)) {
 					this.commit().reqNL_1M();
+					var attrs = [];
+					var declarator;
 					while(!this.test(Token.RIGHT_CURLY)) {
-						declarations.push(this.reqImportDeclarator());
+						if(this.stackInnerAttributes(attributes)) {
+							continue;
+						}
+						this.stackOuterAttributes(attrs);
+						declarator = this.reqImportDeclarator();
+						if(attrs.length > 0) {
+							declarator.value.attributes.unshift.apply(declarator.value.attributes, attrs);
+							declarator.value.start = declarator.value.attributes[0].start;
+							attrs = [];
+						}
+						declarations.push(declarator);
 						if(this.test(Token.NEWLINE)) {
 							this.commit().NL_0M();
 						}
@@ -11995,7 +12195,7 @@ module.exports = function() {
 					declarations.push(last = this.reqImportDeclarator());
 				}
 				this.reqNL_EOF_1M();
-				return this.yep(AST.RequireOrImportDeclaration(declarations, first, last));
+				return this.yep(AST.RequireOrImportDeclaration(attributes, declarations, first, last));
 			},
 			reqRequireOrImportStatement: function() {
 				if(arguments.length === 1) {
