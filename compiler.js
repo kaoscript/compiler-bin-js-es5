@@ -14915,7 +14915,7 @@ module.exports = function() {
 			throw new TypeError("'stack' is not of type 'Array'");
 		}
 		var message = error.toString();
-		for(var i = 0, __ks_0 = Math.min(36, stack.length); i < __ks_0; ++i) {
+		for(var i = 0, __ks_0 = Math.min(12, stack.length); i < __ks_0; ++i) {
 			message += "\n    " + stack[i].toString();
 		}
 		return message;
@@ -48848,8 +48848,7 @@ module.exports = function() {
 					var variable = this._scope.getVariable(name);
 					if(this._data.declaration || (variable === null)) {
 						this._declareValue = true;
-						this._bindingScope.define(name, this._immutable, Type.Any, this);
-						this._declaredVariables.push(name);
+						this._declaredVariables.push(this._bindingScope.define(name, this._immutable, Type.Any, this));
 					}
 					else if(variable.isImmutable()) {
 						ReferenceException.throwImmutable(name, this);
@@ -49267,9 +49266,9 @@ module.exports = function() {
 			ctrl.code(this._boundName, $equals);
 			this.toBoundFragments(ctrl);
 			if(this._declareValue) {
-				for(var __ks_0 = 0, __ks_1 = this._declaredVariables.length, name; __ks_0 < __ks_1; ++__ks_0) {
-					name = this._declaredVariables[__ks_0];
-					ctrl.code($comma).compile(this._bindingScope.getVariable(name));
+				for(var __ks_0 = 0, __ks_1 = this._declaredVariables.length, variable; __ks_0 < __ks_1; ++__ks_0) {
+					variable = this._declaredVariables[__ks_0];
+					ctrl.code($comma).compile(variable);
 				}
 			}
 			ctrl.code("; ");
