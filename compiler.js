@@ -25432,7 +25432,7 @@ module.exports = function() {
 				else if(this._hasRest) {
 					var a = 0;
 					var b = __ks_arguments_1.length - 1;
-					for(var __ks_0 = this._parameters.length - 1, __ks_1 = Math.min(this._parameters.length, this._restIndex), parameter; __ks_0 < __ks_1; --__ks_0) {
+					for(var __ks_0 = Math.min(this._parameters.length - 1, this._parameters.length - 1), __ks_1 = this._restIndex, parameter; __ks_0 >= __ks_1; --__ks_0) {
 						parameter = this._parameters[__ks_0];
 						for(var j = 0, __ks_2 = parameter.min(); j < __ks_2; ++j) {
 							if(!parameter.matchArgument(__ks_arguments_1[b])) {
@@ -43796,7 +43796,7 @@ module.exports = function() {
 					name = ("." + member.property.name) + name;
 					member = member.object;
 				}
-				this._extendsName = "" + member.name + name;
+				this._extendsName = ("" + member.name) + name;
 			}
 			for(var __ks_0 = 0, __ks_1 = this._data.modifiers.length, modifier; __ks_0 < __ks_1; ++__ks_0) {
 				modifier = this._data.modifiers[__ks_0];
@@ -48949,8 +48949,10 @@ module.exports = function() {
 			this._declaredVariables = [];
 			this._declareIndex = false;
 			this._declareValue = false;
+			this._fromDesc = false;
 			this._immutable = false;
 			this._index = null;
+			this._isDesc = false;
 			this._loopTempVariables = [];
 			this._useBreak = false;
 			this._value = null;
@@ -49041,6 +49043,11 @@ module.exports = function() {
 			}
 			this._body = $compile.block(this._data.body, this, this._bodyScope);
 			this._body.analyse();
+			this._isDesc = this._data.desc === true;
+			this._fromDesc = (KSType.isValue(this._data.by) ? this._data.by.kind === NodeKind.NumericExpression : false) && (this._data.by.value < 0);
+			if(this._isDesc && this._fromDesc) {
+				this._isDesc = this._fromDesc = false;
+			}
 		},
 		analyse: function() {
 			if(arguments.length === 0) {
@@ -49275,7 +49282,7 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			if(this._data.desc) {
+			if(this._isDesc) {
 				if(KSType.isValue(this._from)) {
 					if(KSType.is(this._from, NumberLiteral) && (this._from.value() < 0)) {
 						fragments.code("Math.max(0, ").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + -this._from.value() + ")");
@@ -49290,28 +49297,43 @@ module.exports = function() {
 			}
 			else {
 				if(KSType.isValue(this._til)) {
-					if(KSType.is(this._til, NumberLiteral) && (this._til.value() < 0)) {
-						fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + -this._til.value());
+					if(this._fromDesc) {
+						fragments.compile(this._til);
 					}
 					else {
-						fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length, ").compile(this._til).code(")");
+						if(KSType.is(this._til, NumberLiteral) && (this._til.value() < 0)) {
+							fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + -this._til.value());
+						}
+						else {
+							fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length, ").compile(this._til).code(")");
+						}
 					}
 				}
 				else if(KSType.isValue(this._to)) {
-					if(KSType.is(this._to, NumberLiteral)) {
-						if(this._to.value() < 0) {
-							fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + (-this._to.value() - 1));
-						}
-						else {
-							fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length, " + (this._to.value() + 1) + ")");
-						}
+					if(this._fromDesc) {
+						fragments.compile(this._to);
 					}
 					else {
-						fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length, ").compile(this._to).code(" + 1)");
+						if(KSType.is(this._to, NumberLiteral)) {
+							if(this._to.value() < 0) {
+								fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + (-this._to.value() - 1));
+							}
+							else {
+								fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length, " + (this._to.value() + 1) + ")");
+							}
+						}
+						else {
+							fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length, ").compile(this._to).code(" + 1)");
+						}
 					}
 				}
 				else {
-					fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length");
+					if(this._fromDesc) {
+						fragments.code("0");
+					}
+					else {
+						fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length");
+					}
 				}
 			}
 		},
@@ -49331,7 +49353,7 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			if(this._data.desc) {
+			if(this._isDesc) {
 				if(KSType.isValue(this._til)) {
 					if(KSType.is(this._til, NumberLiteral) && (this._til.value() < 0)) {
 						fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + (-this._til.value() + 1));
@@ -49346,11 +49368,11 @@ module.exports = function() {
 							fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + -this._to.value());
 						}
 						else {
-							fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length, " + this._to.value() + ")");
+							fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - 1, " + this._to.value() + ")");
 						}
 					}
 					else {
-						fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length, ").compile(this._to).code(")");
+						fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - 1, ").compile(this._to).code(")");
 					}
 				}
 				else {
@@ -49358,16 +49380,26 @@ module.exports = function() {
 				}
 			}
 			else {
-				if(KSType.isValue(this._from)) {
-					if(KSType.is(this._from, NumberLiteral) && (this._from.value() < 0)) {
-						fragments.code("Math.max(0, ").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + -this._from.value() + ")");
+				if(this._fromDesc) {
+					if(KSType.isValue(this._from)) {
+						fragments.code("Math.min(").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - 1, ").compile(this._from).code(")");
 					}
 					else {
-						fragments.compile(this._from);
+						fragments.compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - 1");
 					}
 				}
 				else {
-					fragments.code("0");
+					if(KSType.isValue(this._from)) {
+						if(KSType.is(this._from, NumberLiteral) && (this._from.value() < 0)) {
+							fragments.code("Math.max(0, ").compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code(".length - " + -this._from.value() + ")");
+						}
+						else {
+							fragments.compile(this._from);
+						}
+					}
+					else {
+						fragments.code("0");
+					}
 				}
 			}
 		},
@@ -49414,7 +49446,7 @@ module.exports = function() {
 				}
 			}
 			ctrl.code("; ");
-			if(this._data.desc) {
+			if(this._isDesc || this._fromDesc) {
 				ctrl.compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code(" >= " + this._boundName);
 			}
 			else {
@@ -49429,30 +49461,41 @@ module.exports = function() {
 				}
 			}
 			ctrl.code("; ");
-			if(this._data.by) {
-				if(this._data.by.kind === NodeKind.NumericExpression) {
-					if(this._data.by.value === 1) {
-						ctrl.code("++").compile(KSType.isValue(this._indexName) ? this._indexName : this._index);
-					}
-					else if(this._data.by.value === -1) {
-						ctrl.code("--").compile(KSType.isValue(this._indexName) ? this._indexName : this._index);
-					}
-					else if(this._data.by.value >= 0) {
-						ctrl.compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code(" += ").compile(this._by);
+			if(this._isDesc || this._fromDesc) {
+				if(this._data.by) {
+					if(this._data.by.kind === NodeKind.NumericExpression) {
+						if(Math.abs(this._data.by.value) === 1) {
+							ctrl.code("--").compile(KSType.isValue(this._indexName) ? this._indexName : this._index);
+						}
+						else {
+							ctrl.compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code(" -= ", Math.abs(this._data.by.value));
+						}
 					}
 					else {
-						ctrl.compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code(" -= ", -this._data.by.value);
+						ctrl.compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code(" -= ").compile(KSType.isValue(this._byName) ? this._byName : this._by);
 					}
 				}
 				else {
-					ctrl.compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code(" += ").compile(KSType.isValue(this._byName) ? this._byName : this._by);
+					ctrl.code("--").compile(KSType.isValue(this._indexName) ? this._indexName : this._index);
 				}
 			}
-			else if(this._data.desc) {
-				ctrl.code("--").compile(KSType.isValue(this._indexName) ? this._indexName : this._index);
-			}
 			else {
-				ctrl.code("++").compile(KSType.isValue(this._indexName) ? this._indexName : this._index);
+				if(this._data.by) {
+					if(this._data.by.kind === NodeKind.NumericExpression) {
+						if(Math.abs(this._data.by.value) === 1) {
+							ctrl.code("++").compile(KSType.isValue(this._indexName) ? this._indexName : this._index);
+						}
+						else {
+							ctrl.compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code(" += ", Math.abs(this._data.by.value));
+						}
+					}
+					else {
+						ctrl.compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code(" += ").compile(KSType.isValue(this._byName) ? this._byName : this._by);
+					}
+				}
+				else {
+					ctrl.code("++").compile(KSType.isValue(this._indexName) ? this._indexName : this._index);
+				}
 			}
 			ctrl.code(")").step();
 			if(KSType.isValue(this._value)) {
@@ -52512,6 +52555,10 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_translate_0: function() {
+			for(var __ks_0 = 0, __ks_1 = this._parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
+				parameter = this._parameters[__ks_0];
+				parameter.translate();
+			}
 			this._block = $compile.block($ast.body(this._data), this);
 			this._block.analyse();
 			this._block.type(this._type.returnType()).prepare();
@@ -52612,6 +52659,17 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		}
 	});
+	var $importExts = {
+		data: {
+			json: true
+		},
+		source: {
+			coffee: true,
+			js: true,
+			ks: true,
+			ts: true
+		}
+	};
 	var $nodeModules = {
 		assert: true,
 		buffer: true,
@@ -53330,9 +53388,10 @@ module.exports = function() {
 			this._moduleName = moduleName;
 			if(this._data.specifiers.length === 0) {
 				var parts = this._data.source.value.split("/");
-				for(var i = 0, __ks_0 = parts.length; this._alias === null && i < __ks_0; ++i) {
-					if(!/(?:^\.+$|^@)/.test(parts[i])) {
-						var dots = parts[i].split(".");
+				for(var __ks_0 = parts.length - 1, __ks_1 = 0, part; __ks_0 >= __ks_1 && this._alias === null; --__ks_0) {
+					part = parts[__ks_0];
+					if(!/(?:^\.+$|^@)/.test(part)) {
+						var dots = part.split(".");
 						var last = dots.length - 1;
 						if(last === 0) {
 							this._alias = dots[0].replace(/[-_]+(.)/g, function(m, l) {
@@ -53348,7 +53407,21 @@ module.exports = function() {
 								return l.toUpperCase();
 							});
 						}
-						else if(dots[last].length <= 3) {
+						else if($importExts.data[dots[last]] === true) {
+							this._alias = dots.slice(0, last).join(".").replace(/[-_.]+(.)/g, function(m, l) {
+								if(arguments.length < 2) {
+									throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+								}
+								if(m === void 0 || m === null) {
+									throw new TypeError("'m' is not nullable");
+								}
+								if(l === void 0 || l === null) {
+									throw new TypeError("'l' is not nullable");
+								}
+								return l.toUpperCase();
+							});
+						}
+						else if($importExts.source[dots[last]] === true) {
 							this._alias = dots[last - 1].replace(/[-_]+(.)/g, function(m, l) {
 								if(arguments.length < 2) {
 									throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
@@ -53667,7 +53740,7 @@ module.exports = function() {
 					}
 					var line = fragments.newLine().code("var " + __ks_alias_1 + " = ");
 					this.toRequireFragments(line);
-					line.code("." + __ks_alias_1).done();
+					line.code("." + __ks_name_1).done();
 				}
 				else if(this._count > 0) {
 					if(this._options.format.destructuring === "es5") {
@@ -53990,7 +54063,7 @@ module.exports = function() {
 				var matchables = [];
 				for(var i = 0, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
 					name = this._metadata.requirements[i + 1];
-					if((KSType.isValue(__ks_arguments_1[name]) ? (argument = __ks_arguments_1[name], true) : false) && !argument.required && !argument.type.matchSignatureOf(reqReferences[this._metadata.requirements[i]], matchables)) {
+					if((KSType.isValue(__ks_arguments_1[name]) ? (argument = __ks_arguments_1[name], true) : false) && !argument.required && !reqReferences[this._metadata.requirements[i]].isAny() && !argument.type.matchSignatureOf(reqReferences[this._metadata.requirements[i]], matchables)) {
 						TypeException.throwNotCompatibleArgument(argument.name, name, this._node.data().source.value, this._node);
 					}
 				}
@@ -59299,21 +59372,21 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				throw new TypeError("'mode' is not nullable");
 			}
-			if(this._await) {
-				var line = fragments.newLine();
-				this._init.toFragments(line, Mode.Async);
-				if(KSType.isValue(this._try)) {
-					return Helper.vcurry(this._try.toAwaitExpressionFragments, this._try, line, this._declarators);
-				}
-				else if(KSType.isValue(this._function) ? this._function.type().isAsync() : false) {
-					return Helper.vcurry(this._function.toAwaitExpressionFragments, this._function, line, this._declarators);
+			if(this._hasInit) {
+				if(this._await) {
+					var line = fragments.newLine();
+					this._init.toFragments(line, Mode.Async);
+					if(KSType.isValue(this._try)) {
+						return Helper.vcurry(this._try.toAwaitExpressionFragments, this._try, line, this._declarators);
+					}
+					else if(KSType.isValue(this._function) ? this._function.type().isAsync() : false) {
+						return Helper.vcurry(this._function.toAwaitExpressionFragments, this._function, line, this._declarators);
+					}
+					else {
+						return Helper.vcurry(this.toAwaitExpressionFragments, this, line, this._declarators);
+					}
 				}
 				else {
-					return Helper.vcurry(this.toAwaitExpressionFragments, this, line, this._declarators);
-				}
-			}
-			else {
-				if(this._hasInit) {
 					var declarator = this._declarators[0];
 					var line = fragments.newLine();
 					if(this._toDeclareAll) {
@@ -59330,38 +59403,38 @@ module.exports = function() {
 					declarator.toAssignmentFragments(line, this._init);
 					line.done();
 				}
-				else if(this._toDeclareAll) {
-					var line = fragments.newLine();
-					if(this._options.format.variables === "es5") {
-						line.code("var ");
-					}
-					else if(this._rebindable || this._redeclared) {
-						line.code("let ");
-					}
-					else {
-						line.code("const ");
-					}
-					for(var index = 0, __ks_0 = this._declarators.length, declarator; index < __ks_0; ++index) {
-						declarator = this._declarators[index];
-						if(index !== 0) {
-							line.code($comma);
-						}
-						line.compile(declarator);
-					}
-					line.done();
+			}
+			else if(this._toDeclareAll) {
+				var line = fragments.newLine();
+				if(this._options.format.variables === "es5") {
+					line.code("var ");
+				}
+				else if(this._rebindable || this._redeclared) {
+					line.code("let ");
 				}
 				else {
-					var line = fragments.newLine();
-					for(var index = 0, __ks_0 = this._declarators.length, declarator; index < __ks_0; ++index) {
-						declarator = this._declarators[index];
-						if(index !== 0) {
-							line.code($comma);
-						}
-						line.compile(declarator);
-					}
-					line.code(" = undefined");
-					line.done();
+					line.code("const ");
 				}
+				for(var index = 0, __ks_0 = this._declarators.length, declarator; index < __ks_0; ++index) {
+					declarator = this._declarators[index];
+					if(index !== 0) {
+						line.code($comma);
+					}
+					line.compile(declarator);
+				}
+				line.done();
+			}
+			else {
+				var line = fragments.newLine();
+				for(var index = 0, __ks_0 = this._declarators.length, declarator; index < __ks_0; ++index) {
+					declarator = this._declarators[index];
+					if(index !== 0) {
+						line.code($comma);
+					}
+					line.compile(declarator);
+				}
+				line.code(" = undefined");
+				line.done();
 			}
 		},
 		toStatementFragments: function() {
@@ -62065,6 +62138,24 @@ module.exports = function() {
 				return AwaitExpression.prototype.__ks_func_isAwaiting_0.apply(this);
 			}
 			return Expression.prototype.isAwaiting.apply(this, arguments);
+		},
+		__ks_func_isUsingVariable_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			return this._operation.isUsingVariable(name);
+		},
+		isUsingVariable: function() {
+			if(arguments.length === 1) {
+				return AwaitExpression.prototype.__ks_func_isUsingVariable_0.apply(this, arguments);
+			}
+			else if(Expression.prototype.isUsingVariable) {
+				return Expression.prototype.isUsingVariable.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toAwaitExpressionFragments_0: function(fragments, statements) {
 			if(arguments.length < 2) {
@@ -69868,7 +69959,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_isComputed_0: function() {
-			return this._elements.length > 1;
+			return (this._elements.length > 1) || !this._types[0];
 		},
 		isComputed: function() {
 			if(arguments.length === 0) {
