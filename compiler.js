@@ -3806,7 +3806,7 @@ module.exports = function() {
 						})
 					}, first, last);
 				}
-				else if(arguments.length === 7) {
+				else if(arguments.length === 6) {
 					var __ks_i = -1;
 					var variables = arguments[++__ks_i];
 					if(variables === void 0 || variables === null) {
@@ -3819,10 +3819,6 @@ module.exports = function() {
 					var equals = arguments[++__ks_i];
 					if(equals === void 0 || equals === null) {
 						throw new TypeError("'equals' is not nullable");
-					}
-					var isAwait = arguments[++__ks_i];
-					if(isAwait === void 0 || isAwait === null) {
-						throw new TypeError("'isAwait' is not nullable");
 					}
 					var expression = arguments[++__ks_i];
 					if(expression === void 0 || expression === null) {
@@ -3844,7 +3840,6 @@ module.exports = function() {
 							return variable.value;
 						}),
 						autotype: equals.value,
-						await: isAwait,
 						init: expression.value
 					}, first, last);
 				}
@@ -9028,18 +9023,21 @@ module.exports = function() {
 					}
 					this.commit();
 					var operand = this.reqPrefixedOperand(mode);
-					return this.yep(AST.VariableDeclaration(variables, false, equals, true, operand, first, operand));
+					operand = this.yep(AST.AwaitExpression(variables, false, operand, variable, operand));
+					return this.yep(AST.VariableDeclaration(variables, false, equals, operand, first, operand));
 				}
 				else {
 					var equals = this.reqVariableEquals();
 					if(this.test(Token.AWAIT)) {
 						this.commit();
+						var variables = [variable];
 						var operand = this.reqPrefixedOperand(mode);
-						return this.yep(AST.VariableDeclaration([variable], false, equals, true, operand, first, operand));
+						operand = this.yep(AST.AwaitExpression(variables, false, operand, variable, operand));
+						return this.yep(AST.VariableDeclaration(variables, false, equals, operand, first, operand));
 					}
 					else {
 						var expression = this.reqExpression(mode);
-						return this.yep(AST.VariableDeclaration([variable], false, equals, false, expression, first, expression));
+						return this.yep(AST.VariableDeclaration([variable], false, equals, expression, first, expression));
 					}
 				}
 			},
@@ -10554,18 +10552,18 @@ module.exports = function() {
 							}
 							this.commit();
 							var operand = this.reqPrefixedOperand(ExpressionMode.Default);
-							condition = this.yep(AST.VariableDeclaration(variables, mutable, equals, true, operand, __ks_first_1, operand));
+							condition = this.yep(AST.VariableDeclaration(variables, mutable, equals, operand, __ks_first_1, operand));
 						}
 						else {
 							var equals = this.reqVariableEquals();
 							if(this.test(Token.AWAIT)) {
 								this.commit();
 								var operand = this.reqPrefixedOperand(ExpressionMode.Default);
-								condition = this.yep(AST.VariableDeclaration([variable], mutable, equals, true, operand, __ks_first_1, operand));
+								condition = this.yep(AST.VariableDeclaration([variable], mutable, equals, operand, __ks_first_1, operand));
 							}
 							else {
 								var expression = this.reqExpression(ExpressionMode.Default);
-								condition = this.yep(AST.VariableDeclaration([variable], mutable, equals, false, expression, __ks_first_1, expression));
+								condition = this.yep(AST.VariableDeclaration([variable], mutable, equals, expression, __ks_first_1, expression));
 							}
 						}
 					}
@@ -11039,7 +11037,8 @@ module.exports = function() {
 						}
 						this.commit();
 						var operand = this.reqPrefixedOperand(mode);
-						return this.yep(AST.VariableDeclaration(variables, true, equals, true, operand, first, operand));
+						operand = this.yep(AST.AwaitExpression(variables, false, operand, variable, operand));
+						return this.yep(AST.VariableDeclaration(variables, true, equals, operand, first, operand));
 					}
 					else {
 						return this.yep(AST.VariableDeclaration(variables, true, first, variables[variables.length - 1]));
@@ -11051,8 +11050,10 @@ module.exports = function() {
 						this.NL_0M();
 						if(this.test(Token.AWAIT)) {
 							this.commit();
+							var variables = [variable];
 							var operand = this.reqPrefixedOperand(mode);
-							return this.yep(AST.VariableDeclaration([variable], true, equals, true, operand, first, operand));
+							operand = this.yep(AST.AwaitExpression(variables, false, operand, variable, operand));
+							return this.yep(AST.VariableDeclaration(variables, true, equals, operand, first, operand));
 						}
 						else {
 							var init = this.reqExpression(mode);
@@ -11073,7 +11074,7 @@ module.exports = function() {
 								var condition = this.reqExpression(ExpressionMode.Default);
 								init = this.yep(AST.UnlessExpression(condition, init, init, condition));
 							}
-							return this.yep(AST.VariableDeclaration([variable], true, equals, false, init, first, init));
+							return this.yep(AST.VariableDeclaration([variable], true, equals, init, first, init));
 						}
 					}
 					else {
@@ -58288,7 +58289,10 @@ module.exports = function() {
 			ctrl.step().code("else").step();
 			var statement = statements[statements.length - 1];
 			if(this._state === TryState.Body) {
-				if((statements.length === 1) && !statement.hasExceptions()) {
+				if(!statement.hasExceptions() && ((statements.length === 1) || ((statements.length === 2) && KSType.is(statements[0], VariableDeclaration) && statements[0].isAwait()))) {
+					if(statements.length === 2) {
+						ctrl.compile(statements[0]);
+					}
 					ctrl.compile(statement);
 					if(!KSType.is(statement, ReturnStatement)) {
 						if(KSType.isValue(this._finallyVarname)) {
@@ -58927,10 +58931,6 @@ module.exports = function() {
 			this._immutable = !this._data.rebindable;
 			this._rebindable = !this._immutable;
 			this._autotype = this._immutable || this._data.autotype;
-			this._await = this._data.await;
-			if(this._await && !KSType.isValue(this._function) && !this.module().isBinary()) {
-				SyntaxException.throwInvalidAwait(this);
-			}
 			if(!KSType.isValue(this._initScope)) {
 				this._initScope = this._scope;
 			}
@@ -58943,6 +58943,10 @@ module.exports = function() {
 				this._initScope.line(line);
 				if(this._immutable) {
 					this._rebindable = this._scope !== this._initScope;
+				}
+				this._await = this._init.isAwait();
+				if(this._await && !KSType.isValue(this._function) && !this.module().isBinary()) {
+					SyntaxException.throwInvalidAwait(this);
 				}
 			}
 			var declarator;
@@ -59090,30 +59094,6 @@ module.exports = function() {
 			}
 			return Statement.prototype.export.apply(this, arguments);
 		},
-		__ks_func_isDuplicate_0: function(scope) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(scope === void 0 || scope === null) {
-				throw new TypeError("'scope' is not nullable");
-			}
-			for(var __ks_0 = 0, __ks_1 = this._declarators.length, declarator; __ks_0 < __ks_1; ++__ks_0) {
-				declarator = this._declarators[__ks_0];
-				if(declarator.isDuplicate(scope)) {
-					return true;
-				}
-			}
-			return false;
-		},
-		isDuplicate: function() {
-			if(arguments.length === 1) {
-				return VariableDeclaration.prototype.__ks_func_isDuplicate_0.apply(this, arguments);
-			}
-			else if(Statement.prototype.isDuplicate) {
-				return Statement.prototype.isDuplicate.apply(this, arguments);
-			}
-			throw new SyntaxError("Wrong number of arguments");
-		},
 		__ks_func_hasInit_0: function() {
 			return this._hasInit;
 		},
@@ -59174,6 +59154,30 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_isDuplicate_0: function(scope) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			for(var __ks_0 = 0, __ks_1 = this._declarators.length, declarator; __ks_0 < __ks_1; ++__ks_0) {
+				declarator = this._declarators[__ks_0];
+				if(declarator.isDuplicate(scope)) {
+					return true;
+				}
+			}
+			return false;
+		},
+		isDuplicate: function() {
+			if(arguments.length === 1) {
+				return VariableDeclaration.prototype.__ks_func_isDuplicate_0.apply(this, arguments);
+			}
+			else if(Statement.prototype.isDuplicate) {
+				return Statement.prototype.isDuplicate.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_isImmutable_0: function() {
 			return this._immutable;
 		},
@@ -59201,43 +59205,32 @@ module.exports = function() {
 			}
 			return Statement.prototype.isUsingVariable.apply(this, arguments);
 		},
-		__ks_func_toAwaitExpressionFragments_0: function(fragments, parameters, statements) {
-			if(arguments.length < 3) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+		__ks_func_toAwaitStatementFragments_0: function(fragments, statements) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			if(parameters === void 0 || parameters === null) {
-				throw new TypeError("'parameters' is not nullable");
-			}
 			if(statements === void 0 || statements === null) {
 				throw new TypeError("'statements' is not nullable");
 			}
-			fragments.code("(__ks_e");
-			for(var __ks_0 = 0, __ks_1 = parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
-				parameter = parameters[__ks_0];
-				fragments.code($comma).compile(parameter);
-			}
-			fragments.code(") =>");
-			var block = fragments.newBlock();
-			for(var __ks_0 = 0, __ks_1 = statements.length, statement; __ks_0 < __ks_1; ++__ks_0) {
-				statement = statements[__ks_0];
-				block.compile(statement, Mode.None);
-			}
-			block.done();
-			fragments.code(")").done();
+			var line = fragments.newLine();
+			var item = this._init.toFragments(line, Mode.None);
+			statements.unshift(this);
+			item(statements);
+			line.done();
 		},
-		toAwaitExpressionFragments: function() {
-			if(arguments.length === 3) {
-				return VariableDeclaration.prototype.__ks_func_toAwaitExpressionFragments_0.apply(this, arguments);
+		toAwaitStatementFragments: function() {
+			if(arguments.length === 2) {
+				return VariableDeclaration.prototype.__ks_func_toAwaitStatementFragments_0.apply(this, arguments);
 			}
-			else if(Statement.prototype.toAwaitExpressionFragments) {
-				return Statement.prototype.toAwaitExpressionFragments.apply(this, arguments);
+			else if(Statement.prototype.toAwaitStatementFragments) {
+				return Statement.prototype.toAwaitStatementFragments.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toStatementFragments_0: function(fragments, mode) {
+		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -59247,19 +59240,13 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				throw new TypeError("'mode' is not nullable");
 			}
+			var variables = this.assignments();
+			if(variables.length !== 0) {
+				fragments.newLine().code($runtime.scope(this) + variables.join(", ")).done();
+			}
 			if(this._hasInit) {
-				if(this._await) {
-					var line = fragments.newLine();
-					this._init.toFragments(line, Mode.Async);
-					if(KSType.isValue(this._try)) {
-						return Helper.vcurry(this._try.toAwaitExpressionFragments, this._try, line, this._declarators);
-					}
-					else if(KSType.isValue(this._function) ? this._function.type().isAsync() : false) {
-						return Helper.vcurry(this._function.toAwaitExpressionFragments, this._function, line, this._declarators);
-					}
-					else {
-						return Helper.vcurry(this.toAwaitExpressionFragments, this, line, this._declarators);
-					}
+				if(this._init.isAwaiting()) {
+					return Helper.vcurry(this.toAwaitStatementFragments, this, fragments);
 				}
 				else {
 					var declarator = this._declarators[0];
@@ -59312,14 +59299,11 @@ module.exports = function() {
 				line.done();
 			}
 		},
-		toStatementFragments: function() {
+		toFragments: function() {
 			if(arguments.length === 2) {
-				return VariableDeclaration.prototype.__ks_func_toStatementFragments_0.apply(this, arguments);
+				return VariableDeclaration.prototype.__ks_func_toFragments_0.apply(this, arguments);
 			}
-			else if(Statement.prototype.toStatementFragments) {
-				return Statement.prototype.toStatementFragments.apply(this, arguments);
-			}
-			throw new SyntaxError("Wrong number of arguments");
+			return Statement.prototype.toFragments.apply(this, arguments);
 		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
