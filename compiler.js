@@ -7459,7 +7459,7 @@ module.exports = function() {
 				throw new SyntaxError("Wrong number of arguments");
 			},
 			__ks_func_match_0: function() {
-				var tokens = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+				var tokens = Array.prototype.slice.call(arguments, 0, arguments.length);
 				return this._token = this._scanner.match.apply(this._scanner, tokens);
 			},
 			match: function() {
@@ -7565,7 +7565,7 @@ module.exports = function() {
 				}
 			},
 			__ks_func_test_1: function() {
-				var tokens = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+				var tokens = Array.prototype.slice.call(arguments, 0, arguments.length);
 				return tokens.indexOf(this.match.apply(this, tokens)) !== -1;
 			},
 			test: function() {
@@ -14564,7 +14564,7 @@ module.exports = function() {
 	var __ks_Array = {};
 	var __ks_Object = {};
 	__ks_Array.__ks_func_append_0 = function() {
-		var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+		var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 		var l, i, j, arg;
 		for(var k = 0, __ks_0 = args.length; k < __ks_0; ++k) {
 			arg = __ks_Array._cm_from(args[k]);
@@ -14584,7 +14584,7 @@ module.exports = function() {
 		return this;
 	};
 	__ks_Array.__ks_func_appendUniq_0 = function() {
-		var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+		var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 		if(args.length === 1) {
 			__ks_Array._im_pushUniq.apply(null, [this].concat(args[0]));
 		}
@@ -14655,7 +14655,7 @@ module.exports = function() {
 		return this.length ? this[this.length - index] : null;
 	};
 	__ks_Array.__ks_func_remove_0 = function() {
-		var items = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+		var items = Array.prototype.slice.call(arguments, 0, arguments.length);
 		if(items.length === 1) {
 			var item = items[0];
 			for(var i = this.length - 1; i >= 0; --i) {
@@ -14677,7 +14677,7 @@ module.exports = function() {
 		return this;
 	};
 	__ks_Array.__ks_sttc_merge_0 = function() {
-		var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+		var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 		var source;
 		var i = 0;
 		var l = args.length;
@@ -14697,7 +14697,7 @@ module.exports = function() {
 		return source;
 	};
 	__ks_Array.__ks_func_pushUniq_0 = function() {
-		var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+		var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 		if(args.length === 1) {
 			if(!__ks_Array._im_contains(this, args[0])) {
 				this.push(args[0]);
@@ -14823,7 +14823,7 @@ module.exports = function() {
 		return clone;
 	};
 	__ks_Object.__ks_sttc_defaults_0 = function() {
-		var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+		var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 		return __ks_Object._cm_merge.apply(null, [].concat([{}], args));
 	};
 	__ks_Object.__ks_sttc_isEmpty_0 = function(item) {
@@ -14842,7 +14842,7 @@ module.exports = function() {
 		return true;
 	};
 	__ks_Object.__ks_sttc_merge_0 = function() {
-		var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+		var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 		var source;
 		var i = 0;
 		var l = args.length;
@@ -15203,7 +15203,7 @@ module.exports = function() {
 		$extends: Exception,
 		$static: {
 			__ks_sttc_throw_0: function() {
-				var __ks_arguments_1 = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+				var __ks_arguments_1 = Array.prototype.slice.call(arguments, 0, arguments.length);
 				throw Helper.create(NotImplementedException, __ks_arguments_1);
 			},
 			throw: function() {
@@ -15313,7 +15313,7 @@ module.exports = function() {
 		$extends: Exception,
 		$static: {
 			__ks_sttc_throw_0: function() {
-				var __ks_arguments_1 = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+				var __ks_arguments_1 = Array.prototype.slice.call(arguments, 0, arguments.length);
 				throw Helper.create(NotSupportedException, __ks_arguments_1);
 			},
 			throw: function() {
@@ -18637,7 +18637,7 @@ module.exports = function() {
 			}
 		},
 		__ks_func_comment_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var __ks_0;
 			(__ks_0 = this.newComment(this._indent), __ks_0.code).apply(__ks_0, args).done();
 			return this;
@@ -18652,7 +18652,7 @@ module.exports = function() {
 			if(index === void 0 || index === null) {
 				throw new TypeError("'index' is not nullable");
 			}
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 1, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 1, arguments.length);
 			var l = this._fragments.length;
 			this._fragments.splice.apply(this._fragments, [].concat([index, 0], args));
 			return this._fragments.length - l;
@@ -18661,7 +18661,7 @@ module.exports = function() {
 			return Writer.prototype.__ks_func_insertAt_0.apply(this, arguments);
 		},
 		__ks_func_line_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var __ks_0;
 			(__ks_0 = this.newLine(this._indent), __ks_0.code).apply(__ks_0, args).done();
 			return this;
@@ -18762,7 +18762,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_newFragment_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			return Helper.create(this.Fragment, args);
 		},
 		newFragment: function() {
@@ -18814,7 +18814,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_push_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			this._fragments.push.apply(this._fragments, args);
 			return this;
 		},
@@ -18930,7 +18930,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_line_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var __ks_0;
 			(__ks_0 = this.newLine(), __ks_0.code).apply(__ks_0, args);
 			return this;
@@ -19050,7 +19050,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_line_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var __ks_0;
 			(__ks_0 = this._writer.newLine(this._indent + 1), __ks_0.code).apply(__ks_0, args).done();
 			return this;
@@ -19139,7 +19139,7 @@ module.exports = function() {
 			}
 		},
 		__ks_func_code_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			this._step.code.apply(this._step, args);
 			return this;
 		},
@@ -19178,7 +19178,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_line_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			this._step.line.apply(this._step, args);
 			return this;
 		},
@@ -19263,7 +19263,7 @@ module.exports = function() {
 			}
 		},
 		__ks_func_code_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			for(var __ks_0 = 0, __ks_1 = args.length, arg; __ks_0 < __ks_1; ++__ks_0) {
 				arg = args[__ks_0];
 				if(KSType.isArray(arg)) {
@@ -19494,7 +19494,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_line_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var __ks_0;
 			(__ks_0 = this.newLine(), __ks_0.code).apply(__ks_0, args);
 			return this;
@@ -19578,7 +19578,7 @@ module.exports = function() {
 			}
 		},
 		__ks_func_line_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var __ks_0;
 			(__ks_0 = this.newLine(), __ks_0.code).apply(__ks_0, args).done();
 			return this;
@@ -19596,7 +19596,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_newFragment_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			return this._writer.newFragment.apply(this._writer, args);
 		},
 		newFragment: function() {
@@ -19612,7 +19612,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_push_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			this._index += this._writer.insertAt.apply(this._writer, [].concat([this._index], args));
 			return this;
 		},
@@ -19635,7 +19635,7 @@ module.exports = function() {
 			return false;
 		}
 		function $nilTransformer() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			return args[0];
 		}
 		var KSWriter = Helper.class({
@@ -22709,7 +22709,7 @@ module.exports = function() {
 			}
 		},
 		__ks_func_line_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var line = this.newLine(this._indent);
 			if((args.length === 1) && KSType.isObject(args[0])) {
 				line.compile(args[0]);
@@ -22761,7 +22761,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_line_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var line = this._writer.newLine(this._indent + 1);
 			if((args.length === 1) && KSType.isObject(args[0])) {
 				line.compile(args[0]);
@@ -22916,7 +22916,7 @@ module.exports = function() {
 			ExpressionWriter.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_code_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var data;
 			for(var i = 0, __ks_0 = args.length, arg; i < __ks_0; ++i) {
 				arg = args[i];
@@ -23760,7 +23760,7 @@ module.exports = function() {
 				else if(!KSType.is(scope, Scope)) {
 					throw new TypeError("'scope' is not of type 'Scope'");
 				}
-				var types = arguments.length > 0 ? Array.prototype.slice.call(arguments, 1, arguments.length) : [];
+				var types = Array.prototype.slice.call(arguments, 1, arguments.length);
 				if(types.length === 1) {
 					return types[0];
 				}
@@ -28823,7 +28823,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toQuote_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			return this._type.toQuote.apply(this._type, args);
 		},
 		toQuote: function() {
@@ -32744,7 +32744,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toQuote_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			return this._type.toQuote.apply(this._type, args);
 		},
 		toQuote: function() {
@@ -34663,7 +34663,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toQuote_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			return this._type.toQuote.apply(this._type, args);
 		},
 		toQuote: function() {
@@ -35675,7 +35675,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toQuote_0: function() {
-			var args = arguments.length > 0 ? Array.prototype.slice.call(arguments, 0, arguments.length) : [];
+			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			return this._type.toQuote.apply(this._type, args);
 		},
 		toQuote: function() {
@@ -37833,7 +37833,7 @@ module.exports = function() {
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
-			var fn = arguments.length > 0 ? Array.prototype.slice.call(arguments, 1, arguments.length) : [];
+			var fn = Array.prototype.slice.call(arguments, 1, arguments.length);
 			if(KSType.isValue(this._stashes[name])) {
 				this._stashes[name].push(fn);
 			}
@@ -40647,7 +40647,7 @@ module.exports = function() {
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
-			var fn = arguments.length > 0 ? Array.prototype.slice.call(arguments, 1, arguments.length) : [];
+			var fn = Array.prototype.slice.call(arguments, 1, arguments.length);
 			if(KSType.isValue(this._stashes[name])) {
 				this._stashes[name].push(fn);
 			}
@@ -50651,6 +50651,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_translate_0: function() {
+			this._scope.line(this._data.start.line);
 			for(var __ks_0 = 0, __ks_1 = this._parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 				parameter = this._parameters[__ks_0];
 				parameter.translate();
@@ -70562,7 +70563,7 @@ module.exports = function() {
 				}
 				fragments = fn(fragments);
 				if((mode === ParameterMode.Default) || (mode === ParameterMode.ArrowFunction)) {
-					Parameter.toLengthValidationFragments(fragments, node, name, signature, parameters, asyncHeaderParameter, restIndex, minBefore, minAfter);
+					Parameter.toLengthValidationFragments(fragments, node, name, signature, parameters, asyncHeaderParameter, restIndex, minBefore, minRest, minAfter);
 				}
 				for(var __ks_0 = 0, __ks_1 = Math.min(parameters.length, lastHeaderParameterIndex), parameter; __ks_0 < __ks_1; ++__ks_0) {
 					parameter = parameters[__ks_0];
@@ -70699,9 +70700,9 @@ module.exports = function() {
 				}
 				throw new SyntaxError("Wrong number of arguments");
 			},
-			__ks_sttc_toLengthValidationFragments_0: function(fragments, node, name, signature, parameters, asyncHeader, restIndex, minBefore, minAfter) {
-				if(arguments.length < 9) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
+			__ks_sttc_toLengthValidationFragments_0: function(fragments, node, name, signature, parameters, asyncHeader, restIndex, minBefore, minRest, minAfter) {
+				if(arguments.length < 10) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 10)");
 				}
 				if(fragments === void 0 || fragments === null) {
 					throw new TypeError("'fragments' is not nullable");
@@ -70727,10 +70728,13 @@ module.exports = function() {
 				if(minBefore === void 0 || minBefore === null) {
 					throw new TypeError("'minBefore' is not nullable");
 				}
+				if(minRest === void 0 || minRest === null) {
+					throw new TypeError("'minRest' is not nullable");
+				}
 				if(minAfter === void 0 || minAfter === null) {
 					throw new TypeError("'minAfter' is not nullable");
 				}
-				if((minBefore + minAfter) !== 0) {
+				if((minBefore + minRest + minAfter) !== 0) {
 					if(signature.isAsync()) {
 						node.module().flag("Type");
 						if(asyncHeader) {
@@ -70755,23 +70759,9 @@ module.exports = function() {
 						fragments.newControl().code("if(" + name + ".length < " + signature.min() + ")").step().line("throw new SyntaxError(\"Wrong number of arguments (\" + " + name + ".length + \" for " + signature.min() + ")\")").done();
 					}
 				}
-				else if(restIndex !== -1) {
-					var parameter = parameters[restIndex];
-					var min = parameter.type().min();
-					if(min > 0) {
-						var ctrl = fragments.newControl().code("if(").compile(parameter).code(".length < " + min + ")").step();
-						if(signature.isAsync()) {
-							ctrl.newLine().code("return __ks_cb(new SyntaxError(\"Wrong number of rest values (\" + ").compile(parameter).code(".length + \" for at least " + min + ")\"))").done();
-						}
-						else {
-							ctrl.newLine().code("throw new SyntaxError(\"Wrong number of rest values (\" + ").compile(parameter).code(".length + \" for at least " + min + ")\")").done();
-						}
-						ctrl.done();
-					}
-				}
 			},
 			toLengthValidationFragments: function() {
-				if(arguments.length === 9) {
+				if(arguments.length === 10) {
 					return Parameter.__ks_sttc_toLengthValidationFragments_0.apply(this, arguments);
 				}
 				else if(AbstractNode.toLengthValidationFragments) {
@@ -70871,10 +70861,15 @@ module.exports = function() {
 							fragments.line($runtime.scope(node), "__ks_i = " + (restIndex - 1));
 						}
 						if(parameter.isAnonymous()) {
-							fragments.newControl().code("if(arguments.length > " + (context.increment ? "++__ks_i" : "__ks_i") + " + " + minAfter + ")").step().line("__ks_i = arguments.length - " + minAfter).done();
+							fragments.line("__ks_i = arguments.length - " + minAfter);
 						}
 						else {
-							fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = arguments.length > " + (context.increment ? "++__ks_i" : "__ks_i") + " + " + minAfter + " ? Array.prototype.slice.call(arguments, __ks_i, __ks_i = arguments.length - " + minAfter + ") : ").compile(parameter.hasDefaultValue() ? parameter._defaultValue : "[]").done();
+							if(parameter.hasDefaultValue() && (parameter.type().min() === 0)) {
+								fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = arguments.length > " + (context.increment ? "++__ks_i" : "__ks_i") + " + " + minAfter + " ? Array.prototype.slice.call(arguments, __ks_i, __ks_i = arguments.length - " + minAfter + ") : ").compile(parameter._defaultValue).done();
+							}
+							else {
+								fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = Array.prototype.slice.call(arguments, " + (context.increment ? "++__ks_i" : "__ks_i") + ", __ks_i = arguments.length - " + minAfter + ")").done();
+							}
 						}
 						context.increment = true;
 					}
@@ -70883,10 +70878,20 @@ module.exports = function() {
 							return;
 						}
 						if(declared) {
-							fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = " + name + ".length > " + (context.increment ? "++__ks_i" : "__ks_i") + " ? Array.prototype.slice.call(" + name + ", __ks_i, __ks_i = " + name + ".length) : ").compile(parameter.hasDefaultValue() ? parameter._defaultValue : "[]").done();
+							if(parameter.hasDefaultValue() && (parameter.type().min() === 0)) {
+								fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = " + name + ".length > " + (context.increment ? "++__ks_i" : "__ks_i") + " ? Array.prototype.slice.call(" + name + ", __ks_i, " + name + ".length) : ").compile(parameter._defaultValue).done();
+							}
+							else {
+								fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = Array.prototype.slice.call(" + name + ", " + (context.increment ? "++__ks_i" : "__ks_i") + ", " + name + ".length)").done();
+							}
 						}
 						else {
-							fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = " + name + ".length > 0 ? Array.prototype.slice.call(" + name + ", " + minBefore + ", " + name + ".length) : ").compile(parameter.hasDefaultValue() ? parameter._defaultValue : "[]").done();
+							if(parameter.hasDefaultValue() && (parameter.type().min() === 0)) {
+								fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = " + name + ".length > 0 ? Array.prototype.slice.call(" + name + ", " + minBefore + ", " + name + ".length) : ").compile(parameter._defaultValue).done();
+							}
+							else {
+								fragments.newLine().code($runtime.scope(node)).compile(parameter).code(" = Array.prototype.slice.call(" + name + ", " + minBefore + ", " + name + ".length)").done();
+							}
 						}
 					}
 				}
@@ -70936,6 +70941,17 @@ module.exports = function() {
 					if(parameter.hasDefaultValue()) {
 						var __ks_ctrl_1 = fragments.newControl().code("if(").compile(parameter).code(".length === 0)").step();
 						__ks_ctrl_1.newLine().compile(parameter).code($equals).compile(parameter._defaultValue).done();
+						__ks_ctrl_1.done();
+					}
+					var min = parameter.type().min();
+					if(min > 0) {
+						var __ks_ctrl_1 = fragments.newControl().code("if(").compile(parameter).code(".length < " + min + ")").step();
+						if(context.async) {
+							__ks_ctrl_1.newLine().code("return __ks_cb(new SyntaxError(\"The rest parameter must have at least " + min + " argument" + ((min > 1) ? "s" : "") + " (\" + ").compile(parameter).code(".length + \")\"))").done();
+						}
+						else {
+							__ks_ctrl_1.newLine().code("throw new SyntaxError(\"The rest parameter must have at least " + min + " argument" + ((min > 1) ? "s" : "") + " (\" + ").compile(parameter).code(".length + \")\")").done();
+						}
 						__ks_ctrl_1.done();
 					}
 				}
