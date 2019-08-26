@@ -78551,18 +78551,18 @@ module.exports = function() {
 					var rest = method.restIndex();
 					var min = method.absoluteMin();
 					if(rest < min) {
-						argFilters.push(buildArgFilter(method, min, Infinity));
+						buildArgFilter(method, argFilters, min, Infinity);
 					}
 					else {
 						for(var n = min; n < rest; ++n) {
-							argFilters.push(buildArgFilter(method, n, n));
+							buildArgFilter(method, argFilters, n, n);
 						}
-						argFilters.push(buildArgFilter(method, min, Infinity));
+						buildArgFilter(method, argFilters, min, Infinity);
 					}
 				}
 				else {
 					for(var n = method.absoluteMin(), __ks_0 = method.absoluteMax(); n <= __ks_0; ++n) {
-						argFilters.push(buildArgFilter(method, n, n));
+						buildArgFilter(method, argFilters, n, n);
 					}
 				}
 				return {
@@ -78851,30 +78851,71 @@ module.exports = function() {
 			}
 			return assessment;
 		}
-		function buildArgFilter(method, min, max) {
-			if(arguments.length < 3) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+		function buildArgFilter() {
+			if(arguments.length === 4) {
+				var __ks_i = -1;
+				var method = arguments[++__ks_i];
+				if(method === void 0 || method === null) {
+					throw new TypeError("'method' is not nullable");
+				}
+				var lines = arguments[++__ks_i];
+				if(lines === void 0 || lines === null) {
+					throw new TypeError("'lines' is not nullable");
+				}
+				var min = arguments[++__ks_i];
+				if(min === void 0 || min === null) {
+					throw new TypeError("'min' is not nullable");
+				}
+				var max = arguments[++__ks_i];
+				if(max === void 0 || max === null) {
+					throw new TypeError("'max' is not nullable");
+				}
+				var line = {
+					min: min,
+					max: max,
+					filters: []
+				};
+				buildArgFilter(method.parameters(), 0, lines, line, 0, method.min(), min);
 			}
-			if(method === void 0 || method === null) {
-				throw new TypeError("'method' is not nullable");
-			}
-			if(min === void 0 || min === null) {
-				throw new TypeError("'min' is not nullable");
-			}
-			if(max === void 0 || max === null) {
-				throw new TypeError("'max' is not nullable");
-			}
-			var line = {
-				min: min,
-				max: max,
-				filters: []
-			};
-			var count = method.min();
-			var index = 0;
-			for(var p = 0, __ks_0 = method.parameters(), __ks_1 = __ks_0.length, parameter; p < __ks_1; ++p) {
-				parameter = __ks_0[p];
+			else if(arguments.length === 7) {
+				var __ks_i = -1;
+				var parameters = arguments[++__ks_i];
+				if(parameters === void 0 || parameters === null) {
+					throw new TypeError("'parameters' is not nullable");
+				}
+				var pIndex = arguments[++__ks_i];
+				if(pIndex === void 0 || pIndex === null) {
+					throw new TypeError("'pIndex' is not nullable");
+				}
+				var lines = arguments[++__ks_i];
+				if(lines === void 0 || lines === null) {
+					throw new TypeError("'lines' is not nullable");
+				}
+				var line = arguments[++__ks_i];
+				if(line === void 0 || line === null) {
+					throw new TypeError("'line' is not nullable");
+				}
+				var index = arguments[++__ks_i];
+				if(index === void 0 || index === null) {
+					throw new TypeError("'index' is not nullable");
+				}
+				var count = arguments[++__ks_i];
+				if(count === void 0 || count === null) {
+					throw new TypeError("'count' is not nullable");
+				}
+				var limit = arguments[++__ks_i];
+				if(limit === void 0 || limit === null) {
+					throw new TypeError("'limit' is not nullable");
+				}
+				if(pIndex === parameters.length) {
+					if(count === limit) {
+						lines.push(line);
+					}
+					return;
+				}
+				var parameter = parameters[pIndex];
 				var type = parameter.type();
-				for(var i = 1, __ks_2 = parameter.min(); i <= __ks_2; ++i) {
+				for(var i = 1, __ks_0 = parameter.min(); i <= __ks_0; ++i) {
 					line.filters.push({
 						index: index,
 						type: type
@@ -78886,21 +78927,37 @@ module.exports = function() {
 						index: index,
 						type: type
 					};
-					index = count - min;
+					index = count - limit;
+					buildArgFilter(parameters, pIndex + 1, lines, line, index, count, limit);
 				}
-				else {
-					for(var i = parameter.min() + 1, __ks_2 = parameter.max(); count < min && i <= __ks_2; ++i) {
+				else if((count < limit) && (parameter.max() > parameter.min())) {
+					buildArgFilter(parameters, pIndex + 1, lines, {
+						min: line.min,
+						max: line.max,
+						filters: [].concat(line.filters)
+					}, index, count, limit);
+					for(var i = parameter.min() + 1, __ks_0 = parameter.max(); count < limit && i <= __ks_0; ++i) {
 						line.filters.push({
 							index: index,
 							type: type
 						});
 						++index;
 						++count;
+						buildArgFilter(parameters, pIndex + 1, lines, {
+							min: line.min,
+							max: line.max,
+							filters: [].concat(line.filters)
+						}, index, count, limit);
 					}
 				}
+				else {
+					buildArgFilter(parameters, pIndex + 1, lines, line, index, count, limit);
+				}
 			}
-			return line;
-		}
+			else {
+				throw new SyntaxError("Wrong number of arguments");
+			}
+		};
 		function checkMethods(methods, parameters, min, max, sortedIndex, sortedIndexes, assessment, filters) {
 			if(arguments.length < 8) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
