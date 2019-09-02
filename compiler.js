@@ -17318,7 +17318,7 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			KSType.isFunction(node.module) ? node.module().flag("Helper") : undefined;
+			KSType.isFunction(node.module) ? node.module().flag("Helper") : null;
 			return node._options.runtime.helper.alias;
 		},
 		isDefined: function(name, node) {
@@ -17332,11 +17332,11 @@ module.exports = function() {
 				throw new TypeError("'node' is not nullable");
 			}
 			if(node._options.runtime.helper.alias === name) {
-				KSType.isFunction(node.module) ? node.module().flag("Helper") : undefined;
+				KSType.isFunction(node.module) ? node.module().flag("Helper") : null;
 				return true;
 			}
 			else if(node._options.runtime.type.alias === name) {
-				KSType.isFunction(node.module) ? node.module().flag("Type") : undefined;
+				KSType.isFunction(node.module) ? node.module().flag("Type") : null;
 				return true;
 			}
 			else {
@@ -17359,7 +17359,7 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			KSType.isFunction(node.module) ? node.module().flag("Type") : undefined;
+			KSType.isFunction(node.module) ? node.module().flag("Type") : null;
 			return node._options.runtime.type.alias;
 		},
 		typeof: function(type, node) {
@@ -17414,7 +17414,7 @@ module.exports = function() {
 				throw new TypeError("'parent' is not of type 'AbstractNode?'");
 			}
 			if(scope === void 0) {
-				scope = KSType.isValue(parent) ? parent.scope() : undefined;
+				scope = KSType.isValue(parent) ? parent.scope() : null;
 			}
 			else if(scope !== null && !KSType.is(scope, Scope)) {
 				throw new TypeError("'scope' is not of type 'Scope?'");
@@ -17478,7 +17478,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_directory_0: function() {
-			return KSType.isValue(this._parent) ? this._parent.directory() : undefined;
+			return this._parent.directory();
 		},
 		directory: function() {
 			if(arguments.length === 0) {
@@ -17487,29 +17487,11 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_file_0: function() {
-			return KSType.isValue(this._parent) ? this._parent.file() : undefined;
+			return this._parent.file();
 		},
 		file: function() {
 			if(arguments.length === 0) {
 				return AbstractNode.prototype.__ks_func_file_0.apply(this);
-			}
-			throw new SyntaxError("Wrong number of arguments");
-		},
-		__ks_func_greatParent_0: function() {
-			return KSType.isValue(this._parent) ? this._parent._parent : undefined;
-		},
-		greatParent: function() {
-			if(arguments.length === 0) {
-				return AbstractNode.prototype.__ks_func_greatParent_0.apply(this);
-			}
-			throw new SyntaxError("Wrong number of arguments");
-		},
-		__ks_func_greatScope_0: function() {
-			return KSType.isValue(this._parent) ? this._parent._scope : undefined;
-		},
-		greatScope: function() {
-			if(arguments.length === 0) {
-				return AbstractNode.prototype.__ks_func_greatScope_0.apply(this);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
@@ -17520,7 +17502,7 @@ module.exports = function() {
 			if(error === void 0 || error === null) {
 				throw new TypeError("'error' is not nullable");
 			}
-			return KSType.isValue(this._parent) ? this._parent.isConsumedError(error) : undefined;
+			return this._parent.isConsumedError(error);
 		},
 		isConsumedError: function() {
 			if(arguments.length === 1) {
@@ -17529,7 +17511,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_module_0: function() {
-			return KSType.isValue(this._parent) ? this._parent.module() : undefined;
+			return this._parent.module();
 		},
 		module: function() {
 			if(arguments.length === 0) {
@@ -17628,7 +17610,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_statement_0: function() {
-			return KSType.isValue(this._parent) ? this._parent.statement() : undefined;
+			return KSType.isValue(this._parent) ? this._parent.statement() : null;
 		},
 		statement: function() {
 			if(arguments.length === 0) {
@@ -38228,24 +38210,15 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_getChunkType_0: function(name) {
+		__ks_func_getChunkType_0: function(name, line) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
-			return this.getChunkType(name, this.line());
-		},
-		__ks_func_getChunkType_1: function(name, line) {
-			if(arguments.length < 2) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-			}
-			if(name === void 0 || name === null) {
-				throw new TypeError("'name' is not nullable");
-			}
 			if(line === void 0 || line === null) {
-				throw new TypeError("'line' is not nullable");
+				line = this.line();
 			}
 			else if(!KSType.isNumber(line)) {
 				throw new TypeError("'line' is not of type 'Number'");
@@ -38268,11 +38241,8 @@ module.exports = function() {
 			return this._parent.getChunkType(name, -1);
 		},
 		getChunkType: function() {
-			if(arguments.length === 1) {
+			if(arguments.length >= 1 && arguments.length <= 2) {
 				return BlockScope.prototype.__ks_func_getChunkType_0.apply(this, arguments);
-			}
-			else if(arguments.length === 2) {
-				return BlockScope.prototype.__ks_func_getChunkType_1.apply(this, arguments);
 			}
 			else if(Scope.prototype.getChunkType) {
 				return Scope.prototype.getChunkType.apply(this, arguments);
@@ -47527,7 +47497,7 @@ module.exports = function() {
 				if(type.isClass() && type.type().hasDestructors()) {
 					fragments.newLine().code(type.path(), ".__ks_destroy(").compile(variable).code(")").done();
 				}
-				fragments.newLine().compile(variable).code(" = undefined").done();
+				fragments.newLine().compile(variable).code(" = void 0").done();
 			}
 			else {
 				fragments.newLine().code("delete ").compile(this._expression).done();
@@ -50709,7 +50679,7 @@ module.exports = function() {
 		__ks_func_analyse_0: function() {
 			this._scope.define("this", true, Type.Any, this);
 			this._name = this._data.name.name;
-			var scope = this.greatScope();
+			var scope = this._parent.scope();
 			var __ks_0;
 			if(KSType.isValue(__ks_0 = scope.getDefinedVariable(this._name)) ? (this._variable = __ks_0, true) : false) {
 				if(KSType.is(this._variable, FunctionVariable)) {
@@ -50768,7 +50738,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_prepare_0: function() {
-			if(this._main || this.greatScope().processStash(this._name)) {
+			if(this._main || this._parent.scope().processStash(this._name)) {
 				this._variable.prepare();
 			}
 		},
@@ -51733,7 +51703,7 @@ module.exports = function() {
 				this._condition.translate();
 			}
 			this._whenTrueExpression.translate();
-			KSType.isValue(this._whenFalseExpression) ? this._whenFalseExpression.translate() : undefined;
+			KSType.isValue(this._whenFalseExpression) ? this._whenFalseExpression.translate() : null;
 		},
 		translate: function() {
 			if(arguments.length === 0) {
@@ -51769,7 +51739,7 @@ module.exports = function() {
 				throw new TypeError("'type' is not of type 'Type'");
 			}
 			this._whenTrueExpression.checkReturnType(type);
-			KSType.isValue(this._whenFalseExpression) ? this._whenFalseExpression.checkReturnType(type) : undefined;
+			KSType.isValue(this._whenFalseExpression) ? this._whenFalseExpression.checkReturnType(type) : null;
 		},
 		checkReturnType: function() {
 			if(arguments.length === 1) {
@@ -54568,7 +54538,7 @@ module.exports = function() {
 			if(kind === void 0 || kind === null) {
 				throw new TypeError("'kind' is not nullable");
 			}
-			var scope = this.greatScope();
+			var scope = this._parent.scope();
 			var __ks_0 = declaration.kind;
 			if(__ks_0 === NodeKind.ClassDeclaration) {
 				var type = new ClassType(scope);
@@ -58575,8 +58545,8 @@ module.exports = function() {
 				clause = this._catchClauses[__ks_0];
 				clause.body.translate();
 			}
-			KSType.isValue(this._catchClause) ? this._catchClause.checkReturnType(type) : undefined;
-			KSType.isValue(this._finalizer) ? this._finalizer.checkReturnType(type) : undefined;
+			KSType.isValue(this._catchClause) ? this._catchClause.checkReturnType(type) : null;
+			KSType.isValue(this._finalizer) ? this._finalizer.checkReturnType(type) : null;
 		},
 		checkReturnType: function() {
 			if(arguments.length === 1) {
@@ -59814,7 +59784,7 @@ module.exports = function() {
 					}
 					line.compile(declarator);
 				}
-				line.code(" = undefined");
+				line.code(" = null");
 				line.done();
 			}
 		},
@@ -63151,7 +63121,7 @@ module.exports = function() {
 		__ks_func_prepare_0: function() {
 			if(this._named) {
 				this._name.prepare();
-				KSType.isValue(this._defaultValue) ? this._defaultValue.prepare() : undefined;
+				KSType.isValue(this._defaultValue) ? this._defaultValue.prepare() : null;
 			}
 			if(KSType.isValue(this._data.type)) {
 				this._type = Type.fromAST(this._data.type, this);
@@ -63170,7 +63140,7 @@ module.exports = function() {
 		__ks_func_translate_0: function() {
 			if(this._named) {
 				this._name.translate();
-				KSType.isValue(this._defaultValue) ? this._defaultValue.translate() : undefined;
+				KSType.isValue(this._defaultValue) ? this._defaultValue.translate() : null;
 			}
 		},
 		translate: function() {
@@ -65338,7 +65308,7 @@ module.exports = function() {
 					fragments.wrapNullable(this).code(" ? ");
 					this._tested = true;
 					this.toFragments(fragments, mode);
-					fragments.code(" : undefined");
+					fragments.code(" : null");
 				}
 				else {
 					for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
@@ -68349,7 +68319,7 @@ module.exports = function() {
 				fragments.wrapBoolean(this._condition).code(" ? ").compile(this._whenTrue).code(" : ").compile(this._whenFalse);
 			}
 			else {
-				fragments.wrapBoolean(this._condition).code(" ? ").compile(this._whenTrue).code(" : undefined");
+				fragments.wrapBoolean(this._condition).code(" ? ").compile(this._whenTrue).code(" : null");
 			}
 		},
 		toFragments: function() {
@@ -68885,10 +68855,10 @@ module.exports = function() {
 			if(this.isNullable() && !this._tested) {
 				fragments.wrapNullable(this).code(" ? ").compile(this._object);
 				if(this._data.computed) {
-					fragments.code("[").compile(this._property).code("] : undefined");
+					fragments.code("[").compile(this._property).code("] : null");
 				}
 				else {
-					fragments.code($dot).compile(this._property).code(" : undefined");
+					fragments.code($dot).compile(this._property).code(" : null");
 				}
 			}
 			else {
@@ -70673,7 +70643,7 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				throw new TypeError("'mode' is not nullable");
 			}
-			fragments.wrapBoolean(this._condition).code(" ? undefined : ").compile(this._whenFalse);
+			fragments.wrapBoolean(this._condition).code(" ? null : ").compile(this._whenFalse);
 		},
 		toFragments: function() {
 			if(arguments.length === 2) {
@@ -74215,7 +74185,7 @@ module.exports = function() {
 			else {
 				fragments.compile(this._left).code($equals).wrap(this._right);
 			}
-			fragments.code(" : undefined");
+			fragments.code(" : null");
 		},
 		toFragments: function() {
 			if(arguments.length === 2) {
@@ -74366,7 +74336,7 @@ module.exports = function() {
 			else {
 				fragments.code($runtime.type(this) + ".isValue(", this._data.operator).compileReusable(this._right).code(")", this._data.operator);
 			}
-			fragments.code(" ? ").compile(this._left).code($equals).wrap(this._right).code(" : undefined");
+			fragments.code(" ? ").compile(this._left).code($equals).wrap(this._right).code(" : null");
 		},
 		toFragments: function() {
 			if(arguments.length === 2) {
@@ -74429,7 +74399,7 @@ module.exports = function() {
 			else {
 				fragments.code($runtime.type(this) + ".isValue(").compile(this._left).code(")");
 			}
-			fragments.code(" ? undefined : ").compile(this._left).code($equals).compile(this._right);
+			fragments.code(" ? null : ").compile(this._left).code($equals).compile(this._right);
 		},
 		toFragments: function() {
 			if(arguments.length === 2) {
