@@ -52102,14 +52102,14 @@ module.exports = function() {
 				this._scope.line(this._data.end.line);
 				if(!this._declared) {
 					if(this._whenTrueExpression.isExit()) {
-						var __ks_0 = this._condition.inferContraryTypes();
+						var __ks_0 = this._condition.inferContraryTypes(true);
 						for(var name in __ks_0) {
 							var data = __ks_0[name];
 							this._scope.updateInferable(name, data, this);
 						}
 					}
 					else {
-						var conditionInferables = this._condition.inferContraryTypes();
+						var conditionInferables = this._condition.inferContraryTypes(false);
 						var trueInferables = this._whenTrueScope.listUpdatedInferables();
 						var __ks_0;
 						for(var name in trueInferables) {
@@ -52132,7 +52132,7 @@ module.exports = function() {
 			}
 			else {
 				if(!this._declared) {
-					var __ks_0 = this._condition.inferContraryTypes();
+					var __ks_0 = this._condition.inferContraryTypes(false);
 					for(var name in __ks_0) {
 						var data = __ks_0[name];
 						this._whenFalseScope.updateInferable(name, data, this);
@@ -57384,7 +57384,7 @@ module.exports = function() {
 				if(type.isVoid()) {
 					TypeException.throwUnexpectedReturnedValue(this);
 				}
-				else if(!this._value.type().matchContentOf(type)) {
+				else if(!this._value.isMatchingType(type)) {
 					TypeException.throwUnexpectedReturnedType(type, this);
 				}
 			}
@@ -61038,12 +61038,18 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_inferContraryTypes_0: function() {
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
 			return {};
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return Expression.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return Expression.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			else if(AbstractNode.prototype.inferContraryTypes) {
 				return AbstractNode.prototype.inferContraryTypes.apply(this, arguments);
@@ -67102,7 +67108,13 @@ module.exports = function() {
 			}
 			return Expression.prototype.inferTypes.apply(this, arguments);
 		},
-		__ks_func_inferContraryTypes_0: function() {
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
 			if(this._operators.length === 1) {
 				return this._operators[0].inferContraryTypes();
 			}
@@ -67111,8 +67123,8 @@ module.exports = function() {
 			}
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return ComparisonExpression.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return ComparisonExpression.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			return Expression.prototype.inferContraryTypes.apply(this, arguments);
 		},
@@ -75333,11 +75345,17 @@ module.exports = function() {
 			}
 			return BinaryOperatorExpression.prototype.inferTypes.apply(this, arguments);
 		},
-		__ks_func_inferContraryTypes_0: function() {
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
 			var inferables = {};
-			var rightTypes = this._right.inferContraryTypes();
+			var rightTypes = this._right.inferContraryTypes(false);
 			var __ks_1;
-			var __ks_0 = this._left.inferContraryTypes();
+			var __ks_0 = this._left.inferContraryTypes(false);
 			for(var name in __ks_0) {
 				if(KSType.isValue(rightTypes[name])) {
 					inferables[name] = rightTypes[name];
@@ -75346,8 +75364,8 @@ module.exports = function() {
 			return inferables;
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return BinaryOperatorAnd.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return BinaryOperatorAnd.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			return BinaryOperatorExpression.prototype.inferContraryTypes.apply(this, arguments);
 		},
@@ -75890,30 +75908,58 @@ module.exports = function() {
 			}
 			return BinaryOperatorExpression.prototype.inferTypes.apply(this, arguments);
 		},
-		__ks_func_inferContraryTypes_0: function() {
-			var inferables = {};
-			var right = this._right.inferTypes();
-			var __ks_0 = this._left.inferContraryTypes();
-			for(var name in __ks_0) {
-				var data = __ks_0[name];
-				if(KSType.isValue(right[name])) {
-					var rtype = right[name].type;
-					if(!data.type.isAny() && !rtype.isAny()) {
-						inferables[name] = {
-							isVariable: data.isVariable,
-							type: data.type.reduce(rtype)
-						};
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
+			if(isExit) {
+				var inferables = this._left.inferContraryTypes(false);
+				var __ks_0 = this._right.inferContraryTypes(false);
+				for(var name in __ks_0) {
+					var data = __ks_0[name];
+					if(KSType.isValue(inferables[name])) {
+						var itype = inferables[name].type;
+						if(!data.type.isAny() && !itype.isAny()) {
+							inferables[name] = {
+								isVariable: data.isVariable,
+								type: data.type.reduce(itype)
+							};
+						}
+					}
+					else {
+						inferables[name] = data;
 					}
 				}
-				else {
-					inferables[name] = data;
-				}
+				return inferables;
 			}
-			return inferables;
+			else {
+				var inferables = {};
+				var right = this._right.inferTypes();
+				var __ks_0 = this._left.inferContraryTypes(false);
+				for(var name in __ks_0) {
+					var data = __ks_0[name];
+					if(KSType.isValue(right[name])) {
+						var rtype = right[name].type;
+						if(!data.type.isAny() && !rtype.isAny()) {
+							inferables[name] = {
+								isVariable: data.isVariable,
+								type: data.type.reduce(rtype)
+							};
+						}
+					}
+					else {
+						inferables[name] = data;
+					}
+				}
+				return inferables;
+			}
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return BinaryOperatorOr.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return BinaryOperatorOr.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			return BinaryOperatorExpression.prototype.inferContraryTypes.apply(this, arguments);
 		},
@@ -76266,7 +76312,13 @@ module.exports = function() {
 			}
 			return Expression.prototype.inferTypes.apply(this, arguments);
 		},
-		__ks_func_inferContraryTypes_0: function() {
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
 			var inferables = {};
 			if(this._left.isInferable()) {
 				inferables[this._left.path()] = {
@@ -76277,8 +76329,8 @@ module.exports = function() {
 			return inferables;
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return BinaryOperatorTypeEquality.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return BinaryOperatorTypeEquality.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			return Expression.prototype.inferContraryTypes.apply(this, arguments);
 		},
@@ -76484,7 +76536,13 @@ module.exports = function() {
 			}
 			return Expression.prototype.inferTypes.apply(this, arguments);
 		},
-		__ks_func_inferContraryTypes_0: function() {
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
 			var inferables = {};
 			if(this._left.isInferable()) {
 				inferables[this._left.path()] = {
@@ -76495,8 +76553,8 @@ module.exports = function() {
 			return inferables;
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return BinaryOperatorTypeInequality.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return BinaryOperatorTypeInequality.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			return Expression.prototype.inferContraryTypes.apply(this, arguments);
 		},
@@ -76878,17 +76936,23 @@ module.exports = function() {
 			}
 			return PolyadicOperatorExpression.prototype.inferTypes.apply(this, arguments);
 		},
-		__ks_func_inferContraryTypes_0: function() {
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
 			var inferables = {};
 			var last = this._operands.length - 1;
 			var operandTypes = [null];
 			for(var __ks_0 = 0, __ks_1 = Math.min(this._operands.length, last), operand; __ks_0 < __ks_1; ++__ks_0) {
 				operand = this._operands[__ks_0];
-				operandTypes.push(operand.inferContraryTypes());
+				operandTypes.push(operand.inferContraryTypes(false));
 			}
 			for(var __ks_0 = 0, __ks_1 = this._operands[last].length, operand; __ks_0 < __ks_1; ++__ks_0) {
 				operand = this._operands[last][__ks_0];
-				var __ks_2 = operand.inferContraryTypes();
+				var __ks_2 = operand.inferContraryTypes(false);
 				for(var name in __ks_2) {
 					var data = __ks_2[name];
 					var nf = false;
@@ -76905,8 +76969,8 @@ module.exports = function() {
 			return inferables;
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return PolyadicOperatorAnd.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return PolyadicOperatorAnd.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			return PolyadicOperatorExpression.prototype.inferContraryTypes.apply(this, arguments);
 		},
@@ -77542,14 +77606,20 @@ module.exports = function() {
 			}
 			return PolyadicOperatorExpression.prototype.inferTypes.apply(this, arguments);
 		},
-		__ks_func_inferContraryTypes_0: function() {
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
 			var inferables = {};
 			var operandTypes = [null];
 			for(var __ks_0 = 1, __ks_1 = this._operands.length, operand; __ks_0 < __ks_1; ++__ks_0) {
 				operand = this._operands[__ks_0];
 				operandTypes.push(operand.inferTypes());
 			}
-			var __ks_0 = this._operands[0].inferContraryTypes();
+			var __ks_0 = this._operands[0].inferContraryTypes(false);
 			for(var name in __ks_0) {
 				var data = __ks_0[name];
 				if(!data.type.isAny()) {
@@ -77572,8 +77642,8 @@ module.exports = function() {
 			return inferables;
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return PolyadicOperatorOr.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return PolyadicOperatorOr.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			return PolyadicOperatorExpression.prototype.inferContraryTypes.apply(this, arguments);
 		},
@@ -78198,7 +78268,7 @@ module.exports = function() {
 			UnaryOperatorExpression.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_inferTypes_0: function() {
-			return this._argument.inferContraryTypes();
+			return this._argument.inferContraryTypes(false);
 		},
 		inferTypes: function() {
 			if(arguments.length === 0) {
@@ -78206,12 +78276,18 @@ module.exports = function() {
 			}
 			return UnaryOperatorExpression.prototype.inferTypes.apply(this, arguments);
 		},
-		__ks_func_inferContraryTypes_0: function() {
+		__ks_func_inferContraryTypes_0: function(isExit) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(isExit === void 0 || isExit === null) {
+				throw new TypeError("'isExit' is not nullable");
+			}
 			return this._argument.inferTypes();
 		},
 		inferContraryTypes: function() {
-			if(arguments.length === 0) {
-				return UnaryOperatorNegation.prototype.__ks_func_inferContraryTypes_0.apply(this);
+			if(arguments.length === 1) {
+				return UnaryOperatorNegation.prototype.__ks_func_inferContraryTypes_0.apply(this, arguments);
 			}
 			return UnaryOperatorExpression.prototype.inferContraryTypes.apply(this, arguments);
 		},
