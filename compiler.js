@@ -120,70 +120,71 @@ module.exports = function() {
 		ForRangeStatement: 46,
 		FunctionDeclaration: 47,
 		FunctionExpression: 48,
-		Identifier: 49,
-		IfExpression: 50,
-		IfStatement: 51,
-		ImplementDeclaration: 52,
-		ImportArgument: 53,
-		ImportDeclaration: 54,
-		ImportDeclarator: 55,
-		ImportExclusionSpecifier: 56,
-		ImportNamespaceSpecifier: 57,
-		ImportReference: 58,
-		ImportSpecifier: 59,
-		IncludeAgainDeclaration: 60,
-		IncludeDeclaration: 61,
-		LambdaExpression: 62,
-		Literal: 63,
-		MacroDeclaration: 64,
-		MacroExpression: 65,
-		MemberExpression: 66,
-		MethodDeclaration: 67,
-		MixinDeclaration: 68,
-		Module: 69,
-		MutatorDeclaration: 70,
-		NamespaceDeclaration: 71,
-		NumericExpression: 72,
-		ObjectBinding: 73,
-		ObjectExpression: 74,
-		ObjectMember: 75,
-		OmittedExpression: 76,
-		Parameter: 77,
-		PolyadicExpression: 78,
-		PropertyDeclaration: 79,
-		RegularExpression: 80,
-		RequireDeclaration: 81,
-		RequireOrExternDeclaration: 82,
-		RequireOrImportDeclaration: 83,
-		ReturnStatement: 84,
-		SequenceExpression: 85,
-		ShorthandProperty: 86,
-		SurrogateDeclaration: 87,
-		SwitchClause: 88,
-		SwitchConditionArray: 89,
-		SwitchConditionEnum: 90,
-		SwitchConditionObject: 91,
-		SwitchConditionRange: 92,
-		SwitchConditionType: 93,
-		SwitchExpression: 94,
-		SwitchStatement: 95,
-		SwitchTypeCasting: 96,
-		TaggedTemplateExpression: 97,
-		TemplateExpression: 98,
-		ThisExpression: 99,
-		ThrowStatement: 100,
-		TraitDeclaration: 101,
-		TryStatement: 102,
-		TypeAliasDeclaration: 103,
-		TypeReference: 104,
-		UnaryExpression: 105,
-		UnlessExpression: 106,
-		UnlessStatement: 107,
-		UntilStatement: 108,
-		UnionType: 109,
-		VariableDeclaration: 110,
-		VariableDeclarator: 111,
-		WhileStatement: 112
+		FusionType: 49,
+		Identifier: 50,
+		IfExpression: 51,
+		IfStatement: 52,
+		ImplementDeclaration: 53,
+		ImportArgument: 54,
+		ImportDeclaration: 55,
+		ImportDeclarator: 56,
+		ImportExclusionSpecifier: 57,
+		ImportNamespaceSpecifier: 58,
+		ImportReference: 59,
+		ImportSpecifier: 60,
+		IncludeAgainDeclaration: 61,
+		IncludeDeclaration: 62,
+		LambdaExpression: 63,
+		Literal: 64,
+		MacroDeclaration: 65,
+		MacroExpression: 66,
+		MemberExpression: 67,
+		MethodDeclaration: 68,
+		MixinDeclaration: 69,
+		Module: 70,
+		MutatorDeclaration: 71,
+		NamespaceDeclaration: 72,
+		NumericExpression: 73,
+		ObjectBinding: 74,
+		ObjectExpression: 75,
+		ObjectMember: 76,
+		OmittedExpression: 77,
+		Parameter: 78,
+		PolyadicExpression: 79,
+		PropertyDeclaration: 80,
+		RegularExpression: 81,
+		RequireDeclaration: 82,
+		RequireOrExternDeclaration: 83,
+		RequireOrImportDeclaration: 84,
+		ReturnStatement: 85,
+		SequenceExpression: 86,
+		ShorthandProperty: 87,
+		SurrogateDeclaration: 88,
+		SwitchClause: 89,
+		SwitchConditionArray: 90,
+		SwitchConditionEnum: 91,
+		SwitchConditionObject: 92,
+		SwitchConditionRange: 93,
+		SwitchConditionType: 94,
+		SwitchExpression: 95,
+		SwitchStatement: 96,
+		SwitchTypeCasting: 97,
+		TaggedTemplateExpression: 98,
+		TemplateExpression: 99,
+		ThisExpression: 100,
+		ThrowStatement: 101,
+		TraitDeclaration: 102,
+		TryStatement: 103,
+		TypeAliasDeclaration: 104,
+		TypeReference: 105,
+		UnaryExpression: 106,
+		UnlessExpression: 107,
+		UnlessStatement: 108,
+		UntilStatement: 109,
+		UnionType: 110,
+		VariableDeclaration: 111,
+		VariableDeclarator: 112,
+		WhileStatement: 113
 	};
 	var ReificationKind = {
 		Arguments: 1,
@@ -201,11 +202,13 @@ module.exports = function() {
 		DecrementPostfix: 2,
 		DecrementPrefix: 3,
 		Existential: 4,
-		IncrementPostfix: 5,
-		IncrementPrefix: 6,
-		Negation: 7,
-		Negative: 8,
-		Spread: 9
+		ForcedTypeCasting: 5,
+		IncrementPostfix: 6,
+		IncrementPrefix: 7,
+		Negation: 8,
+		Negative: 9,
+		NullableTypeCasting: 10,
+		Spread: 11
 	};
 	var Parser = (function() {
 		var __ks_SyntaxError = {};
@@ -1954,6 +1957,26 @@ module.exports = function() {
 					node.body = body.value;
 				}
 				return node;
+			}
+			function FusionType(types, first, last) {
+				if(arguments.length < 3) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+				}
+				if(types === void 0 || types === null) {
+					throw new TypeError("'types' is not nullable");
+				}
+				if(first === void 0 || first === null) {
+					throw new TypeError("'first' is not nullable");
+				}
+				if(last === void 0 || last === null) {
+					throw new TypeError("'last' is not nullable");
+				}
+				return location({
+					kind: NodeKind.FusionType,
+					types: Helper.mapArray(types, function(type) {
+						return type.value;
+					})
+				}, first, last);
 			}
 			function IfExpression(condition, whenTrue, whenFalse, first, last) {
 				if(arguments.length < 5) {
@@ -4031,6 +4054,7 @@ module.exports = function() {
 				ForOfStatement: ForOfStatement,
 				FunctionDeclaration: FunctionDeclaration,
 				FunctionExpression: FunctionExpression,
+				FusionType: FusionType,
 				IfExpression: IfExpression,
 				IfStatement: IfStatement,
 				ImplementDeclaration: ImplementDeclaration,
@@ -4158,107 +4182,109 @@ module.exports = function() {
 			EQUALS_RIGHT_ANGLE: 47,
 			EXCLAMATION: 48,
 			EXCLAMATION_EQUALS: 49,
-			EXCLAMATION_LEFT_ROUND: 50,
-			EXCLAMATION_QUESTION_EQUALS: 51,
-			EXPORT: 52,
-			EXTENDS: 53,
-			EXTERN: 54,
-			EXTERN_REQUIRE: 55,
-			FINALLY: 56,
-			FOR: 57,
-			FROM: 58,
-			FUNC: 59,
-			GET: 60,
-			HASH: 61,
-			HASH_EXCLAMATION_LEFT_SQUARE: 62,
-			HASH_LEFT_SQUARE: 63,
-			HEX_NUMBER: 64,
-			IDENTIFIER: 65,
-			IF: 66,
-			IMPL: 67,
-			IMPORT: 68,
-			IMPORT_LITERAL: 69,
-			IN: 70,
-			INCLUDE: 71,
-			INCLUDE_AGAIN: 72,
-			IS: 73,
-			IS_NOT: 74,
-			LEFT_ANGLE: 75,
-			LEFT_ANGLE_EQUALS: 76,
-			LEFT_ANGLE_LEFT_ANGLE: 77,
-			LEFT_ANGLE_LEFT_ANGLE_EQUALS: 78,
-			LEFT_CURLY: 79,
-			LEFT_ROUND: 80,
-			LEFT_SQUARE: 81,
-			LET: 82,
-			MACRO: 83,
-			MINUS: 84,
-			MINUS_EQUALS: 85,
-			MINUS_MINUS: 86,
-			MINUS_RIGHT_ANGLE: 87,
-			NAMESPACE: 88,
-			NEW: 89,
-			NEWLINE: 90,
-			OCTAL_NUMBER: 91,
-			OF: 92,
-			ON: 93,
-			OVERRIDE: 94,
-			PERCENT: 95,
-			PERCENT_EQUALS: 96,
-			PIPE: 97,
-			PIPE_EQUALS: 98,
-			PIPE_PIPE: 99,
-			PLUS: 100,
-			PLUS_EQUALS: 101,
-			PLUS_PLUS: 102,
-			PRIVATE: 103,
-			PROTECTED: 104,
-			PUBLIC: 105,
-			QUESTION: 106,
-			QUESTION_EQUALS: 107,
-			QUESTION_DOT: 108,
-			QUESTION_LEFT_ROUND: 109,
-			QUESTION_LEFT_SQUARE: 110,
-			QUESTION_QUESTION: 111,
-			QUESTION_QUESTION_EQUALS: 112,
-			RADIX_NUMBER: 113,
-			REGEXP: 114,
-			REQUIRE: 115,
-			REQUIRE_EXTERN: 116,
-			REQUIRE_IMPORT: 117,
-			RETURN: 118,
-			RIGHT_ANGLE: 119,
-			RIGHT_ANGLE_EQUALS: 120,
-			RIGHT_ANGLE_RIGHT_ANGLE: 121,
-			RIGHT_ANGLE_RIGHT_ANGLE_EQUALS: 122,
-			RIGHT_CURLY: 123,
-			RIGHT_ROUND: 124,
-			RIGHT_SQUARE: 125,
-			SEALED: 126,
-			SET: 127,
-			SLASH: 128,
-			SLASH_DOT: 129,
-			SLASH_DOT_EQUALS: 130,
-			SLASH_EQUALS: 131,
-			STATIC: 132,
-			STRING: 133,
-			SWITCH: 134,
-			TEMPLATE_BEGIN: 135,
-			TEMPLATE_ELEMENT: 136,
-			TEMPLATE_END: 137,
-			TEMPLATE_VALUE: 138,
-			THROW: 139,
-			TIL: 140,
-			TILDE: 141,
-			TO: 142,
-			TRY: 143,
-			TYPE: 144,
-			UNLESS: 145,
-			UNTIL: 146,
-			WHEN: 147,
-			WHERE: 148,
-			WHILE: 149,
-			WITH: 150
+			EXCLAMATION_EXCLAMATION: 50,
+			EXCLAMATION_LEFT_ROUND: 51,
+			EXCLAMATION_QUESTION: 52,
+			EXCLAMATION_QUESTION_EQUALS: 53,
+			EXPORT: 54,
+			EXTENDS: 55,
+			EXTERN: 56,
+			EXTERN_REQUIRE: 57,
+			FINALLY: 58,
+			FOR: 59,
+			FROM: 60,
+			FUNC: 61,
+			GET: 62,
+			HASH: 63,
+			HASH_EXCLAMATION_LEFT_SQUARE: 64,
+			HASH_LEFT_SQUARE: 65,
+			HEX_NUMBER: 66,
+			IDENTIFIER: 67,
+			IF: 68,
+			IMPL: 69,
+			IMPORT: 70,
+			IMPORT_LITERAL: 71,
+			IN: 72,
+			INCLUDE: 73,
+			INCLUDE_AGAIN: 74,
+			IS: 75,
+			IS_NOT: 76,
+			LEFT_ANGLE: 77,
+			LEFT_ANGLE_EQUALS: 78,
+			LEFT_ANGLE_LEFT_ANGLE: 79,
+			LEFT_ANGLE_LEFT_ANGLE_EQUALS: 80,
+			LEFT_CURLY: 81,
+			LEFT_ROUND: 82,
+			LEFT_SQUARE: 83,
+			LET: 84,
+			MACRO: 85,
+			MINUS: 86,
+			MINUS_EQUALS: 87,
+			MINUS_MINUS: 88,
+			MINUS_RIGHT_ANGLE: 89,
+			NAMESPACE: 90,
+			NEW: 91,
+			NEWLINE: 92,
+			OCTAL_NUMBER: 93,
+			OF: 94,
+			ON: 95,
+			OVERRIDE: 96,
+			PERCENT: 97,
+			PERCENT_EQUALS: 98,
+			PIPE: 99,
+			PIPE_EQUALS: 100,
+			PIPE_PIPE: 101,
+			PLUS: 102,
+			PLUS_EQUALS: 103,
+			PLUS_PLUS: 104,
+			PRIVATE: 105,
+			PROTECTED: 106,
+			PUBLIC: 107,
+			QUESTION: 108,
+			QUESTION_EQUALS: 109,
+			QUESTION_DOT: 110,
+			QUESTION_LEFT_ROUND: 111,
+			QUESTION_LEFT_SQUARE: 112,
+			QUESTION_QUESTION: 113,
+			QUESTION_QUESTION_EQUALS: 114,
+			RADIX_NUMBER: 115,
+			REGEXP: 116,
+			REQUIRE: 117,
+			REQUIRE_EXTERN: 118,
+			REQUIRE_IMPORT: 119,
+			RETURN: 120,
+			RIGHT_ANGLE: 121,
+			RIGHT_ANGLE_EQUALS: 122,
+			RIGHT_ANGLE_RIGHT_ANGLE: 123,
+			RIGHT_ANGLE_RIGHT_ANGLE_EQUALS: 124,
+			RIGHT_CURLY: 125,
+			RIGHT_ROUND: 126,
+			RIGHT_SQUARE: 127,
+			SEALED: 128,
+			SET: 129,
+			SLASH: 130,
+			SLASH_DOT: 131,
+			SLASH_DOT_EQUALS: 132,
+			SLASH_EQUALS: 133,
+			STATIC: 134,
+			STRING: 135,
+			SWITCH: 136,
+			TEMPLATE_BEGIN: 137,
+			TEMPLATE_ELEMENT: 138,
+			TEMPLATE_END: 139,
+			TEMPLATE_VALUE: 140,
+			THROW: 141,
+			TIL: 142,
+			TILDE: 143,
+			TO: 144,
+			TRY: 145,
+			TYPE: 146,
+			UNLESS: 147,
+			UNTIL: 148,
+			WHEN: 149,
+			WHERE: 150,
+			WHILE: 151,
+			WITH: 152
 		};
 		var __ks_0;
 		var overhauls = (__ks_0 = {}, __ks_0[Token.CLASS_VERSION] = function(data) {
@@ -5165,6 +5191,16 @@ module.exports = function() {
 				if((p === 9) || (p === 32)) {
 					return Token.INVALID;
 				}
+				else if(c === 33) {
+					if((c = that.charAt(1)) === 33) {
+						that.next(2);
+						return Token.EXCLAMATION_EXCLAMATION;
+					}
+					else if(c === 63) {
+						that.next(2);
+						return Token.EXCLAMATION_QUESTION;
+					}
+				}
 				else if(c === 43) {
 					if(that.charAt(1) === 43) {
 						that.next(2);
@@ -5489,6 +5525,38 @@ module.exports = function() {
 			}
 			if((c === 97) && (that.charAt(1) === 98) && (that.charAt(2) === 115) && (that.charAt(3) === 116) && (that.charAt(4) === 114) && (that.charAt(5) === 97) && (that.charAt(6) === 99) && (that.charAt(7) === 116) && that.isBoundary(8)) {
 				return that.next(8);
+			}
+			else {
+				return false;
+			}
+		}, __ks_0[Token.AMPERSAND] = function(that, c) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(that === void 0 || that === null) {
+				throw new TypeError("'that' is not nullable");
+			}
+			if(c === void 0 || c === null) {
+				throw new TypeError("'c' is not nullable");
+			}
+			if((c === 38) && (that.charAt(1) !== 61)) {
+				return that.next(1);
+			}
+			else {
+				return false;
+			}
+		}, __ks_0[Token.AMPERSAND_AMPERSAND] = function(that, c) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(that === void 0 || that === null) {
+				throw new TypeError("'that' is not nullable");
+			}
+			if(c === void 0 || c === null) {
+				throw new TypeError("'c' is not nullable");
+			}
+			if((c === 38) && (that.charAt(1) === 38)) {
+				return that.next(2);
 			}
 			else {
 				return false;
@@ -12126,7 +12194,13 @@ module.exports = function() {
 				operand = this.reqUnaryOperand(mode, operand);
 				var operator;
 				var __ks_0 = this.matchM(M.POSTFIX_OPERATOR);
-				if(__ks_0 === Token.MINUS_MINUS) {
+				if(__ks_0 === Token.EXCLAMATION_EXCLAMATION) {
+					operator = this.yep(AST.UnaryOperator(UnaryOperatorKind.ForcedTypeCasting, this.yes()));
+				}
+				else if(__ks_0 === Token.EXCLAMATION_QUESTION) {
+					operator = this.yep(AST.UnaryOperator(UnaryOperatorKind.NullableTypeCasting, this.yes()));
+				}
+				else if(__ks_0 === Token.MINUS_MINUS) {
 					operator = this.yep(AST.UnaryOperator(UnaryOperatorKind.DecrementPostfix, this.yes()));
 				}
 				else if(__ks_0 === Token.PLUS_PLUS) {
@@ -13149,6 +13223,123 @@ module.exports = function() {
 				if(isMultiLines) {
 					this.NL_0M();
 				}
+				var type = this.reqTypeReference(isMultiLines);
+				var mark = this.mark();
+				if(isMultiLines) {
+					var types = [type];
+					this.NL_0M();
+					if(this.match(Token.PIPE, Token.AMPERSAND) === Token.PIPE) {
+						do {
+							this.commit();
+							if(this.test(Token.PIPE)) {
+								this.commit();
+							}
+							this.NL_0M();
+							types.push(this.reqTypeReference(true));
+							mark = this.mark();
+							this.NL_0M();
+						}
+						while(this.test(Token.PIPE))
+						this.rollback(mark);
+						if(types.length === 1) {
+							return types[0];
+						}
+						else {
+							return this.yep(AST.UnionType(types, type, types[types.length - 1]));
+						}
+					}
+					else if(this._token === Token.AMPERSAND) {
+						do {
+							this.commit();
+							if(this.test(Token.AMPERSAND)) {
+								this.commit();
+							}
+							this.NL_0M();
+							types.push(this.reqTypeReference(true));
+							mark = this.mark();
+							this.NL_0M();
+						}
+						while(this.test(Token.AMPERSAND))
+						this.rollback(mark);
+						if(types.length === 1) {
+							return types[0];
+						}
+						else {
+							return this.yep(AST.FusionType(types, type, types[types.length - 1]));
+						}
+					}
+					else {
+						this.rollback(mark);
+					}
+				}
+				else {
+					if(this.match(Token.PIPE_PIPE, Token.PIPE, Token.AMPERSAND_AMPERSAND, Token.AMPERSAND) === Token.PIPE) {
+						this.commit();
+						if(this.test(Token.NEWLINE)) {
+							this.rollback(mark);
+							return type;
+						}
+						var types = [type];
+						do {
+							this.commit();
+							types.push(this.reqTypeReference(false));
+						}
+						while(this.test(Token.PIPE))
+						return this.yep(AST.UnionType(types, type, types[types.length - 1]));
+					}
+					else if(this._token === Token.AMPERSAND) {
+						this.commit();
+						if(this.test(Token.NEWLINE)) {
+							this.rollback(mark);
+							return type;
+						}
+						var types = [type];
+						do {
+							this.commit();
+							types.push(this.reqTypeReference(false));
+						}
+						while(this.test(Token.AMPERSAND))
+						return this.yep(AST.FusionType(types, type, types[types.length - 1]));
+					}
+				}
+				return type;
+			},
+			reqTypeVar: function() {
+				if(arguments.length >= 0 && arguments.length <= 1) {
+					return Parser.prototype.__ks_func_reqTypeVar_0.apply(this, arguments);
+				}
+				throw new SyntaxError("Wrong number of arguments");
+			},
+			__ks_func_reqTypeObjectMember_0: function() {
+				var identifier = this.reqIdentifier();
+				var type;
+				if(this.test(Token.COLON)) {
+					this.commit();
+					type = this.reqTypeVar();
+				}
+				else {
+					var parameters = this.reqFunctionParameterList();
+					type = this.tryFunctionReturns();
+					type = this.yep(AST.FunctionExpression(parameters, null, type, null, null, parameters, KSType.isValue(type) ? type : parameters));
+				}
+				return this.yep(AST.ObjectMemberReference(identifier, type));
+			},
+			reqTypeObjectMember: function() {
+				if(arguments.length === 0) {
+					return Parser.prototype.__ks_func_reqTypeObjectMember_0.apply(this);
+				}
+				throw new SyntaxError("Wrong number of arguments");
+			},
+			__ks_func_reqTypeReference_0: function(isMultiLines) {
+				if(arguments.length < 1) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+				}
+				if(isMultiLines === void 0 || isMultiLines === null) {
+					throw new TypeError("'isMultiLines' is not nullable");
+				}
+				else if(!KSType.isBoolean(isMultiLines)) {
+					throw new TypeError("'isMultiLines' is not of type 'Boolean'");
+				}
 				if(this.match(Token.LEFT_CURLY, Token.LEFT_SQUARE) === Token.LEFT_CURLY) {
 					var first = this.yes();
 					var properties = [];
@@ -13242,71 +13433,12 @@ module.exports = function() {
 					return this.yep(AST.ArrayReference(elements, first, this.yes()));
 				}
 				else {
-					var type = this.reqTypeEntity();
-					var mark = this.mark();
-					if(isMultiLines) {
-						var types = [type];
-						this.NL_0M();
-						while(this.test(Token.PIPE)) {
-							this.commit();
-							if(this.test(Token.PIPE)) {
-								this.commit();
-							}
-							this.NL_0M();
-							types.push(this.reqTypeEntity());
-							mark = this.mark();
-							this.NL_0M();
-						}
-						this.rollback(mark);
-						if(types.length === 1) {
-							return types[0];
-						}
-						else {
-							return this.yep(AST.UnionType(types, type, types[types.length - 1]));
-						}
-					}
-					else if(this.match(Token.PIPE_PIPE, Token.PIPE) === Token.PIPE) {
-						this.commit();
-						if(this.test(Token.NEWLINE)) {
-							this.rollback(mark);
-							return type;
-						}
-						var types = [type];
-						do {
-							this.commit();
-							types.push(this.reqTypeEntity());
-						}
-						while(this.test(Token.PIPE))
-						return this.yep(AST.UnionType(types, type, types[types.length - 1]));
-					}
-					else {
-						return type;
-					}
+					return this.reqTypeEntity();
 				}
 			},
-			reqTypeVar: function() {
-				if(arguments.length >= 0 && arguments.length <= 1) {
-					return Parser.prototype.__ks_func_reqTypeVar_0.apply(this, arguments);
-				}
-				throw new SyntaxError("Wrong number of arguments");
-			},
-			__ks_func_reqTypeObjectMember_0: function() {
-				var identifier = this.reqIdentifier();
-				var type;
-				if(this.test(Token.COLON)) {
-					this.commit();
-					type = this.reqTypeVar();
-				}
-				else {
-					var parameters = this.reqFunctionParameterList();
-					type = this.tryFunctionReturns();
-					type = this.yep(AST.FunctionExpression(parameters, null, type, null, null, parameters, KSType.isValue(type) ? type : parameters));
-				}
-				return this.yep(AST.ObjectMemberReference(identifier, type));
-			},
-			reqTypeObjectMember: function() {
-				if(arguments.length === 0) {
-					return Parser.prototype.__ks_func_reqTypeObjectMember_0.apply(this);
+			reqTypeReference: function() {
+				if(arguments.length === 1) {
+					return Parser.prototype.__ks_func_reqTypeReference_0.apply(this, arguments);
 				}
 				throw new SyntaxError("Wrong number of arguments");
 			},
@@ -77567,6 +77699,49 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		}
 	});
+	var UnaryOperatorForcedTypeCasting = Helper.class({
+		$name: "UnaryOperatorForcedTypeCasting",
+		$extends: UnaryOperatorExpression,
+		__ks_init: function() {
+			UnaryOperatorExpression.prototype.__ks_init.call(this);
+		},
+		__ks_cons: function(args) {
+			UnaryOperatorExpression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_toFragments_0: function(fragments, mode) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(mode === void 0 || mode === null) {
+				throw new TypeError("'mode' is not nullable");
+			}
+			fragments.compile(this._argument);
+		},
+		toFragments: function() {
+			if(arguments.length === 2) {
+				return UnaryOperatorForcedTypeCasting.prototype.__ks_func_toFragments_0.apply(this, arguments);
+			}
+			else if(UnaryOperatorExpression.prototype.toFragments) {
+				return UnaryOperatorExpression.prototype.toFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_type_0: function() {
+			return AnyType.Unexplicit;
+		},
+		type: function() {
+			if(arguments.length === 0) {
+				return UnaryOperatorForcedTypeCasting.prototype.__ks_func_type_0.apply(this);
+			}
+			else if(UnaryOperatorExpression.prototype.type) {
+				return UnaryOperatorExpression.prototype.type.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		}
+	});
 	var UnaryOperatorIncrementPostfix = Helper.class({
 		$name: "UnaryOperatorIncrementPostfix",
 		$extends: UnaryOperatorExpression,
@@ -77750,6 +77925,59 @@ module.exports = function() {
 		type: function() {
 			if(arguments.length === 0) {
 				return UnaryOperatorNegative.prototype.__ks_func_type_0.apply(this);
+			}
+			else if(UnaryOperatorExpression.prototype.type) {
+				return UnaryOperatorExpression.prototype.type.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		}
+	});
+	var UnaryOperatorNullableTypeCasting = Helper.class({
+		$name: "UnaryOperatorNullableTypeCasting",
+		$extends: UnaryOperatorExpression,
+		__ks_init: function() {
+			UnaryOperatorExpression.prototype.__ks_init.call(this);
+		},
+		__ks_cons: function(args) {
+			UnaryOperatorExpression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_prepare_0: function() {
+			this._argument.prepare();
+			this._type = this._argument.type().setNullable(false);
+		},
+		prepare: function() {
+			if(arguments.length === 0) {
+				return UnaryOperatorNullableTypeCasting.prototype.__ks_func_prepare_0.apply(this);
+			}
+			return UnaryOperatorExpression.prototype.prepare.apply(this, arguments);
+		},
+		__ks_func_toFragments_0: function(fragments, mode) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(mode === void 0 || mode === null) {
+				throw new TypeError("'mode' is not nullable");
+			}
+			fragments.compile(this._argument);
+		},
+		toFragments: function() {
+			if(arguments.length === 2) {
+				return UnaryOperatorNullableTypeCasting.prototype.__ks_func_toFragments_0.apply(this, arguments);
+			}
+			else if(UnaryOperatorExpression.prototype.toFragments) {
+				return UnaryOperatorExpression.prototype.toFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_type_0: function() {
+			return this._type;
+		},
+		type: function() {
+			if(arguments.length === 0) {
+				return UnaryOperatorNullableTypeCasting.prototype.__ks_func_type_0.apply(this);
 			}
 			else if(UnaryOperatorExpression.prototype.type) {
 				return UnaryOperatorExpression.prototype.type.apply(this, arguments);
@@ -80845,7 +81073,7 @@ module.exports = function() {
 	}, __ks_0[NodeKind.ArrayExpression] = ArrayExpression, __ks_0[NodeKind.ArrayRange] = ArrayRange, __ks_0[NodeKind.AwaitExpression] = AwaitExpression, __ks_0[NodeKind.CallExpression] = CallExpression, __ks_0[NodeKind.CallMacroExpression] = $callMacroExpression, __ks_0[NodeKind.ComparisonExpression] = ComparisonExpression, __ks_0[NodeKind.ConditionalExpression] = ConditionalExpression, __ks_0[NodeKind.CreateExpression] = CreateExpression, __ks_0[NodeKind.CurryExpression] = CurryExpression, __ks_0[NodeKind.EnumExpression] = EnumExpression, __ks_0[NodeKind.FunctionExpression] = AnonymousFunctionExpression, __ks_0[NodeKind.Identifier] = IdentifierLiteral, __ks_0[NodeKind.IfExpression] = IfExpression, __ks_0[NodeKind.LambdaExpression] = ArrowFunctionExpression, __ks_0[NodeKind.Literal] = StringLiteral, __ks_0[NodeKind.MemberExpression] = MemberExpression, __ks_0[NodeKind.NumericExpression] = NumberLiteral, __ks_0[NodeKind.ObjectBinding] = ObjectBinding, __ks_0[NodeKind.ObjectExpression] = ObjectExpression, __ks_0[NodeKind.OmittedExpression] = OmittedExpression, __ks_0[NodeKind.RegularExpression] = RegularExpression, __ks_0[NodeKind.SequenceExpression] = SequenceExpression, __ks_0[NodeKind.TemplateExpression] = TemplateExpression, __ks_0[NodeKind.ThisExpression] = ThisExpression, __ks_0[NodeKind.UnlessExpression] = UnlessExpression, __ks_0);
 	var $statements = (__ks_0 = {}, __ks_0[NodeKind.BreakStatement] = BreakStatement, __ks_0[NodeKind.CallMacroExpression] = CallMacroStatement, __ks_0[NodeKind.ClassDeclaration] = ClassDeclaration, __ks_0[NodeKind.ContinueStatement] = ContinueStatement, __ks_0[NodeKind.DestroyStatement] = DestroyStatement, __ks_0[NodeKind.DiscloseDeclaration] = DiscloseDeclaration, __ks_0[NodeKind.DoUntilStatement] = DoUntilStatement, __ks_0[NodeKind.DoWhileStatement] = DoWhileStatement, __ks_0[NodeKind.EnumDeclaration] = EnumDeclaration, __ks_0[NodeKind.ExportDeclaration] = ExportDeclaration, __ks_0[NodeKind.ExternDeclaration] = ExternDeclaration, __ks_0[NodeKind.ExternOrRequireDeclaration] = ExternOrRequireDeclaration, __ks_0[NodeKind.ForFromStatement] = ForFromStatement, __ks_0[NodeKind.ForInStatement] = ForInStatement, __ks_0[NodeKind.ForOfStatement] = ForOfStatement, __ks_0[NodeKind.ForRangeStatement] = ForRangeStatement, __ks_0[NodeKind.FunctionDeclaration] = FunctionDeclaration, __ks_0[NodeKind.IfStatement] = IfStatement, __ks_0[NodeKind.ImplementDeclaration] = ImplementDeclaration, __ks_0[NodeKind.ImportDeclaration] = ImportDeclaration, __ks_0[NodeKind.IncludeDeclaration] = IncludeDeclaration, __ks_0[NodeKind.IncludeAgainDeclaration] = IncludeAgainDeclaration, __ks_0[NodeKind.MacroDeclaration] = MacroDeclaration, __ks_0[NodeKind.NamespaceDeclaration] = NamespaceDeclaration, __ks_0[NodeKind.RequireDeclaration] = RequireDeclaration, __ks_0[NodeKind.RequireOrExternDeclaration] = RequireOrExternDeclaration, __ks_0[NodeKind.RequireOrImportDeclaration] = RequireOrImportDeclaration, __ks_0[NodeKind.ReturnStatement] = ReturnStatement, __ks_0[NodeKind.SwitchStatement] = SwitchStatement, __ks_0[NodeKind.ThrowStatement] = ThrowStatement, __ks_0[NodeKind.TryStatement] = TryStatement, __ks_0[NodeKind.TypeAliasDeclaration] = TypeAliasDeclaration, __ks_0[NodeKind.UnlessStatement] = UnlessStatement, __ks_0[NodeKind.UntilStatement] = UntilStatement, __ks_0[NodeKind.VariableDeclaration] = VariableDeclaration, __ks_0[NodeKind.WhileStatement] = WhileStatement, __ks_0["default"] = ExpressionStatement, __ks_0);
 	var $polyadicOperators = (__ks_0 = {}, __ks_0[BinaryOperatorKind.Addition] = PolyadicOperatorAddition, __ks_0[BinaryOperatorKind.And] = PolyadicOperatorAnd, __ks_0[BinaryOperatorKind.BitwiseAnd] = PolyadicOperatorBitwiseAnd, __ks_0[BinaryOperatorKind.BitwiseLeftShift] = PolyadicOperatorBitwiseLeftShift, __ks_0[BinaryOperatorKind.BitwiseOr] = PolyadicOperatorBitwiseOr, __ks_0[BinaryOperatorKind.BitwiseRightShift] = PolyadicOperatorBitwiseRightShift, __ks_0[BinaryOperatorKind.BitwiseXor] = PolyadicOperatorBitwiseXor, __ks_0[BinaryOperatorKind.Division] = PolyadicOperatorDivision, __ks_0[BinaryOperatorKind.Modulo] = PolyadicOperatorModulo, __ks_0[BinaryOperatorKind.Imply] = PolyadicOperatorImply, __ks_0[BinaryOperatorKind.Multiplication] = PolyadicOperatorMultiplication, __ks_0[BinaryOperatorKind.NullCoalescing] = PolyadicOperatorNullCoalescing, __ks_0[BinaryOperatorKind.Or] = PolyadicOperatorOr, __ks_0[BinaryOperatorKind.Quotient] = PolyadicOperatorQuotient, __ks_0[BinaryOperatorKind.Subtraction] = PolyadicOperatorSubtraction, __ks_0[BinaryOperatorKind.Xor] = PolyadicOperatorXor, __ks_0);
-	var $unaryOperators = (__ks_0 = {}, __ks_0[UnaryOperatorKind.BitwiseNot] = UnaryOperatorBitwiseNot, __ks_0[UnaryOperatorKind.DecrementPostfix] = UnaryOperatorDecrementPostfix, __ks_0[UnaryOperatorKind.DecrementPrefix] = UnaryOperatorDecrementPrefix, __ks_0[UnaryOperatorKind.Existential] = UnaryOperatorExistential, __ks_0[UnaryOperatorKind.IncrementPostfix] = UnaryOperatorIncrementPostfix, __ks_0[UnaryOperatorKind.IncrementPrefix] = UnaryOperatorIncrementPrefix, __ks_0[UnaryOperatorKind.Negation] = UnaryOperatorNegation, __ks_0[UnaryOperatorKind.Negative] = UnaryOperatorNegative, __ks_0[UnaryOperatorKind.Spread] = UnaryOperatorSpread, __ks_0);
+	var $unaryOperators = (__ks_0 = {}, __ks_0[UnaryOperatorKind.BitwiseNot] = UnaryOperatorBitwiseNot, __ks_0[UnaryOperatorKind.DecrementPostfix] = UnaryOperatorDecrementPostfix, __ks_0[UnaryOperatorKind.DecrementPrefix] = UnaryOperatorDecrementPrefix, __ks_0[UnaryOperatorKind.Existential] = UnaryOperatorExistential, __ks_0[UnaryOperatorKind.ForcedTypeCasting] = UnaryOperatorForcedTypeCasting, __ks_0[UnaryOperatorKind.IncrementPostfix] = UnaryOperatorIncrementPostfix, __ks_0[UnaryOperatorKind.IncrementPrefix] = UnaryOperatorIncrementPrefix, __ks_0[UnaryOperatorKind.Negation] = UnaryOperatorNegation, __ks_0[UnaryOperatorKind.Negative] = UnaryOperatorNegative, __ks_0[UnaryOperatorKind.NullableTypeCasting] = UnaryOperatorNullableTypeCasting, __ks_0[UnaryOperatorKind.Spread] = UnaryOperatorSpread, __ks_0);
 	function $expandOptions(options) {
 		if(arguments.length < 1) {
 			throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
