@@ -54194,7 +54194,7 @@ module.exports = function() {
 					if(!(this._class.isSealed() === true)) {
 						SyntaxException.throwNotSealedOverwrite(this);
 					}
-					var methods = this._class.listMatchingInstanceMethods(this._name, this._type, MatchingMode.ShiftableParameter);
+					var methods = this._class.listMatchingInstanceMethods(this._name, this._type, MatchingMode(MatchingMode.SimilarParameter | MatchingMode.ShiftableParameter));
 					if(methods.length === 0) {
 						SyntaxException.throwNoSuitableOverwrite(this._classRef, this._name, this._type, this);
 					}
@@ -71632,6 +71632,29 @@ module.exports = function() {
 			}
 			return Expression.prototype.isComputed.apply(this, arguments);
 		},
+		__ks_func_isMatchingType_0: function(type) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
+			}
+			else if(!KSType.isInstance(type, Type)) {
+				throw new TypeError("'type' is not of type 'Type'");
+			}
+			if(this._properties.length === 0) {
+				return (type.isAny() === true) || (type.isObject() === true);
+			}
+			else {
+				return this._type.matchContentOf(type);
+			}
+		},
+		isMatchingType: function() {
+			if(arguments.length === 1) {
+				return ObjectExpression.prototype.__ks_func_isMatchingType_0.apply(this, arguments);
+			}
+			return Expression.prototype.isMatchingType.apply(this, arguments);
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -76254,7 +76277,7 @@ module.exports = function() {
 		},
 		__ks_func_prepare_0: function() {
 			AssignmentOperatorExpression.prototype.prepare.apply(this, []);
-			if((this.isEnumAppliable() === true) && (this._left.type().isEnum() === true) && (this._right.type().isEnum() === true) && (this._left.type().name() === this._right.type().name())) {
+			if((this.isAcceptingEnum() === true) && (this._left.type().isEnum() === true) && (this._right.type().isEnum() === true) && (this._left.type().name() === this._right.type().name())) {
 				this._isEnum = true;
 				this._type = this._left.type();
 			}
@@ -76300,15 +76323,15 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_isEnumAppliable_0: function() {
+		__ks_func_isAcceptingEnum_0: function() {
 			return false;
 		},
-		isEnumAppliable: function() {
+		isAcceptingEnum: function() {
 			if(arguments.length === 0) {
-				return NumericAssignmentOperatorExpression.prototype.__ks_func_isEnumAppliable_0.apply(this);
+				return NumericAssignmentOperatorExpression.prototype.__ks_func_isAcceptingEnum_0.apply(this);
 			}
-			else if(AssignmentOperatorExpression.prototype.isEnumAppliable) {
-				return AssignmentOperatorExpression.prototype.isEnumAppliable.apply(this, arguments);
+			else if(AssignmentOperatorExpression.prototype.isAcceptingEnum) {
+				return AssignmentOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
@@ -76525,14 +76548,14 @@ module.exports = function() {
 			}
 			return NumericAssignmentOperatorExpression.prototype.getBinarySymbol.apply(this, arguments);
 		},
-		__ks_func_isEnumAppliable_0: function() {
+		__ks_func_isAcceptingEnum_0: function() {
 			return true;
 		},
-		isEnumAppliable: function() {
+		isAcceptingEnum: function() {
 			if(arguments.length === 0) {
-				return AssignmentOperatorBitwiseAnd.prototype.__ks_func_isEnumAppliable_0.apply(this);
+				return AssignmentOperatorBitwiseAnd.prototype.__ks_func_isAcceptingEnum_0.apply(this);
 			}
-			return NumericAssignmentOperatorExpression.prototype.isEnumAppliable.apply(this, arguments);
+			return NumericAssignmentOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
 		},
 		__ks_func_operator_0: function() {
 			return Operator.BitwiseAnd;
@@ -76635,14 +76658,14 @@ module.exports = function() {
 			}
 			return NumericAssignmentOperatorExpression.prototype.getBinarySymbol.apply(this, arguments);
 		},
-		__ks_func_isEnumAppliable_0: function() {
+		__ks_func_isAcceptingEnum_0: function() {
 			return true;
 		},
-		isEnumAppliable: function() {
+		isAcceptingEnum: function() {
 			if(arguments.length === 0) {
-				return AssignmentOperatorBitwiseOr.prototype.__ks_func_isEnumAppliable_0.apply(this);
+				return AssignmentOperatorBitwiseOr.prototype.__ks_func_isAcceptingEnum_0.apply(this);
 			}
-			return NumericAssignmentOperatorExpression.prototype.isEnumAppliable.apply(this, arguments);
+			return NumericAssignmentOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
 		},
 		__ks_func_operator_0: function() {
 			return Operator.BitwiseOr;
@@ -77741,7 +77764,7 @@ module.exports = function() {
 		},
 		__ks_func_prepare_0: function() {
 			BinaryOperatorExpression.prototype.prepare.apply(this, []);
-			if((this._left.type().isEnum() === true) && (this._right.type().isEnum() === true) && (this._left.type().name() === this._right.type().name())) {
+			if((this.isAcceptingEnum() === true) && (this._left.type().isEnum() === true) && (this._right.type().isEnum() === true) && (this._left.type().name() === this._right.type().name())) {
 				this._isEnum = true;
 				this._type = this._left.type();
 			}
@@ -77774,7 +77797,7 @@ module.exports = function() {
 		},
 		__ks_func_translate_0: function() {
 			BinaryOperatorExpression.prototype.translate.apply(this, []);
-			if(this._isEnum && ((this._parent.type().isBoolean() === true) || ((this._parent.type().isEnum() === true) && (this._left.type().name() === this._parent.type().name())))) {
+			if(this._isEnum && ((this._parent.type().isBoolean() === true) || ((this._parent.type().isEnum() === true) && (this._type.name() === this._parent.type().name())))) {
 				this._isEnum = false;
 				this._isNative = true;
 			}
@@ -77784,6 +77807,18 @@ module.exports = function() {
 				return NumericBinaryOperatorExpression.prototype.__ks_func_translate_0.apply(this);
 			}
 			return BinaryOperatorExpression.prototype.translate.apply(this, arguments);
+		},
+		__ks_func_isAcceptingEnum_0: function() {
+			return false;
+		},
+		isAcceptingEnum: function() {
+			if(arguments.length === 0) {
+				return NumericBinaryOperatorExpression.prototype.__ks_func_isAcceptingEnum_0.apply(this);
+			}
+			else if(BinaryOperatorExpression.prototype.isAcceptingEnum) {
+				return BinaryOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_isComputed_0: function() {
 			return this._isNative;
@@ -78184,6 +78219,15 @@ module.exports = function() {
 		__ks_cons: function(args) {
 			NumericBinaryOperatorExpression.prototype.__ks_cons.call(this, args);
 		},
+		__ks_func_isAcceptingEnum_0: function() {
+			return true;
+		},
+		isAcceptingEnum: function() {
+			if(arguments.length === 0) {
+				return BinaryOperatorBitwiseAnd.prototype.__ks_func_isAcceptingEnum_0.apply(this);
+			}
+			return NumericBinaryOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
+		},
 		__ks_func_operator_0: function() {
 			return Operator.BitwiseAnd;
 		},
@@ -78275,6 +78319,15 @@ module.exports = function() {
 		},
 		__ks_cons: function(args) {
 			NumericBinaryOperatorExpression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_isAcceptingEnum_0: function() {
+			return true;
+		},
+		isAcceptingEnum: function() {
+			if(arguments.length === 0) {
+				return BinaryOperatorBitwiseOr.prototype.__ks_func_isAcceptingEnum_0.apply(this);
+			}
+			return NumericBinaryOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
 		},
 		__ks_func_operator_0: function() {
 			return Operator.BitwiseOr;
@@ -79773,6 +79826,7 @@ module.exports = function() {
 		$name: "NumericPolyadicOperatorExpression",
 		$extends: PolyadicOperatorExpression,
 		__ks_init_1: function() {
+			this._isEnum = false;
 			this._isNative = false;
 		},
 		__ks_init: function() {
@@ -79784,30 +79838,71 @@ module.exports = function() {
 		},
 		__ks_func_prepare_0: function() {
 			PolyadicOperatorExpression.prototype.prepare.apply(this, []);
-			var nullable = false;
-			this._isNative = true;
-			for(var __ks_0 = 0, __ks_1 = this._operands.length, operand; __ks_0 < __ks_1; ++__ks_0) {
-				operand = this._operands[__ks_0];
-				if(operand.type().isNullable() === true) {
-					nullable = true;
-					this._isNative = false;
+			if((this.isAcceptingEnum() === true) && (this._operands[0].type().isEnum() === true)) {
+				var name = this._operands[0].type().name();
+				this._isEnum = true;
+				for(var __ks_0 = 1, __ks_1 = this._operands.length, operand; __ks_0 < __ks_1; ++__ks_0) {
+					operand = this._operands[__ks_0];
+					if(!(operand.type().isEnum() === true) || (operand.type().name() !== name)) {
+						this._isEnum = false;
+						break;
+					}
 				}
-				if(operand.type().isNumber() === true) {
-				}
-				else if(operand.type().canBeNumber() === true) {
-					this._isNative = false;
-				}
-				else {
-					TypeException.throwInvalidOperand(operand, this.operator(), this);
+				if(this._isEnum) {
+					this._type = this._operands[0].type();
 				}
 			}
-			this._type = nullable ? this._scope.reference("Number").setNullable(true) : this._scope.reference("Number");
+			if(!this._isEnum) {
+				var nullable = false;
+				this._isNative = true;
+				for(var __ks_0 = 0, __ks_1 = this._operands.length, operand; __ks_0 < __ks_1; ++__ks_0) {
+					operand = this._operands[__ks_0];
+					if(operand.type().isNullable() === true) {
+						nullable = true;
+						this._isNative = false;
+					}
+					if(operand.type().isNumber() === true) {
+					}
+					else if(operand.type().canBeNumber() === true) {
+						this._isNative = false;
+					}
+					else {
+						TypeException.throwInvalidOperand(operand, this.operator(), this);
+					}
+				}
+				this._type = nullable ? this._scope.reference("Number").setNullable(true) : this._scope.reference("Number");
+			}
 		},
 		prepare: function() {
 			if(arguments.length === 0) {
 				return NumericPolyadicOperatorExpression.prototype.__ks_func_prepare_0.apply(this);
 			}
 			return PolyadicOperatorExpression.prototype.prepare.apply(this, arguments);
+		},
+		__ks_func_translate_0: function() {
+			PolyadicOperatorExpression.prototype.translate.apply(this, []);
+			if(this._isEnum && ((this._parent.type().isBoolean() === true) || ((this._parent.type().isEnum() === true) && (this._type.name() === this._parent.type().name())))) {
+				this._isEnum = false;
+				this._isNative = true;
+			}
+		},
+		translate: function() {
+			if(arguments.length === 0) {
+				return NumericPolyadicOperatorExpression.prototype.__ks_func_translate_0.apply(this);
+			}
+			return PolyadicOperatorExpression.prototype.translate.apply(this, arguments);
+		},
+		__ks_func_isAcceptingEnum_0: function() {
+			return false;
+		},
+		isAcceptingEnum: function() {
+			if(arguments.length === 0) {
+				return NumericPolyadicOperatorExpression.prototype.__ks_func_isAcceptingEnum_0.apply(this);
+			}
+			else if(PolyadicOperatorExpression.prototype.isAcceptingEnum) {
+				return PolyadicOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_isComputed_0: function() {
 			return this._isNative;
@@ -79881,7 +79976,12 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			if(this._isNative) {
+			if(this._isEnum) {
+				fragments.code(this._type.name(), "(");
+				this.toNativeFragments(fragments);
+				fragments.code(")");
+			}
+			else if(this._isNative) {
 				this.toNativeFragments(fragments);
 			}
 			else {
@@ -80260,6 +80360,15 @@ module.exports = function() {
 		__ks_cons: function(args) {
 			NumericPolyadicOperatorExpression.prototype.__ks_cons.call(this, args);
 		},
+		__ks_func_isAcceptingEnum_0: function() {
+			return true;
+		},
+		isAcceptingEnum: function() {
+			if(arguments.length === 0) {
+				return PolyadicOperatorBitwiseAnd.prototype.__ks_func_isAcceptingEnum_0.apply(this);
+			}
+			return NumericPolyadicOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
+		},
 		__ks_func_operator_0: function() {
 			return Operator.BitwiseAnd;
 		},
@@ -80351,6 +80460,15 @@ module.exports = function() {
 		},
 		__ks_cons: function(args) {
 			NumericPolyadicOperatorExpression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_isAcceptingEnum_0: function() {
+			return true;
+		},
+		isAcceptingEnum: function() {
+			if(arguments.length === 0) {
+				return PolyadicOperatorBitwiseOr.prototype.__ks_func_isAcceptingEnum_0.apply(this);
+			}
+			return NumericPolyadicOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
 		},
 		__ks_func_operator_0: function() {
 			return Operator.BitwiseOr;
@@ -81154,7 +81272,7 @@ module.exports = function() {
 		},
 		__ks_func_prepare_0: function() {
 			UnaryOperatorExpression.prototype.prepare.apply(this, []);
-			if(this._argument.type().isEnum() === true) {
+			if((this.isAcceptingEnum() === true) && (this._argument.type().isEnum() === true)) {
 				this._isEnum = true;
 				this._type = this._argument.type();
 			}
@@ -81176,6 +81294,18 @@ module.exports = function() {
 				return NumericUnaryOperatorExpression.prototype.__ks_func_prepare_0.apply(this);
 			}
 			return UnaryOperatorExpression.prototype.prepare.apply(this, arguments);
+		},
+		__ks_func_isAcceptingEnum_0: function() {
+			return false;
+		},
+		isAcceptingEnum: function() {
+			if(arguments.length === 0) {
+				return NumericUnaryOperatorExpression.prototype.__ks_func_isAcceptingEnum_0.apply(this);
+			}
+			else if(UnaryOperatorExpression.prototype.isAcceptingEnum) {
+				return UnaryOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
@@ -81236,6 +81366,15 @@ module.exports = function() {
 		},
 		__ks_cons: function(args) {
 			NumericUnaryOperatorExpression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_isAcceptingEnum_0: function() {
+			return true;
+		},
+		isAcceptingEnum: function() {
+			if(arguments.length === 0) {
+				return UnaryOperatorBitwiseNot.prototype.__ks_func_isAcceptingEnum_0.apply(this);
+			}
+			return NumericUnaryOperatorExpression.prototype.isAcceptingEnum.apply(this, arguments);
 		},
 		__ks_func_operator_0: function() {
 			return Operator.BitwiseNot;
