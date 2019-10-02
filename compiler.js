@@ -26139,21 +26139,6 @@ module.exports = function() {
 				return true;
 			}
 		},
-		__ks_func_isMatching_2: function(value, mode) {
-			if(arguments.length < 2) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-			}
-			if(value === void 0 || value === null) {
-				throw new TypeError("'value' is not nullable");
-			}
-			if(mode === void 0 || mode === null) {
-				throw new TypeError("'mode' is not nullable");
-			}
-			else if(!KSType.isEnumMember(mode, MatchingMode)) {
-				throw new TypeError("'mode' is not of type 'MatchingMode'");
-			}
-			return false;
-		},
 		isMatching: function() {
 			if(arguments.length === 2) {
 				if(KSType.isInstance(arguments[0], ReferenceType)) {
@@ -26161,9 +26146,6 @@ module.exports = function() {
 				}
 				else if(KSType.isInstance(arguments[0], FunctionType)) {
 					return FunctionType.prototype.__ks_func_isMatching_1.apply(this, arguments);
-				}
-				else {
-					return FunctionType.prototype.__ks_func_isMatching_2.apply(this, arguments);
 				}
 			}
 			return Type.prototype.isMatching.apply(this, arguments);
@@ -27179,7 +27161,7 @@ module.exports = function() {
 				else if(KSType.isInstance(arguments[0], OverloadedFunctionType)) {
 					return OverloadedFunctionType.prototype.__ks_func_isMatching_2.apply(this, arguments);
 				}
-				else {
+				else if(KSType.isInstance(arguments[0], NamedType)) {
 					return OverloadedFunctionType.prototype.__ks_func_isMatching_3.apply(this, arguments);
 				}
 			}
@@ -29876,7 +29858,7 @@ module.exports = function() {
 				if(KSType.isInstance(arguments[0], SealableType)) {
 					return SealableType.prototype.__ks_func_isMatching_0.apply(this, arguments);
 				}
-				else {
+				else if(KSType.isInstance(arguments[0], Type)) {
 					return SealableType.prototype.__ks_func_isMatching_1.apply(this, arguments);
 				}
 			}
@@ -33230,21 +33212,6 @@ module.exports = function() {
 			}
 			return this.isMatching(value.type(), mode);
 		},
-		__ks_func_isMatching_2: function(value, mode) {
-			if(arguments.length < 2) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-			}
-			if(value === void 0 || value === null) {
-				throw new TypeError("'value' is not nullable");
-			}
-			if(mode === void 0 || mode === null) {
-				throw new TypeError("'mode' is not nullable");
-			}
-			else if(!KSType.isEnumMember(mode, MatchingMode)) {
-				throw new TypeError("'mode' is not of type 'MatchingMode'");
-			}
-			return false;
-		},
 		isMatching: function() {
 			if(arguments.length === 2) {
 				if(KSType.isInstance(arguments[0], ClassType)) {
@@ -33252,9 +33219,6 @@ module.exports = function() {
 				}
 				else if(KSType.isInstance(arguments[0], NamedType)) {
 					return ClassType.prototype.__ks_func_isMatching_1.apply(this, arguments);
-				}
-				else {
-					return ClassType.prototype.__ks_func_isMatching_2.apply(this, arguments);
 				}
 			}
 			return Type.prototype.isMatching.apply(this, arguments);
@@ -34251,6 +34215,34 @@ module.exports = function() {
 			}
 			return FunctionType.prototype.isMethod.apply(this, arguments);
 		},
+		__ks_func_isOverflowing_0: function(methods) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(methods === void 0 || methods === null) {
+				throw new TypeError("'methods' is not nullable");
+			}
+			else if(!KSType.isArray(methods, ClassMethodType)) {
+				throw new TypeError("'methods' is not of type 'Array<ClassMethodType>'");
+			}
+			var mode = MatchingMode(MatchingMode.SimilarParameters | MatchingMode.MissingParameters | MatchingMode.ShiftableParameters | MatchingMode.RequireAllParameters);
+			for(var __ks_0 = 0, __ks_1 = methods.length, method; __ks_0 < __ks_1; ++__ks_0) {
+				method = methods[__ks_0];
+				if(this.isMatching(method, mode) === true) {
+					return false;
+				}
+			}
+			return true;
+		},
+		isOverflowing: function() {
+			if(arguments.length === 1) {
+				return ClassMethodType.prototype.__ks_func_isOverflowing_0.apply(this, arguments);
+			}
+			else if(FunctionType.prototype.isOverflowing) {
+				return FunctionType.prototype.isOverflowing.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_isSealable_0: function() {
 			return true;
 		},
@@ -35003,7 +34995,7 @@ module.exports = function() {
 				if(KSType.isInstance(arguments[0], EnumType)) {
 					return EnumType.prototype.__ks_func_isMatching_0.apply(this, arguments);
 				}
-				else {
+				else if(KSType.isInstance(arguments[0], ReferenceType)) {
 					return EnumType.prototype.__ks_func_isMatching_1.apply(this, arguments);
 				}
 			}
@@ -36168,7 +36160,7 @@ module.exports = function() {
 				if(KSType.isInstance(arguments[0], NullType)) {
 					return NullType.prototype.__ks_func_isMatching_0.apply(this, arguments);
 				}
-				else {
+				else if(KSType.isInstance(arguments[0], Type)) {
 					return NullType.prototype.__ks_func_isMatching_1.apply(this, arguments);
 				}
 			}
@@ -36491,7 +36483,7 @@ module.exports = function() {
 				if(KSType.isInstance(arguments[0], ObjectType)) {
 					return ObjectType.prototype.__ks_func_isMatching_0.apply(this, arguments);
 				}
-				else {
+				else if(KSType.isInstance(arguments[0], Type)) {
 					return ObjectType.prototype.__ks_func_isMatching_1.apply(this, arguments);
 				}
 			}
@@ -46052,7 +46044,20 @@ module.exports = function() {
 						method.toFragments(ctrl, Mode.None);
 						m.push(method.type());
 					}
-					ClassMethodDeclaration.toClassSwitchFragments(this, ctrl.newControl(), this._type, m, name, function(node, fragments) {
+					var overflow = false;
+					if(this._extending) {
+						var __ks_methods_1 = this._extendsType.type().listClassMethods(name);
+						if(KSType.isValue(__ks_methods_1)) {
+							for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+								method = __ks_methods_1[__ks_0];
+								if(method.isOverflowing(m) === true) {
+									overflow = true;
+									break;
+								}
+							}
+						}
+					}
+					ClassMethodDeclaration.toClassSwitchFragments(this, ctrl.newControl(), this._type, m, overflow, name, function(node, fragments) {
 						if(arguments.length < 2) {
 							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
@@ -46135,7 +46140,20 @@ module.exports = function() {
 					method.toFragments(clazz, Mode.None);
 					m.push(method.type());
 				}
-				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
+				var overflow = false;
+				if(this._extending) {
+					var __ks_methods_1 = this._extendsType.type().listInstanceMethods(name);
+					if(KSType.isValue(__ks_methods_1)) {
+						for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+							method = __ks_methods_1[__ks_0];
+							if(method.isOverflowing(m) === true) {
+								overflow = true;
+								break;
+							}
+						}
+					}
+				}
+				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, overflow, name, function(node, fragments) {
 					if(arguments.length < 2) {
 						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
@@ -46243,7 +46261,20 @@ module.exports = function() {
 					method.toFragments(clazz, Mode.None);
 					m.push(method.type());
 				}
-				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
+				var overflow = false;
+				if(this._extending) {
+					var __ks_methods_1 = this._extendsType.type().listInstanceMethods(name);
+					if(KSType.isValue(__ks_methods_1)) {
+						for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+							method = __ks_methods_1[__ks_0];
+							if(method.isOverflowing(m) === true) {
+								overflow = true;
+								break;
+							}
+						}
+					}
+				}
+				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, overflow, name, function(node, fragments) {
 					if(arguments.length < 2) {
 						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
@@ -46272,7 +46303,20 @@ module.exports = function() {
 					method.toFragments(clazz, Mode.None);
 					m.push(method.type());
 				}
-				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
+				var overflow = false;
+				if(this._extending) {
+					var __ks_methods_1 = this._extendsType.type().listClassMethods(name);
+					if(KSType.isValue(__ks_methods_1)) {
+						for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+							method = __ks_methods_1[__ks_0];
+							if(method.isOverflowing(m) === true) {
+								overflow = true;
+								break;
+							}
+						}
+					}
+				}
+				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, overflow, name, function(node, fragments) {
 					if(arguments.length < 2) {
 						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
@@ -46402,7 +46446,20 @@ module.exports = function() {
 					method.toFragments(clazz, Mode.None);
 					m.push(method.type());
 				}
-				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
+				var overflow = false;
+				if(this._extending) {
+					var __ks_methods_1 = this._extendsType.type().listInstanceMethods(name);
+					if(KSType.isValue(__ks_methods_1)) {
+						for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+							method = __ks_methods_1[__ks_0];
+							if(method.isOverflowing(m) === true) {
+								overflow = true;
+								break;
+							}
+						}
+					}
+				}
+				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, overflow, name, function(node, fragments) {
 					if(arguments.length < 2) {
 						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
@@ -46431,7 +46488,20 @@ module.exports = function() {
 					method.toFragments(clazz, Mode.None);
 					m.push(method.type());
 				}
-				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
+				var overflow = false;
+				if(this._extending) {
+					var __ks_methods_1 = this._extendsType.type().listClassMethods(name);
+					if(KSType.isValue(__ks_methods_1)) {
+						for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+							method = __ks_methods_1[__ks_0];
+							if(method.isOverflowing(m) === true) {
+								overflow = true;
+								break;
+							}
+						}
+					}
+				}
+				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, overflow, name, function(node, fragments) {
 					if(arguments.length < 2) {
 						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
@@ -46496,7 +46566,20 @@ module.exports = function() {
 						method.toFragments(ctrl, Mode.None);
 						m.push(method.type());
 					}
-					ClassMethodDeclaration.toClassSwitchFragments(this, ctrl.newControl(), this._type, m, name, function(node, fragments) {
+					var overflow = false;
+					if(this._extending) {
+						var __ks_methods_1 = this._extendsType.type().listClassMethods(name);
+						if(KSType.isValue(__ks_methods_1)) {
+							for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+								method = __ks_methods_1[__ks_0];
+								if(method.isOverflowing(m) === true) {
+									overflow = true;
+									break;
+								}
+							}
+						}
+					}
+					ClassMethodDeclaration.toClassSwitchFragments(this, ctrl.newControl(), this._type, m, overflow, name, function(node, fragments) {
 						if(arguments.length < 2) {
 							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
@@ -46571,7 +46654,20 @@ module.exports = function() {
 					method.toFragments(clazz, Mode.None);
 					m.push(method.type());
 				}
-				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
+				var overflow = false;
+				if(this._extending) {
+					var __ks_methods_1 = this._extendsType.type().listInstanceMethods(name);
+					if(KSType.isValue(__ks_methods_1)) {
+						for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+							method = __ks_methods_1[__ks_0];
+							if(method.isOverflowing(m) === true) {
+								overflow = true;
+								break;
+							}
+						}
+					}
+				}
+				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, overflow, name, function(node, fragments) {
 					if(arguments.length < 2) {
 						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
@@ -46676,7 +46772,20 @@ module.exports = function() {
 					method.toFragments(clazz, Mode.None);
 					m.push(method.type());
 				}
-				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
+				var overflow = false;
+				if(this._extending) {
+					var __ks_methods_1 = this._extendsType.type().listInstanceMethods(name);
+					if(KSType.isValue(__ks_methods_1)) {
+						for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+							method = __ks_methods_1[__ks_0];
+							if(method.isOverflowing(m) === true) {
+								overflow = true;
+								break;
+							}
+						}
+					}
+				}
+				ClassMethodDeclaration.toInstanceSwitchFragments(this, clazz.newControl(), this._type, m, overflow, name, function(node, fragments) {
 					if(arguments.length < 2) {
 						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
@@ -46705,7 +46814,20 @@ module.exports = function() {
 					method.toFragments(clazz, Mode.None);
 					m.push(method.type());
 				}
-				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, name, function(node, fragments) {
+				var overflow = false;
+				if(this._extending) {
+					var __ks_methods_1 = this._extendsType.type().listClassMethods(name);
+					if(KSType.isValue(__ks_methods_1)) {
+						for(var __ks_0 = 0, __ks_1 = __ks_methods_1.length, method; __ks_0 < __ks_1; ++__ks_0) {
+							method = __ks_methods_1[__ks_0];
+							if(method.isOverflowing(m) === true) {
+								overflow = true;
+								break;
+							}
+						}
+					}
+				}
+				ClassMethodDeclaration.toClassSwitchFragments(this, clazz.newControl(), this._type, m, overflow, name, function(node, fragments) {
 					if(arguments.length < 2) {
 						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 					}
@@ -47432,9 +47554,9 @@ module.exports = function() {
 		$name: "ClassMethodDeclaration",
 		$extends: Statement,
 		$static: {
-			__ks_sttc_toClassSwitchFragments_0: function(node, fragments, variable, methods, name, header, footer) {
-				if(arguments.length < 7) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
+			__ks_sttc_toClassSwitchFragments_0: function(node, fragments, variable, methods, overflow, name, header, footer) {
+				if(arguments.length < 8) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -47448,6 +47570,9 @@ module.exports = function() {
 				if(methods === void 0 || methods === null) {
 					throw new TypeError("'methods' is not nullable");
 				}
+				if(overflow === void 0 || overflow === null) {
+					throw new TypeError("'overflow' is not nullable");
+				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
 				}
@@ -47457,7 +47582,7 @@ module.exports = function() {
 				if(footer === void 0 || footer === null) {
 					throw new TypeError("'footer' is not nullable");
 				}
-				var assessment = Router.assess(methods, false);
+				var assessment = Router.assess(methods, false, overflow);
 				if(variable.type().isExtending() === true) {
 					return Router.toFragments(assessment, fragments, "arguments", true, header, footer, KSHelper.vcurry(ClassDeclaration.callMethod, null, node, variable, "__ks_sttc_" + name + "_", "arguments", "return "), function(block, ctrl, argName, async, returns) {
 						if(arguments.length < 5) {
@@ -47495,7 +47620,7 @@ module.exports = function() {
 				}
 			},
 			toClassSwitchFragments: function() {
-				if(arguments.length === 7) {
+				if(arguments.length === 8) {
 					return ClassMethodDeclaration.__ks_sttc_toClassSwitchFragments_0.apply(this, arguments);
 				}
 				else if(Statement.toClassSwitchFragments) {
@@ -47503,9 +47628,9 @@ module.exports = function() {
 				}
 				throw new SyntaxError("Wrong number of arguments");
 			},
-			__ks_sttc_toInstanceSwitchFragments_0: function(node, fragments, variable, methods, name, header, footer) {
-				if(arguments.length < 7) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
+			__ks_sttc_toInstanceSwitchFragments_0: function(node, fragments, variable, methods, overflow, name, header, footer) {
+				if(arguments.length < 8) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
@@ -47519,6 +47644,9 @@ module.exports = function() {
 				if(methods === void 0 || methods === null) {
 					throw new TypeError("'methods' is not nullable");
 				}
+				if(overflow === void 0 || overflow === null) {
+					throw new TypeError("'overflow' is not nullable");
+				}
 				if(name === void 0 || name === null) {
 					throw new TypeError("'name' is not nullable");
 				}
@@ -47528,7 +47656,7 @@ module.exports = function() {
 				if(footer === void 0 || footer === null) {
 					throw new TypeError("'footer' is not nullable");
 				}
-				var assessment = Router.assess(methods, false);
+				var assessment = Router.assess(methods, false, overflow);
 				if(variable.type().isExtending() === true) {
 					return Router.toFragments(assessment, fragments, "arguments", true, header, footer, KSHelper.vcurry(ClassDeclaration.callMethod, null, node, variable, "prototype.__ks_func_" + name + "_", "arguments", "return "), function(block, ctrl, argName, async, returns) {
 						if(arguments.length < 5) {
@@ -47566,7 +47694,7 @@ module.exports = function() {
 				}
 			},
 			toInstanceSwitchFragments: function() {
-				if(arguments.length === 7) {
+				if(arguments.length === 8) {
 					return ClassMethodDeclaration.__ks_sttc_toInstanceSwitchFragments_0.apply(this, arguments);
 				}
 				else if(Statement.toInstanceSwitchFragments) {
@@ -54258,7 +54386,7 @@ module.exports = function() {
 					}).bind(this), ClassDeclaration.toWrongDoingFragments, this).done();
 				}
 				else {
-					ClassMethodDeclaration.toInstanceSwitchFragments(this, fragments.newLine(), this._variable, this._class.listInstanceMethods(this._name), this._name, (function(node, fragments) {
+					ClassMethodDeclaration.toInstanceSwitchFragments(this, fragments.newLine(), this._variable, this._class.listInstanceMethods(this._name), false, this._name, (function(node, fragments) {
 						if(arguments.length < 2) {
 							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
@@ -54333,7 +54461,7 @@ module.exports = function() {
 					}).bind(this), ClassDeclaration.toWrongDoingFragments, this).done();
 				}
 				else {
-					ClassMethodDeclaration.toClassSwitchFragments(this, fragments.newLine(), this._variable, this._class.listClassMethods(this._name), this._name, (function(node, fragments) {
+					ClassMethodDeclaration.toClassSwitchFragments(this, fragments.newLine(), this._variable, this._class.listClassMethods(this._name), false, this._name, (function(node, fragments) {
 						if(arguments.length < 2) {
 							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 						}
@@ -61783,6 +61911,18 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_type_0: function() {
+			return this._declarators[0].variable().getRealType();
+		},
+		type: function() {
+			if(arguments.length === 0) {
+				return VariableDeclaration.prototype.__ks_func_type_0.apply(this);
+			}
+			else if(Statement.prototype.type) {
+				return Statement.prototype.type.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_walk_0: function(fn) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -62358,6 +62498,18 @@ module.exports = function() {
 			}
 			else if(AbstractNode.prototype.toAssignmentFragments) {
 				return AbstractNode.prototype.toAssignmentFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_variable_0: function() {
+			return this._variable;
+		},
+		variable: function() {
+			if(arguments.length === 0) {
+				return VariableIdentifierDeclarator.prototype.__ks_func_variable_0.apply(this);
+			}
+			else if(AbstractNode.prototype.variable) {
+				return AbstractNode.prototype.variable.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
@@ -77552,7 +77704,7 @@ module.exports = function() {
 			BinaryOperatorExpression.prototype.translate.apply(this, []);
 			if(this._isEnum) {
 				var type = this._parent.type();
-				if(KSType.isInstance(this._parent, AssignmentOperatorEquality)) {
+				if(KSType.isInstance(this._parent, AssignmentOperatorEquality) || KSType.isInstance(this._parent, VariableDeclaration)) {
 					if(type.isEnum() === true) {
 						if(this._type.name() !== type.name()) {
 							this._isEnum = false;
@@ -79651,7 +79803,7 @@ module.exports = function() {
 			PolyadicOperatorExpression.prototype.translate.apply(this, []);
 			if(this._isEnum) {
 				var type = this._parent.type();
-				if(KSType.isInstance(this._parent, AssignmentOperatorEquality)) {
+				if(KSType.isInstance(this._parent, AssignmentOperatorEquality) || KSType.isInstance(this._parent, VariableDeclaration)) {
 					if(type.isEnum() === true) {
 						if(this._type.name() !== type.name()) {
 							this._isEnum = false;
@@ -83262,7 +83414,7 @@ module.exports = function() {
 		}
 	});
 	var Router = KSHelper.namespace(function() {
-		function assess(methods, flattenable) {
+		function assess(methods, flattenable, overflow) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -83271,6 +83423,9 @@ module.exports = function() {
 			}
 			if(flattenable === void 0 || flattenable === null) {
 				throw new TypeError("'flattenable' is not nullable");
+			}
+			if(overflow === void 0 || overflow === null) {
+				overflow = false;
 			}
 			if(methods.length === 0) {
 				return {
@@ -83350,7 +83505,7 @@ module.exports = function() {
 			else {
 				var assessment = {
 					async: async,
-					methods: assessBounded(methods, groups, min, max)
+					methods: assessBounded(methods, groups, min, max, overflow)
 				};
 				if(infinities.length === 1) {
 					var method = infinities[0];
@@ -83369,9 +83524,9 @@ module.exports = function() {
 				return assessment;
 			}
 		}
-		function assessBounded(methods, groups, min, max) {
-			if(arguments.length < 4) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+		function assessBounded(methods, groups, min, max, overflow) {
+			if(arguments.length < 5) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -83384,6 +83539,9 @@ module.exports = function() {
 			}
 			if(max === void 0 || max === null) {
 				throw new TypeError("'max' is not nullable");
+			}
+			if(overflow === void 0 || overflow === null) {
+				throw new TypeError("'overflow' is not nullable");
 			}
 			for(var i = min; i <= max; ++i) {
 				var group = groups[i];
@@ -83483,7 +83641,7 @@ module.exports = function() {
 							}
 						}
 					}
-					checkMethods(methods, parameters, __ks_min_1, __ks_max_1, 0, sortedIndexes, assessment, []);
+					checkMethods(methods, parameters, __ks_min_1, __ks_max_1, overflow, 0, sortedIndexes, assessment, []);
 				}
 			}
 			return assessment;
@@ -83693,9 +83851,9 @@ module.exports = function() {
 				throw new SyntaxError("Wrong number of arguments");
 			}
 		};
-		function checkMethods(methods, parameters, min, max, sortedIndex, sortedIndexes, assessment, filters) {
-			if(arguments.length < 8) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
+		function checkMethods(methods, parameters, min, max, overflow, sortedIndex, sortedIndexes, assessment, filters) {
+			if(arguments.length < 9) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 9)");
 			}
 			if(methods === void 0 || methods === null) {
 				throw new TypeError("'methods' is not nullable");
@@ -83708,6 +83866,9 @@ module.exports = function() {
 			}
 			if(max === void 0 || max === null) {
 				throw new TypeError("'max' is not nullable");
+			}
+			if(overflow === void 0 || overflow === null) {
+				throw new TypeError("'overflow' is not nullable");
 			}
 			if(sortedIndex === void 0 || sortedIndex === null) {
 				throw new TypeError("'sortedIndex' is not nullable");
@@ -83766,7 +83927,7 @@ module.exports = function() {
 				}
 			}
 			if(tree.length === 0) {
-				checkMethods(methods, parameters, min, max, KSOperator.addOrConcat(sortedIndex, 1), sortedIndexes, assessment, filters);
+				checkMethods(methods, parameters, min, max, overflow, KSOperator.addOrConcat(sortedIndex, 1), sortedIndexes, assessment, filters);
 			}
 			else if(tree.length === 1) {
 				var item = tree[0];
@@ -83806,7 +83967,7 @@ module.exports = function() {
 					}
 				}
 				else {
-					checkMethods(methods, parameters, min, max, KSOperator.addOrConcat(sortedIndex, 1), sortedIndexes, assessment, filters);
+					checkMethods(methods, parameters, min, max, overflow, KSOperator.addOrConcat(sortedIndex, 1), sortedIndexes, assessment, filters);
 				}
 			}
 			else {
@@ -83879,24 +84040,39 @@ module.exports = function() {
 					item = tree[i];
 					if((i + 1) === tree.length) {
 						if(item.methods.length === 1) {
-							assessment.push({
-								method: item.methods[0],
-								index: item.methods[0].index(),
-								min: min,
-								max: max,
-								filters: filters,
-								argFilters: [{
+							if(overflow === true) {
+								filters.push({
+									index: index,
+									type: item.type[0]
+								});
+								assessment.push({
+									method: item.methods[0],
+									index: item.methods[0].index(),
 									min: min,
 									max: max,
-									filters: [{
-										index: index,
-										type: item.type[0]
+									filters: filters
+								});
+							}
+							else {
+								assessment.push({
+									method: item.methods[0],
+									index: item.methods[0].index(),
+									min: min,
+									max: max,
+									filters: filters,
+									argFilters: [{
+										min: min,
+										max: max,
+										filters: [{
+											index: index,
+											type: item.type[0]
+										}]
 									}]
-								}]
-							});
+								});
+							}
 						}
 						else {
-							checkMethods(methods, parameters, min, max, KSOperator.addOrConcat(sortedIndex, 1), sortedIndexes, assessment, filters);
+							checkMethods(methods, parameters, min, max, overflow, KSOperator.addOrConcat(sortedIndex, 1), sortedIndexes, assessment, filters);
 						}
 					}
 					else {
@@ -83915,7 +84091,7 @@ module.exports = function() {
 							});
 						}
 						else {
-							checkMethods(methods, parameters, min, max, KSOperator.addOrConcat(sortedIndex, 1), sortedIndexes, assessment, __ks_filters_1);
+							checkMethods(methods, parameters, min, max, overflow, KSOperator.addOrConcat(sortedIndex, 1), sortedIndexes, assessment, __ks_filters_1);
 						}
 					}
 				}
