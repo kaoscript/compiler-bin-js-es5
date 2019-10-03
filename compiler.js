@@ -16572,6 +16572,33 @@ module.exports = function() {
 				}
 				throw new SyntaxError("Wrong number of arguments");
 			},
+			__ks_sttc_throwNoSuitableOverride_0: function(__ks_class_1, name, parameters, node) {
+				if(arguments.length < 4) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
+				}
+				if(__ks_class_1 === void 0 || __ks_class_1 === null) {
+					throw new TypeError("'class' is not nullable");
+				}
+				if(name === void 0 || name === null) {
+					throw new TypeError("'name' is not nullable");
+				}
+				if(parameters === void 0 || parameters === null) {
+					throw new TypeError("'parameters' is not nullable");
+				}
+				if(node === void 0 || node === null) {
+					throw new TypeError("'node' is not nullable");
+				}
+				throw new SyntaxException("\"" + __ks_class_1.toQuote() + "." + name + FunctionType.toQuote(parameters) + "\" can't be matched to any suitable method to override", node);
+			},
+			throwNoSuitableOverride: function() {
+				if(arguments.length === 4) {
+					return SyntaxException.__ks_sttc_throwNoSuitableOverride_0.apply(this, arguments);
+				}
+				else if(Exception.throwNoSuitableOverride) {
+					return Exception.throwNoSuitableOverride.apply(null, arguments);
+				}
+				throw new SyntaxError("Wrong number of arguments");
+			},
 			__ks_sttc_throwNoSuitableOverwrite_0: function(__ks_class_1, name, type, node) {
 				if(arguments.length < 4) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
@@ -16588,7 +16615,7 @@ module.exports = function() {
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
 				}
-				throw new SyntaxException("\"" + __ks_class_1.toQuote() + "." + name + type.toQuote() + "\" can't be match to any suitable method to overwrite", node);
+				throw new SyntaxException("\"" + __ks_class_1.toQuote() + "." + name + type.toQuote() + "\" can't be matched to any suitable method to overwrite", node);
 			},
 			throwNoSuitableOverwrite: function() {
 				if(arguments.length === 4) {
@@ -25659,6 +25686,34 @@ module.exports = function() {
 					return Type.isOptional.apply(null, arguments);
 				}
 				throw new SyntaxError("Wrong number of arguments");
+			},
+			__ks_sttc_toQuote_0: function(parameters) {
+				if(arguments.length < 1) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+				}
+				if(parameters === void 0 || parameters === null) {
+					throw new TypeError("'parameters' is not nullable");
+				}
+				var fragments = "";
+				fragments += "(";
+				for(var index = 0, __ks_0 = parameters.length, parameter; index < __ks_0; ++index) {
+					parameter = parameters[index];
+					if(index !== 0) {
+						fragments += ", ";
+					}
+					fragments = KSHelper.concatString(fragments, parameter.toQuote());
+				}
+				fragments += ")";
+				return fragments;
+			},
+			toQuote: function() {
+				if(arguments.length === 1) {
+					return FunctionType.__ks_sttc_toQuote_0.apply(this, arguments);
+				}
+				else if(Type.toQuote) {
+					return Type.toQuote.apply(null, arguments);
+				}
+				throw new SyntaxError("Wrong number of arguments");
 			}
 		},
 		__ks_init_1: function() {
@@ -26618,20 +26673,20 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toQuote_0: function() {
-			var fragments = [];
-			fragments.push("(");
+			var fragments = "";
+			fragments += "(";
 			for(var index = 0, __ks_0 = this._parameters.length, parameter; index < __ks_0; ++index) {
 				parameter = this._parameters[index];
 				if(index !== 0) {
-					fragments.push(", ");
+					fragments += ", ";
 				}
-				fragments.push(parameter.toQuote());
+				fragments += parameter.toQuote();
 			}
-			fragments.push(")");
+			fragments += ")";
 			if(!(this._returnType.isAny() === true) || !(this._returnType.isNullable() === true)) {
-				fragments.push(": ", this._returnType.toQuote());
+				fragments += ": " + this._returnType.toQuote();
 			}
-			return fragments.join("");
+			return fragments;
 		},
 		toQuote: function() {
 			if(arguments.length === 0) {
@@ -47710,6 +47765,7 @@ module.exports = function() {
 			this._awaiting = false;
 			this._exit = false;
 			this._instance = true;
+			this._override = false;
 			this._returnNull = false;
 		},
 		__ks_init: function() {
@@ -47732,6 +47788,9 @@ module.exports = function() {
 				modifier = data.modifiers[__ks_0];
 				if(modifier.kind.valueOf() === ModifierKind.Abstract.value) {
 					this._abstract = true;
+				}
+				else if(modifier.kind.valueOf() === ModifierKind.Override.value) {
+					this._override = true;
 				}
 				else if(modifier.kind.valueOf() === ModifierKind.Static.value) {
 					this._instance = false;
@@ -47816,22 +47875,42 @@ module.exports = function() {
 					parameter = this._parameters[__ks_0];
 					parameter.prepare();
 				}
-				var __ks_arguments_1 = KSHelper.mapArray(this._parameters, function(parameter) {
-					return parameter.type();
-				});
-				this._type = new ClassMethodType(__ks_arguments_1, this._data, this);
-				if(this._parent.isExtending() === true) {
-					var __ks_extends_1 = this._parent.extends().type();
-					var __ks_0;
-					var method = KSType.isValue(__ks_0 = __ks_extends_1.getInstanceMethod(this._name, this._parameters)) ? __ks_0 : __ks_extends_1.getAbstractMethod(this._name, this._type);
+				if(this._override) {
+					if(!(this._parent.isExtending() === true)) {
+						SyntaxException.throwNoSuitableOverride(this._parent.type(), this._name, this._parameters, this);
+					}
+					var superclass = this._parent.extends().type();
+					var method = superclass.getInstanceMethod(this._name, this._parameters);
 					if(KSType.isValue(method)) {
-						if(KSType.isValue(this._data.type)) {
-							if(!(this._type.returnType().isInstanceOf(method.returnType()) === true)) {
-								SyntaxException.throwInvalidMethodReturn(this._parent.name(), this._name, this);
-							}
+						this._type = method.type();
+						var parameters = this._type.parameters();
+						for(var index = 0, __ks_0 = this._parameters.length, parameter; index < __ks_0; ++index) {
+							parameter = this._parameters[index];
+							parameter.type(parameters[index]);
 						}
-						else {
-							this._type.returnType(method.returnType());
+					}
+					else {
+						SyntaxException.throwNoSuitableOverride(this._parent.extends(), this._name, this._parameters, this);
+					}
+				}
+				else {
+					var __ks_arguments_1 = KSHelper.mapArray(this._parameters, function(parameter) {
+						return parameter.type();
+					});
+					this._type = new ClassMethodType(__ks_arguments_1, this._data, this);
+					if(this._parent.isExtending() === true) {
+						var superclass = this._parent.extends().type();
+						var __ks_0;
+						var method = KSType.isValue(__ks_0 = superclass.getInstanceMethod(this._name, this._parameters)) ? __ks_0 : superclass.getAbstractMethod(this._name, this._type);
+						if(KSType.isValue(method)) {
+							if(KSType.isValue(this._data.type)) {
+								if(!(this._type.returnType().isInstanceOf(method.returnType()) === true)) {
+									SyntaxException.throwInvalidMethodReturn(this._parent.name(), this._name, this);
+								}
+							}
+							else {
+								this._type.returnType(method.returnType());
+							}
 						}
 					}
 				}
@@ -74581,9 +74660,26 @@ module.exports = function() {
 		__ks_func_type_0: function() {
 			return this._type;
 		},
+		__ks_func_type_1: function(type) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(type === void 0 || type === null) {
+				throw new TypeError("'type' is not nullable");
+			}
+			else if(!KSType.isInstance(type, ParameterType)) {
+				throw new TypeError("'type' is not of type 'ParameterType'");
+			}
+			this._type = type;
+			var t = this._type.type();
+			this._name.setDeclaredType(this._rest ? Type.arrayOf(t, this._scope) : t, true);
+		},
 		type: function() {
 			if(arguments.length === 0) {
 				return Parameter.prototype.__ks_func_type_0.apply(this);
+			}
+			else if(arguments.length === 1) {
+				return Parameter.prototype.__ks_func_type_1.apply(this, arguments);
 			}
 			else if(AbstractNode.prototype.type) {
 				return AbstractNode.prototype.type.apply(this, arguments);
