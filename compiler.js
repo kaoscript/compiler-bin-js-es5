@@ -72630,6 +72630,191 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		}
 	});
+	var TemplateExpression = KSHelper.class({
+		$name: "TemplateExpression",
+		$extends: Expression,
+		__ks_init_1: function() {
+			this._computing = false;
+			this._elements = [];
+			this._types = [];
+		},
+		__ks_init: function() {
+			Expression.prototype.__ks_init.call(this);
+			TemplateExpression.prototype.__ks_init_1.call(this);
+		},
+		__ks_cons: function(args) {
+			Expression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_analyse_0: function() {
+			for(var __ks_0 = 0, __ks_1 = this._data.elements.length, data; __ks_0 < __ks_1; ++__ks_0) {
+				data = this._data.elements[__ks_0];
+				var element = $compile.expression(data, this);
+				element.analyse();
+				this._elements.push(element);
+			}
+		},
+		analyse: function() {
+			if(arguments.length === 0) {
+				return TemplateExpression.prototype.__ks_func_analyse_0.apply(this);
+			}
+			else if(Expression.prototype.analyse) {
+				return Expression.prototype.analyse.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_prepare_0: function() {
+			for(var __ks_0 = 0, __ks_1 = this._elements.length, element; __ks_0 < __ks_1; ++__ks_0) {
+				element = this._elements[__ks_0];
+				element.prepare();
+				this._types.push((element.type().isString() === true) && !(element.type().isNullable() === true));
+			}
+		},
+		prepare: function() {
+			if(arguments.length === 0) {
+				return TemplateExpression.prototype.__ks_func_prepare_0.apply(this);
+			}
+			else if(Expression.prototype.prepare) {
+				return Expression.prototype.prepare.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_translate_0: function() {
+			for(var __ks_0 = 0, __ks_1 = this._elements.length, element; __ks_0 < __ks_1; ++__ks_0) {
+				element = this._elements[__ks_0];
+				element.translate();
+			}
+		},
+		translate: function() {
+			if(arguments.length === 0) {
+				return TemplateExpression.prototype.__ks_func_translate_0.apply(this);
+			}
+			else if(Expression.prototype.translate) {
+				return Expression.prototype.translate.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_computing_0: function(computing) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(computing === void 0 || computing === null) {
+				throw new TypeError("'computing' is not nullable");
+			}
+			else if(!KSType.isBoolean(computing)) {
+				throw new TypeError("'computing' is not of type 'Boolean'");
+			}
+			this._computing = computing;
+		},
+		computing: function() {
+			if(arguments.length === 1) {
+				return TemplateExpression.prototype.__ks_func_computing_0.apply(this, arguments);
+			}
+			else if(Expression.prototype.computing) {
+				return Expression.prototype.computing.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_isUsingVariable_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			for(var __ks_0 = 0, __ks_1 = this._elements.length, element; __ks_0 < __ks_1; ++__ks_0) {
+				element = this._elements[__ks_0];
+				if(element.isUsingVariable(name) === true) {
+					return true;
+				}
+			}
+			return false;
+		},
+		isUsingVariable: function() {
+			if(arguments.length === 1) {
+				return TemplateExpression.prototype.__ks_func_isUsingVariable_0.apply(this, arguments);
+			}
+			else if(Expression.prototype.isUsingVariable) {
+				return Expression.prototype.isUsingVariable.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_isComputed_0: function() {
+			return (this._elements.length > 1) || !(this._types[0] === true);
+		},
+		isComputed: function() {
+			if(arguments.length === 0) {
+				return TemplateExpression.prototype.__ks_func_isComputed_0.apply(this);
+			}
+			return Expression.prototype.isComputed.apply(this, arguments);
+		},
+		__ks_func_toFragments_0: function(fragments, mode) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(mode === void 0 || mode === null) {
+				throw new TypeError("'mode' is not nullable");
+			}
+			if(this._computing) {
+				for(var index = 0, __ks_0 = this._elements.length, element; index < __ks_0; ++index) {
+					element = this._elements[index];
+					if(index === 0) {
+						fragments.wrap(element);
+					}
+					else {
+						fragments.code(" + ").wrap(element);
+					}
+				}
+			}
+			else if(this._elements.length === 1) {
+				if(this._types[0] === true) {
+					this._elements[0].toStringFragments(fragments);
+				}
+				else {
+					fragments.code("\"\" + ").wrap(this._elements[0]);
+				}
+			}
+			else {
+				for(var index = 0, __ks_0 = this._elements.length, element; index < __ks_0; ++index) {
+					element = this._elements[index];
+					if(index === 0) {
+						if(this._types[index] === true) {
+							fragments.wrap(element);
+						}
+						else {
+							fragments.code("\"\" + ").wrap(element);
+						}
+					}
+					else {
+						fragments.code(" + ").wrap(element);
+					}
+				}
+			}
+		},
+		toFragments: function() {
+			if(arguments.length === 2) {
+				return TemplateExpression.prototype.__ks_func_toFragments_0.apply(this, arguments);
+			}
+			else if(Expression.prototype.toFragments) {
+				return Expression.prototype.toFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_type_0: function() {
+			return this._scope.reference("String");
+		},
+		type: function() {
+			if(arguments.length === 0) {
+				return TemplateExpression.prototype.__ks_func_type_0.apply(this);
+			}
+			else if(Expression.prototype.type) {
+				return Expression.prototype.type.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		}
+	});
 	var ThisExpression = KSHelper.class({
 		$name: "ThisExpression",
 		$extends: Expression,
@@ -72872,32 +73057,39 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		}
 	});
-	var TemplateExpression = KSHelper.class({
-		$name: "TemplateExpression",
+	var TryExpression = KSHelper.class({
+		$name: "TryExpression",
 		$extends: Expression,
 		__ks_init_1: function() {
-			this._computing = false;
-			this._elements = [];
-			this._types = [];
+			this._defaultValue = null;
+			this._reusable = false;
+			this._reuseName = null;
+			this._unwrap = false;
 		},
 		__ks_init: function() {
 			Expression.prototype.__ks_init.call(this);
-			TemplateExpression.prototype.__ks_init_1.call(this);
+			TryExpression.prototype.__ks_init_1.call(this);
 		},
 		__ks_cons: function(args) {
 			Expression.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_analyse_0: function() {
-			for(var __ks_0 = 0, __ks_1 = this._data.elements.length, data; __ks_0 < __ks_1; ++__ks_0) {
-				data = this._data.elements[__ks_0];
-				var element = $compile.expression(data, this);
-				element.analyse();
-				this._elements.push(element);
+			for(var __ks_0 = 0, __ks_1 = this._data.modifiers.length, modifier; __ks_0 < __ks_1; ++__ks_0) {
+				modifier = this._data.modifiers[__ks_0];
+				if(modifier.kind.valueOf() === ModifierKind.Disabled.value) {
+					this._unwrap = true;
+				}
+			}
+			this._argument = $compile.expression(this._data.argument, this);
+			this._argument.analyse();
+			if(KSType.isValue(this._data.defaultValue)) {
+				this._defaultValue = $compile.expression(this._data.defaultValue, this);
+				this._defaultValue.analyse();
 			}
 		},
 		analyse: function() {
 			if(arguments.length === 0) {
-				return TemplateExpression.prototype.__ks_func_analyse_0.apply(this);
+				return TryExpression.prototype.__ks_func_analyse_0.apply(this);
 			}
 			else if(Expression.prototype.analyse) {
 				return Expression.prototype.analyse.apply(this, arguments);
@@ -72905,15 +73097,14 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_prepare_0: function() {
-			for(var __ks_0 = 0, __ks_1 = this._elements.length, element; __ks_0 < __ks_1; ++__ks_0) {
-				element = this._elements[__ks_0];
-				element.prepare();
-				this._types.push((element.type().isString() === true) && !(element.type().isNullable() === true));
+			this._argument.prepare();
+			if(this._defaultValue !== null) {
+				this._defaultValue.prepare();
 			}
 		},
 		prepare: function() {
 			if(arguments.length === 0) {
-				return TemplateExpression.prototype.__ks_func_prepare_0.apply(this);
+				return TryExpression.prototype.__ks_func_prepare_0.apply(this);
 			}
 			else if(Expression.prototype.prepare) {
 				return Expression.prototype.prepare.apply(this, arguments);
@@ -72921,40 +73112,60 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_translate_0: function() {
-			for(var __ks_0 = 0, __ks_1 = this._elements.length, element; __ks_0 < __ks_1; ++__ks_0) {
-				element = this._elements[__ks_0];
-				element.translate();
+			this._argument.translate();
+			if(this._defaultValue !== null) {
+				this._defaultValue.translate();
 			}
 		},
 		translate: function() {
 			if(arguments.length === 0) {
-				return TemplateExpression.prototype.__ks_func_translate_0.apply(this);
+				return TryExpression.prototype.__ks_func_translate_0.apply(this);
 			}
 			else if(Expression.prototype.translate) {
 				return Expression.prototype.translate.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_computing_0: function(computing) {
+		__ks_func_acquireReusable_0: function(acquire) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
-			if(computing === void 0 || computing === null) {
-				throw new TypeError("'computing' is not nullable");
+			if(acquire === void 0 || acquire === null) {
+				throw new TypeError("'acquire' is not nullable");
 			}
-			else if(!KSType.isBoolean(computing)) {
-				throw new TypeError("'computing' is not of type 'Boolean'");
+			if(acquire === true) {
+				this._reuseName = this._scope.acquireTempName();
 			}
-			this._computing = computing;
 		},
-		computing: function() {
+		acquireReusable: function() {
 			if(arguments.length === 1) {
-				return TemplateExpression.prototype.__ks_func_computing_0.apply(this, arguments);
+				return TryExpression.prototype.__ks_func_acquireReusable_0.apply(this, arguments);
 			}
-			else if(Expression.prototype.computing) {
-				return Expression.prototype.computing.apply(this, arguments);
+			return Expression.prototype.acquireReusable.apply(this, arguments);
+		},
+		__ks_func_isComputed_0: function() {
+			return true;
+		},
+		isComputed: function() {
+			if(arguments.length === 0) {
+				return TryExpression.prototype.__ks_func_isComputed_0.apply(this);
 			}
-			throw new SyntaxError("Wrong number of arguments");
+			return Expression.prototype.isComputed.apply(this, arguments);
+		},
+		__ks_func_isConsumedError_0: function(error) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(error === void 0 || error === null) {
+				throw new TypeError("'error' is not nullable");
+			}
+			return true;
+		},
+		isConsumedError: function() {
+			if(arguments.length === 1) {
+				return TryExpression.prototype.__ks_func_isConsumedError_0.apply(this, arguments);
+			}
+			return Expression.prototype.isConsumedError.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -72963,31 +73174,27 @@ module.exports = function() {
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
-			for(var __ks_0 = 0, __ks_1 = this._elements.length, element; __ks_0 < __ks_1; ++__ks_0) {
-				element = this._elements[__ks_0];
-				if(element.isUsingVariable(name) === true) {
-					return true;
-				}
-			}
-			return false;
+			return this._argument.isUsingVariable(name);
 		},
 		isUsingVariable: function() {
 			if(arguments.length === 1) {
-				return TemplateExpression.prototype.__ks_func_isUsingVariable_0.apply(this, arguments);
+				return TryExpression.prototype.__ks_func_isUsingVariable_0.apply(this, arguments);
 			}
 			else if(Expression.prototype.isUsingVariable) {
 				return Expression.prototype.isUsingVariable.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_isComputed_0: function() {
-			return (this._elements.length > 1) || !(this._types[0] === true);
-		},
-		isComputed: function() {
-			if(arguments.length === 0) {
-				return TemplateExpression.prototype.__ks_func_isComputed_0.apply(this);
+		__ks_func_releaseReusable_0: function() {
+			if(this._reuseName !== null) {
+				this._scope.releaseTempName(this._reuseName);
 			}
-			return Expression.prototype.isComputed.apply(this, arguments);
+		},
+		releaseReusable: function() {
+			if(arguments.length === 0) {
+				return TryExpression.prototype.__ks_func_releaseReusable_0.apply(this);
+			}
+			return Expression.prototype.releaseReusable.apply(this, arguments);
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
@@ -72999,57 +73206,91 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				throw new TypeError("'mode' is not nullable");
 			}
-			if(this._computing) {
-				for(var index = 0, __ks_0 = this._elements.length, element; index < __ks_0; ++index) {
-					element = this._elements[index];
-					if(index === 0) {
-						fragments.wrap(element);
-					}
-					else {
-						fragments.code(" + ").wrap(element);
-					}
-				}
+			if(this._reusable) {
+				fragments.code(this._reuseName);
 			}
-			else if(this._elements.length === 1) {
-				if(this._types[0] === true) {
-					this._elements[0].toStringFragments(fragments);
-				}
-				else {
-					fragments.code("\"\" + ").wrap(this._elements[0]);
-				}
+			else if(this._unwrap) {
+				fragments.compile(this._argument);
 			}
 			else {
-				for(var index = 0, __ks_0 = this._elements.length, element; index < __ks_0; ++index) {
-					element = this._elements[index];
-					if(index === 0) {
-						if(this._types[index] === true) {
-							fragments.wrap(element);
-						}
-						else {
-							fragments.code("\"\" + ").wrap(element);
-						}
-					}
-					else {
-						fragments.code(" + ").wrap(element);
-					}
+				fragments.code($runtime.helper(this), ".try(");
+				if(this._options.format.functions === "es5") {
+					fragments.code("function(){return ").compile(this._argument).code(";}");
 				}
+				else {
+					fragments.code("() => ").compile(this._argument);
+				}
+				fragments.code(", ");
+				if(this._defaultValue === null) {
+					fragments.code("null");
+				}
+				else {
+					fragments.compile(this._defaultValue);
+				}
+				fragments.code(")");
 			}
 		},
 		toFragments: function() {
 			if(arguments.length === 2) {
-				return TemplateExpression.prototype.__ks_func_toFragments_0.apply(this, arguments);
+				return TryExpression.prototype.__ks_func_toFragments_0.apply(this, arguments);
 			}
 			else if(Expression.prototype.toFragments) {
 				return Expression.prototype.toFragments.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_toBooleanFragments_0: function(fragments, mode) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(mode === void 0 || mode === null) {
+				throw new TypeError("'mode' is not nullable");
+			}
+			if(this._unwrap) {
+				fragments.compileBoolean(this._argument);
+			}
+			else {
+				fragments.code($runtime.helper(this), ".tryTest(");
+				if(this._options.format.functions === "es5") {
+					fragments.code("function(){return ").compile(this._argument).code(";}");
+				}
+				else {
+					fragments.code("() => ").compile(this._argument);
+				}
+				fragments.code(")");
+			}
+		},
+		toBooleanFragments: function() {
+			if(arguments.length === 2) {
+				return TryExpression.prototype.__ks_func_toBooleanFragments_0.apply(this, arguments);
+			}
+			return Expression.prototype.toBooleanFragments.apply(this, arguments);
+		},
+		__ks_func_toReusableFragments_0: function(fragments) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			fragments.code(this._reuseName, $equals).compile(this);
+			this._reusable = true;
+		},
+		toReusableFragments: function() {
+			if(arguments.length === 1) {
+				return TryExpression.prototype.__ks_func_toReusableFragments_0.apply(this, arguments);
+			}
+			return Expression.prototype.toReusableFragments.apply(this, arguments);
+		},
 		__ks_func_type_0: function() {
-			return this._scope.reference("String");
+			return this._argument.type();
 		},
 		type: function() {
 			if(arguments.length === 0) {
-				return TemplateExpression.prototype.__ks_func_type_0.apply(this);
+				return TryExpression.prototype.__ks_func_type_0.apply(this);
 			}
 			else if(Expression.prototype.type) {
 				return Expression.prototype.type.apply(this, arguments);
@@ -85123,7 +85364,7 @@ module.exports = function() {
 		else {
 			throw new NotSupportedException("Unexpected kind " + data.loop.kind, parent);
 		}
-	}, __ks_0[NodeKind.ArrayExpression] = ArrayExpression, __ks_0[NodeKind.ArrayRange] = ArrayRange, __ks_0[NodeKind.AwaitExpression] = AwaitExpression, __ks_0[NodeKind.CallExpression] = CallExpression, __ks_0[NodeKind.CallMacroExpression] = $callMacroExpression, __ks_0[NodeKind.ComparisonExpression] = ComparisonExpression, __ks_0[NodeKind.ConditionalExpression] = ConditionalExpression, __ks_0[NodeKind.CreateExpression] = CreateExpression, __ks_0[NodeKind.CurryExpression] = CurryExpression, __ks_0[NodeKind.EnumExpression] = EnumExpression, __ks_0[NodeKind.FunctionExpression] = AnonymousFunctionExpression, __ks_0[NodeKind.Identifier] = IdentifierLiteral, __ks_0[NodeKind.IfExpression] = IfExpression, __ks_0[NodeKind.LambdaExpression] = ArrowFunctionExpression, __ks_0[NodeKind.Literal] = StringLiteral, __ks_0[NodeKind.MemberExpression] = MemberExpression, __ks_0[NodeKind.NumericExpression] = NumberLiteral, __ks_0[NodeKind.ObjectBinding] = ObjectBinding, __ks_0[NodeKind.ObjectExpression] = ObjectExpression, __ks_0[NodeKind.OmittedExpression] = OmittedExpression, __ks_0[NodeKind.RegularExpression] = RegularExpression, __ks_0[NodeKind.SequenceExpression] = SequenceExpression, __ks_0[NodeKind.TemplateExpression] = TemplateExpression, __ks_0[NodeKind.ThisExpression] = ThisExpression, __ks_0[NodeKind.UnlessExpression] = UnlessExpression, __ks_0);
+	}, __ks_0[NodeKind.ArrayExpression] = ArrayExpression, __ks_0[NodeKind.ArrayRange] = ArrayRange, __ks_0[NodeKind.AwaitExpression] = AwaitExpression, __ks_0[NodeKind.CallExpression] = CallExpression, __ks_0[NodeKind.CallMacroExpression] = $callMacroExpression, __ks_0[NodeKind.ComparisonExpression] = ComparisonExpression, __ks_0[NodeKind.ConditionalExpression] = ConditionalExpression, __ks_0[NodeKind.CreateExpression] = CreateExpression, __ks_0[NodeKind.CurryExpression] = CurryExpression, __ks_0[NodeKind.EnumExpression] = EnumExpression, __ks_0[NodeKind.FunctionExpression] = AnonymousFunctionExpression, __ks_0[NodeKind.Identifier] = IdentifierLiteral, __ks_0[NodeKind.IfExpression] = IfExpression, __ks_0[NodeKind.LambdaExpression] = ArrowFunctionExpression, __ks_0[NodeKind.Literal] = StringLiteral, __ks_0[NodeKind.MemberExpression] = MemberExpression, __ks_0[NodeKind.NumericExpression] = NumberLiteral, __ks_0[NodeKind.ObjectBinding] = ObjectBinding, __ks_0[NodeKind.ObjectExpression] = ObjectExpression, __ks_0[NodeKind.OmittedExpression] = OmittedExpression, __ks_0[NodeKind.RegularExpression] = RegularExpression, __ks_0[NodeKind.SequenceExpression] = SequenceExpression, __ks_0[NodeKind.TemplateExpression] = TemplateExpression, __ks_0[NodeKind.ThisExpression] = ThisExpression, __ks_0[NodeKind.TryExpression] = TryExpression, __ks_0[NodeKind.UnlessExpression] = UnlessExpression, __ks_0);
 	var $statements = (__ks_0 = {}, __ks_0[NodeKind.BreakStatement] = BreakStatement, __ks_0[NodeKind.CallMacroExpression] = CallMacroStatement, __ks_0[NodeKind.ClassDeclaration] = ClassDeclaration, __ks_0[NodeKind.ContinueStatement] = ContinueStatement, __ks_0[NodeKind.DestroyStatement] = DestroyStatement, __ks_0[NodeKind.DiscloseDeclaration] = DiscloseDeclaration, __ks_0[NodeKind.DoUntilStatement] = DoUntilStatement, __ks_0[NodeKind.DoWhileStatement] = DoWhileStatement, __ks_0[NodeKind.EnumDeclaration] = EnumDeclaration, __ks_0[NodeKind.ExportDeclaration] = ExportDeclaration, __ks_0[NodeKind.ExternDeclaration] = ExternDeclaration, __ks_0[NodeKind.ExternOrRequireDeclaration] = ExternOrRequireDeclaration, __ks_0[NodeKind.ForFromStatement] = ForFromStatement, __ks_0[NodeKind.ForInStatement] = ForInStatement, __ks_0[NodeKind.ForOfStatement] = ForOfStatement, __ks_0[NodeKind.ForRangeStatement] = ForRangeStatement, __ks_0[NodeKind.FunctionDeclaration] = FunctionDeclaration, __ks_0[NodeKind.IfStatement] = IfStatement, __ks_0[NodeKind.ImplementDeclaration] = ImplementDeclaration, __ks_0[NodeKind.ImportDeclaration] = ImportDeclaration, __ks_0[NodeKind.IncludeDeclaration] = IncludeDeclaration, __ks_0[NodeKind.IncludeAgainDeclaration] = IncludeAgainDeclaration, __ks_0[NodeKind.MacroDeclaration] = MacroDeclaration, __ks_0[NodeKind.NamespaceDeclaration] = NamespaceDeclaration, __ks_0[NodeKind.RequireDeclaration] = RequireDeclaration, __ks_0[NodeKind.RequireOrExternDeclaration] = RequireOrExternDeclaration, __ks_0[NodeKind.RequireOrImportDeclaration] = RequireOrImportDeclaration, __ks_0[NodeKind.ReturnStatement] = ReturnStatement, __ks_0[NodeKind.SwitchStatement] = SwitchStatement, __ks_0[NodeKind.ThrowStatement] = ThrowStatement, __ks_0[NodeKind.TryStatement] = TryStatement, __ks_0[NodeKind.TypeAliasDeclaration] = TypeAliasDeclaration, __ks_0[NodeKind.UnlessStatement] = UnlessStatement, __ks_0[NodeKind.UntilStatement] = UntilStatement, __ks_0[NodeKind.VariableDeclaration] = VariableDeclaration, __ks_0[NodeKind.WhileStatement] = WhileStatement, __ks_0["default"] = ExpressionStatement, __ks_0);
 	var $polyadicOperators = (__ks_0 = {}, __ks_0[BinaryOperatorKind.Addition] = PolyadicOperatorAddition, __ks_0[BinaryOperatorKind.And] = PolyadicOperatorAnd, __ks_0[BinaryOperatorKind.BitwiseAnd] = PolyadicOperatorBitwiseAnd, __ks_0[BinaryOperatorKind.BitwiseLeftShift] = PolyadicOperatorBitwiseLeftShift, __ks_0[BinaryOperatorKind.BitwiseOr] = PolyadicOperatorBitwiseOr, __ks_0[BinaryOperatorKind.BitwiseRightShift] = PolyadicOperatorBitwiseRightShift, __ks_0[BinaryOperatorKind.BitwiseXor] = PolyadicOperatorBitwiseXor, __ks_0[BinaryOperatorKind.Division] = PolyadicOperatorDivision, __ks_0[BinaryOperatorKind.Modulo] = PolyadicOperatorModulo, __ks_0[BinaryOperatorKind.Imply] = PolyadicOperatorImply, __ks_0[BinaryOperatorKind.Multiplication] = PolyadicOperatorMultiplication, __ks_0[BinaryOperatorKind.NullCoalescing] = PolyadicOperatorNullCoalescing, __ks_0[BinaryOperatorKind.Or] = PolyadicOperatorOr, __ks_0[BinaryOperatorKind.Quotient] = PolyadicOperatorQuotient, __ks_0[BinaryOperatorKind.Subtraction] = PolyadicOperatorSubtraction, __ks_0[BinaryOperatorKind.Xor] = PolyadicOperatorXor, __ks_0);
 	var $unaryOperators = (__ks_0 = {}, __ks_0[UnaryOperatorKind.BitwiseNot] = UnaryOperatorBitwiseNot, __ks_0[UnaryOperatorKind.DecrementPostfix] = UnaryOperatorDecrementPostfix, __ks_0[UnaryOperatorKind.DecrementPrefix] = UnaryOperatorDecrementPrefix, __ks_0[UnaryOperatorKind.Existential] = UnaryOperatorExistential, __ks_0[UnaryOperatorKind.ForcedTypeCasting] = UnaryOperatorForcedTypeCasting, __ks_0[UnaryOperatorKind.IncrementPostfix] = UnaryOperatorIncrementPostfix, __ks_0[UnaryOperatorKind.IncrementPrefix] = UnaryOperatorIncrementPrefix, __ks_0[UnaryOperatorKind.Negation] = UnaryOperatorNegation, __ks_0[UnaryOperatorKind.Negative] = UnaryOperatorNegative, __ks_0[UnaryOperatorKind.NullableTypeCasting] = UnaryOperatorNullableTypeCasting, __ks_0[UnaryOperatorKind.Spread] = UnaryOperatorSpread, __ks_0);
