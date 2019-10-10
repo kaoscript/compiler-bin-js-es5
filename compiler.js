@@ -38870,6 +38870,24 @@ module.exports = function() {
 				throw new SyntaxError("Wrong number of arguments");
 			}
 		},
+		__ks_func_hasBleedingVariable_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			else if(!KSType.isString(name)) {
+				throw new TypeError("'name' is not of type 'String'");
+			}
+			return this.hasDefinedVariable(name);
+		},
+		hasBleedingVariable: function() {
+			if(arguments.length === 1) {
+				return Scope.prototype.__ks_func_hasBleedingVariable_0.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_hasMacro_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -39025,7 +39043,7 @@ module.exports = function() {
 			else if(!KSType.isInstance(scope, Scope)) {
 				throw new TypeError("'scope' is not of type 'Scope'");
 			}
-			return this._parent.declareVariable(name, this);
+			return this._parent.declareVariable(name, scope);
 		},
 		declareVariable: function() {
 			if(arguments.length === 2) {
@@ -41066,7 +41084,7 @@ module.exports = function() {
 			else if(!KSType.isInstance(scope, Scope)) {
 				throw new TypeError("'scope' is not of type 'Scope'");
 			}
-			return this._parent.declareVariable(name, this);
+			return this._parent.declareVariable(name, scope);
 		},
 		declareVariable: function() {
 			if(arguments.length === 2) {
@@ -41354,6 +41372,24 @@ module.exports = function() {
 				return Scope.prototype.getVariable.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_hasBleedingVariable_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			else if(!KSType.isString(name)) {
+				throw new TypeError("'name' is not of type 'String'");
+			}
+			return this._parent.hasBleedingVariable(name);
+		},
+		hasBleedingVariable: function() {
+			if(arguments.length === 1) {
+				return HollowScope.prototype.__ks_func_hasBleedingVariable_0.apply(this, arguments);
+			}
+			return Scope.prototype.hasBleedingVariable.apply(this, arguments);
 		},
 		__ks_func_hasDefinedVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -41764,7 +41800,7 @@ module.exports = function() {
 			else if(!KSType.isInstance(scope, Scope)) {
 				throw new TypeError("'scope' is not of type 'Scope'");
 			}
-			if(($keywords[name] === true) || ((this._declarations[name] === true) && KSType.isArray(this._variables[name])) || (scope.isBleeding() && (this._parent.hasDefinedVariable(name) === true))) {
+			if(($keywords[name] === true) || ((this._declarations[name] === true) && KSType.isArray(this._variables[name])) || (scope.isBleeding() && this.hasBleedingVariable(name))) {
 				var newName = this.getNewName(name);
 				if(!KSType.isArray(this._variables[name])) {
 					this._declarations[newName] = true;
@@ -41835,6 +41871,24 @@ module.exports = function() {
 				return InlineBlockScope.prototype.__ks_func_getTempIndex_0.apply(this);
 			}
 			return BlockScope.prototype.getTempIndex.apply(this, arguments);
+		},
+		__ks_func_hasBleedingVariable_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			else if(!KSType.isString(name)) {
+				throw new TypeError("'name' is not of type 'String'");
+			}
+			return BlockScope.prototype.hasBleedingVariable.apply(this, [name]) || this._parent.hasBleedingVariable(name);
+		},
+		hasBleedingVariable: function() {
+			if(arguments.length === 1) {
+				return InlineBlockScope.prototype.__ks_func_hasBleedingVariable_0.apply(this, arguments);
+			}
+			return BlockScope.prototype.hasBleedingVariable.apply(this, arguments);
 		},
 		__ks_func_hasRenamedVariable_0: function(name) {
 			if(arguments.length < 1) {
