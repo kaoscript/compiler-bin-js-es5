@@ -39009,9 +39009,9 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_declareVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_declareVariable_0: function(name, scope) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -39019,10 +39019,16 @@ module.exports = function() {
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
 			}
-			return this._parent.declareVariable(name);
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			else if(!KSType.isInstance(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
+			}
+			return this._parent.declareVariable(name, this);
 		},
 		declareVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return BleedingScope.prototype.__ks_func_declareVariable_0.apply(this, arguments);
 			}
 			else if(Scope.prototype.declareVariable) {
@@ -39121,7 +39127,7 @@ module.exports = function() {
 				SyntaxException.throwAlreadyDeclared(name, node);
 			}
 			this._variables[name] = [this._parent.line(), variable];
-			var newName = this._parent.declareVariable(name);
+			var newName = this._parent.declareVariable(name, this);
 			if(KSType.isValue(newName)) {
 				this._renamedVariables[name] = newName;
 				variable.renameAs(newName);
@@ -39748,15 +39754,21 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_declareVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_declareVariable_0: function(name, scope) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
+			}
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			else if(!KSType.isInstance(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
 			}
 			if(($keywords[name] === true) || (this._declarations[name] === true)) {
 				var newName = this.getNewName(name);
@@ -39771,7 +39783,7 @@ module.exports = function() {
 			}
 		},
 		declareVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return BlockScope.prototype.__ks_func_declareVariable_0.apply(this, arguments);
 			}
 			else if(Scope.prototype.declareVariable) {
@@ -39874,7 +39886,7 @@ module.exports = function() {
 				variables.push(this.line(), variable);
 			}
 			else {
-				var newName = this.declareVariable(name);
+				var newName = this.declareVariable(name, this);
 				if(KSType.isValue(newName)) {
 					this._renamedVariables[name] = newName;
 					variable.renameAs(newName);
@@ -40917,15 +40929,21 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_declareVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_declareVariable_0: function(name, scope) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
+			}
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			else if(!KSType.isInstance(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
 			}
 			if((name === "this") || (this._extending && (name === "super"))) {
 				this._declarations[name] = true;
@@ -40944,7 +40962,7 @@ module.exports = function() {
 			}
 		},
 		declareVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return FunctionScope.prototype.__ks_func_declareVariable_0.apply(this, arguments);
 			}
 			return BlockScope.prototype.declareVariable.apply(this, arguments);
@@ -41032,9 +41050,9 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_declareVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_declareVariable_0: function(name, scope) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41042,10 +41060,16 @@ module.exports = function() {
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
 			}
-			return this._parent.declareVariable(name);
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			else if(!KSType.isInstance(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
+			}
+			return this._parent.declareVariable(name, this);
 		},
 		declareVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return HollowScope.prototype.__ks_func_declareVariable_0.apply(this, arguments);
 			}
 			else if(Scope.prototype.declareVariable) {
@@ -41724,9 +41748,9 @@ module.exports = function() {
 			}
 			return BlockScope.prototype.acquireUnusedTempName.apply(this, arguments);
 		},
-		__ks_func_declareVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_declareVariable_0: function(name, scope) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
@@ -41734,7 +41758,13 @@ module.exports = function() {
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
 			}
-			if(($keywords[name] === true) || ((this._declarations[name] === true) && KSType.isArray(this._variables[name]))) {
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			else if(!KSType.isInstance(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
+			}
+			if(($keywords[name] === true) || ((this._declarations[name] === true) && KSType.isArray(this._variables[name])) || (scope.isBleeding() && (this._parent.hasDefinedVariable(name) === true))) {
 				var newName = this.getNewName(name);
 				if(!KSType.isArray(this._variables[name])) {
 					this._declarations[newName] = true;
@@ -41747,10 +41777,34 @@ module.exports = function() {
 			}
 		},
 		declareVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return InlineBlockScope.prototype.__ks_func_declareVariable_0.apply(this, arguments);
 			}
 			return BlockScope.prototype.declareVariable.apply(this, arguments);
+		},
+		__ks_func_getNewName_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			else if(!KSType.isString(name)) {
+				throw new TypeError("'name' is not of type 'String'");
+			}
+			var index = this.getRenamedIndex(name);
+			var newName = "__ks_" + name + "_" + ++index;
+			while(this.hasRenamedVariable(newName)) {
+				newName = "__ks_" + name + "_" + ++index;
+			}
+			this._renamedIndexes[name] = index;
+			return newName;
+		},
+		getNewName: function() {
+			if(arguments.length === 1) {
+				return InlineBlockScope.prototype.__ks_func_getNewName_0.apply(this, arguments);
+			}
+			return BlockScope.prototype.getNewName.apply(this, arguments);
 		},
 		__ks_func_getRenamedIndex_0: function(name) {
 			if(arguments.length < 1) {
@@ -41781,6 +41835,35 @@ module.exports = function() {
 				return InlineBlockScope.prototype.__ks_func_getTempIndex_0.apply(this);
 			}
 			return BlockScope.prototype.getTempIndex.apply(this, arguments);
+		},
+		__ks_func_hasRenamedVariable_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			else if(!KSType.isString(name)) {
+				throw new TypeError("'name' is not of type 'String'");
+			}
+			var parent = this;
+			do {
+				if(parent.hasDeclaredVariable(name)) {
+					return true;
+				}
+				parent = parent.parent();
+			}
+			while(parent.isInline())
+			return parent.hasDeclaredVariable(name);
+		},
+		hasRenamedVariable: function() {
+			if(arguments.length === 1) {
+				return InlineBlockScope.prototype.__ks_func_hasRenamedVariable_0.apply(this, arguments);
+			}
+			else if(BlockScope.prototype.hasRenamedVariable) {
+				return BlockScope.prototype.hasRenamedVariable.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_isInline_0: function() {
 			return true;
@@ -41843,7 +41926,7 @@ module.exports = function() {
 			if(!nf) {
 				this._renamedIndexes[name] = parent.getRenamedIndex(name);
 			}
-			var newName = this.declareVariable(name);
+			var newName = this.declareVariable(name, this);
 			this._renamedVariables[name] = newName;
 			this._declarations[newName] = true;
 			var variable = this.getVariable(name);
@@ -41932,15 +42015,21 @@ module.exports = function() {
 		__ks_cons: function(args) {
 			InlineBlockScope.prototype.__ks_cons.call(this, args);
 		},
-		__ks_func_declareVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_declareVariable_0: function(name, scope) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
+			}
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			else if(!KSType.isInstance(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
 			}
 			if(($keywords[name] === true) || this.hasRenamedVariable(name)) {
 				var newName = this.getNewName(name);
@@ -41955,63 +42044,10 @@ module.exports = function() {
 			}
 		},
 		declareVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return LaxInlineBlockScope.prototype.__ks_func_declareVariable_0.apply(this, arguments);
 			}
 			return InlineBlockScope.prototype.declareVariable.apply(this, arguments);
-		},
-		__ks_func_getNewName_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(name === void 0 || name === null) {
-				throw new TypeError("'name' is not nullable");
-			}
-			else if(!KSType.isString(name)) {
-				throw new TypeError("'name' is not of type 'String'");
-			}
-			var index = this.getRenamedIndex(name);
-			var newName = "__ks_" + name + "_" + ++index;
-			while(this.hasRenamedVariable(newName)) {
-				newName = "__ks_" + name + "_" + ++index;
-			}
-			this._renamedIndexes[name] = index;
-			return newName;
-		},
-		getNewName: function() {
-			if(arguments.length === 1) {
-				return LaxInlineBlockScope.prototype.__ks_func_getNewName_0.apply(this, arguments);
-			}
-			return InlineBlockScope.prototype.getNewName.apply(this, arguments);
-		},
-		__ks_func_hasRenamedVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(name === void 0 || name === null) {
-				throw new TypeError("'name' is not nullable");
-			}
-			else if(!KSType.isString(name)) {
-				throw new TypeError("'name' is not of type 'String'");
-			}
-			var parent = this;
-			do {
-				if(parent.hasDeclaredVariable(name)) {
-					return true;
-				}
-				parent = parent.parent();
-			}
-			while(parent.isInline())
-			return parent.hasDeclaredVariable(name);
-		},
-		hasRenamedVariable: function() {
-			if(arguments.length === 1) {
-				return LaxInlineBlockScope.prototype.__ks_func_hasRenamedVariable_0.apply(this, arguments);
-			}
-			else if(InlineBlockScope.prototype.hasRenamedVariable) {
-				return InlineBlockScope.prototype.hasRenamedVariable.apply(this, arguments);
-			}
-			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_isBleeding_0: function() {
 			return true;
@@ -42140,15 +42176,21 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_declareVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_declareVariable_0: function(name, scope) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
+			}
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			else if(!KSType.isInstance(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
 			}
 			if(($keywords[name] === true) || KSType.isNumber(this._renamedIndexes[name])) {
 				var index = KSType.isNumber(this._renamedIndexes[name]) ? this._renamedIndexes[name] : 0;
@@ -42164,7 +42206,7 @@ module.exports = function() {
 			}
 		},
 		declareVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return MacroScope.prototype.__ks_func_declareVariable_0.apply(this, arguments);
 			}
 			else if(Scope.prototype.declareVariable) {
@@ -42263,7 +42305,7 @@ module.exports = function() {
 				SyntaxException.throwAlreadyDeclared(name, node);
 			}
 			this._variables[name] = variable;
-			var newName = this.declareVariable(name);
+			var newName = this.declareVariable(name, this);
 			if(KSType.isValue(newName)) {
 				this._renamedVariables[name] = newName;
 				variable.renameAs(newName);
@@ -42760,15 +42802,21 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_declareVariable_0: function(name) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_declareVariable_0: function(name, scope) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
 			else if(!KSType.isString(name)) {
 				throw new TypeError("'name' is not of type 'String'");
+			}
+			if(scope === void 0 || scope === null) {
+				throw new TypeError("'scope' is not nullable");
+			}
+			else if(!KSType.isInstance(scope, Scope)) {
+				throw new TypeError("'scope' is not of type 'Scope'");
 			}
 			if(($keywords[name] === true) || ((this._declarations[name] === true) && KSType.isArray(this._variables[name]))) {
 				var newName = this.getNewName(name);
@@ -42783,7 +42831,7 @@ module.exports = function() {
 			}
 		},
 		declareVariable: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return ModuleScope.prototype.__ks_func_declareVariable_0.apply(this, arguments);
 			}
 			else if(Scope.prototype.declareVariable) {
@@ -42886,7 +42934,7 @@ module.exports = function() {
 				variables.push(this._line, variable);
 			}
 			else {
-				var newName = this.declareVariable(name);
+				var newName = this.declareVariable(name, this);
 				if(KSType.isValue(newName)) {
 					this._renamedVariables[name] = newName;
 					variable.renameAs(newName);
