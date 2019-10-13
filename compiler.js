@@ -14609,8 +14609,8 @@ module.exports = function() {
 			if(KSType.isArray(value)) {
 				source[key] = __ks_Array._im_clone(value);
 			}
-			else if(KSType.isDictionary(value)) {
-				if(KSType.isDictionary(source[key])) {
+			else if(!KSType.isPrimitive(value)) {
+				if(KSType.isDictionary(source[key]) || KSType.isObject(source[key])) {
 					$merge.object(source[key], value);
 				}
 				else {
@@ -14907,7 +14907,7 @@ module.exports = function() {
 		}
 		++i;
 		while(i < l) {
-			if(KSType.isDictionary(args[i])) {
+			if(KSType.isDictionary(args[i]) || KSType.isObject(args[i])) {
 				for(var key in args[i]) {
 					var value = args[i][key];
 					$merge.merge(source, key, value);
@@ -23424,7 +23424,7 @@ module.exports = function() {
 		__ks_func_line_0: function() {
 			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var line = this.newLine(this._indent);
-			if((args.length === 1) && KSType.isDictionary(args[0])) {
+			if((args.length === 1) && !KSType.isPrimitive(args[0])) {
 				line.compile(args[0]);
 			}
 			else {
@@ -23456,7 +23456,7 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				mode = Mode.None;
 			}
-			if(KSType.isDictionary(node)) {
+			if(!KSType.isPrimitive(node)) {
 				node.toFragments(this, mode);
 			}
 			else {
@@ -23476,7 +23476,7 @@ module.exports = function() {
 		__ks_func_line_0: function() {
 			var args = Array.prototype.slice.call(arguments, 0, arguments.length);
 			var line = this._writer.newLine(this._indent + 1);
-			if((args.length === 1) && KSType.isDictionary(args[0])) {
+			if((args.length === 1) && !KSType.isPrimitive(args[0])) {
 				line.compile(args[0]);
 			}
 			else {
@@ -23636,11 +23636,11 @@ module.exports = function() {
 				if(KSType.isArray(arg)) {
 					this.code.apply(this, arg);
 				}
-				else if(KSType.isDictionary(arg)) {
+				else if(!KSType.isPrimitive(arg)) {
 					this._writer.push(arg);
 				}
 				else {
-					if(((i + 1) < args.length) && KSType.isDictionary(data = args[i + 1]) && KSType.isValue(data.kind)) {
+					if(((i + 1) < args.length) && !KSType.isPrimitive(data = args[i + 1]) && KSType.isValue(data.kind)) {
 						if(KSType.isValue(data.start)) {
 							this._writer.push(this._writer.newFragment(arg, data.start, data.end));
 						}
@@ -23669,7 +23669,7 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				mode = Mode.None;
 			}
-			if(KSType.isDictionary(node)) {
+			if(!KSType.isPrimitive(node)) {
 				node.toFragments(this, mode);
 			}
 			else {
@@ -23696,7 +23696,7 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				mode = Mode.None;
 			}
-			if(KSType.isDictionary(node)) {
+			if(!KSType.isPrimitive(node)) {
 				node.toBooleanFragments(this, mode);
 			}
 			else {
@@ -23720,7 +23720,7 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			if(KSType.isDictionary(node)) {
+			if(!KSType.isPrimitive(node)) {
 				node.toNullableFragments(this);
 			}
 			else {
@@ -23744,7 +23744,7 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			if(KSType.isDictionary(node)) {
+			if(!KSType.isPrimitive(node)) {
 				node.toReusableFragments(this);
 			}
 			else {
@@ -87625,7 +87625,7 @@ module.exports = function() {
 					return d;
 				})();
 			}
-			else if(!KSType.isDictionary(this._options.target) || !($targetRegex.test("" + this._options.target.name + "-v" + this._options.target.version) === true)) {
+			else if(!(KSType.isDictionary(this._options.target) || KSType.isObject(this._options.target)) || !($targetRegex.test("" + this._options.target.name + "-v" + this._options.target.version) === true)) {
 				throw new Error("Undefined target");
 			}
 			this._options = $expandOptions(this._options);
