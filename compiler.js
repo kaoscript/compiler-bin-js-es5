@@ -53935,7 +53935,7 @@ module.exports = function() {
 			}
 		},
 		__ks_func_analyse_0: function() {
-			this._line = this._scope.line();
+			this._offset = this._scope.module().getLineOffset();
 			this._scope.define("this", true, Type.Any, this);
 			for(var __ks_0 = 0, __ks_1 = this._data.parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 				parameter = this._data.parameters[__ks_0];
@@ -53953,7 +53953,8 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_prepare_0: function() {
-			this._scope.line(KSOperator.subtraction(this._line, this._scope.module().getLineOffset()));
+			this._scope.module().setLineOffset(this._offset);
+			this._scope.line(this._data.start.line);
 			for(var __ks_0 = 0, __ks_1 = this._parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 				parameter = this._parameters[__ks_0];
 				parameter.prepare();
@@ -53972,6 +53973,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_translate_0: function() {
+			this._scope.module().setLineOffset(this._offset);
 			this._scope.line(this._data.start.line);
 			for(var __ks_0 = 0, __ks_1 = this._parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 				parameter = this._parameters[__ks_0];
