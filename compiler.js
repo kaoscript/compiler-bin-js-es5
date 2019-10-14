@@ -53546,47 +53546,19 @@ module.exports = function() {
 			Statement.prototype.__ks_init.call(this);
 			FunctionDeclaration.prototype.__ks_init_1.call(this);
 		},
-		__ks_cons_0: function(data, parent, scope) {
-			if(arguments.length < 3) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
-			}
-			if(data === void 0 || data === null) {
-				throw new TypeError("'data' is not nullable");
-			}
-			if(parent === void 0) {
-				parent = null;
-			}
-			else if(parent !== null && !KSType.isInstance(parent, AbstractNode)) {
-				throw new TypeError("'parent' is not of type 'AbstractNode?'");
-			}
-			if(scope === void 0) {
-				scope = null;
-			}
-			else if(scope !== null && !KSType.isInstance(scope, Scope)) {
-				throw new TypeError("'scope' is not of type 'Scope?'");
-			}
-			Statement.prototype.__ks_cons.call(this, [data, parent, scope, ScopeType.Function]);
-		},
 		__ks_cons: function(args) {
-			if(args.length === 3) {
-				FunctionDeclaration.prototype.__ks_cons_0.apply(this, args);
-			}
-			else {
-				throw new SyntaxError("Wrong number of arguments");
-			}
+			Statement.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_analyse_0: function() {
-			this._scope.define("this", true, Type.Any, this);
 			this._name = this._data.name.name;
-			var scope = this._parent.scope();
 			var __ks_0;
-			if(KSType.isValue(__ks_0 = scope.getDefinedVariable(this._name)) ? (this._variable = __ks_0, true) : false) {
+			if(KSType.isValue(__ks_0 = this._scope.getDefinedVariable(this._name)) ? (this._variable = __ks_0, true) : false) {
 				if(KSType.isInstance(this._variable, FunctionVariable)) {
 					var declarator = new FunctionDeclarator(this._variable, this._data, this);
 					declarator.analyse();
 				}
 				else {
-					scope.addStash(this._name, (function(variable) {
+					this._scope.addStash(this._name, (function(variable) {
 						if(arguments.length < 1) {
 							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 						}
@@ -53597,10 +53569,10 @@ module.exports = function() {
 						if(type.isFunction() === true) {
 							this._main = true;
 							this._extended = true;
-							this._variable = new FunctionVariable(scope, this._name, true);
+							this._variable = new FunctionVariable(this._scope, this._name, true);
 							this._variable.getRealType().addFunction(type);
-							scope.replaceVariable(this._name, this._variable);
-							this._oldVariableName = scope.getNewName(this._name);
+							this._scope.replaceVariable(this._name, this._variable);
+							this._oldVariableName = this._scope.getNewName(this._name);
 						}
 						else {
 							SyntaxException.throwNotOverloadableFunction(this._name, this);
@@ -53621,8 +53593,8 @@ module.exports = function() {
 			}
 			else {
 				this._main = true;
-				this._variable = new FunctionVariable(scope, this._name, false);
-				scope.defineVariable(this._variable, this);
+				this._variable = new FunctionVariable(this._scope, this._name, false);
+				this._scope.defineVariable(this._variable, this);
 				var declarator = new FunctionDeclarator(this._variable, this._data, this);
 				declarator.analyse();
 			}
@@ -53637,7 +53609,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_prepare_0: function() {
-			if(this._main || (this._parent.scope().processStash(this._name) === true)) {
+			if(this._main || (this._scope.processStash(this._name) === true)) {
 				this._variable.prepare();
 			}
 		},
@@ -53950,7 +53922,7 @@ module.exports = function() {
 			else if(parent !== null && !KSType.isInstance(parent, AbstractNode)) {
 				throw new TypeError("'parent' is not of type 'AbstractNode?'");
 			}
-			AbstractNode.prototype.__ks_cons.call(this, [data, parent]);
+			AbstractNode.prototype.__ks_cons.call(this, [data, parent, parent.scope(), ScopeType.Function]);
 			this._variable = variable;
 			variable.addDeclarator(this);
 		},
@@ -53963,6 +53935,8 @@ module.exports = function() {
 			}
 		},
 		__ks_func_analyse_0: function() {
+			this._line = this._scope.line();
+			this._scope.define("this", true, Type.Any, this);
 			for(var __ks_0 = 0, __ks_1 = this._data.parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 				parameter = this._data.parameters[__ks_0];
 				this._parameters.push(parameter = new Parameter(parameter, this));
@@ -53979,7 +53953,7 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_prepare_0: function() {
-			this._scope.line(this._data.start.line);
+			this._scope.line(KSOperator.subtraction(this._line, this._scope.module().getLineOffset()));
 			for(var __ks_0 = 0, __ks_1 = this._parameters.length, parameter; __ks_0 < __ks_1; ++__ks_0) {
 				parameter = this._parameters[__ks_0];
 				parameter.prepare();
