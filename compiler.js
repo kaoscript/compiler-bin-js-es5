@@ -37610,6 +37610,7 @@ module.exports = function() {
 				throw new TypeError("'mode' is not of type 'MatchingMode'");
 			}
 			console.log(value);
+			NotImplementedException.throw();
 		},
 		isMatching: function() {
 			if(arguments.length === 2) {
@@ -41846,6 +41847,27 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_getMacro_0: function(data, parent) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(data === void 0 || data === null) {
+				throw new TypeError("'data' is not nullable");
+			}
+			if(parent === void 0 || parent === null) {
+				throw new TypeError("'parent' is not nullable");
+			}
+			return this._parent.getMacro(data, parent);
+		},
+		getMacro: function() {
+			if(arguments.length === 2) {
+				return HollowScope.prototype.__ks_func_getMacro_0.apply(this, arguments);
+			}
+			else if(Scope.prototype.getMacro) {
+				return Scope.prototype.getMacro.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_getRenamedIndex_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -41993,6 +42015,21 @@ module.exports = function() {
 				return Scope.prototype.hasDeclaredVariable.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_hasMacro_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			return this._parent.hasMacro(name);
+		},
+		hasMacro: function() {
+			if(arguments.length === 1) {
+				return HollowScope.prototype.__ks_func_hasMacro_0.apply(this, arguments);
+			}
+			return Scope.prototype.hasMacro.apply(this, arguments);
 		},
 		__ks_func_hasVariable_0: function(name) {
 			if(arguments.length < 1) {
