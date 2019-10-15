@@ -54490,6 +54490,13 @@ module.exports = function() {
 					var data = __ks_0[name];
 					this._whenTrueScope.updateInferable(name, data, this);
 				}
+				if(this._whenFalseExpression !== null) {
+					var __ks_0 = this._condition.inferContraryTypes(true);
+					for(var name in __ks_0) {
+						var data = __ks_0[name];
+						this._whenFalseScope.updateInferable(name, data, this);
+					}
+				}
 				this._condition.acquireReusable(false);
 				this._condition.releaseReusable();
 			}
@@ -59370,6 +59377,27 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_registerMacro_0: function(name, macro) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			if(macro === void 0 || macro === null) {
+				throw new TypeError("'macro' is not nullable");
+			}
+			return this._parent.registerMacro(name, macro);
+		},
+		registerMacro: function() {
+			if(arguments.length === 2) {
+				return IncludeDeclaration.prototype.__ks_func_registerMacro_0.apply(this, arguments);
+			}
+			else if(Statement.prototype.registerMacro) {
+				return Statement.prototype.registerMacro.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
@@ -59596,6 +59624,27 @@ module.exports = function() {
 			}
 			else if(Statement.prototype.recipient) {
 				return Statement.prototype.recipient.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_registerMacro_0: function(name, macro) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			if(macro === void 0 || macro === null) {
+				throw new TypeError("'macro' is not nullable");
+			}
+			return this._parent.registerMacro(name, macro);
+		},
+		registerMacro: function() {
+			if(arguments.length === 2) {
+				return IncludeDeclarator.prototype.__ks_func_registerMacro_0.apply(this, arguments);
+			}
+			else if(Statement.prototype.registerMacro) {
+				return Statement.prototype.registerMacro.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
