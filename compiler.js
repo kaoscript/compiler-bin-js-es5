@@ -17024,7 +17024,7 @@ module.exports = function() {
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
 				}
-				throw new TypeException("The " + operator + " member " + expression.toQuote(true) + " is expected to be of type \"" + $operatorTypes[operator].join("\", \"") + "\" or \"Any\" and not of type " + expression.type().toQuote(true), node);
+				throw new TypeException("The expression " + expression.toQuote(true) + " of type " + expression.type().toQuote(true) + " is expected to be of type \"" + $operatorTypes[operator].join("\", \"") + "\" or \"Any\" in a " + operator + " operation", node);
 			},
 			throwInvalidOperand: function() {
 				if(arguments.length === 3) {
@@ -17270,7 +17270,7 @@ module.exports = function() {
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
 				}
-				throw new TypeException("The " + operator + " member " + expression.toQuote(true) + " can't be nullable", node);
+				throw new TypeException("The operand " + expression.toQuote(true) + " can't be nullable in a " + operator + " operation", node);
 			},
 			throwNotNullableOperand: function() {
 				if(arguments.length === 3) {
@@ -71145,6 +71145,18 @@ module.exports = function() {
 		__ks_cons: function(args) {
 			NumericComparisonOperator.prototype.__ks_cons.call(this, args);
 		},
+		__ks_func_operator_0: function() {
+			return Operator.GreaterThan;
+		},
+		operator: function() {
+			if(arguments.length === 0) {
+				return GreaterThanOperator.prototype.__ks_func_operator_0.apply(this);
+			}
+			else if(NumericComparisonOperator.prototype.operator) {
+				return NumericComparisonOperator.prototype.operator.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_runtime_0: function() {
 			return "gt";
 		},
@@ -71178,6 +71190,18 @@ module.exports = function() {
 		},
 		__ks_cons: function(args) {
 			NumericComparisonOperator.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_operator_0: function() {
+			return Operator.GreaterThanOrEqual;
+		},
+		operator: function() {
+			if(arguments.length === 0) {
+				return GreaterThanOrEqualOperator.prototype.__ks_func_operator_0.apply(this);
+			}
+			else if(NumericComparisonOperator.prototype.operator) {
+				return NumericComparisonOperator.prototype.operator.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_runtime_0: function() {
 			return "gte";
@@ -71213,6 +71237,18 @@ module.exports = function() {
 		__ks_cons: function(args) {
 			NumericComparisonOperator.prototype.__ks_cons.call(this, args);
 		},
+		__ks_func_operator_0: function() {
+			return Operator.LessThan;
+		},
+		operator: function() {
+			if(arguments.length === 0) {
+				return LessThanOperator.prototype.__ks_func_operator_0.apply(this);
+			}
+			else if(NumericComparisonOperator.prototype.operator) {
+				return NumericComparisonOperator.prototype.operator.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_runtime_0: function() {
 			return "lt";
 		},
@@ -71246,6 +71282,18 @@ module.exports = function() {
 		},
 		__ks_cons: function(args) {
 			NumericComparisonOperator.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_operator_0: function() {
+			return Operator.LessThanOrEqual;
+		},
+		operator: function() {
+			if(arguments.length === 0) {
+				return LessThanOrEqualOperator.prototype.__ks_func_operator_0.apply(this);
+			}
+			else if(NumericComparisonOperator.prototype.operator) {
+				return NumericComparisonOperator.prototype.operator.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_runtime_0: function() {
 			return "lte";
@@ -77956,7 +78004,7 @@ module.exports = function() {
 		String: 2
 	});
 	var Operator = KSHelper.enum(String, {
-		Addition: "addition",
+		Addition: "additive",
 		And: "and",
 		BitwiseAnd: "bitwise-and",
 		BitwiseLeftShift: "bitwise-left-shift",
@@ -77966,16 +78014,20 @@ module.exports = function() {
 		BitwiseXor: "bitwise-xor",
 		DecrementPostfix: "postfix-decrement",
 		DecrementPrefix: "prefix-decrement",
-		Division: "division",
+		Division: "divisive",
+		GreaterThan: "greater-than",
+		GreaterThanOrEqual: "greater-than-or-equal",
 		Imply: "imply",
 		IncrementPostfix: "postfix-increment",
 		IncrementPrefix: "prefix-increment",
+		LessThan: "less-than",
+		LessThanOrEqual: "less-than-or-equal",
 		Modulo: "modulo",
-		Multiplication: "multiplication",
+		Multiplication: "multiplicative",
 		Negative: "negative",
 		Or: "or",
 		Quotient: "quotient",
-		Subtraction: "subtraction",
+		Subtraction: "subtractive",
 		Xor: "xor"
 	});
 	var $operatorTypes = (function() {
