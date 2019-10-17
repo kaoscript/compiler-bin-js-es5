@@ -84839,20 +84839,20 @@ module.exports = function() {
 			})(this));
 			var line = builder.newLine().code("func(__ks_evaluate, __ks_reificate");
 			var auto;
-			for(var __ks_1 = 0, __ks_2 = this._data.parameters.length; __ks_1 < __ks_2; ++__ks_1) {
-				data = this._data.parameters[__ks_1];
-				line.code(", ", data.name.name);
-				if(KSType.isValue(data.defaultValue)) {
-					line.code(" = ").expression(data.defaultValue);
+			for(var __ks_1 = 0, __ks_2 = this._data.parameters.length, __ks_data_1; __ks_1 < __ks_2; ++__ks_1) {
+				__ks_data_1 = this._data.parameters[__ks_1];
+				line.code(", ", __ks_data_1.name.name);
+				if(KSType.isValue(__ks_data_1.defaultValue)) {
+					line.code(" = ").expression(__ks_data_1.defaultValue);
 				}
 				auto = false;
-				for(var __ks_3 = 0, __ks_4 = data.modifiers.length, modifier; __ks_3 < __ks_4 && !(auto); ++__ks_3) {
-					modifier = data.modifiers[__ks_3];
+				for(var __ks_3 = 0, __ks_4 = __ks_data_1.modifiers.length, modifier; __ks_3 < __ks_4 && !(auto); ++__ks_3) {
+					modifier = __ks_data_1.modifiers[__ks_3];
 					if(KSHelper.valueOf(modifier.kind) === ModifierKind.AutoEvaluate.value) {
 						auto = true;
 					}
 				}
-				this._parameters[data.name.name] = auto ? MacroVariableKind.AutoEvaluated : MacroVariableKind.AST;
+				this._parameters[__ks_data_1.name.name] = auto ? MacroVariableKind.AutoEvaluated : MacroVariableKind.AST;
 			}
 			var block = line.code(")").newBlock();
 			for(var __ks_name_1 in this._parameters) {
@@ -85076,7 +85076,12 @@ module.exports = function() {
 						}
 					}
 					else if(__ks_1 === MacroElementKind.Literal.value) {
-						fragments.code($quote(element.value.replace(/\\/g, "\\\\")));
+						if(element.value[0] === "\\") {
+							fragments.code($quote(element.value.substr(1).replace(/\\/g, "\\\\")));
+						}
+						else {
+							fragments.code($quote(element.value.replace(/\\/g, "\\\\")));
+						}
 					}
 					else if(__ks_1 === MacroElementKind.NewLine.value) {
 						fragments.code("\"\\n\"");
