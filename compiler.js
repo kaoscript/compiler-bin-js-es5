@@ -78043,6 +78043,7 @@ module.exports = function() {
 		LessThanOrEqual: "less-than-or-equal",
 		Modulo: "modulo",
 		Multiplication: "multiplicative",
+		Negation: "negation",
 		Negative: "negative",
 		Or: "or",
 		Quotient: "quotient",
@@ -78071,6 +78072,7 @@ module.exports = function() {
 		d[Operator.LessThanOrEqual] = ["Number"];
 		d[Operator.Modulo] = ["Number"];
 		d[Operator.Multiplication] = ["Number"];
+		d[Operator.Negation] = ["Boolean"];
 		d[Operator.Negative] = ["Number"];
 		d[Operator.Or] = ["Boolean"];
 		d[Operator.Quotient] = ["Number"];
@@ -83993,6 +83995,23 @@ module.exports = function() {
 		},
 		__ks_cons: function(args) {
 			UnaryOperatorExpression.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_prepare_0: function() {
+			UnaryOperatorExpression.prototype.prepare.apply(this, []);
+			if(this._argument.type().isBoolean() === true) {
+				if(this._argument.type().isNullable() === true) {
+					TypeException.throwNotNullableOperand(this._argument, Operator.Negation, this);
+				}
+			}
+			else if(!(this._argument.type().canBeBoolean() === true)) {
+				TypeException.throwInvalidOperand(this._argument, Operator.Negation, this);
+			}
+		},
+		prepare: function() {
+			if(arguments.length === 0) {
+				return UnaryOperatorNegation.prototype.__ks_func_prepare_0.apply(this);
+			}
+			return UnaryOperatorExpression.prototype.prepare.apply(this, arguments);
 		},
 		__ks_func_inferTypes_0: function() {
 			return this._argument.inferContraryTypes(false);
