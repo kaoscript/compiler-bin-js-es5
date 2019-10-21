@@ -24377,10 +24377,15 @@ module.exports = function() {
 					return (data === "Any") ? Type.Any : scope.reference(data);
 				}
 				else if(KSType.isArray(data)) {
-					if(KSType.isNumber(data[0])) {
-						var type = references[data[0]];
+					var index = data[0];
+					if(KSType.isNumber(index)) {
+						var type = references[index];
+						if(!KSType.isValue(type)) {
+							type = Type.fromMetadata(index, metadata, references, alterations, queue, scope, node);
+						}
 						if(!KSType.isInstance(type, NamedType)) {
 							type = new NamedType(data[1], type);
+							references[index] = type;
 						}
 						return type;
 					}
