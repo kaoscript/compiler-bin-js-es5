@@ -44829,6 +44829,32 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_reassignReference_0: function(oldName, newName, newScope) {
+			if(arguments.length < 3) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			}
+			if(oldName === void 0 || oldName === null) {
+				throw new TypeError("'oldName' is not nullable");
+			}
+			if(newName === void 0 || newName === null) {
+				throw new TypeError("'newName' is not nullable");
+			}
+			if(newScope === void 0 || newScope === null) {
+				throw new TypeError("'newScope' is not nullable");
+			}
+			if(KSType.isValue(this._references[oldName])) {
+				this._references[oldName].reassign(newName, newScope);
+			}
+		},
+		reassignReference: function() {
+			if(arguments.length === 3) {
+				return ModuleScope.prototype.__ks_func_reassignReference_0.apply(this, arguments);
+			}
+			else if(Scope.prototype.reassignReference) {
+				return Scope.prototype.reassignReference.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_reference_0: function(value) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -57052,7 +57078,7 @@ module.exports = function() {
 					break;
 				}
 			}
-			if(data.required === true) {
+			if(argument.required === true) {
 				var variable, __ks_0;
 				if((KSType.isValue(__ks_0 = this._scope.getVariable(data.value.name)) ? (variable = __ks_0, true) : false) && !(variable.getDeclaredType().isPredefined() === true)) {
 					ReferenceException.throwDefined(data.value.name, this);
@@ -57368,12 +57394,72 @@ module.exports = function() {
 			}
 			this._isKSFile = true;
 			this._moduleName = moduleName;
+			var autofill = false;
+			for(var __ks_0 = 0, __ks_1 = this._data.modifiers.length, modifer; __ks_0 < __ks_1; ++__ks_0) {
+				modifer = this._data.modifiers[__ks_0];
+				if(KSHelper.valueOf(modifer.kind) === ModifierKind.Autofill.value) {
+					autofill = true;
+				}
+			}
 			this._worker = new ImportWorker(this._metadata, this);
 			if(KSType.isValue(this._data.arguments) ? this._data.arguments.length !== 0 : false) {
 				for(var __ks_0 = 0, __ks_1 = this._data.arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
 					argument = this._data.arguments[__ks_0];
 					this.addArgument(argument);
 				}
+				if(autofill) {
+					for(var i = 0, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
+						var __ks_name_1 = this._metadata.requirements[i + 1];
+						if(!KSType.isValue(this._argumentNames[__ks_name_1])) {
+							if(this._scope.hasVariable(__ks_name_1) === true) {
+								this.addArgument((function() {
+									var d = new Dictionary();
+									d.modifiers = [];
+									d.value = (function() {
+										var d = new Dictionary();
+										d.kind = NodeKind.Identifier;
+										d.name = __ks_name_1;
+										return d;
+									})();
+									return d;
+								})());
+							}
+							else if(this._metadata.requirements[i + 2] === true) {
+								SyntaxException.throwMissingRequirement(__ks_name_1, this);
+							}
+						}
+					}
+				}
+			}
+			else if(autofill) {
+				for(var i = 0, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
+					var __ks_name_1 = this._metadata.requirements[i + 1];
+					if(this._scope.hasVariable(__ks_name_1) === true) {
+						this.addArgument((function() {
+							var d = new Dictionary();
+							d.modifiers = [];
+							d.value = (function() {
+								var d = new Dictionary();
+								d.kind = NodeKind.Identifier;
+								d.name = __ks_name_1;
+								return d;
+							})();
+							return d;
+						})());
+					}
+					else if(this._metadata.requirements[i + 2] === true) {
+						SyntaxException.throwMissingRequirement(__ks_name_1, this);
+					}
+				}
+			}
+			else {
+				for(var i = 1, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
+					if(this._metadata.requirements[i + 1] === true) {
+						SyntaxException.throwMissingRequirement(this._metadata.requirements[i], this);
+					}
+				}
+			}
+			if(this._arguments.length !== 0) {
 				var requirements = [];
 				for(var i = 0, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
 					var __ks_name_1 = this._metadata.requirements[i + 1];
@@ -57413,13 +57499,6 @@ module.exports = function() {
 					}
 					return KSOperator.subtraction(a.index, b.index);
 				});
-			}
-			else {
-				for(var i = 1, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
-					if(this._metadata.requirements[i + 1] === true) {
-						SyntaxException.throwMissingRequirement(this._metadata.requirements[i], this);
-					}
-				}
 			}
 			var macros = new Dictionary();
 			for(var i = 0, __ks_0 = this._metadata.macros.length; i < __ks_0; i += 2) {
@@ -57742,22 +57821,25 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toImportFragments_0: function(fragments) {
+		__ks_func_toImportFragments_0: function(fragments, aliases) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
+			if(aliases === void 0) {
+				aliases = null;
+			}
 			if(this._isKSFile) {
-				this.toKSFileFragments(fragments);
+				this.toKSFileFragments(fragments, aliases);
 			}
 			else {
 				this.toNodeFileFragments(fragments);
 			}
 		},
 		toImportFragments: function() {
-			if(arguments.length === 1) {
+			if(arguments.length >= 1 && arguments.length <= 2) {
 				return Importer.prototype.__ks_func_toImportFragments_0.apply(this, arguments);
 			}
 			else if(Statement.prototype.toImportFragments) {
@@ -57765,12 +57847,18 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toKSFileFragments_0: function(fragments) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+		__ks_func_toKSFileFragments_0: function(fragments, aliases) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
+			}
+			if(aliases === void 0) {
+				aliases = null;
+			}
+			else if(aliases !== null && !KSType.isDictionary(aliases)) {
+				throw new TypeError("'aliases' is not of type 'Dictionary?'");
 			}
 			if(this._count === 0) {
 				if(this._alias !== null) {
@@ -57811,29 +57899,34 @@ module.exports = function() {
 							line.done();
 							variable = "__ks__";
 						}
-						var line = fragments.newLine().code("var ");
-						var nf = false;
-						for(var name in this._variables) {
-							var alias = this._variables[name];
-							if(nf) {
-								line.code(", ");
-							}
-							else {
-								nf = true;
-							}
-							if((alias === name) && ($virtuals[name] === true)) {
-								line.code("__ks_" + alias + " = " + variable + ".__ks_" + name);
-							}
-							else {
-								line.code("" + alias + " = " + variable + "." + name);
-								if(this._sealedVariables[name] === true) {
-									line.code(", __ks_" + alias + " = " + variable + ".__ks_" + name);
+						if(!KSType.isValue(aliases)) {
+							var line = fragments.newLine().code("var ");
+							var nf = false;
+							for(var name in this._variables) {
+								var alias = this._variables[name];
+								if(nf) {
+									line.code(", ");
+								}
+								else {
+									nf = true;
+								}
+								if((alias === name) && ($virtuals[name] === true)) {
+									line.code("__ks_" + alias + " = " + variable + ".__ks_" + name);
+								}
+								else {
+									line.code("" + alias + " = " + variable + "." + name);
+									if(this._sealedVariables[name] === true) {
+										line.code(", __ks_" + alias + " = " + variable + ".__ks_" + name);
+									}
 								}
 							}
+							line.done();
 						}
-						line.done();
 					}
 					else {
+						if(!KSType.isValue(aliases)) {
+							aliases = new Dictionary();
+						}
 						var line = fragments.newLine().code("var {");
 						var nf = false;
 						for(var name in this._variables) {
@@ -57849,9 +57942,18 @@ module.exports = function() {
 									line.code("__ks_" + name);
 								}
 								else {
-									line.code(name);
-									if(this._sealedVariables[name] === true) {
-										line.code(", __ks_" + name);
+									var ralias = aliases[name];
+									if(KSType.isValue(ralias)) {
+										line.code(ralias);
+										if(this._sealedVariables[name] === true) {
+											line.code(", __ks_" + ralias);
+										}
+									}
+									else {
+										line.code(name);
+										if(this._sealedVariables[name] === true) {
+											line.code(", __ks_" + name);
+										}
 									}
 								}
 							}
@@ -57870,7 +57972,7 @@ module.exports = function() {
 			}
 		},
 		toKSFileFragments: function() {
-			if(arguments.length === 1) {
+			if(arguments.length === 2) {
 				return Importer.prototype.__ks_func_toKSFileFragments_0.apply(this, arguments);
 			}
 			else if(Statement.prototype.toKSFileFragments) {
@@ -58972,6 +59074,10 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				throw new TypeError("'mode' is not nullable");
 			}
+			for(var __ks_0 = 0, __ks_1 = this._declarators.length, declarator; __ks_0 < __ks_1; ++__ks_0) {
+				declarator = this._declarators[__ks_0];
+				declarator.toStatementFragments(fragments, mode);
+			}
 		},
 		toStatementFragments: function() {
 			if(arguments.length === 2) {
@@ -59013,6 +59119,12 @@ module.exports = function() {
 					throw new NotImplementedException(this);
 				}
 			}
+			if(this._requirements.length > 0) {
+				for(var __ks_0 = 0, __ks_1 = this._requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
+					requirement = this._requirements[__ks_0];
+					requirement.acquireTempName();
+				}
+			}
 			if(this._alias !== null) {
 				throw new NotImplementedException(this);
 			}
@@ -59035,88 +59147,6 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toAltFragments_0: function(fragments) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(fragments === void 0 || fragments === null) {
-				throw new TypeError("'fragments' is not nullable");
-			}
-			if(this._printed) {
-				return;
-			}
-			if(this._requirements.length === 1) {
-				var requirement = this._requirements[0];
-				var ctrl = fragments.newControl().code("if(" + $runtime.type(this) + ".isValue(" + requirement.parameter() + "))").step();
-				if(requirement.isFlexible() === true) {
-					ctrl.line("req.push(" + requirement.parameter() + ", __ks_" + requirement.parameter() + ")").step().code("else").step();
-					this.toImportFragments(ctrl);
-					ctrl.line("req.push(" + requirement.name() + ", __ks_" + requirement.name() + ")");
-					ctrl.done();
-				}
-				else {
-					ctrl.line("req.push(" + requirement.parameter() + ")").step().code("else").step();
-					this.toImportFragments(ctrl);
-					ctrl.line("req.push(" + requirement.name() + ")");
-					ctrl.done();
-				}
-			}
-			else {
-				for(var __ks_0 = 0, __ks_1 = this._requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
-					requirement = this._requirements[__ks_0];
-					fragments.line("var " + requirement.parameter() + "_valuable = " + $runtime.type(this) + ".isValue(" + requirement.parameter() + ")");
-				}
-				var ctrl = fragments.newControl().code("if(");
-				for(var index = 0, __ks_0 = this._requirements.length, requirement; index < __ks_0; ++index) {
-					requirement = this._requirements[index];
-					if(index !== 0) {
-						ctrl.code(" || ");
-					}
-					ctrl.code("!" + requirement.parameter() + "_valuable");
-				}
-				ctrl.code(")").step();
-				this.toImportFragments(ctrl);
-				for(var __ks_0 = 0, __ks_1 = this._requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
-					requirement = this._requirements[__ks_0];
-					if(requirement.isFlexible() === true) {
-						var control = ctrl.newControl().code("if(" + requirement.parameter() + "_valuable)").step();
-						control.line("req.push(" + requirement.parameter() + ", __ks_" + requirement.parameter() + ")").step();
-						control.code("else").step();
-						control.line("req.push(" + requirement.name() + ", " + requirement.type().getSealedName() + ")");
-						control.done();
-					}
-					else {
-						ctrl.line("req.push(" + requirement.parameter() + "_valuable ? " + requirement.parameter() + " : " + requirement.name() + ")");
-					}
-				}
-				ctrl.step().code("else").step();
-				var line = ctrl.newLine().code("req.push(");
-				for(var index = 0, __ks_0 = this._requirements.length, requirement; index < __ks_0; ++index) {
-					requirement = this._requirements[index];
-					if(index !== 0) {
-						line.code($comma);
-					}
-					if(requirement.isFlexible() === true) {
-						line.code("" + requirement.parameter() + ", __ks_" + requirement.parameter());
-					}
-					else {
-						line.code(requirement.parameter());
-					}
-				}
-				line.code(")").done();
-				ctrl.done();
-			}
-			this._printed = true;
-		},
-		toAltFragments: function() {
-			if(arguments.length === 1) {
-				return RequireOrImportDeclarator.prototype.__ks_func_toAltFragments_0.apply(this, arguments);
-			}
-			else if(Importer.prototype.toAltFragments) {
-				return Importer.prototype.toAltFragments.apply(this, arguments);
-			}
-			throw new SyntaxError("Wrong number of arguments");
-		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
@@ -59126,6 +59156,64 @@ module.exports = function() {
 			}
 			if(mode === void 0 || mode === null) {
 				throw new TypeError("'mode' is not nullable");
+			}
+			if(this._requirements.length === 1) {
+				var requirement = this._requirements[0];
+				var ctrl = fragments.newControl();
+				ctrl.code("if(!", $runtime.type(this), ".isValue(", requirement.name(), "))").step();
+				this.toImportFragments(ctrl);
+				ctrl.done();
+			}
+			else {
+				for(var __ks_0 = 0, __ks_1 = this._requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
+					requirement = this._requirements[__ks_0];
+					fragments.line("var " + requirement.tempName() + "_valuable = " + $runtime.type(this) + ".isValue(" + requirement.name() + ")");
+				}
+				var ctrl = fragments.newControl().code("if(");
+				var aliases = new Dictionary();
+				for(var index = 0, __ks_0 = this._requirements.length, requirement; index < __ks_0; ++index) {
+					requirement = this._requirements[index];
+					if(index !== 0) {
+						ctrl.code(" || ");
+					}
+					ctrl.code("!" + requirement.tempName() + "_valuable");
+					aliases[requirement.name()] = requirement.tempName();
+				}
+				ctrl.code(")").step();
+				this.toImportFragments(ctrl, aliases);
+				if(this._options.format.destructuring === "es5") {
+					for(var __ks_0 = 0, __ks_1 = this._requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
+						requirement = this._requirements[__ks_0];
+						if(requirement.isFlexible() === true) {
+							var control = ctrl.newControl().code("if(!" + requirement.tempName() + "_valuable)").step();
+							control.line("" + requirement.name() + " = __ks__." + requirement.name());
+							if(requirement.isFlexible() === true) {
+								control.line("__ks_" + requirement.name() + " = __ks__.__ks_" + requirement.name());
+							}
+							control.done();
+						}
+						else {
+							ctrl.line("" + requirement.name() + " = " + requirement.tempName() + "_valuable ? " + requirement.name() + " : __ks__." + requirement.name());
+						}
+					}
+				}
+				else {
+					for(var __ks_0 = 0, __ks_1 = this._requirements.length, requirement; __ks_0 < __ks_1; ++__ks_0) {
+						requirement = this._requirements[__ks_0];
+						if(requirement.isFlexible() === true) {
+							var control = ctrl.newControl().code("if(!" + requirement.tempName() + "_valuable)").step();
+							control.line("" + requirement.name() + " = " + requirement.tempName());
+							if(requirement.isFlexible() === true) {
+								control.line("__ks_" + requirement.name() + " = __ks_" + requirement.tempName());
+							}
+							control.done();
+						}
+						else {
+							ctrl.line("" + requirement.name() + " = " + requirement.tempName() + "_valuable ? " + requirement.name() + " : " + requirement.tempName());
+						}
+					}
+				}
+				ctrl.done();
 			}
 		},
 		toStatementFragments: function() {
@@ -59346,9 +59434,32 @@ module.exports = function() {
 			}
 			Requirement.prototype.__ks_cons.call(this, [data, DependencyKind.Require, node]);
 		},
+		__ks_cons_2: function(variable, node) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(variable === void 0 || variable === null) {
+				throw new TypeError("'variable' is not nullable");
+			}
+			else if(!KSType.isInstance(variable, Variable)) {
+				throw new TypeError("'variable' is not of type 'Variable'");
+			}
+			if(node === void 0 || node === null) {
+				throw new TypeError("'node' is not nullable");
+			}
+			else if(!KSType.isInstance(node, AbstractNode)) {
+				throw new TypeError("'node' is not of type 'AbstractNode'");
+			}
+			Requirement.prototype.__ks_cons.call(this, [variable, node]);
+		},
 		__ks_cons: function(args) {
 			if(args.length === 2) {
-				StaticRequirement.prototype.__ks_cons_1.apply(this, args);
+				if(KSType.isInstance(args[0], Variable)) {
+					StaticRequirement.prototype.__ks_cons_2.apply(this, args);
+				}
+				else {
+					StaticRequirement.prototype.__ks_cons_1.apply(this, args);
+				}
 			}
 			else if(args.length === 3) {
 				StaticRequirement.prototype.__ks_cons_0.apply(this, args);
@@ -59705,9 +59816,9 @@ module.exports = function() {
 	});
 	var ROIDynamicRequirement = KSHelper.class({
 		$name: "ROIDynamicRequirement",
-		$extends: DynamicRequirement,
+		$extends: StaticRequirement,
 		__ks_init: function() {
-			DynamicRequirement.prototype.__ks_init.call(this);
+			StaticRequirement.prototype.__ks_init.call(this);
 		},
 		__ks_cons_0: function(variable, importer) {
 			if(arguments.length < 2) {
@@ -59722,7 +59833,7 @@ module.exports = function() {
 			if(importer === void 0 || importer === null) {
 				throw new TypeError("'importer' is not nullable");
 			}
-			DynamicRequirement.prototype.__ks_cons.call(this, [variable, this._importer = importer]);
+			StaticRequirement.prototype.__ks_cons.call(this, [variable, this._importer = importer]);
 			variable.getDeclaredType().condense();
 		},
 		__ks_cons: function(args) {
@@ -59733,21 +59844,36 @@ module.exports = function() {
 				throw new SyntaxError("Wrong number of arguments");
 			}
 		},
-		__ks_func_toAltFragments_0: function(fragments) {
-			if(arguments.length < 1) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
-			}
-			if(fragments === void 0 || fragments === null) {
-				throw new TypeError("'fragments' is not nullable");
-			}
-			return this._importer.toAltFragments(fragments);
+		__ks_func_acquireTempName_0: function() {
+			this._tempName = this._node.module().scope().acquireTempName(false);
 		},
-		toAltFragments: function() {
-			if(arguments.length === 1) {
-				return ROIDynamicRequirement.prototype.__ks_func_toAltFragments_0.apply(this, arguments);
+		acquireTempName: function() {
+			if(arguments.length === 0) {
+				return ROIDynamicRequirement.prototype.__ks_func_acquireTempName_0.apply(this);
 			}
-			else if(DynamicRequirement.prototype.toAltFragments) {
-				return DynamicRequirement.prototype.toAltFragments.apply(this, arguments);
+			else if(StaticRequirement.prototype.acquireTempName) {
+				return StaticRequirement.prototype.acquireTempName.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_isRequired_0: function() {
+			return false;
+		},
+		isRequired: function() {
+			if(arguments.length === 0) {
+				return ROIDynamicRequirement.prototype.__ks_func_isRequired_0.apply(this);
+			}
+			return StaticRequirement.prototype.isRequired.apply(this, arguments);
+		},
+		__ks_func_tempName_0: function() {
+			return this._tempName;
+		},
+		tempName: function() {
+			if(arguments.length === 0) {
+				return ROIDynamicRequirement.prototype.__ks_func_tempName_0.apply(this);
+			}
+			else if(StaticRequirement.prototype.tempName) {
+				return StaticRequirement.prototype.tempName.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		}
