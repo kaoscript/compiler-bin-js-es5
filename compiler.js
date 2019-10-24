@@ -24090,7 +24090,6 @@ module.exports = function() {
 		d.Enum = true;
 		d.Namespace = true;
 		d.Primitive = true;
-		d.Object = true;
 		return d;
 	})();
 	var ExportMode = KSHelper.enum(Number, {
