@@ -16145,6 +16145,27 @@ module.exports = function() {
 				}
 				throw new SyntaxError("Wrong number of arguments");
 			},
+			__ks_sttc_throwIllegalStatement_0: function(name, node) {
+				if(arguments.length < 2) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+				}
+				if(name === void 0 || name === null) {
+					throw new TypeError("'name' is not nullable");
+				}
+				if(node === void 0 || node === null) {
+					throw new TypeError("'node' is not nullable");
+				}
+				throw new SyntaxException("The statement \"" + name + "\" is illegal", node);
+			},
+			throwIllegalStatement: function() {
+				if(arguments.length === 2) {
+					return SyntaxException.__ks_sttc_throwIllegalStatement_0.apply(this, arguments);
+				}
+				else if(Exception.throwIllegalStatement) {
+					return Exception.throwIllegalStatement.apply(null, arguments);
+				}
+				throw new SyntaxError("Wrong number of arguments");
+			},
 			__ks_sttc_throwInvalidAwait_0: function(node) {
 				if(arguments.length < 1) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -46983,6 +47004,30 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_isJumpable_0: function() {
+			return false;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return Statement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			else if(AbstractNode.prototype.isJumpable) {
+				return AbstractNode.prototype.isJumpable.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_isLoop_0: function() {
+			return false;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return Statement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			else if(AbstractNode.prototype.isLoop) {
+				return AbstractNode.prototype.isLoop.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -47127,6 +47172,16 @@ module.exports = function() {
 			Statement.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_analyse_0: function() {
+			var parent = this._parent;
+			if(!(parent.isJumpable() === true)) {
+				SyntaxException.throwIllegalStatement("break", this);
+			}
+			while(!(parent.isLoop() === true)) {
+				parent = parent.parent();
+				if(!(KSType.isValue(parent) ? parent.isJumpable() === true : false)) {
+					SyntaxException.throwIllegalStatement("break", this);
+				}
+			}
 		},
 		analyse: function() {
 			if(arguments.length === 0) {
@@ -50942,6 +50997,16 @@ module.exports = function() {
 			Statement.prototype.__ks_cons.call(this, args);
 		},
 		__ks_func_analyse_0: function() {
+			var parent = this._parent;
+			if(!(parent.isJumpable() === true)) {
+				SyntaxException.throwIllegalStatement("continue", this);
+			}
+			while(!(parent.isLoop() === true)) {
+				parent = parent.parent();
+				if(!(KSType.isValue(parent) ? parent.isJumpable() === true : false)) {
+					SyntaxException.throwIllegalStatement("continue", this);
+				}
+			}
 		},
 		analyse: function() {
 			if(arguments.length === 0) {
@@ -51249,6 +51314,24 @@ module.exports = function() {
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
 		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return DoUntilStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
+		__ks_func_isLoop_0: function() {
+			return true;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return DoUntilStatement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			return Statement.prototype.isLoop.apply(this, arguments);
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -51357,6 +51440,24 @@ module.exports = function() {
 				return DoWhileStatement.prototype.__ks_func_checkReturnType_0.apply(this, arguments);
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
+		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return DoWhileStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
+		__ks_func_isLoop_0: function() {
+			return true;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return DoWhileStatement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			return Statement.prototype.isLoop.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -52481,6 +52582,15 @@ module.exports = function() {
 			}
 			return Statement.prototype.isExit.apply(this, arguments);
 		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return ExpressionStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -52574,6 +52684,82 @@ module.exports = function() {
 				return ExpressionStatement.prototype.__ks_func_toFragments_0.apply(this, arguments);
 			}
 			return Statement.prototype.toFragments.apply(this, arguments);
+		}
+	});
+	var FallthroughStatement = KSHelper.class({
+		$name: "FallthroughStatement",
+		$extends: Statement,
+		__ks_init: function() {
+			Statement.prototype.__ks_init.call(this);
+		},
+		__ks_cons: function(args) {
+			Statement.prototype.__ks_cons.call(this, args);
+		},
+		__ks_func_analyse_0: function() {
+			var parent = this._parent;
+			if(!(parent.isJumpable() === true)) {
+				SyntaxException.throwIllegalStatement("fallthrough", this);
+			}
+			while(!KSType.isInstance(parent, SwitchStatement)) {
+				parent = parent.parent();
+				if(!(KSType.isValue(parent) ? parent.isJumpable() === true : false)) {
+					SyntaxException.throwIllegalStatement("fallthrough", this);
+				}
+			}
+			this._switch = parent;
+			this._switch.flagUsingFallthrough();
+		},
+		analyse: function() {
+			if(arguments.length === 0) {
+				return FallthroughStatement.prototype.__ks_func_analyse_0.apply(this);
+			}
+			else if(Statement.prototype.analyse) {
+				return Statement.prototype.analyse.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_prepare_0: function() {
+		},
+		prepare: function() {
+			if(arguments.length === 0) {
+				return FallthroughStatement.prototype.__ks_func_prepare_0.apply(this);
+			}
+			else if(Statement.prototype.prepare) {
+				return Statement.prototype.prepare.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_translate_0: function() {
+		},
+		translate: function() {
+			if(arguments.length === 0) {
+				return FallthroughStatement.prototype.__ks_func_translate_0.apply(this);
+			}
+			else if(Statement.prototype.translate) {
+				return Statement.prototype.translate.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_toStatementFragments_0: function(fragments, mode) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(mode === void 0 || mode === null) {
+				throw new TypeError("'mode' is not nullable");
+			}
+			this._switch.toFallthroughFragments(fragments);
+		},
+		toStatementFragments: function() {
+			if(arguments.length === 2) {
+				return FallthroughStatement.prototype.__ks_func_toStatementFragments_0.apply(this, arguments);
+			}
+			else if(Statement.prototype.toStatementFragments) {
+				return Statement.prototype.toStatementFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		}
 	});
 	var ForFromStatement = KSHelper.class({
@@ -52805,6 +52991,24 @@ module.exports = function() {
 				return ForFromStatement.prototype.__ks_func_checkReturnType_0.apply(this, arguments);
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
+		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return ForFromStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
+		__ks_func_isLoop_0: function() {
+			return true;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return ForFromStatement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			return Statement.prototype.isLoop.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -53277,6 +53481,24 @@ module.exports = function() {
 				return ForInStatement.prototype.__ks_func_checkReturnType_0.apply(this, arguments);
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
+		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return ForInStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
+		__ks_func_isLoop_0: function() {
+			return true;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return ForInStatement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			return Statement.prototype.isLoop.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -53820,6 +54042,24 @@ module.exports = function() {
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
 		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return ForOfStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
+		__ks_func_isLoop_0: function() {
+			return true;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return ForOfStatement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			return Statement.prototype.isLoop.apply(this, arguments);
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -54111,6 +54351,24 @@ module.exports = function() {
 				return ForRangeStatement.prototype.__ks_func_checkReturnType_0.apply(this, arguments);
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
+		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return ForRangeStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
+		__ks_func_isLoop_0: function() {
+			return true;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return ForRangeStatement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			return Statement.prototype.isLoop.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -54892,6 +55150,18 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_isJumpable_0: function() {
+			return false;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return FunctionDeclarator.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			else if(AbstractNode.prototype.isJumpable) {
+				return AbstractNode.prototype.isJumpable.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_parameters_0: function() {
 			return this._parameters;
 		},
@@ -55528,6 +55798,15 @@ module.exports = function() {
 				return IfStatement.prototype.__ks_func_isExit_0.apply(this);
 			}
 			return Statement.prototype.isExit.apply(this, arguments);
+		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return IfStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -61334,6 +61613,7 @@ module.exports = function() {
 			this._castingEnum = false;
 			this._clauses = [];
 			this._name = null;
+			this._usingFallthrough = false;
 			this._value = null;
 		},
 		__ks_init: function() {
@@ -61447,6 +61727,9 @@ module.exports = function() {
 				}
 				clause.filter.prepare();
 				clause.body.prepare();
+				if(this._usingFallthrough) {
+					clause.name = this._scope.acquireTempName(false);
+				}
 				if(index === 0) {
 					var __ks_1 = clause.body.scope().listUpdatedInferables();
 					for(var name in __ks_1) {
@@ -61596,6 +61879,28 @@ module.exports = function() {
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
 		},
+		__ks_func_flagUsingFallthrough_0: function() {
+			this._usingFallthrough = true;
+			return this;
+		},
+		flagUsingFallthrough: function() {
+			if(arguments.length === 0) {
+				return SwitchStatement.prototype.__ks_func_flagUsingFallthrough_0.apply(this);
+			}
+			else if(Statement.prototype.flagUsingFallthrough) {
+				return Statement.prototype.flagUsingFallthrough.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return SwitchStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -61619,6 +61924,26 @@ module.exports = function() {
 				return SwitchStatement.prototype.__ks_func_isUsingVariable_0.apply(this, arguments);
 			}
 			return Statement.prototype.isUsingVariable.apply(this, arguments);
+		},
+		__ks_func_toFallthroughFragments_0: function(fragments) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(KSOperator.lt(this._nextClauseIndex, this._clauses.length)) {
+				fragments.line("" + this._clauses[this._nextClauseIndex].name + "()");
+			}
+		},
+		toFallthroughFragments: function() {
+			if(arguments.length === 1) {
+				return SwitchStatement.prototype.__ks_func_toFallthroughFragments_0.apply(this, arguments);
+			}
+			else if(Statement.prototype.toFallthroughFragments) {
+				return Statement.prototype.toFallthroughFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toStatementFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
@@ -61655,18 +61980,28 @@ module.exports = function() {
 				}
 				line.done();
 			}
-			var condition;
-			for(var __ks_0 = 0, __ks_1 = this._clauses.length, clause; __ks_0 < __ks_1; ++__ks_0) {
-				clause = this._clauses[__ks_0];
-				for(var __ks_2 = 0, __ks_3 = clause.conditions.length; __ks_2 < __ks_3; ++__ks_2) {
-					condition = clause.conditions[__ks_2];
+			for(var clauseIdx = 0, __ks_0 = this._clauses.length, clause; clauseIdx < __ks_0; ++clauseIdx) {
+				clause = this._clauses[clauseIdx];
+				for(var __ks_1 = 0, __ks_2 = clause.conditions.length, condition; __ks_1 < __ks_2; ++__ks_1) {
+					condition = clause.conditions[__ks_1];
 					condition.toStatementFragments(fragments);
 				}
 				clause.filter.toStatementFragments(fragments);
+				if(this._usingFallthrough) {
+					var line = fragments.newLine().code("" + $runtime.scope(this) + clause.name + " = () =>");
+					var block = line.newBlock();
+					this._nextClauseIndex = clauseIdx + 1;
+					for(var __ks_1 = 0, __ks_2 = clause.bindings.length, binding; __ks_1 < __ks_2; ++__ks_1) {
+						binding = clause.bindings[__ks_1];
+						binding.toFragments(block);
+					}
+					clause.body.toFragments(block, mode);
+					block.done();
+					line.done();
+				}
 			}
 			var ctrl = fragments.newControl();
 			var we = false;
-			var i, binding;
 			for(var clauseIdx = 0, __ks_0 = this._clauses.length, clause; clauseIdx < __ks_0; ++clauseIdx) {
 				clause = this._clauses[clauseIdx];
 				if(clause.conditions.length !== 0) {
@@ -61679,8 +62014,7 @@ module.exports = function() {
 					else {
 						ctrl.code("if(");
 					}
-					i = 0;
-					for(var __ks_1 = clause.conditions.length; i < __ks_1; ++i) {
+					for(var i = 0, __ks_1 = clause.conditions.length, condition; i < __ks_1; ++i) {
 						condition = clause.conditions[i];
 						if(i !== 0) {
 							ctrl.code(" || ");
@@ -61689,11 +62023,16 @@ module.exports = function() {
 					}
 					clause.filter.toBooleanFragments(ctrl, true);
 					ctrl.code(")").step();
-					for(var __ks_1 = 0, __ks_2 = clause.bindings.length; __ks_1 < __ks_2; ++__ks_1) {
-						binding = clause.bindings[__ks_1];
-						binding.toFragments(ctrl);
+					if(this._usingFallthrough) {
+						ctrl.line("" + clause.name + "()");
 					}
-					clause.body.toFragments(ctrl, mode);
+					else {
+						for(var __ks_1 = 0, __ks_2 = clause.bindings.length, binding; __ks_1 < __ks_2; ++__ks_1) {
+							binding = clause.bindings[__ks_1];
+							binding.toFragments(ctrl);
+						}
+						clause.body.toFragments(ctrl, mode);
+					}
 				}
 				else if(clause.hasTest === true) {
 					if(clauseIdx !== 0) {
@@ -61704,11 +62043,16 @@ module.exports = function() {
 					}
 					clause.filter.toBooleanFragments(ctrl, false);
 					ctrl.code(")").step();
-					for(var __ks_1 = 0, __ks_2 = clause.bindings.length; __ks_1 < __ks_2; ++__ks_1) {
-						binding = clause.bindings[__ks_1];
-						binding.toFragments(ctrl);
+					if(this._usingFallthrough) {
+						ctrl.line("" + clause.name + "()");
 					}
-					clause.body.toFragments(ctrl, mode);
+					else {
+						for(var __ks_1 = 0, __ks_2 = clause.bindings.length, binding; __ks_1 < __ks_2; ++__ks_1) {
+							binding = clause.bindings[__ks_1];
+							binding.toFragments(ctrl);
+						}
+						clause.body.toFragments(ctrl, mode);
+					}
 				}
 				else {
 					if(clauseIdx !== 0) {
@@ -61719,11 +62063,16 @@ module.exports = function() {
 					}
 					we = true;
 					ctrl.step();
-					for(var __ks_1 = 0, __ks_2 = clause.bindings.length; __ks_1 < __ks_2; ++__ks_1) {
-						binding = clause.bindings[__ks_1];
-						binding.toFragments(ctrl);
+					if(this._usingFallthrough) {
+						ctrl.line("" + clause.name + "()");
 					}
-					clause.body.toFragments(ctrl, mode);
+					else {
+						for(var __ks_1 = 0, __ks_2 = clause.bindings.length, binding; __ks_1 < __ks_2; ++__ks_1) {
+							binding = clause.bindings[__ks_1];
+							binding.toFragments(ctrl);
+						}
+						clause.body.toFragments(ctrl, mode);
+					}
 				}
 			}
 			ctrl.done();
@@ -63018,6 +63367,15 @@ module.exports = function() {
 			}
 			return Statement.prototype.isExit.apply(this, arguments);
 		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return TryStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -63575,6 +63933,15 @@ module.exports = function() {
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
 		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return UnlessStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -63683,6 +64050,24 @@ module.exports = function() {
 				return UntilStatement.prototype.__ks_func_checkReturnType_0.apply(this, arguments);
 			}
 			return Statement.prototype.checkReturnType.apply(this, arguments);
+		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return UntilStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
+		__ks_func_isLoop_0: function() {
+			return true;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return UntilStatement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			return Statement.prototype.isLoop.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -64942,6 +65327,24 @@ module.exports = function() {
 				return WhileStatement.prototype.__ks_func_isCascade_0.apply(this);
 			}
 			return Statement.prototype.isCascade.apply(this, arguments);
+		},
+		__ks_func_isJumpable_0: function() {
+			return true;
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return WhileStatement.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			return Statement.prototype.isJumpable.apply(this, arguments);
+		},
+		__ks_func_isLoop_0: function() {
+			return true;
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return WhileStatement.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			return Statement.prototype.isLoop.apply(this, arguments);
 		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
@@ -85637,6 +86040,30 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_isJumpable_0: function() {
+			return this._parent.isJumpable();
+		},
+		isJumpable: function() {
+			if(arguments.length === 0) {
+				return Block.prototype.__ks_func_isJumpable_0.apply(this);
+			}
+			else if(AbstractNode.prototype.isJumpable) {
+				return AbstractNode.prototype.isJumpable.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_isLoop_0: function() {
+			return this._parent.isLoop();
+		},
+		isLoop: function() {
+			if(arguments.length === 0) {
+				return Block.prototype.__ks_func_isLoop_0.apply(this);
+			}
+			else if(AbstractNode.prototype.isLoop) {
+				return AbstractNode.prototype.isLoop.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_isUsingVariable_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -88681,6 +89108,7 @@ module.exports = function() {
 		d[NodeKind.ExportDeclaration] = ExportDeclaration;
 		d[NodeKind.ExternDeclaration] = ExternDeclaration;
 		d[NodeKind.ExternOrRequireDeclaration] = ExternOrRequireDeclaration;
+		d[NodeKind.FallthroughStatement] = FallthroughStatement;
 		d[NodeKind.ForFromStatement] = ForFromStatement;
 		d[NodeKind.ForInStatement] = ForInStatement;
 		d[NodeKind.ForOfStatement] = ForOfStatement;
