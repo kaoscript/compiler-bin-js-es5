@@ -38325,6 +38325,29 @@ module.exports = function() {
 			}
 			return Type.prototype.matchContentOf.apply(this, arguments);
 		},
+		__ks_func_setNullable_0: function(nullable) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(nullable === void 0 || nullable === null) {
+				throw new TypeError("'nullable' is not nullable");
+			}
+			else if(!KSType.isBoolean(nullable)) {
+				throw new TypeError("'nullable' is not of type 'Boolean'");
+			}
+			if(nullable) {
+				return this;
+			}
+			else {
+				return AnyType.Explicit;
+			}
+		},
+		setNullable: function() {
+			if(arguments.length === 1) {
+				return NullType.prototype.__ks_func_setNullable_0.apply(this, arguments);
+			}
+			return Type.prototype.setNullable.apply(this, arguments);
+		},
 		__ks_func_toFragments_0: function(fragments, node) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
