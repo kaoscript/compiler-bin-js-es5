@@ -12629,7 +12629,10 @@ module.exports = function() {
 				if(first === void 0 || first === null) {
 					throw new TypeError("'first' is not nullable");
 				}
-				var name = this.reqIdentifier();
+				var name = this.tryIdentifier();
+				if(!(name.ok === true)) {
+					return NO;
+				}
 				var attributes = [];
 				var modifiers = [];
 				var elements = [];
@@ -12644,6 +12647,9 @@ module.exports = function() {
 						if(this.test(Token.COLON)) {
 							this.commit();
 							type = this.reqTypeVar();
+						}
+						else if(this.test(Token.QUESTION)) {
+							type = this.yep(AST.Nullable(this.yes()));
 						}
 						var defaultValue = null;
 						if(this.test(Token.EQUALS)) {
@@ -12711,6 +12717,9 @@ module.exports = function() {
 						if(this.test(Token.COLON)) {
 							this.commit();
 							type = this.reqTypeVar();
+						}
+						else if(this.test(Token.QUESTION)) {
+							type = this.yep(AST.Nullable(this.yes()));
 						}
 						var defaultValue = null;
 						if(this.test(Token.EQUALS)) {
@@ -73327,8 +73336,11 @@ module.exports = function() {
 						else if(KSType.isInstance(type, OverloadedFunctionType)) {
 							this.makeCallee(type, variable.name());
 						}
+						else if(type.isStruct() === true) {
+							this.addCallee(new DefaultCallee(this._data, null, type, this));
+						}
 						else {
-							this.addCallee(new DefaultCallee(this._data, this));
+							this.addCallee(new DefaultCallee(this._data, null, null, this));
 						}
 					}
 					else {
@@ -73336,7 +73348,7 @@ module.exports = function() {
 					}
 				}
 				else {
-					this.addCallee(new DefaultCallee(this._data, this));
+					this.addCallee(new DefaultCallee(this._data, null, null, this));
 				}
 			}
 			if(this._hasDefaultCallee) {
@@ -73668,11 +73680,11 @@ module.exports = function() {
 						ReferenceException.throwNoMatchingFunction(name, this._arguments, this);
 					}
 					else {
-						this.addCallee(new DefaultCallee(this._data, this._object, this));
+						this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 					}
 				}
 				else if(matches.length === 1) {
-					this.addCallee(new DefaultCallee(this._data, matches[0], this));
+					this.addCallee(new DefaultCallee(this._data, null, matches[0], this));
 				}
 				else {
 					var union = new UnionType(this.scope());
@@ -73684,7 +73696,7 @@ module.exports = function() {
 				}
 			}
 			else {
-				this.addCallee(new DefaultCallee(this._data, this._object, this));
+				this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 			}
 		},
 		makeCallee: function() {
@@ -73739,7 +73751,7 @@ module.exports = function() {
 							this.addCallee(new SealedMethodCallee(this._data, name, false, this));
 						}
 						else {
-							this.addCallee(new DefaultCallee(this._data, this._object, this));
+							this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 						}
 					}
 					else {
@@ -73755,7 +73767,7 @@ module.exports = function() {
 					ReferenceException.throwNotFoundMethod(this._property, name.name(), this);
 				}
 				else {
-					this.addCallee(new DefaultCallee(this._data, this._object, this));
+					this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 				}
 			}
 			else if(KSType.isInstance(value, DictionaryType)) {
@@ -73772,7 +73784,7 @@ module.exports = function() {
 					}
 				}
 				else {
-					this.addCallee(new DefaultCallee(this._data, this._object, this));
+					this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 				}
 			}
 			else if(KSType.isInstance(value, ExclusionType)) {
@@ -73803,7 +73815,7 @@ module.exports = function() {
 					ReferenceException.throwNotDefinedProperty(this._property, this);
 				}
 				else {
-					this.addCallee(new DefaultCallee(this._data, this._object, this));
+					this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 				}
 			}
 			else if(KSType.isInstance(value, ParameterType)) {
@@ -73835,7 +73847,7 @@ module.exports = function() {
 				}
 			}
 			else {
-				this.addCallee(new DefaultCallee(this._data, this._object, this));
+				this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 			}
 		},
 		makeMemberCallee: function() {
@@ -73888,7 +73900,7 @@ module.exports = function() {
 							this.addCallee(new SealedMethodCallee(this._data, reference.type(), true, this));
 						}
 						else {
-							this.addCallee(new DefaultCallee(this._data, this._object, this));
+							this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 						}
 					}
 					else {
@@ -73912,13 +73924,13 @@ module.exports = function() {
 						return argument.type();
 					});
 					if(value.hasAbstractMethod(this._property, __ks_arguments_1) === true) {
-						this.addCallee(new DefaultCallee(this._data, this._object, this));
+						this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 					}
 					else if(reference.isExhaustive(this) === true) {
 						ReferenceException.throwNotFoundMethod(this._property, reference.name(), this);
 					}
 					else {
-						this.addCallee(new DefaultCallee(this._data, this._object, this));
+						this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 					}
 				}
 			}
@@ -73941,7 +73953,7 @@ module.exports = function() {
 				}
 			}
 			else {
-				this.addCallee(new DefaultCallee(this._data, this._object, this));
+				this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 			}
 		},
 		makeMemberCalleeFromReference: function() {
@@ -74315,17 +74327,22 @@ module.exports = function() {
 		__ks_init: function() {
 			Callee.prototype.__ks_init.call(this);
 		},
-		__ks_cons_0: function(data) {
-			if(arguments.length < 2) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+		__ks_cons_0: function(data, object, type, node) {
+			if(arguments.length < 4) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 4)");
 			}
 			if(data === void 0 || data === null) {
 				throw new TypeError("'data' is not nullable");
 			}
-			var __ks_i = 0;
-			var __ks__;
-			var object = arguments.length > 2 && (__ks__ = arguments[++__ks_i]) !== void 0 ? __ks__ : null;
-			var node = arguments[++__ks_i];
+			if(object === void 0) {
+				object = null;
+			}
+			if(type === void 0) {
+				type = null;
+			}
+			else if(type !== null && !KSType.isInstance(type, Type)) {
+				throw new TypeError("'type' is not of type 'Type?'");
+			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
@@ -74341,7 +74358,9 @@ module.exports = function() {
 			this._flatten = node._flatten;
 			this._nullableProperty = this._expression.isNullable();
 			this._scope = data.scope.kind;
-			var type = this._expression.type();
+			if(!KSType.isValue(type)) {
+				type = this._expression.type();
+			}
 			if(type.isClass() === true) {
 				TypeException.throwConstructorWithoutNew(type.name(), node);
 			}
@@ -74349,55 +74368,14 @@ module.exports = function() {
 				this.validate(type, node);
 				this._type = type.returnType();
 			}
-			else {
-				this._type = AnyType.NullableUnexplicit;
-			}
-		},
-		__ks_cons_1: function(data) {
-			if(arguments.length < 3) {
-				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
-			}
-			if(data === void 0 || data === null) {
-				throw new TypeError("'data' is not nullable");
-			}
-			var __ks_i = 0;
-			var __ks__;
-			var object = arguments.length > 3 && (__ks__ = arguments[++__ks_i]) !== void 0 ? __ks__ : null;
-			var type = arguments[++__ks_i];
-			if(type === void 0 || type === null) {
-				throw new TypeError("'type' is not nullable");
-			}
-			else if(!KSType.isInstance(type, Type)) {
-				throw new TypeError("'type' is not of type 'Type'");
-			}
-			var node = arguments[++__ks_i];
-			if(node === void 0 || node === null) {
-				throw new TypeError("'node' is not nullable");
-			}
-			Callee.prototype.__ks_cons.call(this, [data]);
-			if(object === null) {
-				this._expression = $compile.expression(data.callee, node);
-			}
-			else {
-				this._expression = new MemberExpression(data.callee, node, node.scope(), object);
-			}
-			this._expression.analyse();
-			this._expression.prepare();
-			this._flatten = node._flatten;
-			this._nullableProperty = this._expression.isNullable();
-			this._scope = data.scope.kind;
-			if(type.isClass() === true) {
-				TypeException.throwConstructorWithoutNew(type.name(), node);
-			}
-			else if(KSType.isInstance(type, FunctionType)) {
-				this.validate(type, node);
-				this._type = type.returnType();
+			else if(type.isStruct() === true) {
+				this._type = node.scope().reference(type);
 			}
 			else {
 				this._type = AnyType.NullableUnexplicit;
 			}
 		},
-		__ks_cons_2: function(data, object, methods, type, node) {
+		__ks_cons_1: function(data, object, methods, type, node) {
 			if(arguments.length < 5) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 5)");
 			}
@@ -74436,22 +74414,11 @@ module.exports = function() {
 			}
 		},
 		__ks_cons: function(args) {
-			if(args.length === 2) {
+			if(args.length === 4) {
 				DefaultCallee.prototype.__ks_cons_0.apply(this, args);
 			}
-			else if(args.length === 3) {
-				if(KSType.isInstance(args[1], Type)) {
-					DefaultCallee.prototype.__ks_cons_1.apply(this, args);
-				}
-				else {
-					DefaultCallee.prototype.__ks_cons_0.apply(this, args);
-				}
-			}
-			else if(args.length === 4) {
-				DefaultCallee.prototype.__ks_cons_1.apply(this, args);
-			}
 			else if(args.length === 5) {
-				DefaultCallee.prototype.__ks_cons_2.apply(this, args);
+				DefaultCallee.prototype.__ks_cons_1.apply(this, args);
 			}
 			else {
 				throw new SyntaxError("Wrong number of arguments");
@@ -76453,7 +76420,6 @@ module.exports = function() {
 			this._arguments = [];
 			this._flatten = false;
 			this._sealed = false;
-			this._struct = false;
 			this._type = Type.Any;
 		},
 		__ks_init: function() {
@@ -76509,11 +76475,7 @@ module.exports = function() {
 				}
 				this._type = this._scope.reference(type);
 			}
-			else if((type.isNamed() === true) && KSType.isInstance(type.type(), StructType)) {
-				this._type = this._scope.reference(type);
-				this._struct = true;
-			}
-			else if(!((type.isAny() === true) || (type.isClass() === true) || (type.isStruct() === true))) {
+			else if(!((type.isAny() === true) || (type.isClass() === true))) {
 				TypeException.throwNotClass(type.toQuote(), this);
 			}
 		},
@@ -76588,18 +76550,7 @@ module.exports = function() {
 			if(mode === void 0 || mode === null) {
 				throw new TypeError("'mode' is not nullable");
 			}
-			if(this._struct) {
-				fragments.compile(this._factory).code("(");
-				for(var i = 0, __ks_0 = this._arguments.length, argument; i < __ks_0; ++i) {
-					argument = this._arguments[i];
-					if(i !== 0) {
-						fragments.code($comma);
-					}
-					fragments.compile(argument);
-				}
-				fragments.code(")");
-			}
-			else if(this._sealed) {
+			if(this._sealed) {
 				fragments.code("" + this._type.type().getSealedName() + ".new(");
 				for(var i = 0, __ks_0 = this._arguments.length, argument; i < __ks_0; ++i) {
 					argument = this._arguments[i];
@@ -76666,7 +76617,7 @@ module.exports = function() {
 			if(name === void 0 || name === null) {
 				throw new TypeError("'name' is not nullable");
 			}
-			this.addCallee(new DefaultCallee(this._data, this._object, this));
+			this.addCallee(new DefaultCallee(this._data, this._object, null, this));
 		},
 		makeCallee: function() {
 			if(arguments.length === 2) {
