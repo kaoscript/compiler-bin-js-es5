@@ -57798,6 +57798,11 @@ module.exports = function() {
 				if(!(this._when.type().canBeBoolean() === true)) {
 					TypeException.throwInvalidCondition(this._when, this);
 				}
+				var __ks_0 = this._when.inferWhenTrueTypes(new Dictionary());
+				for(var name in __ks_0) {
+					var data = __ks_0[name];
+					this._bodyScope.updateInferable(name, data, this);
+				}
 				this._when.acquireReusable(false);
 				this._when.releaseReusable();
 				this._bodyScope.commitTempVariables(this._conditionalTempVariables);
@@ -58397,6 +58402,11 @@ module.exports = function() {
 				this._when.prepare();
 				if(!(this._when.type().canBeBoolean() === true)) {
 					TypeException.throwInvalidCondition(this._when, this);
+				}
+				var __ks_0 = this._when.inferWhenTrueTypes(new Dictionary());
+				for(var name in __ks_0) {
+					var data = __ks_0[name];
+					this._bodyScope.updateInferable(name, data, this);
 				}
 				this._bodyScope.commitTempVariables(this._conditionalTempVariables);
 			}
@@ -94565,13 +94575,13 @@ module.exports = function() {
 				var __ks_i = -1;
 				var columns;
 				if(arguments.length > ++__ks_i && (columns = arguments[__ks_i]) !== void 0 && columns !== null) {
-					if(!KSType.isDictionary(columns)) {
+					if(!KSType.isDictionary(columns, TreeNode)) {
 						if(arguments.length - __ks_i < 3) {
 							columns = new Dictionary();
 							--__ks_i;
 						}
 						else {
-							throw new TypeError("'columns' is not of type 'Dictionary'");
+							throw new TypeError("'columns' is not of type 'Dictionary<TreeNode>'");
 						}
 					}
 				}
@@ -94608,6 +94618,55 @@ module.exports = function() {
 				_.order = order;
 				return _;
 			});
+			var TreeNode = KSHelper.struct(function(index, type, isNode, weight) {
+				var __ks_i = 3;
+				var isFilter;
+				if(arguments.length > ++__ks_i && (isFilter = arguments[__ks_i]) !== void 0) {
+					if(isFilter !== null && !KSType.isBoolean(isFilter)) {
+						if(arguments.length - __ks_i < 2) {
+							isFilter = null;
+							--__ks_i;
+						}
+						else {
+							throw new TypeError("'isFilter' is not of type 'Boolean?'");
+						}
+					}
+				}
+				else {
+					isFilter = null;
+				}
+				var order;
+				if(arguments.length > ++__ks_i && (order = arguments[__ks_i]) !== void 0 && order !== null) {
+					if(!KSType.isArray(order, String)) {
+						throw new TypeError("'order' is not of type 'Array<String>'");
+					}
+				}
+				else {
+					order = [];
+				}
+				var _ = new Dictionary();
+				_.index = index;
+				_.type = type;
+				_.isNode = isNode;
+				_.weight = weight;
+				_.isFilter = isFilter;
+				_.order = order;
+				return _;
+			});
+			var TreeLeaf = KSHelper.struct(function(index, type, isNode, weight, isFilter, order, __ks_function_1) {
+				var _ = TreeNode.__ks_builder(index, type, isNode, weight, isFilter, order);
+				_.function = __ks_function_1;
+				return _;
+			}, TreeNode);
+			var TreeBranch = KSHelper.struct(function(index, type, isNode, weight, isFilter, order, rows, columns) {
+				if(columns === void 0 || columns === null) {
+					columns = new Dictionary();
+				}
+				var _ = TreeNode.__ks_builder(index, type, isNode, weight, isFilter, order);
+				_.rows = rows;
+				_.columns = columns;
+				return _;
+			}, TreeNode);
 			function addMatchingFilter(matchingFilters, min, max, filter) {
 				for(var __ks_0 = 0, __ks_1 = matchingFilters.length, arg; __ks_0 < __ks_1; ++__ks_0) {
 					arg = matchingFilters[__ks_0];
@@ -94616,13 +94675,7 @@ module.exports = function() {
 						return;
 					}
 				}
-				matchingFilters.push((function() {
-					var d = new Dictionary();
-					d.min = min;
-					d.max = max;
-					d.filters = [filter];
-					return d;
-				})());
+				matchingFilters.push(RouteFilter(min, max, [filter], null));
 			}
 			function buildFilters(filters, matchingFilters, node, index, max, routes) {
 				if(node.isFilter === true) {
@@ -94694,7 +94747,9 @@ module.exports = function() {
 					if(KSOperator.gt(group.n, 1)) {
 						for(var __ks_0 in tree.columns) {
 							var node = tree.columns[__ks_0];
-							buildNode(node, 1, group.n, tree.indexes);
+							if(KSType.isStructInstance(node, TreeBranch)) {
+								buildNode(node, 1, group.n, tree.indexes);
+							}
 						}
 					}
 					tree.order = sortNodes(tree.columns);
@@ -94719,7 +94774,7 @@ module.exports = function() {
 				for(var __ks_0 = 0, __ks_1 = node.rows.length, row; __ks_0 < __ks_1; ++__ks_0) {
 					row = node.rows[__ks_0];
 					var __ks_index_1 = row.function.index();
-					usages[__ks_index_1] = KSOperator.addOrConcat(KSType.isValue(usages[__ks_index_1]) ? usages[__ks_index_1] : 0, 1);
+					usages[__ks_index_1] = (KSType.isValue(usages[__ks_index_1]) ? usages[__ks_index_1] : 0) + 1;
 				}
 				var next = index + 1;
 				if(next === max) {
@@ -94730,16 +94785,7 @@ module.exports = function() {
 						if(KSType.isValue(node.columns[hash])) {
 							NotSupportedException.throw();
 						}
-						node.columns[hash] = (function() {
-							var d = new Dictionary();
-							d.index = next;
-							d.type = type;
-							d.function = row.function;
-							d.isNode = false;
-							d.weight = KSOperator.division(1, usages[row.function.index()]);
-							d.isFilter = null;
-							return d;
-						})();
+						node.columns[hash] = TreeLeaf(next, type, false, 1 / usages[row.function.index()], null, null, row.function);
 						indexes[index].push(node.columns[hash]);
 					}
 					node.order = sortNodes(node.columns);
@@ -94750,22 +94796,13 @@ module.exports = function() {
 						var type = row.types[index];
 						var hash = type.hashCode();
 						if(!KSType.isValue(node.columns[hash])) {
-							node.columns[hash] = (function() {
-								var d = new Dictionary();
-								d.index = next;
-								d.type = type;
-								d.rows = [row];
-								d.columns = new Dictionary();
-								d.isNode = true;
-								d.weight = KSOperator.division(1, usages[row.function.index()]);
-								d.isFilter = null;
-								return d;
-							})();
+							node.columns[hash] = TreeBranch(next, type, true, 1 / usages[row.function.index()], null, null, [row], new Dictionary());
 							indexes[index].push(node.columns[hash]);
 						}
 						else {
-							node.columns[hash].rows.push(row);
-							node.columns[hash].weight = KSOperator.addOrConcat(node.columns[hash].weight, KSOperator.division(1, usages[row.function.index()]));
+							var branch = node.columns[hash];
+							branch.rows.push(row);
+							branch.weight += 1 / usages[row.function.index()];
 						}
 					}
 					for(var __ks_0 in node.columns) {
@@ -94838,7 +94875,7 @@ module.exports = function() {
 				for(var __ks_0 = 0, __ks_1 = keys.length, key; __ks_0 < __ks_1; ++__ks_0) {
 					key = keys[__ks_0];
 					var index = rows[key].function.index();
-					usages[index] = KSOperator.addOrConcat(KSType.isValue(usages[index]) ? usages[index] : 0, 1);
+					usages[index] = (KSType.isValue(usages[index]) ? usages[index] : 0) + 1;
 				}
 				if(length === 1) {
 					for(var __ks_0 = 0, __ks_1 = keys.length, key; __ks_0 < __ks_1; ++__ks_0) {
@@ -94849,16 +94886,7 @@ module.exports = function() {
 						if(KSType.isValue(tree.columns[hash])) {
 							NotSupportedException.throw();
 						}
-						tree.columns[hash] = (function() {
-							var d = new Dictionary();
-							d.index = 1;
-							d.type = type;
-							d.function = row.function;
-							d.isNode = false;
-							d.weight = KSOperator.division(1, usages[row.function.index()]);
-							d.isFilter = null;
-							return d;
-						})();
+						tree.columns[hash] = TreeLeaf(1, type, false, 1 / usages[row.function.index()], null, null, row.function);
 						tree.indexes["0"].push(tree.columns[hash]);
 					}
 				}
@@ -94869,22 +94897,13 @@ module.exports = function() {
 						var type = row.types[0];
 						var hash = type.hashCode();
 						if(!KSType.isValue(tree.columns[hash])) {
-							tree.columns[hash] = (function() {
-								var d = new Dictionary();
-								d.index = 1;
-								d.type = type;
-								d.rows = [row];
-								d.columns = new Dictionary();
-								d.isNode = true;
-								d.weight = KSOperator.division(1, usages[row.function.index()]);
-								d.isFilter = null;
-								return d;
-							})();
+							tree.columns[hash] = TreeBranch(1, type, true, 1 / usages[row.function.index()], null, null, [row], new Dictionary());
 							tree.indexes["0"].push(tree.columns[hash]);
 						}
 						else {
-							tree.columns[hash].rows.push(row);
-							tree.columns[hash].weight = KSOperator.addOrConcat(tree.columns[hash].weight, KSOperator.division(1, usages[row.function.index()]));
+							var branch = tree.columns[hash];
+							branch.rows.push(row);
+							branch.weight += 1 / usages[row.function.index()];
 						}
 					}
 				}
