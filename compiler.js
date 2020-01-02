@@ -30423,7 +30423,7 @@ module.exports = function() {
 				}
 				else if(that.isAlias() === true) {
 					if(this.isAlias() === true) {
-						return (this._name === that.name()) || this.discardAlias().matchContentOf(that.discardAlias());
+						return (this._name === that.name()) || this._type.discardAlias().matchContentOf(that.discardAlias());
 					}
 					else {
 						return this.matchContentOf(that.discardAlias());
@@ -30434,7 +30434,7 @@ module.exports = function() {
 				}
 			}
 			else if(this.isAlias() === true) {
-				return this.discardAlias().matchContentOf(that);
+				return this._type.discardAlias().matchContentOf(that);
 			}
 			else if(KSType.isClassInstance(that, UnionType)) {
 				for(var __ks_0 = 0, __ks_1 = that.types(), __ks_2 = __ks_1.length, type; __ks_0 < __ks_2; ++__ks_0) {
@@ -64186,8 +64186,8 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_prepare_0: function() {
+			var module = this.module();
 			if(this._isKSFile) {
-				var module = this.module();
 				var __ks_arguments_1 = new Dictionary();
 				this._scope.line(KSOperator.subtraction(this.line(), 1));
 				for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
@@ -64253,11 +64253,17 @@ module.exports = function() {
 							else {
 								this._count += 1;
 							}
+							if((type.isSystemic() === true) && (def.local === "Dictionary")) {
+								module.flag("Dictionary");
+							}
+							else {
+								module.import(def.local);
+							}
 						}
 					}
 				}
 				if((this._count !== 0) || (this._alias !== null)) {
-					this.module().flagRegister();
+					module.flagRegister();
 				}
 			}
 			else {
@@ -64267,6 +64273,10 @@ module.exports = function() {
 						argument.value.prepare();
 						argument.type = argument.value.type();
 					}
+				}
+				for(var __ks_0 in this._imports) {
+					var __ks_import_1 = this._imports[__ks_0];
+					module.import(__ks_import_1.local);
 				}
 			}
 			if(this._count !== 0) {
@@ -64411,7 +64421,6 @@ module.exports = function() {
 			else if(isAlias) {
 				SyntaxException.throwAlreadyDeclared(local, this);
 			}
-			this.module().import(local);
 			this._imports[imported] = (function() {
 				var d = new Dictionary();
 				d.local = local;
@@ -66799,7 +66808,7 @@ module.exports = function() {
 			this._name = name;
 			this._type = type;
 			this._node = node;
-			if(this._name === "Dictionary") {
+			if((this._type.isSystemic() === true) && (this._name === "Dictionary")) {
 				node.module().flag("Dictionary");
 			}
 		},
@@ -98414,6 +98423,7 @@ module.exports = function() {
 				}
 				return matches;
 			}
+			var routes = [];
 			for(var __ks_0 = 0, __ks_1 = assessment.routes.length, route; __ks_0 < __ks_1; ++__ks_0) {
 				route = assessment.routes[__ks_0];
 				if(route.min <= length && length <= route.max) {
@@ -98423,13 +98433,18 @@ module.exports = function() {
 					else {
 						var matched = true;
 						var perfect = true;
-						for(var __ks_2 = 0, __ks_3 = route.filters.length, filter; __ks_2 < __ks_3 && matched; ++__ks_2) {
+						var union = true;
+						for(var __ks_2 = 0, __ks_3 = route.filters.length, filter; __ks_2 < __ks_3; ++__ks_2) {
 							filter = route.filters[__ks_2];
 							if(__ks_arguments_1[filter.index].isAny() === true) {
 								perfect = false;
 							}
 							else if(!__ks_arguments_1[filter.index].matchContentOf(filter.type)) {
 								matched = false;
+								if(!(__ks_arguments_1[filter.index].isUnion() === true)) {
+									union = false;
+									break;
+								}
 							}
 						}
 						if(route.matchingFilters.length !== 0) {
@@ -98439,13 +98454,17 @@ module.exports = function() {
 								if(line.min <= length && length <= line.max) {
 									var isMatched = true;
 									var isPerfect = perfect;
-									for(var __ks_4 = 0, __ks_5 = line.filters.length, filter; __ks_4 < __ks_5 && isMatched; ++__ks_4) {
+									for(var __ks_4 = 0, __ks_5 = line.filters.length, filter; __ks_4 < __ks_5; ++__ks_4) {
 										filter = line.filters[__ks_4];
 										if(__ks_arguments_1[filter.index].isAny() === true) {
 											isPerfect = false;
 										}
 										else if(!__ks_arguments_1[filter.index].matchContentOf(filter.type)) {
 											isMatched = false;
+											if(!(__ks_arguments_1[filter.index].isUnion() === true)) {
+												union = false;
+												break;
+											}
 										}
 									}
 									if(isMatched) {
@@ -98466,7 +98485,77 @@ module.exports = function() {
 								matches.push(route.function);
 							}
 						}
+						else if(union) {
+							routes.push(route);
+						}
 					}
+				}
+			}
+			if(routes.length !== 0) {
+				for(var index = 0, __ks_0 = __ks_arguments_1.length, argument; index < __ks_0; ++index) {
+					argument = __ks_arguments_1[index];
+					if(argument.isUnion() === true) {
+						var types = KSHelper.cast(argument.discard(), "UnionType", false, UnionType, "Class").types();
+						var newRoutes = [];
+						for(var __ks_1 = 0, __ks_2 = types.length, type; __ks_1 < __ks_2; ++__ks_1) {
+							type = types[__ks_1];
+							var typeIsMatched = true;
+							for(var __ks_3 = 0, __ks_4 = routes.length, route; __ks_3 < __ks_4; ++__ks_3) {
+								route = routes[__ks_3];
+								var matched = true;
+								for(var __ks_5 = 0, __ks_6 = route.filters.length, filter; __ks_5 < __ks_6; ++__ks_5) {
+									filter = route.filters[__ks_5];
+									if(filter.index === index) {
+										if(!(type.matchContentOf(filter.type) === true)) {
+											matched = false;
+										}
+									}
+								}
+								if(route.matchingFilters.length !== 0) {
+									var notFound = true;
+									for(var __ks_5 = 0, __ks_6 = route.matchingFilters.length, line; __ks_5 < __ks_6 && notFound; ++__ks_5) {
+										line = route.matchingFilters[__ks_5];
+										if(KSOperator.lte(line.min, length) && KSOperator.lte(length, line.max)) {
+											var isMatched = true;
+											for(var __ks_7 = 0, __ks_8 = line.filters.length, filter; __ks_7 < __ks_8; ++__ks_7) {
+												filter = line.filters[__ks_7];
+												if(filter.index === index) {
+													if(!(type.matchContentOf(filter.type) === true)) {
+														isMatched = false;
+													}
+												}
+											}
+											if(isMatched) {
+												notFound = false;
+											}
+										}
+									}
+									if(notFound) {
+										matched = false;
+									}
+								}
+								if(matched) {
+									__ks_Array._im_pushUniq(newRoutes, route);
+									typeIsMatched = true;
+								}
+							}
+							if(!typeIsMatched) {
+								__ks_Array._im_clear(newRoutes);
+								break;
+							}
+						}
+						if(newRoutes.length === 0) {
+							__ks_Array._im_clear(routes);
+							break;
+						}
+						else {
+							routes = newRoutes;
+						}
+					}
+				}
+				for(var __ks_0 = 0, __ks_1 = routes.length, route; __ks_0 < __ks_1; ++__ks_0) {
+					route = routes[__ks_0];
+					matches.push(route.function);
 				}
 			}
 			return matches;
