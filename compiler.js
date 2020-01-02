@@ -63146,9 +63146,31 @@ module.exports = function() {
 			if(this._class.isSealed() === true) {
 				var assessment = Router.assess(KSHelper.mapArray(this._class.listConstructors(), function(__ks_constructor_1) {
 					return __ks_constructor_1;
-				}, function(__ks_constructor_1) {
-					return __ks_constructor_1.isSealed();
-				}), false);
+				}), false, false, function(groups) {
+					if(arguments.length < 1) {
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+					}
+					if(groups === void 0 || groups === null) {
+						throw new TypeError("'groups' is not nullable");
+					}
+					for(var __ks_0 in groups) {
+						var group = groups[__ks_0];
+						var __ks_sealed_1 = 0;
+						var notsealed = 0;
+						for(var __ks_1 = 0, __ks_2 = group.functions.length, __ks_function_1; __ks_1 < __ks_2; ++__ks_1) {
+							__ks_function_1 = group.functions[__ks_1];
+							if(__ks_function_1.isSealed() === true) {
+								++__ks_sealed_1;
+							}
+							else {
+								++notsealed;
+							}
+						}
+						if(__ks_sealed_1 === 0) {
+							group.functions = [group.functions[0]];
+						}
+					}
+				});
 				var es5 = this._options.format.spreads === "es5";
 				var min = Number.MAX_VALUE;
 				Router.toFragments(assessment, fragments.newLine(), "arguments", false, (function(node, fragments) {
@@ -63183,7 +63205,20 @@ module.exports = function() {
 					if(index === void 0 || index === null) {
 						throw new TypeError("'index' is not nullable");
 					}
-					if((method.isDependent() === true) || (method.isOverwritten() === true)) {
+					if(!(method.isSealed() === true)) {
+						if(method.max() === 0) {
+							fragments.line("return new " + this._variable.name() + "()");
+						}
+						else {
+							if(es5) {
+								fragments.line("return new (Function.bind.apply(" + this._variable.name() + ", [null].concat(Array.prototype.slice.call(arguments))))");
+							}
+							else {
+								fragments.line("return new " + this._variable.name() + "(...arguments)");
+							}
+						}
+					}
+					else if((method.isDependent() === true) || (method.isOverwritten() === true)) {
 						if(es5) {
 							fragments.line("return " + this._variable.getSealedName() + ".__ks_cons_" + method.identifier() + ".apply(null, arguments)");
 						}
@@ -63207,18 +63242,23 @@ module.exports = function() {
 					if(ctrl === void 0 || ctrl === null) {
 						throw new TypeError("'ctrl' is not nullable");
 					}
-					ctrl.step();
-					if(KSOperator.gt(min, 0)) {
-						ctrl.code("else if(arguments.length === 0)").step().line("return new " + this._variable.name() + "()").step();
-					}
-					ctrl.code("else").step();
-					if(es5) {
-						ctrl.line("return new (Function.bind.apply(" + this._variable.name() + ", [null].concat(Array.prototype.slice.call(arguments))))");
+					if(this._class.isExhaustive() === true) {
+						ctrl.step().code("else").step().line("throw new SyntaxError(\"Wrong number of arguments\")").done();
 					}
 					else {
-						ctrl.line("return new " + this._variable.name() + "(...arguments)");
+						ctrl.step();
+						if(KSOperator.gt(min, 0)) {
+							ctrl.code("else if(arguments.length === 0)").step().line("return new " + this._variable.name() + "()").step();
+						}
+						ctrl.code("else").step();
+						if(es5) {
+							ctrl.line("return new (Function.bind.apply(" + this._variable.name() + ", [null].concat(Array.prototype.slice.call(arguments))))");
+						}
+						else {
+							ctrl.line("return new " + this._variable.name() + "(...arguments)");
+						}
+						ctrl.done();
 					}
-					ctrl.done();
 				}).bind(this), this).done();
 			}
 			else {
@@ -97153,8 +97193,8 @@ module.exports = function() {
 				}
 			}
 			function expandParameter(group, __ks_function_1, parameters, target, count, pIndex, pCount, key, types, type) {
-				if(KSType.isClassInstance(type, UnionType)) {
-					for(var __ks_0 = 0, __ks_1 = type.types(), __ks_2 = __ks_1.length, value; __ks_0 < __ks_2; ++__ks_0) {
+				if(type.isUnion() === true) {
+					for(var __ks_0 = 0, __ks_1 = KSHelper.cast(type.discard(), "UnionType", false, UnionType, "Class").types(), __ks_2 = __ks_1.length, value; __ks_0 < __ks_2; ++__ks_0) {
 						value = __ks_1[__ks_0];
 						expandParameter(group, __ks_function_1, parameters, target, count, pIndex, pCount, key, types, value);
 					}
@@ -98232,7 +98272,7 @@ module.exports = function() {
 			}
 			return true;
 		}
-		function assess(functions, flattenable, overflow) {
+		function assess(functions, flattenable) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -98248,11 +98288,30 @@ module.exports = function() {
 			else if(!KSType.isBoolean(flattenable)) {
 				throw new TypeError("'flattenable' is not of type 'Boolean'");
 			}
-			if(overflow === void 0 || overflow === null) {
+			var __ks_i = 1;
+			var overflow;
+			if(arguments.length > ++__ks_i && (overflow = arguments[__ks_i]) !== void 0 && overflow !== null) {
+				if(!KSType.isBoolean(overflow)) {
+					if(arguments.length - __ks_i < 2) {
+						overflow = false;
+						--__ks_i;
+					}
+					else {
+						throw new TypeError("'overflow' is not of type 'Boolean'");
+					}
+				}
+			}
+			else {
 				overflow = false;
 			}
-			else if(!KSType.isBoolean(overflow)) {
-				throw new TypeError("'overflow' is not of type 'Boolean'");
+			var filterGroups;
+			if(arguments.length > ++__ks_i && (filterGroups = arguments[__ks_i]) !== void 0) {
+				if(filterGroups !== null && !KSType.isFunction(filterGroups)) {
+					throw new TypeError("'filterGroups' is not of type 'Function?'");
+				}
+			}
+			else {
+				filterGroups = null;
 			}
 			if(functions.length === 0) {
 				return Assessement();
@@ -98298,6 +98357,9 @@ module.exports = function() {
 							group.functions.push(__ks_function_1);
 						}
 					}
+				}
+				if(filterGroups !== null) {
+					filterGroups(groups);
 				}
 				var assessment = Assessement(async, null, Bounded.resolveRoutes(functions, groups, min, max, overflow));
 				if(infinities.length === 1) {
