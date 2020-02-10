@@ -5281,6 +5281,7 @@ module.exports = function() {
 				}
 				else {
 					this.next(index - this._index);
+					return null;
 				}
 			},
 			scanIdentifier: function() {
@@ -5986,6 +5987,7 @@ module.exports = function() {
 						this.throw("]");
 					}
 				}
+				this.throw("]");
 			},
 			altArrayList: function() {
 				if(arguments.length === 3) {
@@ -15843,17 +15845,20 @@ module.exports = function() {
 				}
 				throw new SyntaxError("Wrong number of arguments");
 			},
-			__ks_sttc_throwExpectedReturnedValue_0: function(node) {
-				if(arguments.length < 1) {
-					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			__ks_sttc_throwExpectedReturnedValue_0: function(type, node) {
+				if(arguments.length < 2) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+				}
+				if(type === void 0 || type === null) {
+					throw new TypeError("'type' is not nullable");
 				}
 				if(node === void 0 || node === null) {
 					throw new TypeError("'node' is not nullable");
 				}
-				throw new TypeException("A value is expected to be returned", node);
+				throw new TypeException(KSHelper.concatString("A value of type ", type.toQuote(true), " is expected to be returned"), node);
 			},
 			throwExpectedReturnedValue: function() {
-				if(arguments.length === 1) {
+				if(arguments.length === 2) {
 					return TypeException.__ks_sttc_throwExpectedReturnedValue_0.apply(this, arguments);
 				}
 				else if(Exception.throwExpectedReturnedValue) {
@@ -25916,9 +25921,7 @@ module.exports = function() {
 					}
 				}
 			}
-			else {
-				return false;
-			}
+			return false;
 		},
 		isAssignableToVariable: function() {
 			if(arguments.length === 4) {
@@ -38671,9 +38674,7 @@ module.exports = function() {
 					}
 				}
 			}
-			else {
-				return false;
-			}
+			return false;
 		},
 		isAssignableToVariable: function() {
 			if(arguments.length === 4) {
@@ -68384,7 +68385,7 @@ module.exports = function() {
 			}
 			else if(this._value === null) {
 				if(!(type.isVoid() === true)) {
-					TypeException.throwExpectedReturnedValue(this);
+					TypeException.throwExpectedReturnedValue(type, this);
 				}
 			}
 			else {
@@ -69200,6 +69201,24 @@ module.exports = function() {
 				return SwitchStatement.prototype.__ks_func_initializeVariable_0.apply(this, arguments);
 			}
 			return Statement.prototype.initializeVariable.apply(this, arguments);
+		},
+		__ks_func_isExit_0: function() {
+			if(!this._hasDefaultClause) {
+				return false;
+			}
+			for(var __ks_0 = 0, __ks_1 = this._clauses.length, clause; __ks_0 < __ks_1; ++__ks_0) {
+				clause = this._clauses[__ks_0];
+				if(!(clause.body.isExit() === true)) {
+					return false;
+				}
+			}
+			return true;
+		},
+		isExit: function() {
+			if(arguments.length === 0) {
+				return SwitchStatement.prototype.__ks_func_isExit_0.apply(this);
+			}
+			return Statement.prototype.isExit.apply(this, arguments);
 		},
 		__ks_func_isJumpable_0: function() {
 			return true;
@@ -97015,11 +97034,8 @@ module.exports = function() {
 				}
 				else if((this._type.isAny() === true) && !(this._type.isExplicit() === true)) {
 				}
-				else if(this._statements.length === 0) {
-					TypeException.throwExpectedReturnedValue(this);
-				}
-				else {
-					this._statements[this._statements.length - 1].checkReturnType(this._type);
+				else if((this._statements.length === 0) || !(__ks_Array._im_last(this._statements).isExit() === true)) {
+					TypeException.throwExpectedReturnedValue(this._type, this);
 				}
 			}
 		},
