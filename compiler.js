@@ -34461,6 +34461,27 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_getSharedMethodIndex_0: function(name) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			else if(!KSType.isString(name)) {
+				throw new TypeError("'name' is not of type 'String'");
+			}
+			return this._sharedMethods[name];
+		},
+		getSharedMethodIndex: function() {
+			if(arguments.length === 1) {
+				return ClassType.prototype.__ks_func_getSharedMethodIndex_0.apply(this, arguments);
+			}
+			else if(Type.prototype.getSharedMethodIndex) {
+				return Type.prototype.getSharedMethodIndex.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_hasAbstractMethod_0: function(name) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -53057,80 +53078,9 @@ module.exports = function() {
 				this._class.extends(this._extendsType);
 				this._hybrid = this._class.isHybrid();
 				var superType = this._scope.reference(this._extendsName);
-				var superVariable = this._constructorScope.define("super", true, superType, true, this);
-				if(this._hybrid && !this._es5) {
-					var thisVariable = this._constructorScope.getVariable("this");
-					thisVariable.replaceCall = (function(data, __ks_arguments_1) {
-						if(arguments.length < 2) {
-							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-						}
-						if(data === void 0 || data === null) {
-							throw new TypeError("'data' is not nullable");
-						}
-						if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
-							throw new TypeError("'arguments' is not nullable");
-						}
-						return new CallHybridThisConstructorES6Substitude(data, __ks_arguments_1, this._type);
-					}).bind(this);
-					superVariable.replaceCall = (function(data, __ks_arguments_1) {
-						if(arguments.length < 2) {
-							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-						}
-						if(data === void 0 || data === null) {
-							throw new TypeError("'data' is not nullable");
-						}
-						if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
-							throw new TypeError("'arguments' is not nullable");
-						}
-						return new CallHybridSuperConstructorES6Substitude(data, __ks_arguments_1, this._type);
-					}).bind(this);
-				}
-				else {
-					if(this._es5) {
-						superVariable.replaceCall = (function(data, __ks_arguments_1) {
-							if(arguments.length < 2) {
-								throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-							}
-							if(data === void 0 || data === null) {
-								throw new TypeError("'data' is not nullable");
-							}
-							if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
-								throw new TypeError("'arguments' is not nullable");
-							}
-							return new CallSuperConstructorES5Substitude(data, __ks_arguments_1, this._type);
-						}).bind(this);
-						superVariable.replaceMemberCall = (function(property, __ks_arguments_1, node) {
-							if(arguments.length < 3) {
-								throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
-							}
-							if(property === void 0 || property === null) {
-								throw new TypeError("'property' is not nullable");
-							}
-							if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
-								throw new TypeError("'arguments' is not nullable");
-							}
-							if(node === void 0 || node === null) {
-								throw new TypeError("'node' is not nullable");
-							}
-							return new MemberSuperMethodES5Substitude(property, __ks_arguments_1, this._type, node);
-						}).bind(this);
-					}
-					else {
-						superVariable.replaceCall = (function(data, __ks_arguments_1) {
-							if(arguments.length < 2) {
-								throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-							}
-							if(data === void 0 || data === null) {
-								throw new TypeError("'data' is not nullable");
-							}
-							if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
-								throw new TypeError("'arguments' is not nullable");
-							}
-							return new CallSuperConstructorSubstitude(data, __ks_arguments_1, this._type);
-						}).bind(this);
-					}
-				}
+				this._constructorScope.define("super", true, superType, true, this);
 				this._instanceVariableScope.define("super", true, superType, true, this);
+				this.updateConstructorScope();
 			}
 			for(var name in this._classVariables) {
 				var variable = this._classVariables[name];
@@ -54605,6 +54555,107 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_updateConstructorScope_0: function() {
+			var superVariable = this._constructorScope.getVariable("super");
+			if(this._hybrid && !this._es5) {
+				var thisVariable = this._constructorScope.getVariable("this");
+				thisVariable.replaceCall = (function(data, __ks_arguments_1) {
+					if(arguments.length < 2) {
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+					}
+					if(data === void 0 || data === null) {
+						throw new TypeError("'data' is not nullable");
+					}
+					if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+						throw new TypeError("'arguments' is not nullable");
+					}
+					return new CallHybridThisConstructorES6Substitude(data, __ks_arguments_1, this._type);
+				}).bind(this);
+				superVariable.replaceCall = (function(data, __ks_arguments_1) {
+					if(arguments.length < 2) {
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+					}
+					if(data === void 0 || data === null) {
+						throw new TypeError("'data' is not nullable");
+					}
+					if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+						throw new TypeError("'arguments' is not nullable");
+					}
+					return new CallHybridSuperConstructorES6Substitude(data, __ks_arguments_1, this._type);
+				}).bind(this);
+			}
+			else {
+				if(this._es5) {
+					superVariable.replaceCall = (function(data, __ks_arguments_1) {
+						if(arguments.length < 2) {
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+						}
+						if(data === void 0 || data === null) {
+							throw new TypeError("'data' is not nullable");
+						}
+						if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+							throw new TypeError("'arguments' is not nullable");
+						}
+						return new CallSuperConstructorES5Substitude(data, __ks_arguments_1, this._type);
+					}).bind(this);
+					superVariable.replaceMemberCall = (function(property, __ks_arguments_1, node) {
+						if(arguments.length < 3) {
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+						}
+						if(property === void 0 || property === null) {
+							throw new TypeError("'property' is not nullable");
+						}
+						if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+							throw new TypeError("'arguments' is not nullable");
+						}
+						if(node === void 0 || node === null) {
+							throw new TypeError("'node' is not nullable");
+						}
+						return new MemberSuperMethodES5Substitude(property, __ks_arguments_1, this._type, node);
+					}).bind(this);
+				}
+				else {
+					superVariable.replaceCall = (function(data, __ks_arguments_1) {
+						if(arguments.length < 2) {
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+						}
+						if(data === void 0 || data === null) {
+							throw new TypeError("'data' is not nullable");
+						}
+						if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+							throw new TypeError("'arguments' is not nullable");
+						}
+						return new CallSuperConstructorSubstitude(data, __ks_arguments_1, this._type);
+					}).bind(this);
+				}
+			}
+			if(this._extendsType.isSealed() === true) {
+				superVariable.replaceMemberCall = (function(property, __ks_arguments_1, node) {
+					if(arguments.length < 3) {
+						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+					}
+					if(property === void 0 || property === null) {
+						throw new TypeError("'property' is not nullable");
+					}
+					if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+						throw new TypeError("'arguments' is not nullable");
+					}
+					if(node === void 0 || node === null) {
+						throw new TypeError("'node' is not nullable");
+					}
+					return new MemberSealedSuperMethodSubstitude(property, __ks_arguments_1, this._type, node);
+				}).bind(this);
+			}
+		},
+		updateConstructorScope: function() {
+			if(arguments.length === 0) {
+				return ClassDeclaration.prototype.__ks_func_updateConstructorScope_0.apply(this);
+			}
+			else if(Statement.prototype.updateConstructorScope) {
+				return Statement.prototype.updateConstructorScope.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
 		__ks_func_updateMethodScope_0: function(method) {
 			if(arguments.length < 1) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -55519,7 +55570,13 @@ module.exports = function() {
 				throw new TypeError("'mode' is not nullable");
 			}
 			if(this._sealed) {
-				fragments.code(KSHelper.concatString(this._extendsType.getSealedPath(), "._im_", this._property, "(this"));
+				var index = this._extendsType.type().getSharedMethodIndex(this._property);
+				if(KSType.isValue(index)) {
+					fragments.code(KSHelper.concatString(this._extendsType.getSealedPath(), "._im_", index, "_", this._property, "(this"));
+				}
+				else {
+					fragments.code(KSHelper.concatString(this._extendsType.getSealedPath(), "._im_", this._property, "(this"));
+				}
 				for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
 					argument = this._arguments[__ks_0];
 					fragments.code($comma).compile(argument);
@@ -64108,36 +64165,23 @@ module.exports = function() {
 			}
 			this._this = this._scope.define("this", true, this._classRef, true, this);
 			var body = $ast.body(this._data);
-			if((this._class.isSealed() === true) && (this.getConstructorIndex($ast.block(body).statements) !== -1)) {
-				this._scope.rename("this", "that");
-				this._this.replaceCall = (function(data, __ks_arguments_1) {
-					if(arguments.length < 2) {
-						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-					}
-					if(data === void 0 || data === null) {
-						throw new TypeError("'data' is not nullable");
-					}
-					if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
-						throw new TypeError("'arguments' is not nullable");
-					}
-					return new CallSealedConstructorSubstitude(data, __ks_arguments_1, this._variable, this);
-				}).bind(this);
-				this._dependent = true;
-			}
-			else if(this._overwrite) {
-				this._scope.rename("this", "that");
-				this._this.replaceCall = (function(data, __ks_arguments_1) {
-					if(arguments.length < 2) {
-						throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
-					}
-					if(data === void 0 || data === null) {
-						throw new TypeError("'data' is not nullable");
-					}
-					if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
-						throw new TypeError("'arguments' is not nullable");
-					}
-					return new CallSealedConstructorSubstitude(data, __ks_arguments_1, this._variable, this);
-				}).bind(this);
+			if(this._class.isSealed() === true) {
+				if(this.getConstructorIndex($ast.block(body).statements) !== -1) {
+					this._scope.rename("this", "that");
+					this._this.replaceCall = (function(data, __ks_arguments_1) {
+						if(arguments.length < 2) {
+							throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+						}
+						if(data === void 0 || data === null) {
+							throw new TypeError("'data' is not nullable");
+						}
+						if(__ks_arguments_1 === void 0 || __ks_arguments_1 === null) {
+							throw new TypeError("'arguments' is not nullable");
+						}
+						return new CallSealedConstructorSubstitude(data, __ks_arguments_1, this._variable, this);
+					}).bind(this);
+					this._dependent = true;
+				}
 			}
 			else {
 				this._this.replaceCall = (function(data, __ks_arguments_1) {
@@ -64590,7 +64634,7 @@ module.exports = function() {
 							}
 						}
 					}
-					else if((method.isDependent() === true) || (method.isOverwritten() === true)) {
+					else if(method.isDependent() === true) {
 						if(es5) {
 							fragments.line(KSHelper.concatString("return ", this._variable.getSealedName(), ".__ks_cons_", method.identifier(), ".apply(null, arguments)"));
 						}
