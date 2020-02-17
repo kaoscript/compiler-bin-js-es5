@@ -33707,7 +33707,7 @@ module.exports = function() {
 				}
 			}
 			if(this._sealed) {
-				__ks_export_1.sharedMethods = KSHelper.concatDictionary(that._sharedMethods);
+				__ks_export_1.sharedMethods = KSHelper.concatDictionary(this._sharedMethods);
 			}
 			return __ks_export_1;
 		},
@@ -36452,7 +36452,7 @@ module.exports = function() {
 			clone._access = this._access;
 			clone._alteration = this._alteration;
 			clone._identifier = this._identifier;
-			clone._initVariables = KSHelper.concatDictionary(that._initVariables);
+			clone._initVariables = KSHelper.concatDictionary(this._initVariables);
 			if(this._overwrite !== null) {
 				clone._overwrite = [].concat(this._overwrite);
 			}
@@ -83325,9 +83325,6 @@ module.exports = function() {
 			}
 		},
 		__ks_func_analyse_0: function() {
-			if((this._options.format.functions === "es5") && this._scope.hasVariable("this")) {
-				this._scope.rename("this", "that");
-			}
 			var names = new Dictionary();
 			var ref = null;
 			for(var __ks_0 = 0, __ks_1 = this._data.properties.length, property; __ks_0 < __ks_1; ++__ks_0) {
@@ -83359,6 +83356,9 @@ module.exports = function() {
 					property.analyse();
 				}
 				this._properties.push(property);
+			}
+			if((this._options.format.functions === "es5") && !this._spread && this._scope.hasVariable("this")) {
+				this._scope.rename("this", "that");
 			}
 			this._empty = this._properties.length === 0;
 		},
