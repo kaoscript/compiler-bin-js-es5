@@ -49822,7 +49822,7 @@ module.exports = function() {
 				}
 				parent = parent.parent();
 			}
-			while(parent.isInline())
+			while(parent.isInline() === true)
 			return parent.hasDeclaredVariable(name);
 		},
 		hasRenamedVariable: function() {
@@ -59220,11 +59220,6 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_prepare_0: function() {
-			this._condition.prepare();
-			if(!(this._condition.type().canBeBoolean() === true)) {
-				TypeException.throwInvalidCondition(this._condition, this);
-			}
-			this.assignTempVariables(this._scope);
 			this._body.prepare();
 			var __ks_0 = this._bodyScope.listUpdatedInferables();
 			for(var name in __ks_0) {
@@ -59233,6 +59228,11 @@ module.exports = function() {
 					this._scope.replaceVariable(name, inferable.type, true, false, this);
 				}
 			}
+			this._condition.prepare();
+			if(!(this._condition.type().canBeBoolean() === true)) {
+				TypeException.throwInvalidCondition(this._condition, this);
+			}
+			this.assignTempVariables(this._scope);
 		},
 		prepare: function() {
 			if(arguments.length === 0) {
@@ -59364,11 +59364,6 @@ module.exports = function() {
 			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_prepare_0: function() {
-			this._condition.prepare();
-			if(!(this._condition.type().canBeBoolean() === true)) {
-				TypeException.throwInvalidCondition(this._condition, this);
-			}
-			this.assignTempVariables(this._scope);
 			this._body.prepare();
 			var __ks_0 = this._bodyScope.listUpdatedInferables();
 			for(var name in __ks_0) {
@@ -59377,6 +59372,11 @@ module.exports = function() {
 					this._scope.replaceVariable(name, inferable.type, true, false, this);
 				}
 			}
+			this._condition.prepare();
+			if(!(this._condition.type().canBeBoolean() === true)) {
+				TypeException.throwInvalidCondition(this._condition, this);
+			}
+			this.assignTempVariables(this._scope);
 		},
 		prepare: function() {
 			if(arguments.length === 0) {
