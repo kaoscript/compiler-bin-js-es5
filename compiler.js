@@ -103209,7 +103209,13 @@ module.exports = function() {
 			else if(!KSType.isClassInstance(value, Expression)) {
 				throw new TypeError("'value' is not of type 'Expression'");
 			}
-			if(!this._exit || !(__ks_Array._im_last(this._statements).isExit() === true)) {
+			var statement = __ks_Array._im_last(this._statements);
+			if(KSType.isValue(statement)) {
+				if(!(statement.isExit() === true)) {
+					this._statements.push(new ReturnStatement(value, this));
+				}
+			}
+			else {
 				this._statements.push(new ReturnStatement(value, this));
 			}
 		},
