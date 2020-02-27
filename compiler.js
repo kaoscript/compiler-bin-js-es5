@@ -11206,9 +11206,7 @@ module.exports = function() {
 					return this.reqBlock(this.yes(), fMode);
 				}
 				else if(__ks_0 === Token.RETURN) {
-					var first = this.yes();
-					var expression = this.reqExpression(ExpressionMode.Default, fMode);
-					return this.yep(AST.ReturnStatement(expression, first, expression));
+					return this.reqReturnStatement(this.yes(), fMode);
 				}
 				else if(__ks_0 === Token.THROW) {
 					var first = this.yes();
@@ -60100,6 +60098,21 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
+		__ks_func_isConsumedError_0: function(error) {
+			if(arguments.length < 1) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
+			}
+			if(error === void 0 || error === null) {
+				throw new TypeError("'error' is not nullable");
+			}
+			return this._type.isCatchingError(error);
+		},
+		isConsumedError: function() {
+			if(arguments.length === 1) {
+				return EnumMethodDeclaration.prototype.__ks_func_isConsumedError_0.apply(this, arguments);
+			}
+			return Statement.prototype.isConsumedError.apply(this, arguments);
+		},
 		__ks_func_parameters_0: function() {
 			return this._parameters;
 		},
@@ -88852,7 +88865,7 @@ module.exports = function() {
 			if(this._unwrap) {
 				fragments.compileBoolean(this._argument);
 			}
-			else {
+			else if(this._defaultValue === null) {
 				fragments.code($runtime.helper(this), ".tryTest(");
 				if(this._options.format.functions === "es5") {
 					fragments.code("function(){return ").compile(this._argument).code(";}");
@@ -88861,6 +88874,9 @@ module.exports = function() {
 					fragments.code("() => ").compile(this._argument);
 				}
 				fragments.code(")");
+			}
+			else {
+				this.toFragments(fragments, mode);
 			}
 		},
 		toBooleanFragments: function() {
