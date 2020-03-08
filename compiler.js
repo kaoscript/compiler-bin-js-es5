@@ -15552,6 +15552,27 @@ module.exports = function() {
 				}
 				throw new SyntaxError("Wrong number of arguments");
 			},
+			__ks_sttc_throwExcessiveRequirement_0: function(name, node) {
+				if(arguments.length < 2) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+				}
+				if(name === void 0 || name === null) {
+					throw new TypeError("'name' is not nullable");
+				}
+				if(node === void 0 || node === null) {
+					throw new TypeError("'node' is not nullable");
+				}
+				throw new SyntaxException(KSHelper.concatString("import don't require the argument \"", name, "\""), node);
+			},
+			throwExcessiveRequirement: function() {
+				if(arguments.length === 2) {
+					return SyntaxException.__ks_sttc_throwExcessiveRequirement_0.apply(this, arguments);
+				}
+				else if(Exception.throwExcessiveRequirement) {
+					return Exception.throwExcessiveRequirement.apply(null, arguments);
+				}
+				throw new SyntaxError("Wrong number of arguments");
+			},
 			__ks_sttc_throwIdenticalConstructor_0: function(node) {
 				if(arguments.length < 1) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 1)");
@@ -24747,6 +24768,11 @@ module.exports = function() {
 		Tuple: "tuple",
 		Union: "union"
 	});
+	var Junction = KSHelper.enum(Number, {
+		NONE: 0,
+		AND: 1,
+		OR: 2
+	});
 	var Type = KSHelper.class({
 		$name: "Type",
 		$static: {
@@ -25101,6 +25127,9 @@ module.exports = function() {
 					if(__ks_0 === TypeKind.Class.value) {
 						return ClassType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
 					}
+					else if(__ks_0 === TypeKind.Dictionary.value) {
+						return DictionaryType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
+					}
 					else if(__ks_0 === TypeKind.Enum.value) {
 						return EnumType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
 					}
@@ -25118,6 +25147,12 @@ module.exports = function() {
 					}
 					else if(__ks_0 === TypeKind.Sealable.value) {
 						return SealableType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
+					}
+					else if(__ks_0 === TypeKind.Struct.value) {
+						return StructType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
+					}
+					else if(__ks_0 === TypeKind.Tuple.value) {
+						return TupleType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
 					}
 					else if(__ks_0 === TypeKind.Union.value) {
 						return UnionType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
@@ -26539,7 +26574,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toNegativeTestFragments_0: function(fragments, node) {
+		__ks_func_toNegativeTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -26549,10 +26584,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			return this.toPositiveTestFragments(fragments.code("!"), node);
+			if(junction === void 0 || junction === null) {
+				junction = Junction.NONE;
+			}
+			else if(!KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction'");
+			}
+			return this.toPositiveTestFragments(fragments.code("!"), node, junction);
 		},
 		toNegativeTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return Type.prototype.__ks_func_toNegativeTestFragments_0.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
@@ -28031,7 +28072,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toQuote.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -28041,10 +28082,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			fragments.code(KSHelper.concatString($runtime.type(node), ".isFunction(")).compile(node).code(")");
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return FunctionType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -28671,7 +28718,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -28681,10 +28728,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			throw new NotImplementedException();
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return OverloadedFunctionType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -30092,7 +30145,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toReference.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toNegativeTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -30102,16 +30155,52 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			var tof = $runtime.typeof(this._name, node);
+			if(KSType.isValue(tof)) {
+				fragments.code(KSHelper.concatString("!", tof, "(")).compile(node).code(")");
+			}
+			else {
+				this._type.toNegativeTestFragments(fragments, node, junction);
+			}
+		},
+		toNegativeTestFragments: function() {
+			if(arguments.length >= 2 && arguments.length <= 3) {
+				return NamedType.prototype.__ks_func_toNegativeTestFragments_0.apply(this, arguments);
+			}
+			return Type.prototype.toNegativeTestFragments.apply(this, arguments);
+		},
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(node === void 0 || node === null) {
+				throw new TypeError("'node' is not nullable");
+			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			var tof = $runtime.typeof(this._name, node);
 			if(KSType.isValue(tof)) {
 				fragments.code(KSHelper.concatString(tof, "(")).compile(node).code(")");
 			}
 			else {
-				this._type.toPositiveTestFragments(fragments, node);
+				this._type.toPositiveTestFragments(fragments, node, junction);
 			}
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return NamedType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -31824,7 +31913,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toReference.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toNegativeTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -31834,46 +31923,103 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			this.resolveType();
 			if((this._type.isAlias() === true) || (this._type.isUnion() === true) || (this._type.isExclusion() === true)) {
-				this._type.toPositiveTestFragments(fragments, node);
+				this._type.toNegativeTestFragments(fragments, node, junction);
 			}
 			else {
-				var tof, __ks_0;
-				if(KSType.isValue(__ks_0 = $runtime.typeof(this._name, node)) ? (tof = __ks_0, true) : false) {
-					fragments.code(KSHelper.concatString(tof, "(")).compile(node);
-				}
-				else {
-					fragments.code(KSHelper.concatString($runtime.type(node), "."));
-					if(this._type.isClass() === true) {
-						fragments.code("isClassInstance");
-					}
-					else if(this._type.isEnum() === true) {
-						fragments.code("isEnumInstance");
-					}
-					else if(this._type.isStruct() === true) {
-						fragments.code("isStructInstance");
-					}
-					else if(this._type.isTuple() === true) {
-						fragments.code("isTupleInstance");
-					}
-					fragments.code("(").compile(node).code(", ");
-					if(KSType.isClassInstance(this._type, NamedType)) {
-						fragments.code(this._type.path());
-					}
-					else {
-						fragments.code(this._name);
-					}
-				}
-				fragments.code(")");
+				this.toTestFragments(fragments.code("!"), node);
+			}
+		},
+		toNegativeTestFragments: function() {
+			if(arguments.length >= 2 && arguments.length <= 3) {
+				return ReferenceType.prototype.__ks_func_toNegativeTestFragments_0.apply(this, arguments);
+			}
+			return Type.prototype.toNegativeTestFragments.apply(this, arguments);
+		},
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(node === void 0 || node === null) {
+				throw new TypeError("'node' is not nullable");
+			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			this.resolveType();
+			if((this._type.isAlias() === true) || (this._type.isUnion() === true) || (this._type.isExclusion() === true)) {
+				this._type.toPositiveTestFragments(fragments, node, junction);
+			}
+			else {
+				this.toTestFragments(fragments, node);
 			}
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return ReferenceType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
 				return Type.prototype.toPositiveTestFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_toTestFragments_0: function(fragments, node) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(node === void 0 || node === null) {
+				throw new TypeError("'node' is not nullable");
+			}
+			var tof, __ks_0;
+			if(KSType.isValue(__ks_0 = $runtime.typeof(this._name, node)) ? (tof = __ks_0, true) : false) {
+				fragments.code(KSHelper.concatString(tof, "(")).compile(node);
+			}
+			else {
+				fragments.code(KSHelper.concatString($runtime.type(node), "."));
+				if(this._type.isClass() === true) {
+					fragments.code("isClassInstance");
+				}
+				else if(this._type.isEnum() === true) {
+					fragments.code("isEnumInstance");
+				}
+				else if(this._type.isStruct() === true) {
+					fragments.code("isStructInstance");
+				}
+				else if(this._type.isTuple() === true) {
+					fragments.code("isTupleInstance");
+				}
+				fragments.code("(").compile(node).code(", ");
+				if(KSType.isClassInstance(this._type, NamedType)) {
+					fragments.code(this._type.path());
+				}
+				else {
+					fragments.code(this._name);
+				}
+			}
+			fragments.code(")");
+		},
+		toTestFragments: function() {
+			if(arguments.length === 2) {
+				return ReferenceType.prototype.__ks_func_toTestFragments_0.apply(this, arguments);
+			}
+			else if(Type.prototype.toTestFragments) {
+				return Type.prototype.toTestFragments.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
@@ -32149,7 +32295,7 @@ module.exports = function() {
 		toQuote: function() {
 			return SealableType.prototype.__ks_func_toQuote_0.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -32159,10 +32305,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			return this._type.toPositiveTestFragments(fragments, node);
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			return this._type.toPositiveTestFragments(fragments, node, junction);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return SealableType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -32703,7 +32855,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toNegativeTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -32713,10 +32865,40 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			return this._type.toPositiveTestFragments(fragments, node);
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			return this._type.toNegativeTestFragments(fragments, node, junction);
+		},
+		toNegativeTestFragments: function() {
+			if(arguments.length >= 2 && arguments.length <= 3) {
+				return AliasType.prototype.__ks_func_toNegativeTestFragments_0.apply(this, arguments);
+			}
+			return Type.prototype.toNegativeTestFragments.apply(this, arguments);
+		},
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(node === void 0 || node === null) {
+				throw new TypeError("'node' is not nullable");
+			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			return this._type.toPositiveTestFragments(fragments, node, junction);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return AliasType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -33174,7 +33356,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toReference.apply(this, arguments);
 		},
-		__ks_func_toNegativeTestFragments_0: function(fragments, node) {
+		__ks_func_toNegativeTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -33183,6 +33365,12 @@ module.exports = function() {
 			}
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
+			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
 			}
 			if(this._nullable) {
 				fragments.code("false");
@@ -33192,12 +33380,12 @@ module.exports = function() {
 			}
 		},
 		toNegativeTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return AnyType.prototype.__ks_func_toNegativeTestFragments_0.apply(this, arguments);
 			}
 			return Type.prototype.toNegativeTestFragments.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -33207,6 +33395,12 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			if(this._nullable) {
 				fragments.code("true");
 			}
@@ -33215,7 +33409,7 @@ module.exports = function() {
 			}
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return AnyType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -33425,7 +33619,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -33435,10 +33629,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			throw new NotImplementedException();
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return ArrayType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -36642,7 +36842,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toReference.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -36652,10 +36852,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			throw new NotImplementedException(node);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return ClassType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -37052,7 +37258,7 @@ module.exports = function() {
 		toQuote: function() {
 			return ClassVariableType.prototype.__ks_func_toQuote_0.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -37062,10 +37268,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			return this._type.toPositiveTestFragments(fragments, node);
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			return this._type.toPositiveTestFragments(fragments, node, junction);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return ClassVariableType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -39330,7 +39542,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -39340,10 +39552,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			throw new NotImplementedException();
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return EnumType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -40154,7 +40372,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -40164,10 +40382,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			throw new NotImplementedException();
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return NamespaceType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -40472,7 +40696,7 @@ module.exports = function() {
 		toQuote: function() {
 			return NamespacePropertyType.prototype.__ks_func_toQuote_0.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -40482,10 +40706,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			return this._type.toPositiveTestFragments(fragments, node);
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			return this._type.toPositiveTestFragments(fragments, node, junction);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return NamespacePropertyType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -40592,7 +40822,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toQuote.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -40602,10 +40832,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			throw new NotSupportedException(node);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return NeverType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -40939,7 +41175,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toReference.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -40949,9 +41185,15 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return NullType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -40966,6 +41208,67 @@ module.exports = function() {
 		$name: "DictionaryType",
 		$extends: Type,
 		$static: {
+			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
+				if(arguments.length < 7) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
+				}
+				if(data === void 0 || data === null) {
+					throw new TypeError("'data' is not nullable");
+				}
+				if(metadata === void 0 || metadata === null) {
+					throw new TypeError("'metadata' is not nullable");
+				}
+				if(references === void 0 || references === null) {
+					throw new TypeError("'references' is not nullable");
+				}
+				else if(!KSType.isArray(references)) {
+					throw new TypeError("'references' is not of type 'Array'");
+				}
+				if(alterations === void 0 || alterations === null) {
+					throw new TypeError("'alterations' is not nullable");
+				}
+				if(queue === void 0 || queue === null) {
+					throw new TypeError("'queue' is not nullable");
+				}
+				else if(!KSType.isArray(queue)) {
+					throw new TypeError("'queue' is not of type 'Array'");
+				}
+				if(scope === void 0 || scope === null) {
+					throw new TypeError("'scope' is not nullable");
+				}
+				else if(!KSType.isClassInstance(scope, Scope)) {
+					throw new TypeError("'scope' is not of type 'Scope'");
+				}
+				if(node === void 0 || node === null) {
+					throw new TypeError("'node' is not nullable");
+				}
+				else if(!KSType.isClassInstance(node, AbstractNode)) {
+					throw new TypeError("'node' is not of type 'AbstractNode'");
+				}
+				var type = new DictionaryType(scope);
+				if(data.systemic === true) {
+					type.flagSystemic();
+				}
+				else if(data.sealed === true) {
+					type.flagSealed();
+				}
+				for(var name in data.properties) {
+					var property = data.properties[name];
+					if(KSType.isValue(property.parameters)) {
+						type.addProperty(name, FunctionType.fromMetadata(property, metadata, references, alterations, queue, scope, node));
+					}
+					else {
+						type.addProperty(name, Type.fromMetadata(property, metadata, references, alterations, queue, scope, node));
+					}
+				}
+				return type;
+			},
+			fromMetadata: function() {
+				if(arguments.length === 7) {
+					return DictionaryType.__ks_sttc_fromMetadata_0.apply(this, arguments);
+				}
+				return Type.fromMetadata.apply(null, arguments);
+			},
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
@@ -41299,6 +41602,15 @@ module.exports = function() {
 			}
 			return Type.prototype.isExhaustive.apply(this, arguments);
 		},
+		__ks_func_isExportable_0: function() {
+			return true;
+		},
+		isExportable: function() {
+			if(arguments.length === 0) {
+				return DictionaryType.prototype.__ks_func_isExportable_0.apply(this);
+			}
+			return Type.prototype.isExportable.apply(this, arguments);
+		},
 		__ks_func_isSealable_0: function() {
 			return true;
 		},
@@ -41396,7 +41708,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toQuote.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toNegativeTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -41406,10 +41718,62 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			throw new NotImplementedException();
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			if(junction === Junction.AND) {
+				fragments.code("(");
+			}
+			fragments.code("!", $runtime.type(node), ".isDictionary(").compile(node).code(")");
+			for(var name in this._properties) {
+				var value = this._properties[name];
+				fragments.code(" || ");
+				value.toNegativeTestFragments(fragments, new Literal(false, node, node.scope(), KSHelper.concatString(node.path(), ".", name)));
+			}
+			if(junction === Junction.AND) {
+				fragments.code(")");
+			}
+		},
+		toNegativeTestFragments: function() {
+			if(arguments.length >= 2 && arguments.length <= 3) {
+				return DictionaryType.prototype.__ks_func_toNegativeTestFragments_0.apply(this, arguments);
+			}
+			return Type.prototype.toNegativeTestFragments.apply(this, arguments);
+		},
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(node === void 0 || node === null) {
+				throw new TypeError("'node' is not nullable");
+			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			if(junction === Junction.OR) {
+				fragments.code("(");
+			}
+			fragments.code($runtime.type(node), ".isDictionary(").compile(node).code(")");
+			for(var name in this._properties) {
+				var value = this._properties[name];
+				fragments.code(" && ");
+				value.toPositiveTestFragments(fragments, new Literal(false, node, node.scope(), KSHelper.concatString(node.path(), ".", name)));
+			}
+			if(junction === Junction.OR) {
+				fragments.code(")");
+			}
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return DictionaryType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -41884,7 +42248,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toQuote.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -41894,10 +42258,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			this._type.toPositiveTestFragments(fragments, node);
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			this._type.toPositiveTestFragments(fragments, node, junction);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return ParameterType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -41919,6 +42289,61 @@ module.exports = function() {
 		$name: "StructType",
 		$extends: Type,
 		$static: {
+			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
+				if(arguments.length < 7) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
+				}
+				if(data === void 0 || data === null) {
+					throw new TypeError("'data' is not nullable");
+				}
+				if(metadata === void 0 || metadata === null) {
+					throw new TypeError("'metadata' is not nullable");
+				}
+				if(references === void 0 || references === null) {
+					throw new TypeError("'references' is not nullable");
+				}
+				else if(!KSType.isArray(references)) {
+					throw new TypeError("'references' is not of type 'Array'");
+				}
+				if(alterations === void 0 || alterations === null) {
+					throw new TypeError("'alterations' is not nullable");
+				}
+				if(queue === void 0 || queue === null) {
+					throw new TypeError("'queue' is not nullable");
+				}
+				else if(!KSType.isArray(queue)) {
+					throw new TypeError("'queue' is not of type 'Array'");
+				}
+				if(scope === void 0 || scope === null) {
+					throw new TypeError("'scope' is not nullable");
+				}
+				else if(!KSType.isClassInstance(scope, Scope)) {
+					throw new TypeError("'scope' is not of type 'Scope'");
+				}
+				if(node === void 0 || node === null) {
+					throw new TypeError("'node' is not nullable");
+				}
+				else if(!KSType.isClassInstance(node, AbstractNode)) {
+					throw new TypeError("'node' is not of type 'AbstractNode'");
+				}
+				var value = new StructType(scope);
+				var index = 0;
+				for(var name in data.fields) {
+					var type = data.fields[name];
+					value.addField(StructFieldType.fromMetadata(index, name, type, metadata, references, alterations, queue, scope, node));
+					++index;
+				}
+				if(KSType.isValue(data.extends)) {
+					value.extends(Type.fromMetadata(data.extends, metadata, references, alterations, queue, scope, node).discardReference());
+				}
+				return value;
+			},
+			fromMetadata: function() {
+				if(arguments.length === 7) {
+					return StructType.__ks_sttc_fromMetadata_0.apply(this, arguments);
+				}
+				return Type.fromMetadata.apply(null, arguments);
+			},
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
@@ -42203,7 +42628,7 @@ module.exports = function() {
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
 			}
-			else if(!(KSType.isClassInstance(value, NamedType) || KSType.isClassInstance(value, ReferenceType))) {
+			else if(!KSType.isClassInstance(value, NamedType) && !KSType.isClassInstance(value, ReferenceType)) {
 				throw new TypeError("'value' is not of type 'NamedType' or 'ReferenceType'");
 			}
 			if(mode === void 0 || mode === null) {
@@ -42570,7 +42995,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -42580,10 +43005,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			NotImplementedException.throw();
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			NotImplementedException.throw(node);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return StructType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -42803,7 +43234,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toQuote.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -42813,10 +43244,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			NotImplementedException.throw();
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			NotImplementedException.throw(node);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return StructFieldType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -42838,6 +43275,56 @@ module.exports = function() {
 		$name: "TupleType",
 		$extends: Type,
 		$static: {
+			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
+				if(arguments.length < 7) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
+				}
+				if(data === void 0 || data === null) {
+					throw new TypeError("'data' is not nullable");
+				}
+				if(metadata === void 0 || metadata === null) {
+					throw new TypeError("'metadata' is not nullable");
+				}
+				if(references === void 0 || references === null) {
+					throw new TypeError("'references' is not nullable");
+				}
+				else if(!KSType.isArray(references)) {
+					throw new TypeError("'references' is not of type 'Array'");
+				}
+				if(alterations === void 0 || alterations === null) {
+					throw new TypeError("'alterations' is not nullable");
+				}
+				if(queue === void 0 || queue === null) {
+					throw new TypeError("'queue' is not nullable");
+				}
+				else if(!KSType.isArray(queue)) {
+					throw new TypeError("'queue' is not of type 'Array'");
+				}
+				if(scope === void 0 || scope === null) {
+					throw new TypeError("'scope' is not nullable");
+				}
+				else if(!KSType.isClassInstance(scope, Scope)) {
+					throw new TypeError("'scope' is not of type 'Scope'");
+				}
+				if(node === void 0 || node === null) {
+					throw new TypeError("'node' is not nullable");
+				}
+				else if(!KSType.isClassInstance(node, AbstractNode)) {
+					throw new TypeError("'node' is not of type 'AbstractNode'");
+				}
+				if(data.named === true) {
+					return NamedTupleType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
+				}
+				else {
+					return UnnamedTupleType.fromMetadata(data, metadata, references, alterations, queue, scope, node);
+				}
+			},
+			fromMetadata: function() {
+				if(arguments.length === 7) {
+					return TupleType.__ks_sttc_fromMetadata_0.apply(this, arguments);
+				}
+				return Type.fromMetadata.apply(null, arguments);
+			},
 			__ks_sttc_import_0: function(index, data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 8) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 8)");
@@ -43080,7 +43567,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -43090,10 +43577,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			NotImplementedException.throw();
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			NotImplementedException.throw(node);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return TupleType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -43106,6 +43599,59 @@ module.exports = function() {
 		$name: "NamedTupleType",
 		$extends: TupleType,
 		$static: {
+			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
+				if(arguments.length < 7) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
+				}
+				if(data === void 0 || data === null) {
+					throw new TypeError("'data' is not nullable");
+				}
+				if(metadata === void 0 || metadata === null) {
+					throw new TypeError("'metadata' is not nullable");
+				}
+				if(references === void 0 || references === null) {
+					throw new TypeError("'references' is not nullable");
+				}
+				else if(!KSType.isArray(references)) {
+					throw new TypeError("'references' is not of type 'Array'");
+				}
+				if(alterations === void 0 || alterations === null) {
+					throw new TypeError("'alterations' is not nullable");
+				}
+				if(queue === void 0 || queue === null) {
+					throw new TypeError("'queue' is not nullable");
+				}
+				else if(!KSType.isArray(queue)) {
+					throw new TypeError("'queue' is not of type 'Array'");
+				}
+				if(scope === void 0 || scope === null) {
+					throw new TypeError("'scope' is not nullable");
+				}
+				else if(!KSType.isClassInstance(scope, Scope)) {
+					throw new TypeError("'scope' is not of type 'Scope'");
+				}
+				if(node === void 0 || node === null) {
+					throw new TypeError("'node' is not nullable");
+				}
+				else if(!KSType.isClassInstance(node, AbstractNode)) {
+					throw new TypeError("'node' is not of type 'AbstractNode'");
+				}
+				var value = new NamedTupleType(scope);
+				if(KSType.isValue(data.extends)) {
+					value.extends(Type.fromMetadata(data.extends, metadata, references, alterations, queue, scope, node).discardReference());
+				}
+				for(var name in data.fields) {
+					var type = data.fields[name];
+					value.addField(TupleFieldType.fromMetadata(name, type, metadata, references, alterations, queue, scope, node));
+				}
+				return value;
+			},
+			fromMetadata: function() {
+				if(arguments.length === 7) {
+					return NamedTupleType.__ks_sttc_fromMetadata_0.apply(this, arguments);
+				}
+				return TupleType.fromMetadata.apply(null, arguments);
+			},
 			__ks_sttc_import_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
@@ -43321,7 +43867,7 @@ module.exports = function() {
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
 			}
-			else if(!(KSType.isClassInstance(value, NamedType) || KSType.isClassInstance(value, ReferenceType))) {
+			else if(!KSType.isClassInstance(value, NamedType) && !KSType.isClassInstance(value, ReferenceType)) {
 				throw new TypeError("'value' is not of type 'NamedType' or 'ReferenceType'");
 			}
 			if(mode === void 0 || mode === null) {
@@ -43617,6 +44163,59 @@ module.exports = function() {
 		$name: "UnnamedTupleType",
 		$extends: TupleType,
 		$static: {
+			__ks_sttc_fromMetadata_0: function(data, metadata, references, alterations, queue, scope, node) {
+				if(arguments.length < 7) {
+					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
+				}
+				if(data === void 0 || data === null) {
+					throw new TypeError("'data' is not nullable");
+				}
+				if(metadata === void 0 || metadata === null) {
+					throw new TypeError("'metadata' is not nullable");
+				}
+				if(references === void 0 || references === null) {
+					throw new TypeError("'references' is not nullable");
+				}
+				else if(!KSType.isArray(references)) {
+					throw new TypeError("'references' is not of type 'Array'");
+				}
+				if(alterations === void 0 || alterations === null) {
+					throw new TypeError("'alterations' is not nullable");
+				}
+				if(queue === void 0 || queue === null) {
+					throw new TypeError("'queue' is not nullable");
+				}
+				else if(!KSType.isArray(queue)) {
+					throw new TypeError("'queue' is not of type 'Array'");
+				}
+				if(scope === void 0 || scope === null) {
+					throw new TypeError("'scope' is not nullable");
+				}
+				else if(!KSType.isClassInstance(scope, Scope)) {
+					throw new TypeError("'scope' is not of type 'Scope'");
+				}
+				if(node === void 0 || node === null) {
+					throw new TypeError("'node' is not nullable");
+				}
+				else if(!KSType.isClassInstance(node, AbstractNode)) {
+					throw new TypeError("'node' is not of type 'AbstractNode'");
+				}
+				var value = new UnnamedTupleType(scope);
+				if(KSType.isValue(data.extends)) {
+					value.extends(Type.fromMetadata(data.extends, metadata, references, alterations, queue, scope, node).discardReference());
+				}
+				for(var __ks_0 = 0, __ks_1 = data.fields.length, type; __ks_0 < __ks_1; ++__ks_0) {
+					type = data.fields[__ks_0];
+					value.addField(TupleFieldType.fromMetadata(null, type, metadata, references, alterations, queue, scope, node));
+				}
+				return value;
+			},
+			fromMetadata: function() {
+				if(arguments.length === 7) {
+					return UnnamedTupleType.__ks_sttc_fromMetadata_0.apply(this, arguments);
+				}
+				return TupleType.fromMetadata.apply(null, arguments);
+			},
 			__ks_sttc_import_0: function(data, metadata, references, alterations, queue, scope, node) {
 				if(arguments.length < 7) {
 					throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 7)");
@@ -43774,7 +44373,7 @@ module.exports = function() {
 			if(value === void 0 || value === null) {
 				throw new TypeError("'value' is not nullable");
 			}
-			else if(!(KSType.isClassInstance(value, NamedType) || KSType.isClassInstance(value, ReferenceType))) {
+			else if(!KSType.isClassInstance(value, NamedType) && !KSType.isClassInstance(value, ReferenceType)) {
 				throw new TypeError("'value' is not of type 'NamedType' or 'ReferenceType'");
 			}
 			if(mode === void 0 || mode === null) {
@@ -44109,7 +44708,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toQuote.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -44119,10 +44718,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			NotImplementedException.throw();
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			NotImplementedException.throw(node);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return TupleFieldType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -44502,7 +45107,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toReference.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -44512,28 +45117,37 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			fragments.code("(");
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			if(junction === Junction.OR) {
+				fragments.code("(");
+			}
 			if(this._types[0].isAny() === true) {
-				fragments.code("!");
-				this._types[1].toPositiveTestFragments(fragments, node);
+				this._types[1].toNegativeTestFragments(fragments, node, Junction.AND);
 				for(var __ks_0 = 2, __ks_1 = this._types.length, type; __ks_0 < __ks_1; ++__ks_0) {
 					type = this._types[__ks_0];
-					fragments.code(" && !");
-					type.toPositiveTestFragments(fragments, node);
+					fragments.code(" && ");
+					type.toNegativeTestFragments(fragments, node, Junction.AND);
 				}
 			}
 			else {
-				this._types[0].toPositiveTestFragments(fragments, node);
+				this._types[0].toPositiveTestFragments(fragments, node, Junction.AND);
 				for(var __ks_0 = 1, __ks_1 = this._types.length, type; __ks_0 < __ks_1; ++__ks_0) {
 					type = this._types[__ks_0];
-					fragments.code(" && !");
-					type.toPositiveTestFragments(fragments, node);
+					fragments.code(" && ");
+					type.toNegativeTestFragments(fragments, node, Junction.AND);
 				}
 			}
-			fragments.code(")");
+			if(junction === Junction.OR) {
+				fragments.code(")");
+			}
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return ExclusionType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -44870,7 +45484,7 @@ module.exports = function() {
 			}
 			throw new SyntaxError("Wrong number of arguments");
 		},
-		__ks_func_toNegativeTestFragments_0: function(fragments, node) {
+		__ks_func_toNegativeTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -44880,23 +45494,33 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			fragments.code("(");
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			if(junction === Junction.OR) {
+				fragments.code("(");
+			}
 			for(var i = 0, __ks_0 = this._types.length, type; i < __ks_0; ++i) {
 				type = this._types[i];
 				if(i !== 0) {
 					fragments.code(" && ");
 				}
-				type.toNegativeTestFragments(fragments, node);
+				type.toNegativeTestFragments(fragments, node, Junction.AND);
 			}
-			fragments.code(")");
+			if(junction === Junction.OR) {
+				fragments.code(")");
+			}
 		},
 		toNegativeTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return FusionType.prototype.__ks_func_toNegativeTestFragments_0.apply(this, arguments);
 			}
 			return Type.prototype.toNegativeTestFragments.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -44906,18 +45530,28 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			fragments.code("(");
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			if(junction === Junction.OR) {
+				fragments.code("(");
+			}
 			for(var i = 0, __ks_0 = this._types.length, type; i < __ks_0; ++i) {
 				type = this._types[i];
 				if(i !== 0) {
 					fragments.code(" && ");
 				}
-				type.toPositiveTestFragments(fragments, node);
+				type.toPositiveTestFragments(fragments, node, Junction.AND);
 			}
-			fragments.code(")");
+			if(junction === Junction.OR) {
+				fragments.code(")");
+			}
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return FusionType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -45881,7 +46515,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toReference.apply(this, arguments);
 		},
-		__ks_func_toNegativeTestFragments_0: function(fragments, node) {
+		__ks_func_toNegativeTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -45891,23 +46525,33 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			fragments.code("(");
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			if(junction === Junction.OR) {
+				fragments.code("(");
+			}
 			for(var i = 0, __ks_0 = this._types.length, type; i < __ks_0; ++i) {
 				type = this._types[i];
 				if(i !== 0) {
-					fragments.code(" || ");
+					fragments.code(" && ");
 				}
-				type.toNegativeTestFragments(fragments, node);
+				type.toNegativeTestFragments(fragments, node, Junction.AND);
 			}
-			fragments.code(")");
+			if(junction === Junction.OR) {
+				fragments.code(")");
+			}
 		},
 		toNegativeTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return UnionType.prototype.__ks_func_toNegativeTestFragments_0.apply(this, arguments);
 			}
 			return Type.prototype.toNegativeTestFragments.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -45917,18 +46561,28 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
-			fragments.code("(");
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
+			if(junction === Junction.AND) {
+				fragments.code("(");
+			}
 			for(var i = 0, __ks_0 = this._types.length, type; i < __ks_0; ++i) {
 				type = this._types[i];
 				if(i !== 0) {
 					fragments.code(" || ");
 				}
-				type.toPositiveTestFragments(fragments, node);
+				type.toPositiveTestFragments(fragments, node, Junction.OR);
 			}
-			fragments.code(")");
+			if(junction === Junction.AND) {
+				fragments.code(")");
+			}
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return UnionType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -46084,7 +46738,7 @@ module.exports = function() {
 			}
 			return Type.prototype.toQuote.apply(this, arguments);
 		},
-		__ks_func_toPositiveTestFragments_0: function(fragments, node) {
+		__ks_func_toPositiveTestFragments_0: function(fragments, node, junction) {
 			if(arguments.length < 2) {
 				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
 			}
@@ -46094,10 +46748,16 @@ module.exports = function() {
 			if(node === void 0 || node === null) {
 				throw new TypeError("'node' is not nullable");
 			}
+			if(junction === void 0) {
+				junction = null;
+			}
+			else if(junction !== null && !KSType.isEnumInstance(junction, Junction)) {
+				throw new TypeError("'junction' is not of type 'Junction?'");
+			}
 			throw new NotSupportedException(node);
 		},
 		toPositiveTestFragments: function() {
-			if(arguments.length === 2) {
+			if(arguments.length >= 2 && arguments.length <= 3) {
 				return VoidType.prototype.__ks_func_toPositiveTestFragments_0.apply(this, arguments);
 			}
 			else if(Type.prototype.toPositiveTestFragments) {
@@ -50664,6 +51324,40 @@ module.exports = function() {
 				return BlockScope.prototype.isMatchingType.apply(this, arguments);
 			}
 			throw new SyntaxError("Wrong number of arguments");
+		},
+		__ks_func_resolveReference_0: function(name, nullable, parameters) {
+			if(arguments.length < 3) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 3)");
+			}
+			if(name === void 0 || name === null) {
+				throw new TypeError("'name' is not nullable");
+			}
+			else if(!KSType.isString(name)) {
+				throw new TypeError("'name' is not of type 'String'");
+			}
+			if(nullable === void 0 || nullable === null) {
+				throw new TypeError("'nullable' is not nullable");
+			}
+			else if(!KSType.isBoolean(nullable)) {
+				throw new TypeError("'nullable' is not of type 'Boolean'");
+			}
+			if(parameters === void 0 || parameters === null) {
+				throw new TypeError("'parameters' is not nullable");
+			}
+			else if(!KSType.isArray(parameters)) {
+				throw new TypeError("'parameters' is not of type 'Array'");
+			}
+			var hash = ReferenceType.toQuote(name, nullable, parameters);
+			if(!KSType.isClassInstance(this._references[hash], ReferenceType)) {
+				this._references[hash] = new ReferenceType(this, name, nullable, parameters);
+			}
+			return this._references[hash];
+		},
+		resolveReference: function() {
+			if(arguments.length === 3) {
+				return ImportScope.prototype.__ks_func_resolveReference_0.apply(this, arguments);
+			}
+			return BlockScope.prototype.resolveReference.apply(this, arguments);
 		}
 	});
 	var MacroScope = KSHelper.class({
@@ -53260,7 +53954,7 @@ module.exports = function() {
 			if(expression === void 0 || expression === null) {
 				throw new TypeError("'expression' is not nullable");
 			}
-			else if(!(KSType.isClassInstance(expression, Expression) || KSType.isClassInstance(expression, ExportProperty))) {
+			else if(!KSType.isClassInstance(expression, Expression) && !KSType.isClassInstance(expression, ExportProperty)) {
 				throw new TypeError("'expression' is not of type 'Expression' or 'ExportProperty'");
 			}
 			if(this._binary) {
@@ -69301,19 +69995,24 @@ module.exports = function() {
 				this._scope.line(KSOperator.subtraction(this.line(), 1));
 				for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
 					argument = this._arguments[__ks_0];
-					argument.value.prepare();
-					argument.type = argument.value.type();
+					if(!(argument.required === true)) {
+						argument.value.prepare();
+						argument.type = argument.value.type();
+					}
 					__ks_arguments_1[argument.name] = argument;
 				}
 				this._worker.prepare(__ks_arguments_1);
+				this._scope.line(this.line());
 				for(var __ks_0 = 0, __ks_1 = this._arguments.length, argument; __ks_0 < __ks_1; ++__ks_0) {
 					argument = this._arguments[__ks_0];
 					if(argument.required === true) {
 						module.addRequirement(new ImportingRequirement(argument.name, argument.type, this));
+						if(!this._scope.hasVariable(argument.name)) {
+							this._scope.define(argument.name, true, argument.type, true, this);
+						}
 					}
 				}
 				var matchables = [];
-				this._scope.line(this.line());
 				for(var name in this._imports) {
 					var def = this._imports[name];
 					var variable = this._scope.getVariable(def.local);
@@ -69473,13 +70172,17 @@ module.exports = function() {
 				argument.identifier = data.value.name;
 				this._argumentNames[argument.name] = this._arguments.length;
 				this._argumentValues[data.value.name] = this._arguments.length;
+				argument.value.analyse();
 			}
 			else if(KSType.isValue(data.name)) {
 				argument.isNamed = true;
 				argument.name = data.name.name;
 				this._argumentNames[argument.name] = this._arguments.length;
+				argument.value.analyse();
 			}
-			argument.value.analyse();
+			else {
+				argument.value.analyse();
+			}
 			this._arguments.push(argument);
 		},
 		addArgument: function() {
@@ -70714,6 +71417,7 @@ module.exports = function() {
 			}
 			var references = [];
 			var queue = [];
+			var matchedArguments = new Dictionary();
 			var index = null, name = null, type = null, argument = null;
 			if(KSOperator.gt(this._metadata.requirements.length, 0)) {
 				var reqReferences = [];
@@ -70729,22 +71433,37 @@ module.exports = function() {
 				var matchables = [];
 				for(var i = 0, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
 					name = this._metadata.requirements[i + 1];
-					if((KSType.isValue(__ks_arguments_1[name]) ? (argument = __ks_arguments_1[name], true) : false) && !(argument.required === true) && !(reqReferences[this._metadata.requirements[i]].isAny() === true) && !(argument.type.isMatching(reqReferences[this._metadata.requirements[i]], MatchingMode.Signature) === true)) {
-						if(argument.isAutofill === true) {
-							argument.isApproved = false;
-						}
-						else {
-							TypeException.throwNotCompatibleArgument(argument.name, name, this._node.data().source.value, this._node);
+					var __ks_argument_1 = __ks_arguments_1[name];
+					if(KSType.isValue(__ks_argument_1)) {
+						matchedArguments[name] = true;
+						if(!(__ks_argument_1.required === true) && !(reqReferences[this._metadata.requirements[i]].isAny() === true) && !(__ks_argument_1.type.isMatching(reqReferences[this._metadata.requirements[i]], MatchingMode.Signature) === true)) {
+							if(__ks_argument_1.isAutofill === true) {
+								__ks_argument_1.isApproved = false;
+							}
+							else {
+								TypeException.throwNotCompatibleArgument(__ks_argument_1.name, name, this._node.data().source.value, this._node);
+							}
 						}
 					}
 				}
 				for(var i = 0, __ks_0 = this._metadata.requirements.length; i < __ks_0; i += 3) {
-					if((KSType.isValue(__ks_arguments_1[this._metadata.requirements[i + 1]]) ? (argument = __ks_arguments_1[this._metadata.requirements[i + 1]], true) : false) && (argument.isApproved === true)) {
-						if(argument.required === true) {
-							argument.type = reqReferences[this._metadata.requirements[i]];
+					var __ks_name_1 = this._metadata.requirements[i + 1];
+					var __ks_argument_1 = __ks_arguments_1[__ks_name_1];
+					if(KSType.isValue(__ks_argument_1)) {
+						matchedArguments[__ks_name_1] = true;
+						if(__ks_argument_1.isApproved === true) {
+							if(__ks_argument_1.required === true) {
+								__ks_argument_1.type = reqReferences[this._metadata.requirements[i]];
+							}
+							references[this._metadata.requirements[i]] = __ks_argument_1.type;
 						}
-						references[this._metadata.requirements[i]] = argument.type;
 					}
+				}
+			}
+			var __ks_0;
+			for(var __ks_name_1 in __ks_arguments_1) {
+				if(!(matchedArguments[__ks_name_1] === true)) {
+					SyntaxException.throwExcessiveRequirement(__ks_name_1, this._node);
 				}
 			}
 			var alterations = new Dictionary();
@@ -70770,6 +71489,7 @@ module.exports = function() {
 				}
 				references[index] = Type.toNamedType(name, type);
 			}
+			var variables = new Dictionary();
 			for(var i = 0, __ks_0 = this._metadata.exports.length; i < __ks_0; i += 2) {
 				index = this._metadata.exports[i];
 				name = this._metadata.exports[i + 1];
@@ -70781,19 +71501,21 @@ module.exports = function() {
 				}
 				type = references[index] = Type.toNamedType(name, type);
 				this._scope.addVariable(name, new Variable(name, false, false, type), this._node);
+				variables[index] = true;
 			}
 			for(var i = 0, __ks_0 = this._metadata.aliens.length; i < __ks_0; i += 2) {
 				index = this._metadata.aliens[i];
 				name = this._metadata.aliens[i + 1];
 				if(!this._scope.hasVariable(name)) {
 					this._scope.addVariable(name, new Variable(name, false, false, references[index]), this._node);
+					variables[index] = true;
 				}
 			}
 			var __ks_1;
 			for(var __ks_index_1 = 0, __ks_0 = this._metadata.references.length; __ks_index_1 < __ks_0; ++__ks_index_1) {
 				if(!KSType.isValue(references[__ks_index_1])) {
 					var __ks_type_1 = Type.import(__ks_index_1, this._metadata, references, alterations, queue, this._scope, this._node);
-					if(KSType.isClassInstance(__ks_type_1, AliasType) || KSType.isClassInstance(__ks_type_1, ClassType) || KSType.isClassInstance(__ks_type_1, EnumType)) {
+					if(KSType.isClassInstance(__ks_type_1, AliasType) || KSType.isClassInstance(__ks_type_1, ClassType) || KSType.isClassInstance(__ks_type_1, EnumType) || KSType.isClassInstance(__ks_type_1, StructType) || KSType.isClassInstance(__ks_type_1, TupleType)) {
 						__ks_type_1 = new NamedType(this._scope.acquireTempName(), __ks_type_1);
 						this._scope.define(__ks_type_1.name(), true, __ks_type_1, this._node);
 					}
@@ -70802,6 +71524,12 @@ module.exports = function() {
 						this._scope.define(__ks_type_1.name(), true, __ks_type_1, this._node);
 					}
 					references[__ks_index_1] = __ks_type_1;
+				}
+				else if(!(variables[__ks_index_1] === true)) {
+					var __ks_type_1 = references[__ks_index_1];
+					if(KSType.isClassInstance(__ks_type_1, NamedType) && !this._scope.hasVariable(__ks_type_1.name())) {
+						this._scope.define(__ks_type_1.name(), true, __ks_type_1, this._node);
+					}
 				}
 			}
 			while(queue.length > 0) {
@@ -92852,12 +93580,13 @@ module.exports = function() {
 						var ctrl2 = ctrl.newControl();
 						if(type.isNullable() === true) {
 							ctrl2.code("if(__ks__ === void 0 || __ks__ === null)").step().newLine().compile(that).code(".push(null)").done().done();
-							ctrl2.step().code("else if(!");
+							ctrl2.step().code("else if(");
+							type.toNegativeTestFragments(ctrl2, new Literal(false, that, that.scope(), "__ks__"), Junction.NONE);
 						}
 						else {
-							ctrl2.code("if(__ks__ === void 0 || __ks__ === null || !");
+							ctrl2.code("if(__ks__ === void 0 || __ks__ === null || ");
+							type.toNegativeTestFragments(ctrl2, new Literal(false, that, that.scope(), "__ks__"), Junction.OR);
 						}
-						type.toPositiveTestFragments(ctrl2, new Literal(false, that, that.scope(), "__ks__"));
 						ctrl2.code(")").step();
 						if(KSOperator.addOrConcat(index, 1) === context.length) {
 							wrongdoer(ctrl2, ParameterWrongDoing.BadType, (function() {
@@ -93014,12 +93743,13 @@ module.exports = function() {
 						var ctrl2 = ctrl.newControl();
 						if(type.isNullable() === true) {
 							ctrl2.code("if(__ks__ === void 0 || __ks__ === null)").step().newLine().compile(that).code(".push(null)").done().done();
-							ctrl2.step().code("else if(!");
+							ctrl2.step().code("else if(");
+							type.toNegativeTestFragments(ctrl2, new Literal(false, that, that.scope(), "__ks__"), Junction.NONE);
 						}
 						else {
-							ctrl2.code("if(__ks__ === void 0 || __ks__ === null || !");
+							ctrl2.code("if(__ks__ === void 0 || __ks__ === null || ");
+							type.toNegativeTestFragments(ctrl2, new Literal(false, that, that.scope(), "__ks__"), Junction.OR);
 						}
-						type.toPositiveTestFragments(ctrl2, new Literal(false, that, that.scope(), "__ks__"));
 						ctrl2.code(")").step();
 						if(KSOperator.addOrConcat(index, 1) === context.length) {
 							wrongdoer(ctrl2, ParameterWrongDoing.BadType, (function() {
@@ -93082,12 +93812,12 @@ module.exports = function() {
 							ctrl.code(")").step();
 							var ctrl2 = ctrl.newControl().code("if(");
 							if(declaredType.isNullable() === true) {
-								ctrl2.compile(that).code(" !== null && !");
+								ctrl2.compile(that).code(" !== null && ");
+								declaredType.toNegativeTestFragments(ctrl2, that, Junction.AND);
 							}
 							else {
-								ctrl2.code("!");
+								declaredType.toNegativeTestFragments(ctrl2, that, Junction.NONE);
 							}
-							declaredType.toPositiveTestFragments(ctrl2, that);
 							ctrl2.code(")").step();
 							if(fixed || (KSOperator.addOrConcat(index, 1) === context.length)) {
 								wrongdoer(ctrl2, ParameterWrongDoing.BadType, (function() {
@@ -93204,9 +93934,11 @@ module.exports = function() {
 					else {
 						if(declaredType.isNullable() === true) {
 							ctrl.compile(that).code(" !== null && ");
+							declaredType.toNegativeTestFragments(ctrl, that, Junction.AND);
 						}
-						ctrl.code("!");
-						declaredType.toPositiveTestFragments(ctrl, that);
+						else {
+							declaredType.toNegativeTestFragments(ctrl, that, Junction.NONE);
+						}
 					}
 					ctrl.code(")").step();
 					wrongdoer(ctrl, ParameterWrongDoing.BadType, (function() {
@@ -94171,9 +94903,11 @@ module.exports = function() {
 				var ctrl = fragments.newControl().code("if(");
 				if(this._type.isNullable() === true) {
 					ctrl.compile(this).code(" !== null && ");
+					this._type.toNegativeTestFragments(ctrl, this, Junction.AND);
 				}
-				ctrl.code("!");
-				this._type.toPositiveTestFragments(ctrl, this);
+				else {
+					this._type.toNegativeTestFragments(ctrl, this, Junction.NONE);
+				}
 				ctrl.code(")").step();
 				wrongdoer(ctrl, ParameterWrongDoing.BadType, (function(that) {
 					var d = new Dictionary();
