@@ -59340,10 +59340,11 @@ module.exports = function() {
 				parameter = this._parameters[__ks_0];
 				parameter.translate();
 			}
-			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, indigent; __ks_0 < __ks_1; ++__ks_0) {
-				indigent = this._indigentValues[__ks_0];
-				indigent.value.prepare();
-				indigent.value.translate();
+			var __ks_2;
+			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, value; __ks_0 < __ks_1; ++__ks_0) {
+				value = this._indigentValues[__ks_0].value;
+				value.prepare();
+				value.translate();
 			}
 			if(this._autoTyping) {
 				this._block.prepare();
@@ -59614,16 +59615,17 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, indigent; __ks_0 < __ks_1; ++__ks_0) {
-				indigent = this._indigentValues[__ks_0];
+			var __ks_2;
+			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, name, value, parameters; __ks_0 < __ks_1; ++__ks_0) {
+				name = (__ks_2 = this._indigentValues[__ks_0]).name, value = __ks_2.value, parameters = __ks_2.parameters;
 				var ctrl = fragments.newControl();
 				if(this._parent._es5 === true) {
-					ctrl.code(KSHelper.concatString(indigent.name, ": function(", indigent.parameters.join(", "), ")")).step();
+					ctrl.code(KSHelper.concatString(name, ": function(", parameters.join(", "), ")")).step();
 				}
 				else {
-					ctrl.code(KSHelper.concatString(indigent.name, "(", indigent.parameters.join(", "), ")")).step();
+					ctrl.code(KSHelper.concatString(name, "(", parameters.join(", "), ")")).step();
 				}
-				ctrl.newLine().code("return ").compile(indigent.value).done();
+				ctrl.newLine().code("return ").compile(value).done();
 				if(!(this._parent._es5 === true)) {
 					ctrl.done();
 				}
@@ -59926,10 +59928,11 @@ module.exports = function() {
 				parameter = this._parameters[__ks_0];
 				parameter.translate();
 			}
-			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, indigent; __ks_0 < __ks_1; ++__ks_0) {
-				indigent = this._indigentValues[__ks_0];
-				indigent.value.prepare();
-				indigent.value.translate();
+			var __ks_2;
+			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, value; __ks_0 < __ks_1; ++__ks_0) {
+				value = this._indigentValues[__ks_0].value;
+				value.prepare();
+				value.translate();
 			}
 			this._block.prepare();
 			this._block.translate();
@@ -60336,16 +60339,17 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, indigent; __ks_0 < __ks_1; ++__ks_0) {
-				indigent = this._indigentValues[__ks_0];
+			var __ks_2;
+			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, name, value, parameters; __ks_0 < __ks_1; ++__ks_0) {
+				name = (__ks_2 = this._indigentValues[__ks_0]).name, value = __ks_2.value, parameters = __ks_2.parameters;
 				var ctrl = fragments.newControl();
 				if(this._parent._es5 === true) {
-					ctrl.code(KSHelper.concatString(indigent.name, ": function(", indigent.parameters.join(", "), ")")).step();
+					ctrl.code(KSHelper.concatString(name, ": function(", parameters.join(", "), ")")).step();
 				}
 				else {
-					ctrl.code(KSHelper.concatString(indigent.name, "(", indigent.parameters.join(", "), ")")).step();
+					ctrl.code(KSHelper.concatString(name, "(", parameters.join(", "), ")")).step();
 				}
-				ctrl.newLine().code("return ").compile(indigent.value).done();
+				ctrl.newLine().code("return ").compile(value).done();
 				if(!(this._parent._es5 === true)) {
 					ctrl.done();
 				}
@@ -62314,12 +62318,13 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, indigent; __ks_0 < __ks_1; ++__ks_0) {
-				indigent = this._indigentValues[__ks_0];
+			var __ks_2;
+			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, name, value, parameters; __ks_0 < __ks_1; ++__ks_0) {
+				name = (__ks_2 = this._indigentValues[__ks_0]).name, value = __ks_2.value, parameters = __ks_2.parameters;
 				var line = fragments.newLine();
 				var ctrl = line.newControl(null, false, false);
-				ctrl.code(KSHelper.concatString(this._parent.name(), ".", indigent.name, " = function(", indigent.parameters.join(", "), ")")).step();
-				ctrl.newLine().code("return ").compile(indigent.value).done();
+				ctrl.code(KSHelper.concatString(this._parent.name(), ".", name, " = function(", parameters.join(", "), ")")).step();
+				ctrl.newLine().code("return ").compile(value).done();
 				ctrl.done();
 				line.done();
 			}
@@ -64023,18 +64028,18 @@ module.exports = function() {
 					TypeException.throwInvalidAssignement(this._value, valueType, parameterType, this);
 				}
 				var realType = (parameterType.isMorePreciseThan(valueType) === true) ? parameterType : valueType;
-				if(this._declareValue) {
-					this._value.type(realType, this._bindingScope, this);
-				}
-				else {
-					if(KSType.isClassInstance(this._value, IdentifierLiteral)) {
-						this._bindingScope.replaceVariable(this._value.name(), realType, this);
+				if(KSType.isClassInstance(this._value, IdentifierLiteral)) {
+					if(this._declareValue) {
+						this._value.type(realType, this._bindingScope, this);
 					}
 					else {
-						for(var __ks_0 = 0, __ks_1 = this._value.listAssignments([]), __ks_2 = __ks_1.length, name; __ks_0 < __ks_2; ++__ks_0) {
-							name = __ks_1[__ks_0];
-							this._bindingScope.replaceVariable(name, realType.getProperty(name), this);
-						}
+						this._bindingScope.replaceVariable(this._value.name(), realType, this);
+					}
+				}
+				else {
+					for(var __ks_0 = 0, __ks_1 = this._value.listAssignments([]), __ks_2 = __ks_1.length, name; __ks_0 < __ks_2; ++__ks_0) {
+						name = __ks_1[__ks_0];
+						this._bindingScope.replaceVariable(name, realType.getProperty(name), this);
 					}
 				}
 			}
@@ -64051,8 +64056,8 @@ module.exports = function() {
 				this._expressionName = this._bindingScope.acquireTempName(false);
 			}
 			this._boundName = this._bindingScope.acquireTempName(false);
+			this._bindingValue = new TempMemberExpression(KSType.isValue(this._expressionName) ? this._expressionName : this._expression, KSType.isValue(this._indexName) ? this._indexName : this._index, true, this, this._bindingScope);
 			if((this._options.format.destructuring === "es5") && !KSType.isClassInstance(this._value, IdentifierLiteral)) {
-				this._bindingValue = new TempMemberExpression(KSType.isValue(this._expressionName) ? this._expressionName : this._expression, KSType.isValue(this._indexName) ? this._indexName : this._index, true, this, this._bindingScope);
 				this._bindingValue.acquireReusable(true);
 			}
 			if(KSType.isValue(this._from)) {
@@ -64515,14 +64520,9 @@ module.exports = function() {
 			}
 			ctrl.code(")").step();
 			if(KSType.isValue(this._value)) {
-				if(this._bindingValue === null) {
-					ctrl.newLine().compile(this._value).code($equals).compile(KSType.isValue(this._expressionName) ? this._expressionName : this._expression).code("[").compile(KSType.isValue(this._indexName) ? this._indexName : this._index).code("]").done();
-				}
-				else {
-					var line = ctrl.newLine();
-					this._value.toAssignmentFragments(line, this._bindingValue);
-					line.done();
-				}
+				var line = ctrl.newLine();
+				this._value.toAssignmentFragments(line, this._bindingValue);
+				line.done();
 				if(this._useBreak) {
 					if(KSType.isValue(this._until)) {
 						this.toDeclarationFragments(this._loopTempVariables, ctrl);
@@ -64664,18 +64664,18 @@ module.exports = function() {
 					TypeException.throwInvalidAssignement(this._value, valueType, parameterType, this);
 				}
 				var realType = (parameterType.isMorePreciseThan(valueType) === true) ? parameterType : valueType;
-				if(this._defineValue) {
-					this._value.type(realType, this._bindingScope, this);
-				}
-				else {
-					if(KSType.isClassInstance(this._value, IdentifierLiteral)) {
-						this._bindingScope.replaceVariable(this._value.name(), realType, this);
+				if(KSType.isClassInstance(this._value, IdentifierLiteral)) {
+					if(this._defineValue) {
+						this._value.type(realType, this._bindingScope, this);
 					}
 					else {
-						for(var __ks_0 = 0, __ks_1 = this._value.listAssignments([]), __ks_2 = __ks_1.length, name; __ks_0 < __ks_2; ++__ks_0) {
-							name = __ks_1[__ks_0];
-							this._bindingScope.replaceVariable(name, realType.getProperty(name), this);
-						}
+						this._bindingScope.replaceVariable(this._value.name(), realType, this);
+					}
+				}
+				else {
+					for(var __ks_0 = 0, __ks_1 = this._value.listAssignments([]), __ks_2 = __ks_1.length, name; __ks_0 < __ks_2; ++__ks_0) {
+						name = __ks_1[__ks_0];
+						this._bindingScope.replaceVariable(name, realType.getProperty(name), this);
 					}
 				}
 			}
@@ -68370,17 +68370,18 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, indigent; __ks_0 < __ks_1; ++__ks_0) {
-				indigent = this._indigentValues[__ks_0];
+			var __ks_2;
+			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, name, value, parameters; __ks_0 < __ks_1; ++__ks_0) {
+				name = (__ks_2 = this._indigentValues[__ks_0]).name, value = __ks_2.value, parameters = __ks_2.parameters;
 				var line = fragments.newLine();
 				var ctrl = line.newControl(null, false, false);
 				if(this._class.isSealed() === true) {
-					ctrl.code(KSHelper.concatString(this._variable.getSealedName(), ".", indigent.name, " = function(", indigent.parameters.join(", "), ")")).step();
+					ctrl.code(KSHelper.concatString(this._variable.getSealedName(), ".", name, " = function(", parameters.join(", "), ")")).step();
 				}
 				else {
-					ctrl.code(KSHelper.concatString(this._variable.name(), ".prototype.", indigent.name, " = function(", indigent.parameters.join(", "), ")")).step();
+					ctrl.code(KSHelper.concatString(this._variable.name(), ".prototype.", name, " = function(", parameters.join(", "), ")")).step();
 				}
-				ctrl.newLine().code("return ").compile(indigent.value).done();
+				ctrl.newLine().code("return ").compile(value).done();
 				ctrl.done();
 				line.done();
 			}
@@ -70330,12 +70331,13 @@ module.exports = function() {
 			if(fragments === void 0 || fragments === null) {
 				throw new TypeError("'fragments' is not nullable");
 			}
-			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, indigent; __ks_0 < __ks_1; ++__ks_0) {
-				indigent = this._indigentValues[__ks_0];
+			var __ks_2;
+			for(var __ks_0 = 0, __ks_1 = this._indigentValues.length, name, value, parameters; __ks_0 < __ks_1; ++__ks_0) {
+				name = (__ks_2 = this._indigentValues[__ks_0]).name, value = __ks_2.value, parameters = __ks_2.parameters;
 				var line = fragments.newLine();
 				var ctrl = line.newControl(null, false, false);
-				ctrl.code(KSHelper.concatString(this._enumName.name(), ".", indigent.name, " = function(", indigent.parameters.join(", "), ")")).step();
-				ctrl.newLine().code("return ").compile(indigent.value).done();
+				ctrl.code(KSHelper.concatString(this._enumName.name(), ".", name, " = function(", parameters.join(", "), ")")).step();
+				ctrl.newLine().code("return ").compile(value).done();
 				ctrl.done();
 				line.done();
 			}
@@ -81593,6 +81595,27 @@ module.exports = function() {
 				return IdentifierLiteral.prototype.__ks_func_setAssignment_0.apply(this, arguments);
 			}
 			return Literal.prototype.setAssignment.apply(this, arguments);
+		},
+		__ks_func_toAssignmentFragments_0: function(fragments, value) {
+			if(arguments.length < 2) {
+				throw new SyntaxError("Wrong number of arguments (" + arguments.length + " for 2)");
+			}
+			if(fragments === void 0 || fragments === null) {
+				throw new TypeError("'fragments' is not nullable");
+			}
+			if(value === void 0 || value === null) {
+				throw new TypeError("'value' is not nullable");
+			}
+			fragments.compile(this).code($equals).compile(value);
+		},
+		toAssignmentFragments: function() {
+			if(arguments.length === 2) {
+				return IdentifierLiteral.prototype.__ks_func_toAssignmentFragments_0.apply(this, arguments);
+			}
+			else if(Literal.prototype.toAssignmentFragments) {
+				return Literal.prototype.toAssignmentFragments.apply(this, arguments);
+			}
+			throw new SyntaxError("Wrong number of arguments");
 		},
 		__ks_func_toFragments_0: function(fragments, mode) {
 			if(arguments.length < 2) {
